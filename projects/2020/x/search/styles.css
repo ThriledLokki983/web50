@@ -1,0 +1,140 @@
+body {
+ font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+ height: 100%;
+ margin: 0;
+ padding: 0;
+ background: #fff;
+ color: #222;
+}
+
+.nav-bar {
+ padding: 3px;
+}
+
+.nav-bar-1 {
+ padding: 6px;
+}
+
+.title {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ text-align: center;
+ width: 500px;
+}
+
+.search-main {
+ width: 600px;
+ padding: 0;
+}
+
+.search-area {
+ padding: 10px;
+ border-radius: 20px;
+ padding: 20px;
+ padding-left: 40px;
+}
+
+.search input {
+ width: 100%;
+ border-radius: 20px;
+}
+
+.search-btn {
+ margin-top: -20px;
+}
+
+.dutch {
+ margin-top: -10px;
+}
+
+.search-btn svg {
+ position: relative;
+ justify-content: left;
+ width: 50px;
+ border-image-width: 4px;
+ margin-bottom: -60px;
+}
+
+.container {
+ align-items: center;
+ flex-direction: column-reverse;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+}
+
+.buttns {
+ padding: 25px;
+ justify-content: space-between;
+ display: inline-block;
+}
+
+.buttns input {
+ justify-content: space-between;
+ display: inline-block;
+ margin-right: 0.5rem;
+ font-size: 13px;
+}
+
+.buttns input:hover {
+ border-width: 0.5px;
+ border-style: solid;
+ border-color: gray;
+ background-color: aliceblue;
+}
+
+.footer-1 {
+ border-width: 5px;
+ border-bottom: 0.1px;
+ border-color: gray;
+ border-bottom-style: solid;
+}
+
+.footer {
+ background-color: #CACFD2;
+}
+
+.footer-2 {
+ height: 2.6vh;
+ border-width: 5px;
+ display: flex;
+ padding-top: 10px;
+}
+
+.footer-1,
+.footer-22 span {
+ font-size: 15px;
+ color: gray;
+ padding-left: 20px;
+ padding-bottom: 10px;
+}
+
+.footer-2,
+.footer-22 span {
+ font-size: 15px;
+ color: #D5DBDB;
+}
+
+.footer-2 a {
+ color: aqua;
+}
+
+.footer-2 span {
+ margin-top: 0px;
+ font-size: 14px;
+ color: rgba(0, 0, 0, .54);
+ padding: 0px 10px;
+}
+
+.dutch {
+ margin-bottom: 23rem;
+}
+
+.camera {
+ position: absolute;
+ right: 20px;
+ bottom: 23.5px;
+ width: 25px;
+ height: 25px;
+}
