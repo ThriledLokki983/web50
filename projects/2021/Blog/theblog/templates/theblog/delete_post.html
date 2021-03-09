@@ -1,0 +1,29 @@
+{% extends "theblog/layout.html"%}
+
+{% block title %}
+Delete Post
+{% endblock %}
+
+{% block body %}
+{% if user.is_authenticated %}
+{% if user.id == post.author.id %}
+<h1> Delete BlogPost </h1>
+<hr> <br />
+<h3>Delete: {{ post.title }} </h3>
+<div class="form-group">
+
+ <form action="" method="post">
+  {% csrf_token %}
+
+  <strong>Are you sure?! </strong><br />
+  <button class="btn btn-secondary">Yes! </button>
+
+ </form>
+</div>
+{% else %}
+You cannot delete this Post
+{% endif %}
+
+{% endif %}
+
+{% endblock %}

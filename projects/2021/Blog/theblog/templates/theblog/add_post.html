@@ -1,0 +1,31 @@
+{% extends "theblog/layout.html"%}
+
+{% block title %}
+Add blog
+{% endblock %}
+
+{% block body %}
+{% if user.is_authenticated %}
+<h1> Add BlogPost </h1>
+<div class="form-group">
+
+
+ <form action="{% url 'add_post' %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  {{ form.media }}
+  {{ form.as_p }}
+  <button class="btn btn-secondary">Post </button>
+ </form>
+</div>
+<script>
+ var name = "{{user.id}}";
+ document.getElementById("username").value = name;
+</script>
+
+{% else %}
+<p>You are not logged in: <a href="{% url 'login' %}">Login Here</a> </p>
+
+{% endif %}
+
+{% endblock %}

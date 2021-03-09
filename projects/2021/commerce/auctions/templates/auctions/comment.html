@@ -1,0 +1,27 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+Comments
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <h1><strong>Title:</strong> {{ item.title }}</h1>
+  <h1><strong>Description:</strong> {{ item.description }}</h1>
+  <h1><strong>Amount:</strong> $ {{ item.startbidprice }}</h1>
+  <h1><strong>Category:</strong> {{ item.category}}</h1>
+  <h1><strong>Quantity:</strong> {{ item.quantity }}</h1>
+
+  <form action="{% url 'comment' item.id %}" method="post">
+    {% csrf_token %}
+    <div class="form-floating">
+      <textarea class="form-control col-md-5 my-3" type="text" name="comment" placeholder="Comment"
+        id="floatingTextarea"></textarea>
+    </div>
+    <input class="btn btn-primary my-2" type="submit" value="Post Comment">
+    <a href="{% url 'view' item.id %}" class="btn btn-secondary my-2 col-md-2">Back</a>
+  </form>
+
+</div>
+
+{% endblock %}

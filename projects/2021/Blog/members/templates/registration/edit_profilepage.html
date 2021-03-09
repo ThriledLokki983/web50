@@ -1,0 +1,39 @@
+{% extends "theblog/layout.html"%}
+
+{% block title %}
+Edit Profile page
+{% endblock %}
+
+{% block body %}
+{% if user.is_authenticated %}
+
+{% if user.id == profile.user.id %}
+<h1> Profile Page </h1>
+<div class="form-group">
+
+
+ <form action="{% url 'edit_profilepage' user.profile.id %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  {{ form.as_p }}
+  <button class="btn btn-secondary">Save Changes </button>
+ </form>
+</div>
+<script>
+ var name = "{{user.id}}";
+ document.getElementById("username").value = name;
+</script>
+
+{% else %}
+<h4>You cannot edit this profile</h4>
+<hr>
+
+
+{% endif %}
+
+{% else %}
+<p>You are not logged in: <a href="{% url 'login' %}">Login Here</a> </p>
+<hr>
+{% endif %}
+
+{% endblock %}

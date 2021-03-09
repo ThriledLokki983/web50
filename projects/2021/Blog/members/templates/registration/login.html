@@ -1,0 +1,29 @@
+{% extends "theblog/layout.html"%}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block body %}
+<h1> Login </h1>
+<br>
+
+
+<form action="" method="post">
+ {% csrf_token %}
+ <div class="col my-2">
+  <div class="col my-2 mb-4">
+   <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username">
+  </div>
+  <div class="col">
+   <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password">
+  </div>
+ </div>
+ <br />
+ <button class="btn btn-outline-primary">Login </button>
+</form>
+
+
+
+
+{% endblock %}

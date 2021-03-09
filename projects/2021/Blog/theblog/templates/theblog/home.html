@@ -1,0 +1,41 @@
+{% extends "theblog/layout.html"%}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+{% if user.is_authenticated %}
+<h1> All Posts</h1>
+<ul>
+ {% for post in object_list %}
+ <li>
+  <a href="{% url 'article_detail' post.pk %}">{{ post.title }} :</a> <a
+   href="{% url 'category' post.category %}">{{ post.category|slugify }}</a> by:
+  {{ post.author.first_name }}
+  -
+  {{ post.post_date}}:
+  {{ post.author.last_name }}
+  {% if user.is_authenticated %}
+  {% if user.id == post.author.id %}
+  - <small><a href="{% url 'update_post' post.pk %}">Edit</a>
+  </small> <small><a href="{% url 'delete_post' post.pk %}">Delete</a>
+  </small><br />
+  {% endif %}
+  {% endif %}
+  {{ post.snippet | safe }}
+  <!--
+  {{ post.body|slice:":300"|safe }}
+  -->
+
+
+ </li>
+ {% endfor %}
+</ul>
+
+
+{% else %}
+<p>You are not logged in: <a href="{% url 'login' %}">Login Here</a> </p>
+{% endif %}
+
+{% endblock %}

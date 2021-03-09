@@ -34,10 +34,11 @@ body {
  border-radius: 30px;
  padding: 23px;
  padding-left: 40px;
+ border-width: 0.1px;
 }
 
 .search-area:hover {
- box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+ box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15);
  border-width: 0px;
 }
 

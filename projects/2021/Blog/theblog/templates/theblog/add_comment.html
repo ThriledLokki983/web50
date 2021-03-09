@@ -1,0 +1,22 @@
+{% extends "theblog/layout.html"%}
+
+{% block title %}
+Add Comment
+{% endblock %}
+
+{% block body %}
+
+<h1> Comment on Post </h1>
+<div class="form-group">
+
+
+ <form action="" method="post">
+  {% csrf_token %}
+
+  {{ form.as_p }}
+  <button class="btn btn-secondary">Add comment </button>
+ </form>
+</div>
+
+
+{% endblock %}

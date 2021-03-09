@@ -1,0 +1,28 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+Bid
+{% endblock %}
+
+{% block body %}
+<div class="container">
+ <h1><strong>Title:</strong> {{ item.title }}</h1>
+ <h1><strong>Description:</strong> {{ item.description }}</h1>
+ <h1><strong>Category:</strong> {{ item.category}}</h1>
+ <h1><strong>Quantity:</strong> {{ item.quantity }}</h1>
+ -----
+ <h1><strong>Amount:</strong> {{ item.startbidprice }}</h1>
+
+
+ <form action="{% url 'bid' item.id %}" method="post">
+  {% csrf_token %}
+  <input type="number" name="new_bid" value="{{item.startbidprice }}">
+  <a href="{% url 'bid' item.id %}">
+   <button type="submit" class="btn btn-sm btn-outline-secondary"> Bid </button>
+  </a>
+ </form>
+
+ <a href="{% url 'view' item.id %}" class="btn btn-secondary my-2 col-md-2">Back</a>
+ <a href="{% url 'index' %}" class="btn btn-secondary my-2 col-md-2">Back Home</a>
+</div>
+{% endblock %}

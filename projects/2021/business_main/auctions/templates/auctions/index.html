@@ -1,0 +1,22 @@
+{% extends "auctions/layout.html"%}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+
+<h1>Post</h1>
+
+<ul>
+ {% for post in object_list %}
+ <li>
+  <a href="{% url 'item_detail' post.id %}">{{ post.title }}</a> : {{ post.author.first_name }}
+  {{ post.author.last_name }} -- <small>{{post.category }}</small><br />
+
+  {{ post.description|slice:":200" }}
+ </li>
+ {% endfor %}
+</ul>
+
+{% endblock %}

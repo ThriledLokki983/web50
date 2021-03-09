@@ -1,0 +1,315 @@
+{% extends "zebra/layout.html" %}
+
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+
+{% block body %}
+
+
+
+       <div class="container-flex">
+             
+              <center>
+                     <center>
+                            <div class="container-flex">
+                                   <div class="row">
+                                          <div class="col-md-12">
+                                                 <div class="border top">
+                                                        <ul class="info">
+                                                        <img src="{% static 'zebra/images/file.png' %}" width="55" height="35">
+                                                        <h3>Performance KPI </h3>
+                                                 </div>    </ul>
+                                          </div>
+                                   </div>   
+                            </div>
+                            <div class="container-flex">
+                                   <div class="col-md-11 my-4 gx-lg-5">
+                                          <div class="row">
+                                                 <div class="col-sm">
+                                                        <div class="border-hidden">
+                                                               <div class="row inline-flex">
+                                                                      <div class="col-sm-3 p-2 word">
+                                                                             <h5>Site:</h5>
+                                                                      </div>
+                                                                      <div class="col-sm-7 item">
+                                                                             <div class="col-auto">
+                                                                                    <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+                                                                                    <select class="form-select" id="autoSizingSelect">
+                                                                                    <option selected>Select...</option>                                                                                
+                                                                                    {% for site in site %}
+                                                                                    <option>{{ site.site_name }}</option>
+                                                                                    {% endfor %}                                                                                
+                                                                                    </select>
+                                                                             </div>
+                                                                      </div>
+                                                               </div>
+                                                        </div>
+                                                  </div>
+                                                 <div class="col-sm">
+                                                        <div class="border-hidden">
+                                                               <div class="row">
+                                                                      <div class="col-sm-3 p-2 word">
+                                                                             <h5>Language:  </h5>
+                                                                      </div>
+                                                                      <div class="col-sm-7 item">
+                                                                             <div class="col-auto">
+                                                                                    <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+                                                                                    <select class="form-select" id="autoSizingSelect">
+                                                                                           {% for language in language %}
+                                                                                           <option>{{ language.lang_name }}</option>
+                                                                                           {% endfor %}                                                                                
+                                                                                    </select>
+                                                                             </div>
+                                                                      </div>
+                                                               </div>
+                                                        </div>
+                                                 </div>
+                                                 <div class="col-sm">
+                                                        <div class="border-hidden">
+                                                               <div class="row">
+                                                                      <div class="col-sm-3 p-2 word">
+                                                                             <h5>Country: </h5>
+                                                                      </div>
+                                                                      <div class="col-sm-7 item">
+                                                                             <div class="col-auto">
+                                                                                    <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+                                                                                           <select class="form-select" id="autoSizingSelect">
+                                                                                                  {% for country in country %}
+                                                                                                  <option>{{ country.country_name }}</option>
+                                                                                                  {% endfor %}
+                                                                                           </select>
+                                                                             </div>
+                                                                      </div>
+                                                               </div>
+                                                        </div>
+                                                 </div>
+                                                 <div class="col-sm">
+                                                        <div class="border-hidden">
+                                                               <div class="row">
+                                                                      <div class="col-sm-3 p-2 word">                          
+                                                                             <h5>Week: </h5>                          
+                                                                      </div>
+                                                                      <div class="col-sm-7 item">
+                                                                             <div class="col-auto select-box">
+                                                                                     <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+                                                                                           <select class="form-select" id="autoSizingSelect">
+                                                                                                  {% for week in weeks %}
+                                                                                                  <option>{{ week }}</option>
+                                                                                                  {% endfor %}
+                                                                                           </select>
+                                                                              </div>
+                                                                      </div>
+                                                               </div>
+                                                        </div>
+                                                 </div>
+                                   </div>
+                                                               
+                            </div>
+                            </div>
+                     </center>
+                            <div class="container-flex">
+                                   <div class="col-md-11 my-3">
+                                          <div class="row">
+                                                 <div class="col-sm-5 info-box">
+                                                        <div class="badges">
+                                                               <button type="button" class="btn btn-success">
+                                                                      Totals <span class="badge rounded-pill bg-danger text-light">89</span>
+                                                               </button>
+                                                               <button type="button" class="btn btn-success">
+                                                                      Inbound Calls & RMA <span class="badge rounded-pill bg-danger text-light">14</span>
+                                                               </button>
+                                                               <button type="button" class="btn btn-success">
+                                                                      OB Calls & Others <span class="badge rounded-pill bg-danger text-light">27</span>
+                                                               </button>
+                                                        </div>
+                                                 </div>
+                                                 <hr>
+                                          </div>
+                                   </div>
+                            </div>
+                            <div class="container-flex">
+                                   <div class="col-md-11">
+                                          
+                                          <table class="table table-bordered">
+                                                                      <thead class="table-dark">
+                                                                             <tr>
+                                                                                    <th scope="col">Group</th>
+                                                                                    <th scope="col">Category</th>
+                                                                                    <th scope="col">Target</th>
+                                                                                    <th scope="col">Monday</th>
+                                                                                    <th scope="col">Tuesday</th>
+                                                                                    <th scope="col">Wednesday</th>
+                                                                                    <th scope="col">Thursday</th>
+                                                                                    <th scope="col">Friday</th>
+                                                                                    <th scope="col">Saturday</th>
+                                                                                    <th scope="col">Sunday</th>
+                                                                             </tr>
+                                                                      </thead>
+                                                                      <tbody>
+                                                                             <tr>
+                                                                                    <th rowspan="14" class="align-middle text-lg-center">Total</th>
+                                                               
+                                                                             </tr>
+                                                                             <tr>
+                                                                                    <td>All Calls</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                    <td>Calls Answered</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                    <td>Lost Calls</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                    <td>Answer <= 60s</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                    <td>Call Logs</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                    <td>RMA Issued</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                    <td>Chat Answered</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                    <td>Outbound Calls</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                    <td>Average Call Time PBX</td>
+                                                                                    <td> <5 min</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                    <td>Answer Rate</td>
+                                                                                    <td>100%</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                    <td>Answer Rate <= 60s</td>
+                                                                                    <td><90% </td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                    <td>Call Log Rate</td>
+                                                                                    <td><95% </td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                    <td>Outbound Rate</td>
+                                                                                    <td>>5% </td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                                    <td>-</td>
+                                                                             </tr>
+                                                                      </tbody>
+                                                 </table>
+                                                 <div class="footer m-sm-2 bot">
+                                                 <button class="btn btn-primary">  Save  </button> 
+                                                 <button class="btn btn-primary">  Submit  </button> 
+                                                 </div>
+                                          
+                                   </div>
+                                                
+                            </div>
+              </center>
+       
+       </div>
+     
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+Add Listing
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+  <h1>Add New Listing</h1>
+  <br>
+
+  <form action="{% url 'add' %}" , method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <input class="form-control col-md-5" type="text" name="title" placeholder="Title">
+    </div>
+    <div class="form-group">
+      <input class="form-control col-md-5" type="number" name="startbidprice" placeholder="Bid">
+    </div>
+    <div class="form-group">
+      <input class="form-control col-md-5" type="number" name="quantity" placeholder="Quantity">
+    </div>
+    <div class="form-floating">
+      <textarea class="form-control col-md-5" type="text" name="description" placeholder="Description"
+        id="floatingTextarea"></textarea>
+    </div>
+    <br>
+
+
+    <select class="form-select col-md-3" aria-label="Default select example" name="category">
+      {% for cat in category %}
+      <option value="{{ cat }}">{{ cat.1 }}</option>
+      {% endfor %}
+    </select>
+
+    <br><br>
+
+    <input class="btn btn-primary" type="submit" value="List this item">
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'zebra/layout.html' %}
+
+{% load static %}
+
+{% block title %}
+Input
+{% endblock %}
+
+
+
+{% block body %}
+{% csrf_token %}
+
+<div class="container">
+<div class="row my-4">
+        <div class="col-md-5">
+                <div class="col-md-4">
+                        <select class="form-select" aria-label="Default select example">
+                                
+                                {% for form in form.day %}
+                                <option>{{ form }}</option>
+                                {% endfor %}
+                        </select>
+                </div>
+        </div>
+        <div class="col-md-5">
+                <div class="col-md-4">
+                        <select class="form-select" aria-label="Default select example">
+                                <option selected>Select Site</option>
+                                {% for site in form.sitelanguagecountry_matrix %}
+                                <option value="1">{{ site__sitelanguagecountrymatrix.site_master__site.site_name }}</option>
+                                {% endfor %}   
+                        </select>
+                </div>
+        </div>
+        <div class="col-md-2">
+                <button class="btn btn-primary" type="submit"> Build Template </button>
+        </div>
+       
+</div>
+
+
+  
+</div>
+
+<div class="container my-3">
+                <table class="table table-bordered">
+                        <thead class="table-dark">
+                               <tr>
+                                      <th scope="col">Group</th>
+                                      <th scope="col">Category</th>
+                                      {% for day in form.day %}
+                                      <th>{{ day }}</th>
+                                      {% endfor %}
+                               </tr>
+                        </thead>
+                        <tbody>
+                               <tr>
+                                      <th rowspan="14" class="align-middle text-lg-center">{{ form.sitelanguagecountry_matrix.site_name }}</th>
+                 
+                               </tr>
+                               <tr>
+                                      <td>Calls Answered</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                   
+                               </tr>
+                               <tr>
+                                      <td>Lost calls</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                
+                               </tr>
+                               <tr>
+                                      <td>Answer <= 60s</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                  
+                               </tr>
+                               <tr>
+                                      <td>Answer Rate</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                             
+                               </tr>
+                               <tr>
+                                      <td>Answer Rate <=60s </td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                               </tr>
+                        </tbody>
+                       
+        </table>
+        <button class="btn btn-primary butt" type="submit"> Save Data </button>
+</div>
+
+
+{% endblock %}

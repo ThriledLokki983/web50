@@ -1,0 +1,42 @@
+{% extends 'registration/layout.html' %}
+
+{% load static %}
+
+{% block title %}
+SingIn
+{% endblock %}
+
+
+{% block body %}
+<center>
+  <div class="container login">
+    <main class="signin-form-main">
+      <main class="signin signin-form">
+        <form action="{% url 'login' %}" method="post">
+          {% csrf_token %}
+  
+          <div class="form-group">
+            <input class="form-control my-3" autocomplete="off" name="username" placeholder="Username" type="text"
+              required>
+          </div>
+          <div class="form-group">
+            <input class="form-control" autocomplete="off" name="password" placeholder="Enter Password" type="password"
+              required>
+          </div>
+          <button class="w-100 btn btn-primary btn-lg my-3" type="submit">Log In</button>
+          <hr>
+  
+          <small><p>No Account? <a href="{% url 'register' %}">Register Here </a> </p></small>
+        </form>
+      </main>
+      <main class="sec-side">
+        <p>Login as Admin <a href="/admin">Admin </a> </p>
+      </main>
+    </main>
+    <small><h6>Terms of Use | Privacy Policy </h6></small>
+    <small><p>&copy ASUSTeK Computer Company, Inc. All rights reserved</p></small>
+  </div>
+  <div>
+  </div>
+</center>
+{% endblock %}
