@@ -6,8 +6,23 @@ public class getDurationString {
             double minutes = (int) (totalMinutes % 60);
             double seconds = minutes % 60;
             // print format XXh YYm ZZs
-            System.out.println((int)numberOne + "mins, " + (int)numberTwo + "secs = " + (int)hours + "hrs " + (int)minutes
-                    + "mins " + (int)seconds + "secs" );
+
+            String hoursString = (int)hours + "h";
+            if (hours < 10){
+                hoursString = "0" + hoursString;
+            }
+
+            String minutesString = (int)minutes + "m";
+            if (minutes < 10){
+                minutesString = "0" + minutesString;
+            }
+
+            String secondsString = (int)seconds + "s";
+            if (seconds < 10){
+                secondsString = "0" + secondsString;
+            }
+
+            System.out.println( hoursString + " " + minutesString + " " + secondsString);
 
         }
         //System.out.println("Invalid Value");
