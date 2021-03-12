@@ -7,7 +7,7 @@ public class getDurationString {
             double seconds = minutes % 60;
             // print format XXh YYm ZZs
             System.out.println((int)numberOne + "mins, " + (int)numberTwo + "secs = " + (int)hours + "hrs " + (int)minutes
-                    + "mins " + seconds + "secs" );
+                    + "mins " + (int)seconds + "secs" );
 
         }
         //System.out.println("Invalid Value");
