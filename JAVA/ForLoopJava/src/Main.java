@@ -22,23 +22,22 @@ public class Main {
 //
 //        System.out.println("##############################");
 
-//        var result = InterestRateCalculator.isPrime(6);
-//        if (!result){
-//            System.out.println("This is not a Prime Number");
-//        } else {
-//            System.out.println("This is a Prime Number");
-//        }
+        var result = InterestRateCalculator.isPrime(6);
+        if (!result){
+            System.out.println("This is not a Prime Number");
+        } else {
+            System.out.println("This is a Prime Number");
+        }
         var primeFoundCount = 0;
         for (int i = 10; i < 100; i++){
-            var result = InterestRateCalculator.isPrime(i);
-            if (result){
+            var res = InterestRateCalculator.isPrime(i);
+            if (res){
                 primeFoundCount++;
                 System.out.println(i + " is a prime number");
                 if (primeFoundCount == 5){
                     System.out.println("Exiting loop");
                     break;
                 }
-
             }
         }
         System.out.println("##############################");
