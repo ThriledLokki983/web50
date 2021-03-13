@@ -8,16 +8,41 @@ public class Main {
         //      the code to execute
         // }
 
-        for (int i = 2; i < 9; i++){
-            System.out.println("10,000 at " +  i + "% interest = " +
-                    String.format("%.2f", InterestRateCalculator.calculateInterest(10000.0, i)));
-        }
+//        for (int i = 2; i < 9; i++){
+//            System.out.println("10,000 at " +  i + "% interest = " +
+//                    String.format("%.2f", InterestRateCalculator.calculateInterest(10000.0, i)));
+//        }
+//
+//        System.out.println("##############################");
+//
+//        for (int i = 8; i >= 2; i--){
+//            System.out.println("10,000 at " +  i + "% interest = " +
+//                    String.format("%.2f", InterestRateCalculator.calculateInterest(10000.0, i)));
+//        }
+//
+//        System.out.println("##############################");
 
+//        var result = InterestRateCalculator.isPrime(6);
+//        if (!result){
+//            System.out.println("This is not a Prime Number");
+//        } else {
+//            System.out.println("This is a Prime Number");
+//        }
+        var primeFoundCount = 0;
+        for (int i = 10; i < 100; i++){
+            var result = InterestRateCalculator.isPrime(i);
+            if (result){
+                primeFoundCount++;
+                System.out.println(i + " is a prime number");
+                if (primeFoundCount == 5){
+                    System.out.println("Exiting loop");
+                    break;
+                }
+
+            }
+        }
         System.out.println("##############################");
+        System.out.println(primeFoundCount + " Prime Numbers were found");
 
-        for (int i = 8; i >= 2; i--){
-            System.out.println("10,000 at " +  i + "% interest = " +
-                    String.format("%.2f", InterestRateCalculator.calculateInterest(10000.0, i)));
-        }
     }
 }
