@@ -6,8 +6,10 @@ public class Main {
         for (int i = 1; i <= 1000; i++){
             if (gotIt(i)){
                 count++;
+                sum += i;
                 System.out.println(i + " is the number");
                 if (count == 5){
+                    System.out.println("Sum = " + sum);
                     System.out.println("Exiting the loop");
                     break;
                 }
