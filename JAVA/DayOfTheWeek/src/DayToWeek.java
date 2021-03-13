@@ -28,7 +28,7 @@ public class DayToWeek {
     }
 
     public static void printDayOfTheWeekTwo(int day){
-        if (day < 0){
+        if (day < 0 || day > 6){
             System.out.println("Invalid day");
         }else if (day == 0){
             System.out.println("Sunday");
