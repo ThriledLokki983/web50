@@ -18,9 +18,9 @@ public class Main {
                 System.out.println("Invalid number entered");
                 break;
             }
-            scanner.close();
         }
         System.out.println();
         System.out.println("The sum of all the " + (count-1) +  " numbers you entered = " + sum);
+        scanner.close();
     }
 }
