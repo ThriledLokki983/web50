@@ -5,7 +5,7 @@ public class Main {
 //        double result = PaintJob.area(2.75, 3.25);
 //        System.out.println(result);
 
-        int result = PaintJob.getBucketCount(7.25, 4.3, 2.35);
+        int result = PaintJob.getBucketCount(3.26, 0.75);
         System.out.println(result);
     }
 }

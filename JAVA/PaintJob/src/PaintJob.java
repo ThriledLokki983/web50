@@ -7,7 +7,7 @@ public class PaintJob {
         }else {
             double area = area(width, height);
             double areaNumber = area / areaPerBucket;
-            finalNumber = Math.round((double)areaNumber - extraBucket);
+            finalNumber = Math.ceil((double)areaNumber - extraBucket);
         }
         return (int)finalNumber;
     }
@@ -26,7 +26,17 @@ public class PaintJob {
             return -1;
         }else {
             double area = area(width, height);
-            bucketCount = Math.round((double)area/areaPerBucket);
+            bucketCount = Math.ceil((double)area/areaPerBucket);
+        }
+        return (int)bucketCount;
+    }
+
+    public static int getBucketCount(double area, double areaPerBucket){
+        double bucketCount = 0;
+        if (area<= 0 || areaPerBucket <= 0){
+            return -1;
+        }else {
+          bucketCount = Math.ceil((double) area / areaPerBucket);
         }
         return (int)bucketCount;
     }
