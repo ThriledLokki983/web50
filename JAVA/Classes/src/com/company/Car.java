@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Locale;
+
 public class Car {
     // PUBLIC ==> Unrestricted access for all other classes. It is a blueprint for an object to be created
 
@@ -12,7 +14,13 @@ public class Car {
 
     // Setter
     public void setModel(String model){
-        this.model = model;
+        String validModel = model.toLowerCase();
+        if (validModel.equals("kantanka") || validModel.equals("toyota")){
+            this.model = model;
+        }else {
+            this.model = "Unknown";
+        }
+
     }
 
     // Getter
