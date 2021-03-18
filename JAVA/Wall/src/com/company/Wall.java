@@ -5,12 +5,12 @@ public class Wall {
     private double height;
 
     public Wall() {
-        this(99.99, 99.99);
+        this(0.0, 0.0);
     }
 
     public Wall(double width, double height) {
-        this.width = width;
-        this.height = height;
+        this.width = (width < 0) ? 0 : width;
+        this.height = (height < 0) ? 0 : height;
     }
 
     public double getWidth() {
