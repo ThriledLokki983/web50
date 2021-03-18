@@ -26,20 +26,20 @@ public class Person {
     }
 
     public void setAge(int age){
-//        if(age < 0 || age > 100){
-//            this.age = 0;
-//        }else{
-//            this.age = age;
-//        }
-        this.age = (age < 0 || age > 100) ? 0 : age;
+        if(age < 0 || age > 100){
+            this.age = 0;
+        }else{
+            this.age = age;
+        }
+       // this.age = (age < 0 || age > 100) ? 0 : age;
     }
 
     public boolean isTeen(){
-//        if(age > 12 && age < 20) {
-//            return true;
-//        }
-//        return false;
-        return(age > 12 && age < 20);
+        if(age > 12 && age < 20) {
+            return true;
+        }
+        return false;
+        //return(age > 12 && age < 20);
     }
 
     public String getFullName(){
