@@ -7,7 +7,11 @@ public class Main {
 
         VipCustomer customer = new VipCustomer();
 
-        customer.getName();
+        System.out.println(customer.getName());
+        VipCustomer person = new VipCustomer("person@vipcustomer.nl", 500);
+        System.out.println(person.getCreditLimit());
+        System.out.println(person.getName());
+        System.out.println(person.getEmail());
 
     }
 }
