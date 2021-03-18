@@ -43,7 +43,7 @@ public class Point {
 
     public double distance(int x, int y){
         // return distance between Point and point x,y as double
-        return Math.sqrt((getX() - this.x)*(getX()- this.x) + (getY()-this.y)*(getY()-this.y));
+        return Math.sqrt((getX() - x)*(getX()- x) + (getY()-y)*(getY()-y));
 
     }
 
