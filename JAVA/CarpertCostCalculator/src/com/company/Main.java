@@ -7,16 +7,15 @@ public class Main {
 //        Floor floorAreaCalc = new Floor(10, 12);
 //        System.out.println("Area = " + floorAreaCalc.getArea());
 
-        Carpert carpet = new Carpert(3.5);
-        Floor floor = new Floor(2.75, 4.0);
+        Carpert carpet = new Carpert(3.7);
+        Floor floor = new Floor(5.75, 8.0);
 
         Calculator calculator = new Calculator(floor, carpet);
-        System.out.println("Total = " + calculator.getTotalCost());
+        System.out.println("Total = " + Math.round(calculator.getTotalCost()));
 
-        Carpert newCarpet = new Carpert(1.5);
-        Floor newFloor = new Floor(5.4, 4.5);
+        Carpert newCarpet = new Carpert(4.5);
+        Floor newFloor = new Floor(5.4, 8.5);
         calculator = new Calculator(newFloor, newCarpet);
-        System.out.println("Total = " + calculator.getTotalCost());
-
+        System.out.println("Total = " + Math.round(calculator.getTotalCost()));
     }
 }
