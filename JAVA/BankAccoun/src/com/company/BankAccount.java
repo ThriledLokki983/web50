@@ -43,20 +43,17 @@ public class BankAccount {
         this.customerName = customerName;
     }
 
-    public int getDeposit(int amount){
-        if (amount < accountBalance){
-            System.out.println("Invalid amount");
-        }
-        return accountBalance + amount;
+    public void getDeposit(int amount){
+            this.accountBalance += amount;
+        System.out.println("Deposit of " + amount + " made." + " New balance = " + this.accountBalance + ".");
     }
 
-    public int getWithdrawal(int amount){
-        int balance = 0;
-        if (accountBalance < amount){
+    public void getWithdrawal(int amount){
+        if (this.accountBalance - amount < 0){
             System.out.println("Insufficient balance");
         }else{
-            balance =  accountBalance - amount;
+            this.accountBalance -= amount;
+            System.out.println("Withdrawal of " + amount + " processed." + " Current balance = " + this.accountBalance + ".");
         }
-        return balance;
     }
 }

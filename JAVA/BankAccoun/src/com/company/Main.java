@@ -6,7 +6,7 @@ public class Main {
 	// write your code here
         BankAccount bankAccount = new BankAccount();
         bankAccount.setAccountNumber(12345678);
-        bankAccount.setAccountBalance(25);
+        bankAccount.setAccountBalance(305);
         bankAccount.setCustomerEmail("customer@bankaccount.nl");
         bankAccount.setCustomerName("Gideon Nimoh");
         bankAccount.setCustomerPhoneNumber(626603494);
@@ -17,13 +17,11 @@ public class Main {
         System.out.println("Customer email: " + bankAccount.getCustomerEmail());
         System.out.println("Customer Phone#: " + bankAccount.getCustomerPhoneNumber());
 
-        int deposit = bankAccount.getDeposit(344);
+        // Deposit
+        bankAccount.getDeposit(300);
 
-        System.out.println("Customer New Balance = " + deposit);
-
-        int balance = deposit - bankAccount.getWithdrawal(300);
-
-        System.out.println("Customer New Balance Again = " + balance);
+        //Withdrawal
+        bankAccount.getWithdrawal(219);
 
 
     }
