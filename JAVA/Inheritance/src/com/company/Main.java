@@ -9,6 +9,6 @@ public class Main {
 
         Dog dog = new Dog("Yorkie", 4, 5, 89, 45, 23, 45, "Long silky");
         dog.eat();
-        System.out.println("Dog name = " + dog.getName());
+        //System.out.println("Dog name = " + dog.getName());
     }
 }
