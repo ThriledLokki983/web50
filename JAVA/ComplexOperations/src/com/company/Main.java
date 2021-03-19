@@ -15,6 +15,9 @@ public class Main {
         number.subtract(one);
         System.out.println("number.real = " + number.getReal());
         System.out.println("number.imaginary = " + number.getImaginary());
+        number.add(one);
+        System.out.println("one.real = " + number.getReal());
+        System.out.println("one.imaginary = " + number.getImaginary());
 
     }
 }
