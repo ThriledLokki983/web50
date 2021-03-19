@@ -16,4 +16,13 @@ public class Main {
         Fish fish = new Fish("Salmond", 45, 4, 2, 45, 89);
         fish.swim();
     }
+
+    // A house Analogy
+
+    // Class is the blueprint for a house (plan)
+    // Each house built/instantiated is an OBJECT also known as INSTANCE
+    // Each house built has an address which is known as a REFERENCE
+    // Reference can be copied as many times as you like
+    // We can pass REFERENCES as PARAMETERS to CONSTRUCTORS and METHODS
+
 }
