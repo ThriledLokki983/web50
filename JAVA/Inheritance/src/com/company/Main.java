@@ -25,4 +25,13 @@ public class Main {
     // Reference can be copied as many times as you like
     // We can pass REFERENCES as PARAMETERS to CONSTRUCTORS and METHODS
 
+
+    // SUPER() => use to access/call the parent class members (variables & methods) -- commonly used in method overriding when
+    // we call a method with the same name in a class (if not we run into recursive call)
+    // THIS() => use to call the current class members (variables & members) -- commonly used constructors & Setters
+    // This is required when we have a parameter with the same name as an instance variable(field)
+
+    // NOTE!!!
+    // both can be used anywhere in a CLASS except STATIC areas (the static block or a static method).
+    // Any attempt to do so will lead to compile-time errors
 }
