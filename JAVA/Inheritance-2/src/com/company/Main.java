@@ -38,11 +38,26 @@ public class Main {
     // They are used for operations that do not require any data from an instance of the class (from 'this')
         // We cannot use 'this' keyword
 
+    // STATIC VARIABLE
+    // declared using the keyword STATIC
+    // It is also known as STATIC MEMBER VARIABLE
+    // Every instance of that class Shares the same Static Variable
+    // If changes are made to that variable, all other instance will see the effect of the change
+
     // INSTANCE METHODS
     // Instance Methods belong to an instance of a class
     // We will have to instantiate the class first usually by using the 'NEW' keyword in order to use the instance method
             // Instance methods can access instance methods and instance variables directly
             // It can also access static methods and static variables directly
+
+    // INSTANCE VARIABLE
+    // Do not use the static keyword
+    // Known as fields or member variable
+    // They belong to a specific instance of a class
+    // Each instance has a copy of an instance  variable
+    // Every instance can have a different variable(state)
+    // Instance variable can represent the state of an instance
+
 
 
     ///////////////////////////////////////////
