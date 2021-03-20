@@ -10,7 +10,7 @@ public class Car extends Vehicle{
         this.engineCapacity = engineCapacity;
     }
 
-    // ISA relationship ==> Car is a Vehicle
+    // IS-A relationship ==> Car is a Vehicle
 
-    // Composition is a HEXA relationship
+    // Composition is a HAS-A relationship
 }
