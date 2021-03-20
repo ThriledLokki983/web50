@@ -36,4 +36,6 @@ public class Vehicle {
     public String getEnergyType() {
         return energyType;
     }
+
+
 }
