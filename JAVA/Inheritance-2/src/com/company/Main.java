@@ -43,6 +43,16 @@ public class Main {
     // We will have to instantiate the class first usually by using the 'NEW' keyword in order to use the instance method
             // Instance methods can access instance methods and instance variables directly
             // It can also access static methods and static variables directly
-            //
+
+
+    ///////////////////////////////////////////
+    // ???????? Should a Method be STATIC
+    // ???????? Does the method use any fields (Instance variables) or Instance Methods
+
+    // YES
+    // INSTANCE METHOD
+
+    // NO
+    // STATIC METHOD
 
 }
