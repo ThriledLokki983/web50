@@ -27,4 +27,5 @@ public class EnhancedPlayer {
     public int getHitPoints() {
         return hitPoints;
     }
+
 }
