@@ -13,5 +13,25 @@ public class Main {
         System.out.println("Door Width = " + room.getTheDoor().getWidth());
         System.out.println("Door Length = " + room.getTheDoor().getLength());
         System.out.println("Door color = " + room.getTheDoor().getPaintColor());
+
+        System.out.println("######################################");
+        System.out.println("Window Width = " + room.getTheWindow().getWidth());
+        System.out.println("Window Length = " + room.getTheWindow().getLength());
+        System.out.println("Window Material = " + room.getTheWindow().getMaterialType());
+
+        System.out.println("######################################");
+        System.out.println("TV Brand = " + room.getTheElectronics().getTv().getBrand());
+        System.out.println("TV Size = " + room.getTheElectronics().getTv().getSize() + "-inches");
+        System.out.println("TV Color = " + room.getTheElectronics().getTv().getColor());
+
+        System.out.println("######################################");
+        System.out.println("Light Brand = " + room.getTheElectronics().getLight().getBrand());
+        System.out.println("Light Watt = " + room.getTheElectronics().getLight().getWatt() + "-watt");
+        System.out.println("Is Light Smart = " + room.getTheElectronics().getLight().isSmartLight());
+
+        System.out.println("######################################");
+        System.out.println("Light Brand = " + room.getTheElectronics().getLight().getBrand());
+        System.out.println("Light Watt = " + room.getTheElectronics().getLight().getWatt() + "-watt");
+        System.out.println("Is Light Smart = " + room.getTheElectronics().getLight().isSmartLight());
     }
 }
