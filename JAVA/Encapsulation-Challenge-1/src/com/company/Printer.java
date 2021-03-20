@@ -11,11 +11,14 @@ public class Printer {
         this.duplex = duplex;
     }
 
-    public void fillUpToner(int tonerNumber){
-        this.tonerLevel += tonerNumber;
-        if (this.tonerLevel < 0){
-            System.out.println("Toner Level is empty!");
+    public int fillUpToner(int tonerNumber){
+        if (tonerNumber > 0 && tonerNumber <= 100){
+            if (this.tonerLevel + tonerNumber > 100){
+                return -1;
+            }
+            this.tonerLevel += tonerNumber;
         }
+        return -1;
     }
 
     public int tonerBalance(){

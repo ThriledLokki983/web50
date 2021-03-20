@@ -13,7 +13,7 @@ public class Main {
         System.out.println("#############################");
         Printer printer1 = new Printer(23, 45, false);
         printer1.pagesPrinted(23);
-        printer.fillUpToner(-23);
+        printer.fillUpToner(143);
         System.out.println("Remaining Toner = " + printer.tonerBalance());
     }
 }
