@@ -14,15 +14,15 @@ class Car {
     }
 
     public String startEngine(){
-        return "Car -> startEngine()";
+        return getClass().getSimpleName() + " -> startEngine()";
     }
 
     public String accelerate(){
-        return "Car -> accelerate";
+        return getClass().getSimpleName() + " -> accelerate";
     }
 
     public String brake(){
-        return "Car -> break";
+        return getClass().getSimpleName() + " -> break";
     }
 
     public int getCylinder() {
@@ -42,17 +42,17 @@ class Mitsubishi extends Car{
 
     @Override
     public String startEngine() {
-        return "Mitsubishi -> startEngine()";
+        return getClass().getSimpleName() + " -> startEngine()";
     }
 
     @Override
     public String accelerate() {
-        return "Mitsubishi -> accelerate()";
+        return getClass().getSimpleName() + " -> accelerate()";
     }
 
     @Override
     public String brake() {
-        return "Mitsubishi -> brake()";
+        return getClass().getSimpleName() + " -> brake()";
     }
 
 }
@@ -64,17 +64,17 @@ class Mitsubishi extends Car{
 
     @Override
     public String startEngine() {
-        return "Opel -> startEngine()";
+        return getClass().getSimpleName() + "-> startEngine()";
     }
 
     @Override
     public String accelerate() {
-        return "Opel -> accelerate()";
+        return getClass().getSimpleName() + " -> accelerate()";
     }
 
     @Override
     public String brake() {
-        return "Opel -> brake()";
+        return getClass().getSimpleName() + "-> brake()";
     }
 }
 
@@ -85,20 +85,19 @@ class Toyota extends Car{
 
     @Override
     public String startEngine() {
-        return "Toyota -> startEngine()";
+        return getClass().getSimpleName() + " -> startEngine()";
     }
 
     @Override
     public String accelerate() {
-        return "Toyota -> accelerate()";
+        return  getClass().getSimpleName() + " -> accelerate()";
     }
 
     @Override
     public String brake() {
-        return "Toyota -> brake()";
+        return getClass().getSimpleName() + " -> brake()";
     }
 }
-
 
 public class Main {
 
