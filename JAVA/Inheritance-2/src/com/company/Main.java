@@ -50,9 +50,9 @@ public class Main {
     // ???????? Does the method use any fields (Instance variables) or Instance Methods
 
     // YES
-    // INSTANCE METHOD
+    // ues--INSTANCE METHOD
 
     // NO
-    // STATIC METHOD
+    // use--STATIC METHOD
 
 }
