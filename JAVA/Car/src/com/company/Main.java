@@ -106,5 +106,32 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
+        int speed = 56;
+        for (int i = 1; i < 5; i++){
+            Car car = randomCar();
+            System.out.println("Car number: " + i + "# " + "\n" + car.getWheels());
+            car.startEngine(i);
+            System.out.println();
+            car.accelerate(speed);
+            car.breakEngine(i);
+        }
+
+    }
+
+    public static Car randomCar(){
+        int randomNumber = (int)(Math.random() * 3) + 1;
+        System.out.println("Random number generated is: " + randomNumber + "#");
+
+        switch (randomNumber){
+            case 1:
+                return new Ford();
+
+            case 3:
+                return new Pegeout();
+
+            case 2:
+                return new Toyota();
+        }
+        return null;
     }
 }
