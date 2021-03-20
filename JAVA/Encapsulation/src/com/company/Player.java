@@ -9,7 +9,7 @@ public class Player {
         this.health -= damage;
         //this.health == 0 ? 0 : System.out.println("Player knocked out");
         if (this.health < 0){
-            System.out.println("Player knocked out");
+            System.out.println("Player knocked out!!");
             // reduce number of lives for current player
         }
     }
