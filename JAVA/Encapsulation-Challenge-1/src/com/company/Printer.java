@@ -17,6 +17,7 @@ public class Printer {
                 return -1;
             }
             this.tonerLevel += tonerNumber;
+            return this.tonerLevel;
         }
         return -1;
     }
@@ -25,13 +26,17 @@ public class Printer {
         return this.tonerLevel;
     }
 
-    public void pagesPrinted(int pages){
+    public int pagesPrinted(int pages){
         this.pagesPrinted += pages;
-        if (duplex){
-            System.out.println((this.pagesPrinted/2) + "-pages have been printed");
+        if (this.duplex){
+            System.out.println(((this.pagesPrinted/2) + (this.pagesPrinted % 2)) + "-pages have been printed in Duplex Mode");
         }else {
             System.out.println(this.pagesPrinted + "-pages have been printed");
         }
+        return this.pagesPrinted;
     }
 
+    public int getPagesPrinted() {
+        return pagesPrinted;
+    }
 }
