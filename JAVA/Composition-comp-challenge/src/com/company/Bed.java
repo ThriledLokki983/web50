@@ -16,7 +16,7 @@ public class Bed {
     }
 
     public void make(){
-        System.out.println("The bed is being made!");
+        System.out.println("Bed -> Making | ");
     }
 
     public String getStyle() {

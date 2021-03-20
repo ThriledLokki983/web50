@@ -12,7 +12,7 @@ public class Lamp {
     }
 
     public void turnOn(){
-        System.out.println("the lamp is being turned on");
+        System.out.println("Lamp -> Turning on");
     }
 
     public String getStyle() {
