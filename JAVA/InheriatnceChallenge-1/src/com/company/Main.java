@@ -9,5 +9,6 @@ public class Main {
         pegeout.accelerate(45);
         pegeout.accelerate(20);
         pegeout.accelerate(-50);
+
     }
 }
