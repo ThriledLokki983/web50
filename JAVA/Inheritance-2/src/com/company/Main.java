@@ -31,4 +31,18 @@ public class Main {
     // Constructors and private methods cannot be overridden
     // Methods that are final cannot be overridden
     // A subclass can use super.methodName() to call the super class version of an overridden method
+
+    // STATIC METHOD
+    // This is declared using the static modifier
+    // Can't access instance methods and instance variable directly
+    // They are used for operations that do not require any data from an instance of the class (from 'this')
+        // We cannot use 'this' keyword
+
+    // INSTANCE METHODS
+    // Instance Methods belong to an instance of a class
+    // We will have to instantiate the class first usually by using the 'NEW' keyword in order to use the instance method
+            // Instance methods can access instance methods and instance variables directly
+            // It can also access static methods and static variables directly
+            //
+
 }
