@@ -58,6 +58,7 @@ class Pegeout extends Car{
 
     @Override
     public int accelerate(int speedNumber) {
+        System.out.println("Pegeout accelerate() is now called: ");
         return super.accelerate(20);
     }
 
@@ -74,6 +75,7 @@ class Toyota extends Car{
 
     @Override
     public int accelerate(int speedNumber) {
+        System.out.println("Toyota accelerate() is now called: ");
         return super.accelerate(speedNumber);
     }
 
@@ -86,12 +88,14 @@ class Ford extends Car{
 
     @Override
     public void startEngine(int speed) {
-        super.startEngine(59);
+        System.out.println("Ford startEngine() is now being called");
+        super.startEngine(speed + 10);
     }
 
     @Override
     public void breakEngine(int number) {
-        super.breakEngine(10);
+        System.out.println("Ford breakEngine is now being called: !!!");
+        super.breakEngine(number + 1);
     }
 
 }
@@ -107,20 +111,18 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
         int speed = 56;
-        for (int i = 1; i < 5; i++){
+        for (int i = 1; i < 3; i++){
             Car car = randomCar();
-            System.out.println("Car number: " + i + "# " + "\n" + car.getWheels());
-            car.startEngine(i);
-            System.out.println();
-            car.accelerate(speed);
-            car.breakEngine(i);
+            System.out.println("Car number: " + i + "# " + "\n" + car.getWheels() + "\n" + car.accelerate(speed));
+            //car.startEngine(i);
+            //car.breakEngine(i);
         }
 
     }
 
     public static Car randomCar(){
         int randomNumber = (int)(Math.random() * 3) + 1;
-        System.out.println("Random number generated is: " + randomNumber + "#");
+        //System.out.println("Random number generated is: " + randomNumber + "#");
 
         switch (randomNumber){
             case 1:
