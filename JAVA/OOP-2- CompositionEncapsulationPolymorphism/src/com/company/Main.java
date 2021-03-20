@@ -12,9 +12,10 @@ public class Main {
 
         // Composition
         PC thePC = new PC(theCase, theMonitor, motherboard);
-        thePC.getMonitor().drawPixelAt(2300, 6788, "blue");
-        thePC.getMotherboard().loadProgram("Mac-OS 2.8.9");
-        thePC.getTheCase().pressPowerButton();
+        thePC.powerUp();
+//        thePC.getMonitor().drawPixelAt(2300, 6788, "blue");
+//        thePC.getMotherboard().loadProgram("Mac-OS 2.8.9");
+//        thePC.getTheCase().pressPowerButton();
 
     }
 }
