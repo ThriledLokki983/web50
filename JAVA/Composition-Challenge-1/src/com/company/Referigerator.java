@@ -1,14 +1,18 @@
 package com.company;
 
-public class Carpet {
+public class Referigerator {
+    private String brand;
     private int length;
     private int width;
-    private Floor floorSize;
 
-    public Carpet(int length, int width, Floor floorSize) {
+    public Referigerator(String brand, int length, int width) {
+        this.brand = brand;
         this.length = length;
         this.width = width;
-        this.floorSize = floorSize;
+    }
+
+    public String getBrand() {
+        return brand;
     }
 
     public int getLength() {
@@ -17,9 +21,5 @@ public class Carpet {
 
     public int getWidth() {
         return width;
-    }
-
-    public Floor getFloorSize() {
-        return floorSize;
     }
 }
