@@ -54,6 +54,49 @@ class Mitsubishi extends Car{
     public String brake() {
         return "Mitsubishi -> brake()";
     }
+
+}
+
+ class Opel extends Car{
+    public Opel(int cylinder, String name) {
+        super(cylinder, name);
+    }
+
+    @Override
+    public String startEngine() {
+        return "Opel -> startEngine()";
+    }
+
+    @Override
+    public String accelerate() {
+        return "Opel -> accelerate()";
+    }
+
+    @Override
+    public String brake() {
+        return "Opel -> brake()";
+    }
+}
+
+class Toyota extends Car{
+    public Toyota(int cylinder, String name) {
+        super(cylinder, name);
+    }
+
+    @Override
+    public String startEngine() {
+        return "Toyota -> startEngine()";
+    }
+
+    @Override
+    public String accelerate() {
+        return "Toyota -> accelerate()";
+    }
+
+    @Override
+    public String brake() {
+        return "Toyota -> brake()";
+    }
 }
 
 
@@ -74,9 +117,16 @@ public class Main {
         System.out.println(mitsubishi.brake());
 
         System.out.println("######");
-        Toyota ford = new Toyota(4, "Toyota Corola");
+        com.company.Toyota ford = new com.company.Toyota(4, "Toyota Corola");
         System.out.println(ford.accelerate());
         System.out.println(ford.startEngine());
         System.out.println(ford.brake());
+
+        System.out.println("######");
+        Opel opel = new Opel(4, "Opel Astra");
+        System.out.println(opel.accelerate());
+        System.out.println(opel.startEngine());
+        System.out.println(opel.brake());
     }
+
 }
