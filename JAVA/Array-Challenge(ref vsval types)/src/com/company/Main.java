@@ -9,5 +9,6 @@ public class Main {
         int[] myNumberArray = MinElement.readIntegers(5);
         // System.out.println("The Array: " + Arrays.toString(myNumberArray));
         System.out.println("The minimum number = " + MinElement.findMin(myNumberArray));
+
     }
 }
