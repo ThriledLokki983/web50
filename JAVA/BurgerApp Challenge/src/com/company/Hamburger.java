@@ -24,6 +24,7 @@ public class Hamburger {
         System.out.println("2. Tomatoes       || Base price: $1.0");
         System.out.println("3. Cheese         || Base price: $1.50");
         System.out.println("4. Onions         || Base price: $2.50");
+        System.out.println();
     }
 
     public void addToppings(int choice){
@@ -32,25 +33,25 @@ public class Hamburger {
                 case 1:
                     double lettucePrice = 2.0;
                     this.setAdditionalPrice(this.additionalPrice + lettucePrice);
-                    System.out.println("\n Added: Lettuce");
+                    System.out.println("Added: Lettuce");
                     break;
 
                 case 2:
                     double tomatoPrice = 1;
                     this.setAdditionalPrice(this.additionalPrice + tomatoPrice);
-                    System.out.println("\n Added: Tomatoes");
+                    System.out.println("Added: Tomatoes");
                     break;
 
                 case 3:
                     double cheesePrice = 1.50;
                     this.setAdditionalPrice(this.additionalPrice + cheesePrice);
-                    System.out.println("\n Added: Cheese");
+                    System.out.println("Added: Cheese");
                     break;
 
                 case 4:
                     double onionPrice = 2.50;
                     this.setAdditionalPrice(this.additionalPrice + onionPrice);
-                    System.out.println("\n Added: Onions");
+                    System.out.println("Added: Onions");
                     break;
             }
         }

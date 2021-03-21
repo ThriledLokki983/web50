@@ -13,13 +13,13 @@ public class DeluxeBurger extends Hamburger{
             case 1:
                 double chipsPrice = 3.50;
                 this.setAdditionalPrice(this.getAdditionalPrice() + chipsPrice);
-                System.out.println("\nAdded: Chips");
+                System.out.println("Added: Chips");
                 break;
 
             case 2:
                 double colaPrice = 2.90;
                 this.setAdditionalPrice(this.getAdditionalPrice() + colaPrice);
-                System.out.println("\nAdded: Cola");
+                System.out.println("Added: Cola");
                 break;
         }
     }

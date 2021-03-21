@@ -13,13 +13,13 @@ public class HealthyBurger extends Hamburger {
             case 5:
                 double avocadoPrice = 2.75;
                 this.setAdditionalPrice(this.getAdditionalPrice() + avocadoPrice);
-                System.out.println("\n Added: Avocado");
+                System.out.println("Added: Avocado");
                 break;
 
             case 6:
                 double mushroomPrice = 1.85;
                 this.setAdditionalPrice(this.getAdditionalPrice() + mushroomPrice);
-                System.out.println("\n Added: Mushroom");
+                System.out.println("Added: Mushroom");
                 break;
         }
     }
