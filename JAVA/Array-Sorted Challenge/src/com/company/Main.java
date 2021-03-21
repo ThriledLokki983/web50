@@ -9,11 +9,15 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
 
-        int[] myIntNumbers = getIntegers(3);
-        //printArray(myIntNumbers);
-        System.out.println("Sorted Numbers in Descending order:");
-        sortedArray(myIntNumbers);
-        System.out.println(Sorted.sortArray(myIntNumbers));
+
+
+        int[] myIntNumbers = SortedArray.getIntegers(3);
+        SortedArray.printArray(myIntNumbers);
+        SortedArray.sort(myIntNumbers);
+//        //printArray(myIntNumbers);
+//        System.out.println("Sorted Numbers in Descending order:");
+//        sortedArray(myIntNumbers);
+//        System.out.println(Sorted.sortArray(myIntNumbers));
 //        Sorted.sortArray(myIntNumbers);
 //        printArray(Sorted.sortArray(myIntNumbers));
     }
