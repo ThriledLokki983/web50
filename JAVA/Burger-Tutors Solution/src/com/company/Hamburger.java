@@ -45,6 +45,11 @@ public class Hamburger {
         this.add4Price = price;
     }
 
+//    public double itemizeHamburger() {
+//        System.out.println("One order of " + name + " on " + breadRollType + " with " + addition1Name + " " + addition2Name + " " + addition3Name + " " + addition4Name);
+//        return (price + addition1Price + addition2Price + addition3Price + addition4Price);
+//    }
+
     public double itemizeHamburger(){
         double hamburgerPrice = this.basePrice;
         System.out.println(this.name + " hamburger " + "on a " + this.breadRollType + " roll with " + this.meat + ": price = " + this.basePrice);
