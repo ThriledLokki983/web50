@@ -53,6 +53,7 @@ public class Hamburger {
                     this.setAdditionalPrice(this.additionalPrice + onionPrice);
                     System.out.println("Added: Onions");
                     break;
+
             }
         }
     }
