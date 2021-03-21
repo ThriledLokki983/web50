@@ -37,12 +37,11 @@ public class Main {
     }
 
     public static void printInstructions(){
-        System.out.println("=========== Please select an option: =============");
-        System.out.print("\n0 - To print choice options.");
-        System.out.print("\n1 - To add new contact information.");
-        System.out.print("\n2 - To print a all contacts.");
-        System.out.println("\n3 - To close application.");
-        System.out.println();
+        System.out.print("=========== Please select an option: ============");
+        System.out.print("\n0 - Instructions.");
+        System.out.print("\n1 - Add New Contact.");
+        System.out.print("\n2 - Show All Contacts.");
+        System.out.println("\n3 - Quit Application.");
         System.out.println("=================================================");
     }
 

@@ -23,12 +23,16 @@ public class Contacts {
     }
 
     public void printAllContacts(){
-        System.out.println("You have " + contactName.size() + " names in your contact list, and " + contactNumber.size() + " numbers");
+        System.out.println("You have a total of " + contactName.size() + " Contacts.");
+
+        System.out.println("=========================================================");
         for (int i = 0; i < contactName.size(); i++){
             System.out.print((i+1) + ". " + contactName.get(i));
-            System.out.print( " " + contactNumber.get(i));
+            System.out.print( ": " + contactNumber.get(i));
             System.out.println();
         }
+
+        System.out.println("=========================================================");
     }
 
 
