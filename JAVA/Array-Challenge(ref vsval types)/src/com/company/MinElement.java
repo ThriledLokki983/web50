@@ -32,4 +32,15 @@ public class MinElement {
         }
         return min;
     }
+
+    public static int findMin(int[] array){
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < array.length; i++){
+            int value = array[i];
+            if (value < min){
+                min = value;
+            }
+        }
+        return min;
+    }
 }
