@@ -8,7 +8,7 @@ public class DeluxeBurger extends Hamburger{
 
     @Override
     public void addToppings(int choice) {
-        super.addToppings(choice);
+        //super.addToppings(choice);
         switch (choice){
             case 1:
                 double chipsPrice = 3.50;
@@ -27,8 +27,11 @@ public class DeluxeBurger extends Hamburger{
     @Override
     public void printMenu() {
         super.printMenu();
-        System.out.println("1. Chips        || Base price: $3.50");
-        System.out.println("2. Cola         || Base price: $2.90");
+        System.out.println("------- Extra for Deluxe ---------");
+        System.out.println("1. Chips          || Price: €3.50");
+        System.out.println("2. Cola           || Price: €2.90");
+        System.out.println("----------------------------------");
+        System.out.println();
     }
 
     @Override

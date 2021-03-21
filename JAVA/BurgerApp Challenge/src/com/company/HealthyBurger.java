@@ -33,7 +33,10 @@ public class HealthyBurger extends Hamburger {
     public void printMenu() {
         super.printMenu();
         System.out.println();
-        System.out.println("5. Avocado        || Base price: $2.75");
-        System.out.println("6. Mushroom       || Base price: $1.85");
+        System.out.println("------- Extra for Healthy Burger ---------");
+        System.out.println("5. Avocado        || Price: €2.75");
+        System.out.println("6. Mushroom       || Price: €1.85");
+        System.out.println("------------------------------------------");
+        System.out.println();
     }
 }

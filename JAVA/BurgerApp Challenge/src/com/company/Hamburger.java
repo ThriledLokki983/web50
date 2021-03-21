@@ -19,11 +19,11 @@ public class Hamburger {
 //    }
 
     public void printMenu(){
-        System.out.println("************** BILLS BURGER MENU **************");
-        System.out.println("1. Lettuce        || Base price: $2.0");
-        System.out.println("2. Tomatoes       || Base price: $1.0");
-        System.out.println("3. Cheese         || Base price: $1.50");
-        System.out.println("4. Onions         || Base price: $2.50");
+        System.out.println("**************** BILLS BURGER MENU ******************");
+        System.out.println("1. Lettuce        || Price: €2.0");
+        System.out.println("2. Tomatoes       || Price: €1.0");
+        System.out.println("3. Cheese         || Price: €1.50");
+        System.out.println("4. Onions         || Price: €2.50");
         System.out.println();
     }
 
@@ -58,10 +58,10 @@ public class Hamburger {
     }
 
     public void checkOutOrder(){
-        System.out.println("\n*************** CHECK OUT ORDER *************** ");
-        System.out.println("Burger type: " + getName() + "            Price: " + getBasePrice());
-        System.out.println("Additions: " + "                         Price: " + getAdditionalPrice());
-        System.out.println("----------------------------------- TOTAL: " + (getBasePrice() + getAdditionalPrice()));
+        System.out.println("\n***************** CHECK OUT ORDER ****************** ");
+        System.out.println("Burger type: " + getName() + "              Price: €" + getBasePrice());
+        System.out.println("Additions: " + "                             Price: €" + getAdditionalPrice());
+        System.out.println("TOTAL: -------------------------------- Price: €" + (getBasePrice() + getAdditionalPrice()));
         System.out.println("");
     }
 
