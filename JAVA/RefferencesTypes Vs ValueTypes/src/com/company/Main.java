@@ -28,5 +28,18 @@ public class Main {
         myIntArray[3] = 56;
         System.out.println("My IntArray after change " + Arrays.toString(myIntArray));
         System.out.println("My OtherArray after change " + Arrays.toString(myOtherArray));
+        // Direferencing
+        myOtherArray = new int[] {1,2,3,4,5};
+        modifiedArray(myOtherArray);
+        System.out.println("My IntArray after modifier" + Arrays.toString(myIntArray));
+        System.out.println("My OtherArray after modifier " + Arrays.toString(myOtherArray));
+
+
+
+    }
+
+    private static void modifiedArray(int[] array){
+        array[3] = 5;
+        array = new int[] {1,2,3,4,5};
     }
 }
