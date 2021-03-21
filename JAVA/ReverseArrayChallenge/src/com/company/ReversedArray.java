@@ -33,6 +33,7 @@ public class ReversedArray {
             array[i] = array[maxIndex - i];
             array[maxIndex - i] = temp;
         }
+
     }
 
 }
