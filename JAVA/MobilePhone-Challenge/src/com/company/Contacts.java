@@ -15,12 +15,31 @@ public class Contacts {
     }
 
     public void addName(String name){
-        contactName.add(name);
+            contactName.add(name);
     }
 
     public void addNumber(String number){
         contactNumber.add(number);
     }
+
+//    public static void searchItem(){
+//        System.out.print("Enter item to search for: ");
+//        String searchItem = scanner.nextLine();
+//        if (groceryList.onFile(searchItem)){
+//            System.out.println("Found: " + searchItem + " in the grocery list");
+//        }else {
+//            System.out.println(searchItem + " is not in the grocery list");
+//        }
+//    }
+
+    public boolean onFile(String searchItem){
+        int position = findContactName(searchItem);
+        if (position >= 0){
+            return true;
+        }
+        return false;
+    }
+
 
     public void printAllContacts(){
         // System.out.println("You have a total of " + contactName.size() + " Contacts.");

@@ -76,9 +76,19 @@ public class Main {
     }
     public static void addContactInfo(){
         System.out.print("Contact Name: ");
-        contacts.addName(scanner.nextLine());
+        String name =scanner.nextLine();
+        if (!(contacts.onFile(name))){
+            contacts.addName(name);
+        }else {
+            System.out.println("Contact already exist");
+        }
         System.out.print("Contact Number: ");
-        contacts.addNumber(scanner.nextLine());
+        String number = scanner.nextLine();
+        if (!(contacts.onFile(number))){
+            contacts.addNumber(number);
+        }else{
+            System.out.println("Number already exist!");
+        }
         System.out.println("=================================================");
     }
     public static void modifyContactName(){
