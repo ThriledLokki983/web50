@@ -31,12 +31,36 @@ public class Contacts {
             System.out.print( ": " + contactNumber.get(i));
             System.out.println();
         }
-
         System.out.println("=========================================================");
     }
 
+    private void modifyContactName(int index, String newName){
+        contactName.set(index, newName);
+        System.out.println(newName + " is now Saved.");
+    }
 
+    private void modifyContactNumber(int index, String newNumber){
+        contactNumber.set(index, newNumber);
+        System.out.println(newNumber + " is now Saved.");
+    }
 
+    private int findContactName(String item){
+        return contactName.indexOf(item);
+    }
+
+    private int findContactNumber(String item){
+        return contactNumber.indexOf(item);
+    }
+
+    public void modifyContactName(String currentName, String newName){
+        int position = findContactName(currentName);
+        modifyContactName(position, newName);
+    }
+
+    public void modifyContactNumber(String currentNumber, String newNumber){
+        int position = findContactNumber(currentNumber);
+        modifyContactNumber(position, newNumber);
+    }
 
 
 
