@@ -3,23 +3,24 @@ package com.company;
 import java.util.ArrayList;
 
 public class Customer {
+    private String customerName;
     private ArrayList<Double> transactions;
-    private String name;
 
-    public Customer(String name) {
-        this.name = name;
-        this.transactions = new ArrayList<>();
+
+    public Customer(String name, ArrayList<Double> transactions) {
+        this.customerName = name;
+        this.transactions = transactions;
     }
 
-    public String getName() {
-        return name;
+    public String getCustomerName() {
+        return customerName;
     }
 
     public void setTransactions(ArrayList<Double> transactions) {
         this.transactions = transactions;
     }
 
-    public static Customer createCustomer(String name){
-        return new Customer(name);
+    public static Customer createCustomer(String name, ArrayList<Double> transactions){
+        return new Customer(name, transactions);
     }
 }
