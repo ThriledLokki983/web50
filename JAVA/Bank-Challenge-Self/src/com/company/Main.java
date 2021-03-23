@@ -9,6 +9,7 @@ public class Main {
     private static Branches branches = new Branches("Groningen");
 
 
+
     public static void main(String[] args) {
 	// write your code here
 
@@ -16,7 +17,7 @@ public class Main {
         startBanking();
         printActions();
         while (!quit){
-            System.out.print("[Press -6- for all options] Select an Option:   ");
+            System.out.print("[Press -2- for all options] Select an Option:   ");
             int action = scanner.nextInt();
             scanner.nextLine();
             switch (action){
@@ -28,6 +29,9 @@ public class Main {
                     addNewCustomer();
                     break;
                 case 2:
+                    customerInfo();
+                    break;
+                case 3:
                     printActions();
                     break;
             }
@@ -42,11 +46,16 @@ public class Main {
 
     private static void printActions(){
         System.out.println("\nPress");
-        System.out.println("0 - Shutdown.\n" +
-                "1 - Show all Customer.\n" +
-                "2 - Add New Customer.\n");
+        System.out.println("0 - Close App.\n" +
+                "1 - Add New Customer.\n" +
+                "2 - Show Customer info.\n" +
+                "3 - Show Instructions.\n");
         System.out.println("=================================================");
         //System.out.println("Select an Option: ");
+    }
+
+    private static void customerInfo(){
+        System.out.println(branches.getMyCustomers());
     }
 
 
@@ -56,7 +65,7 @@ public class Main {
         String customerName = scanner.nextLine();
         System.out.print("Initial Transaction: ");
         Double initialTransaction = scanner.nextDouble();
-        Customer newCustomer = Customer.createCustomer(customerName, transactions.add(initialTransaction));
+        Customer newCustomer = Customer.createCustomer(customerName, transactions.add(Double.valueOf(initialTransaction)));
     }
 
 }

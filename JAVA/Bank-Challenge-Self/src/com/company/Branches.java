@@ -12,6 +12,14 @@ public class Branches {
         this.myCustomers = new ArrayList<>();
     }
 
+    public String getBranchName() {
+        return branchName;
+    }
+
+    public ArrayList<Customer> getMyCustomers() {
+        return myCustomers;
+    }
+
     public boolean addNewCustomer(Customer theCustomer){
         if (findCustomer(theCustomer) >= 0){
             return false;

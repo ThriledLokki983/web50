@@ -12,8 +12,4 @@ public class Transactions {
     public ArrayList<Double> getTransaction() {
         return transaction;
     }
-
-    public void setTransaction(ArrayList<Double> transaction) {
-        this.transaction = transaction;
-    }
 }

@@ -2,9 +2,9 @@ package com.company;
 
 public class Customer {
     private String customerName;
-    private boolean transactions;
+    private Transactions transactions;
 
-    public Customer(String customerName, boolean transactions) {
+    public Customer(String customerName, Transactions transactions) {
         this.customerName = customerName;
         this.transactions = transactions;
     }
@@ -13,11 +13,11 @@ public class Customer {
         return customerName;
     }
 
-    public boolean getTransactions() {
+    public Transactions getTransactions() {
         return transactions;
     }
 
-    public static Customer createCustomer(String name, boolean trans){
+    public static Customer createCustomer(String name, Transactions trans){
         return new Customer(name, trans);
     }
 }
