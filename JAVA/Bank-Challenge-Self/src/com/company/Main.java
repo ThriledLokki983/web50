@@ -65,7 +65,7 @@ public class Main {
         String customerName = scanner.nextLine();
         System.out.print("Initial Transaction: ");
         Double initialTransaction = scanner.nextDouble();
-        Customer newCustomer = Customer.createCustomer(customerName, transactions.add(Double.valueOf()));
+        Customer newCustomer = Customer.createCustomer(customerName);
     }
 
 }
