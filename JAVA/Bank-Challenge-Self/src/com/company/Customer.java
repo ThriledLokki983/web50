@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Customer {
     private String customerName;
-    private ArrayList<Transactions> transactions;
+    private ArrayList<Double> transactions;
 
     public Customer(String customerName) {
         this.customerName = customerName;
@@ -15,7 +15,11 @@ public class Customer {
         return customerName;
     }
 
-    public ArrayList<Transactions> getTransactions() {
+    public ArrayList<Double> getTransactions() {
         return transactions;
+    }
+
+    public static Customer createContact(String name, ){
+        return new Customer(name, number);
     }
 }
