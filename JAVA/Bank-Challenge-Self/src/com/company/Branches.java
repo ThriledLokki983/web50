@@ -38,7 +38,7 @@ public class Branches {
             Double trans = Main.scanner.nextDouble();
             int position = findCustomerName(customerName);
             if (position >= 0){
-                myCustomers.get(position).getTransactions().add(position+1, trans);
+               // myCustomers.get(position).getTransactions().add(position+1, trans);
             }
             return true;
         }
