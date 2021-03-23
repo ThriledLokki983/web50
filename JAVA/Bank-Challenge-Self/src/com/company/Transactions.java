@@ -12,4 +12,8 @@ public class Transactions {
     public ArrayList<Double> getTransaction() {
         return transaction;
     }
+
+    public boolean createTransaction(Double number){
+        this.transaction = transaction.add(number);
+    }
 }
