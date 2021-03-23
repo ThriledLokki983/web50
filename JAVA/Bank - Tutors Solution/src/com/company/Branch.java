@@ -26,7 +26,6 @@ public class Branch {
         }
         return false;
     }
-
     // This takes a string and loops through all the names in our customer'' class and compare if it is there or not
     private Customer findCustomer(String name){
         for(int i = 0; i < this.customers.size(); i++){
