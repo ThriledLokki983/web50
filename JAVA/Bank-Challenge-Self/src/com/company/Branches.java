@@ -4,21 +4,32 @@ import java.util.ArrayList;
 
 public class Branches {
     private String branchName;
-    private ArrayList<Customer> myBranches;
+    private ArrayList<Customer> myCustomers;
 
 
     public Branches(String branchName) {
         this.branchName = branchName;
-        this.myBranches = new ArrayList<>();
+        this.myCustomers = new ArrayList<>();
     }
 
-    // Loop through my customer List if the Customer exist
-    private int findCustomer(String customerName){
-        return this.branchName.indexOf(customerName);
+    public boolean addNewCustomer(Customer theCustomer){
+        if (findCustomer(theCustomer) >= 0){
+            return false;
+        }
+        myCustomers.add(theCustomer);
+        return true;
     }
-    // Loop through my customer List if the Branch exist
-    private int findBranch(Customer branchName){
-        return this.myBranches.indexOf(branchName);
+
+
+
+
+    // Return the index of the Branch if it exist
+    private int findBranchName(String branchName){
+        return this.branchName.indexOf(branchName);
+    }
+    // Returns the index of customer if it exist
+    private int findCustomer(Customer customer){
+        return this.myCustomers.indexOf(customer);
     }
 
 

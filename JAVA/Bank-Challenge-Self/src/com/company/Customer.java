@@ -1,14 +1,11 @@
 package com.company;
 
-import java.util.ArrayList;
-
 public class Customer {
     private String customerName;
-    private ArrayList<Double> transactions;
+    private boolean transactions;
 
-
-    public Customer(String name, ArrayList<Double> transactions) {
-        this.customerName = name;
+    public Customer(String customerName, boolean transactions) {
+        this.customerName = customerName;
         this.transactions = transactions;
     }
 
@@ -16,11 +13,11 @@ public class Customer {
         return customerName;
     }
 
-    public void setTransactions(ArrayList<Double> transactions) {
-        this.transactions = transactions;
+    public boolean getTransactions() {
+        return transactions;
     }
 
-    public static Customer createCustomer(String name, ArrayList<Double> transactions){
-        return new Customer(name, transactions);
+    public static Customer createCustomer(String name, boolean trans){
+        return new Customer(name, trans);
     }
 }
