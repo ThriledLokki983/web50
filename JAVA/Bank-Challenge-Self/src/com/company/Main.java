@@ -5,8 +5,9 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static Scanner scanner = new Scanner(System.in);
+    public static Scanner scanner = new Scanner(System.in);
     private static Branches branches = new Branches("Groningen");
+    private static Customer customer = new Customer("gideon");
 
 
 
@@ -55,7 +56,20 @@ public class Main {
     }
 
     private static void customerInfo(){
-        System.out.println(branches.getMyCustomers());
+
+    }
+
+
+
+    public static void addNewTransaction(){
+        System.out.println("Your Name: ");
+        String customerName = scanner.nextLine();
+        int position = branches.getMyCustomers().indexOf(customerName);
+        if (position < 0){
+            System.out.println("Unknown Customer!!!");
+        }else{
+
+        }
     }
 
 
@@ -65,7 +79,14 @@ public class Main {
         String customerName = scanner.nextLine();
         System.out.print("Initial Transaction: ");
         Double initialTransaction = scanner.nextDouble();
-        Customer newCustomer = Customer.createCustomer(customerName, transactions.add(1, initialTransaction));
+        transactions.add(initialTransaction);
+        //Customer newCustomer = Customer.createCustomer(customerName, transactions);
+//        System.out.println(newCustomer.getCustomerName());
+//
+//        for (int i = 0; i < newCustomer.getTransactions().size(); i++){
+//            System.out.print(newCustomer.getTransactions().get(i));
+//            System.out.println();
+//        }
     }
 
 }

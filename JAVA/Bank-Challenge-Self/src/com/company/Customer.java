@@ -1,26 +1,21 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Customer {
     private String customerName;
-    private Transactions transactions;
+    private ArrayList<Transactions> transactions;
 
-    public Customer(String customerName, Transactions transactions) {
+    public Customer(String customerName) {
         this.customerName = customerName;
-        this.transactions = transactions;
+        this.transactions = new ArrayList<>();
     }
 
     public String getCustomerName() {
         return customerName;
     }
 
-    public Transactions getTransactions() {
+    public ArrayList<Transactions> getTransactions() {
         return transactions;
-    }
-
-    public static Customer createCustomer(String name, Transactions trans){
-        return new Customer(name, trans);
-
-
-
     }
 }
