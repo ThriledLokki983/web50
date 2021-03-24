@@ -28,11 +28,10 @@ public class Bank {
     }
 
     public boolean addBranch(String branchName){
-        if (findBranch(branchName) == null){
-            this.myBranches.add(new Branch(branchName));
-            return true;
+        if (findBranch(branchName) != null){
+            return false;
         }
-        return false;
+        return this.myBranches.add(new Branch(branchName));
     }
 
     public boolean addCustomer(String branchName, String customerName, double transactionAmount){
@@ -53,7 +52,7 @@ public class Bank {
         return false;
     }
 
-    public boolean printCustomers(String branchName, boolean showTransaction){
+    public boolean printCustomersTransactions(String branchName, boolean showTransaction){
         Branch theBranch = findBranch(branchName);
         if (theBranch != null){
             System.out.println("Branch Name: " + theBranch.getBranchName());
@@ -71,6 +70,7 @@ public class Bank {
             }
             return true;
         }else{
+            System.out.println("Could not find Branch: " + branchName);
             return false;
         }
     }

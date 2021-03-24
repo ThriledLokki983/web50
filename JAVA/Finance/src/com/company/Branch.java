@@ -31,10 +31,9 @@ public class Branch {
 
     public boolean addNewCustomer(String customerName, double initialAmount){
         if (findCustomer(customerName) == null){
-            this.myCustomers.add(new Customer(customerName, initialAmount));
-            return true;
+            return false;
         }
-        return false;
+        return this.myCustomers.add(new Customer(customerName, initialAmount));
     }
 
     public boolean addCustomerTransaction(String customerName, double transactionAmount){
