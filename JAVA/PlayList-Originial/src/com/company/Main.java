@@ -11,7 +11,7 @@ public class Main {
 	// write your code here
 
         boolean quit = false;
-        startPlaylist();
+        printActions();
         while (!quit){
             System.out.print("Select Option: ");
             int choice = scanner.nextInt();
@@ -45,11 +45,10 @@ public class Main {
                 "2 - Show All Songs.\n" +
                 "3 - Show Instructions.\n");
         System.out.println("=================================================");
-        //System.out.println("Select an Option: ");
     }
 
     private static void addSongs(){
-        double min = 1.89; double max = 4.65;
+        double min = 1.90; double max = 6.50;
         System.out.print("Song Name: ");
         String songName = scanner.nextLine();
         double songDuration = (double) (Math.random() * (max - min + 1) + min);
@@ -58,7 +57,7 @@ public class Main {
     }
 
     private static void printAllSongs(){
-
+        album.printAllSongs();
     }
 
 

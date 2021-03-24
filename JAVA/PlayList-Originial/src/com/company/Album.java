@@ -36,4 +36,10 @@ public class Album {
         }
         return false;
     }
+
+    public void printAllSongs(){
+        for (int i = 0; i < mySongs.size(); i++){
+            System.out.println("Song title: " + mySongs.get(i).getSongName() + " Duration: " + mySongs.get(i).getSongDuration());
+        }
+    }
 }
