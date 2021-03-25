@@ -51,6 +51,7 @@ public class Main {
     }
 
     private static void printActions(){
+
         System.out.println("\nPress");
         System.out.println(
                 "0 - Close App.\n" +
