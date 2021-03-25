@@ -22,7 +22,7 @@ public class Album {
     private Song findSong(String songName){
         for (int i = 0; i < this.mySongs.size(); i++){
             Song theSong = mySongs.get(i);
-            if (theSong.getSongName().equals(songName)){
+            if (theSong.getSongTitle().equals(songName)){
                 return theSong;
             }
         }
@@ -39,7 +39,9 @@ public class Album {
 
     public void printAllSongs(){
         for (int i = 0; i < mySongs.size(); i++){
-            System.out.println("Song title: " + mySongs.get(i).getSongName() + " Duration: " + mySongs.get(i).getSongDuration());
+            System.out.println("Song title: " +
+                    mySongs.get(i).getSongTitle() +
+                     " Duration: " + mySongs.get(i).getSongDuration());
         }
     }
 }
