@@ -15,6 +15,10 @@
       <change beforePath="$PROJECT_DIR$/../OOP-2- CompositionEncapsulationPolymorphism/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP-2- CompositionEncapsulationPolymorphism/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../OOP/src/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP/src/Car.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../OOP/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Album.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Song.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Printer-2/out/production/Printer-2/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Printer-2/out/production/Printer-2/com/company/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Printer-2/out/production/Printer-2/com/company/Printer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Printer-2/out/production/Printer-2/com/company/Printer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Printer-2/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Printer-2/src/com/company/Main.java" afterDir="false" />
@@ -40,6 +44,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
@@ -108,6 +113,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="Push.Settings">
+    <force-push-targets>
+      <force-push-target remote-path="origin" branch="MobileExercise" />
+      <force-push-target remote-path="origin" branch="main" />
+    </force-push-targets>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
@@ -119,6 +130,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

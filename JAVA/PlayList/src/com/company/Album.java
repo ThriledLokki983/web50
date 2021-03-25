@@ -23,7 +23,7 @@ public class Album {
         return null;
     }
 
-    private boolean addSong(String title, double durations){
+    public boolean addSong(String title, double durations){
         if (findSong(title) == null){
             this.songs.add(new Song(title, durations));
             return true;
@@ -37,7 +37,7 @@ public class Album {
             playlist.add(this.songs.get(index));
             return true;
         }
-        System.out.println("This Album does not have track " + trackNumber);
+        System.out.println("This Album does not have track: " + trackNumber);
         return false;
     }
 
@@ -48,7 +48,7 @@ public class Album {
           playlist.add(checkSong);
           return true;
       }
-        System.out.println("The song " + trackTitle + " is not in this album.");
+        System.out.println("The song: " + trackTitle + " is not in this album.");
       return false;
     }
 }
