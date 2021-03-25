@@ -1,5 +1,6 @@
 package com.company;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Album {
@@ -37,11 +38,13 @@ public class Album {
         return false;
     }
 
+    private static DecimalFormat df2 = new DecimalFormat("#.##");
+
     public void printAllSongs(){
         for (int i = 0; i < mySongs.size(); i++){
             System.out.println("Song title: " +
                     mySongs.get(i).getSongTitle() +
-                     " Duration: " + mySongs.get(i).getSongDuration());
+                     "      Duration: " + df2.format(mySongs.get(i).getSongDuration()) + "-min");
         }
     }
 }
