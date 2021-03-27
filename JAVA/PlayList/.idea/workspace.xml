@@ -16,6 +16,7 @@
       <change beforePath="$PROJECT_DIR$/../OOP/src/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP/src/Car.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../OOP/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Album.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Printer-2/out/production/Printer-2/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Printer-2/out/production/Printer-2/com/company/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Printer-2/out/production/Printer-2/com/company/Printer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Printer-2/out/production/Printer-2/com/company/Printer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Printer-2/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Printer-2/src/com/company/Main.java" afterDir="false" />
@@ -119,7 +120,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
-      <module name="PLAYLIST" />
+      <module name="PlayList" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
