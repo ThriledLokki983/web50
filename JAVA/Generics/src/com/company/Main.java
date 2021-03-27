@@ -8,18 +8,36 @@ public class Main {
         FootballPlayer joe = new FootballPlayer("Joe");
         BaseballPlayer gideon = new BaseballPlayer("Gideon");
         SoccerPlayer frank = new SoccerPlayer("Frank");
+        FootballPlayer nanayaw = new FootballPlayer("Nana Yaw");
 
         Team<FootballPlayer> groningen = new Team<>("FC Groningen");
         groningen.addPlayer(joe);
-//        groningen.addPlayer(gideon);
-//        groningen.addPlayer(frank);
 
         Team<BaseballPlayer> baseballPlayerTeam = new Team<>("Chicago Cubs");
         baseballPlayerTeam.addPlayer(gideon);
 
         Team<SoccerPlayer> soccerPlayerTeam = new Team<>("Red Bulls FC");
         soccerPlayerTeam.addPlayer(frank);
+        Team<FootballPlayer> zwolle = new Team<>("PEC Zwolle");
+        zwolle.addPlayer(nanayaw);
+
+        groningen.matchResult(baseballPlayerTeam, 3, 1);
+        groningen.matchResult(soccerPlayerTeam, 1, 0);
+        soccerPlayerTeam.matchResult(groningen, 1, 5);
+        soccerPlayerTeam.matchResult(groningen, 2, 2);
+        baseballPlayerTeam.matchResult(soccerPlayerTeam, 5,6);
+        baseballPlayerTeam.matchResult(groningen, 3, 1);
+        zwolle.matchResult(groningen, 3, 2);
+        zwolle.matchResult(groningen, 3, 1);
 
         System.out.println(groningen.numPlayer());
+
+        System.out.println("Rankings");
+        System.out.println(groningen.getName() + ": " + groningen.ranking());
+        System.out.println(soccerPlayerTeam.getName() + ": " + soccerPlayerTeam.ranking());
+        System.out.println(baseballPlayerTeam.getName() + ": " + baseballPlayerTeam.ranking());
+        System.out.println(zwolle.getName() + ": " + zwolle.ranking());
+
+        System.out.println(zwolle.compareTo(groningen));
     }
 }
