@@ -2,6 +2,8 @@ package com.company;
 
 import java.util.ArrayList;
 
+
+// INNER CLASS
 public class Gearbox {
     private ArrayList<Gear> gears;
     private int maxGears;
