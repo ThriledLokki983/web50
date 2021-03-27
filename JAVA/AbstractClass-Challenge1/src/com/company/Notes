@@ -1,0 +1,21 @@
+
+
+ABSTRACT CLASS
+- Cannot be instantiated and may contain a mix of methods declared with or without implementation
+- You can declare fields that are not static and final and define public, protected and private concrete methods.
+- An abstract class can extends only the parent class but can implement multiple interfaces
+- The subclass of an abstract class is in its parent class
+========== Purpose of an Abstract class is to provide a common definition of a base class that multiple derived classes can share
+
+INTERFACES
+- This is just the declaration of methods for a class and not the implementation
+- Here, the operations that an object can perform is defined. The actual operation/implementation is defined is defined with the class that makes
+use of this operation
+- Interfaces form a contract between the class and the outside world, and this contract is enforced at build time by the compiler
+- They cannot be instantiated. They may contain a mix of methods declared with or without implementations. All methods of Interfaces are
+public and abstract.
+- An interface can extend other interfaces
+==============Interface is use when;
+- An unrelated classes will make use of the method
+- If you want to separate different behaviours
+========== The collection API is a good example with List Interface , LinkedList, ArrayList,
