@@ -6,9 +6,6 @@ public class Main {
 	// write your code here
 
         Gearbox mcLaren = new Gearbox(6);
-        mcLaren.addGear(1, 5.3);
-        mcLaren.addGear(2, 10.6);
-        mcLaren.addGear(3, 15.9);
         mcLaren.operateClutch(true);
         mcLaren.changeGear(1);
         mcLaren.operateClutch(false);
