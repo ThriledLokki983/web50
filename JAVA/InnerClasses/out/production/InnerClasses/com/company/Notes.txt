@@ -1,0 +1,9 @@
+
+        Types of Nested classes
+
+1. STATIC NESTED CLASS
+2. NON-STATIC NESTED CLASS -- Inner Class
+3. LOCAL CLASS -- Inner Class Defined inside an a scope block/method
+4. ANONYMOUS CLASS - a nested class without a class name
+
+
