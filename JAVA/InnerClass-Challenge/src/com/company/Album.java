@@ -1,12 +1,10 @@
 package com.company;
 
-import com.company.Song;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
- * Created by dev on 27/03/21.
+ * Created by Gideon on 27/03/21.
  */
 public class Album {
     private String name;
@@ -44,14 +42,14 @@ public class Album {
         return false;
     }
 
-    private class SongList {
+    public class SongList {
         private ArrayList<Song> songs;
 
-        public SongList() {
+        private SongList() {
             this.songs = new ArrayList<Song>();
         }
 
-        public boolean add(Song song) {
+        private boolean add(Song song) {
             if(songs.contains(song)) {
                 return false;
             }
@@ -68,7 +66,7 @@ public class Album {
             return null;
         }
 
-        public Song findSong(int trackNumber) {
+        private Song findSong(int trackNumber) {
             int index = trackNumber - 1;
             if ((index > 0) && (index<songs.size())) {
                 return songs.get(index);
