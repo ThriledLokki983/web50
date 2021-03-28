@@ -9,11 +9,11 @@ public class Main {
         dog.eat();
         dog.breath();
 
-        Parrot bird = new Parrot("Yorkie");
+        Parrot bird = new Parrot("Parrot");
         bird.eat();
         bird.breath();
         bird.fly();
-        Penguin penguin = new Penguin("Emperor");
+        Penguin penguin = new Penguin("Emperor-Penguin");
         penguin.fly();
 
     }
