@@ -79,8 +79,9 @@ public class Main {
         String customerName = scanner.nextLine();
         System.out.print("Initial Transaction: ");
         Double initialTransaction = scanner.nextDouble();
-        transactions.add(initialTransaction);
-        //Customer newCustomer = Customer.createCustomer(customerName, transactions);
+
+//        transactions.add(initialTransaction);
+//        Customer newCustomer = branches.createCustomer(customerName, transactions);
 //        System.out.println(newCustomer.getCustomerName());
 //
 //        for (int i = 0; i < newCustomer.getTransactions().size(); i++){

@@ -51,7 +51,10 @@ public class Main {
     }
 
     private static void printActions(){
+<<<<<<< HEAD
 
+=======
+>>>>>>> MobileExercise
         System.out.println("\nPress");
         System.out.println(
                 "0 - Close App.\n" +

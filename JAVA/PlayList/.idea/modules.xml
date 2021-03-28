@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/PLAYLIST.iml" filepath="$PROJECT_DIR$/PLAYLIST.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/PlayList.iml" filepath="$PROJECT_DIR$/PlayList.iml" />
+>>>>>>> MobileExercise
     </modules>
   </component>
 </project>
