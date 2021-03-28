@@ -2,6 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2628fb97-4807-4d53-a446-5135d7097801" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../AbstractClasses/out/production/AbstractClasses/com/company/Bird.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AbstractClasses/out/production/AbstractClasses/com/company/Bird.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AbstractClasses/out/production/AbstractClasses/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AbstractClasses/out/production/AbstractClasses/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AbstractClasses/out/production/AbstractClasses/com/company/Parrot.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AbstractClasses/out/production/AbstractClasses/com/company/Parrot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AbstractClasses/out/production/AbstractClasses/com/company/Penguin.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AbstractClasses/out/production/AbstractClasses/com/company/Penguin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AbstractClasses/src/com/company/Bird.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AbstractClasses/src/com/company/Bird.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AbstractClasses/src/com/company/CanFly.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AbstractClasses/src/com/company/CanFly.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AbstractClasses/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AbstractClasses/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AbstractClasses/src/com/company/Parrot.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AbstractClasses/src/com/company/Parrot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AbstractClasses/src/com/company/Penguin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AbstractClasses/src/com/company/Penguin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bank-Challenge-Self/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bank-Challenge-Self/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../BarkingDog/out/production/BarkingDog/BarkingDog.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BarkingDog/out/production/BarkingDog/BarkingDog.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../BarkingDog/out/production/BarkingDog/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BarkingDog/out/production/BarkingDog/Main.class" afterDir="false" />
@@ -9,12 +18,15 @@
       <change beforePath="$PROJECT_DIR$/../CLASS-3/out/production/CLASS-3/com/company/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/../CLASS-3/out/production/CLASS-3/com/company/Person.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DiagonalStar/out/production/DiagonalStar/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DiagonalStar/out/production/DiagonalStar/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DiagonalStar/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DiagonalStar/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Generics/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Generics/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Generics/src/com/company/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Generics/src/com/company/Team.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GreatestCommonDivisor/out/production/GreatestCommonDivisor/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../GreatestCommonDivisor/out/production/GreatestCommonDivisor/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GreatestCommonDivisor/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GreatestCommonDivisor/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MobilePhoneCodingExercise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MobilePhoneCodingExercise/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../OOP-2- CompositionEncapsulationPolymorphism/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP-2- CompositionEncapsulationPolymorphism/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../OOP/src/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP/src/Car.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../OOP/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PLAYLIST/com/company/Album$SongList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PLAYLIST/com/company/Album$SongList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PLAYLIST/com/company/Album.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PLAYLIST/com/company/Album.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Printer-2/out/production/Printer-2/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Printer-2/out/production/Printer-2/com/company/Main.class" afterDir="false" />
