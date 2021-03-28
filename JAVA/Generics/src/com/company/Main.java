@@ -5,21 +5,24 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
 
-        FootballPlayer joe = new FootballPlayer("Joe");
-        BaseballPlayer gideon = new BaseballPlayer("Gideon");
+        
+        
         SoccerPlayer frank = new SoccerPlayer("Frank");
         FootballPlayer nanayaw = new FootballPlayer("Nana Yaw");
+        FootballPlayer joe = new FootballPlayer("Joe");
 
         Team<FootballPlayer> groningen = new Team<>("FC Groningen");
         groningen.addPlayer(joe);
+        Team<FootballPlayer> zwolle = new Team<>("PEC Zwolle");
+        zwolle.addPlayer(nanayaw);
 
+        BaseballPlayer gideon = new BaseballPlayer("Gideon");
         Team<BaseballPlayer> baseballPlayerTeam = new Team<>("Chicago Cubs");
         baseballPlayerTeam.addPlayer(gideon);
 
         Team<SoccerPlayer> soccerPlayerTeam = new Team<>("Red Bulls FC");
         soccerPlayerTeam.addPlayer(frank);
-        Team<FootballPlayer> zwolle = new Team<>("PEC Zwolle");
-        zwolle.addPlayer(nanayaw);
+        
 
         groningen.matchResult(baseballPlayerTeam, 3, 1);
         groningen.matchResult(soccerPlayerTeam, 1, 0);
@@ -38,6 +41,6 @@ public class Main {
         System.out.println(baseballPlayerTeam.getName() + ": " + baseballPlayerTeam.ranking());
         System.out.println(zwolle.getName() + ": " + zwolle.ranking());
 
-        System.out.println(zwolle.compareTo(groningen));
+        System.out.println(groningen.compareTo(zwolle));
     }
 }
