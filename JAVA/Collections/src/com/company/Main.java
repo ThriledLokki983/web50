@@ -44,6 +44,7 @@ public class Main {
         System.out.println("Max seat number: " + maxSeat.getSeatNumber());
 
         sortList(seatCopy);
+
         System.out.println("Printing Sorted copy");
         printList(seatCopy);
 
