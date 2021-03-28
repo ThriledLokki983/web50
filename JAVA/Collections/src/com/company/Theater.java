@@ -12,7 +12,7 @@ import java.util.*;
 
 public class Theater {
     private final String theatreName;
-    private final List<Seat> seats = new LinkedList<>();
+    public final List<Seat> seats = new LinkedList<>();
 
 
     public Theater(String theatreName, int numRows, int seatsPerRow) {
@@ -86,7 +86,7 @@ public class Theater {
 
 
 
-    private class Seat implements Comparable<Seat>{
+    public class Seat implements Comparable<Seat>{
         private final String seatNumber;
         private boolean reserved = false;
 
