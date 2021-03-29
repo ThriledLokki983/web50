@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        Theater theater = new Theater("Kinepolis", 26, 15);
+        Theater theater = new Theater("Kinepolis", 8, 12);
 
         if (theater.reserveSeat("B13")){
             System.out.println("Please pay for B13");
@@ -27,13 +28,23 @@ public class Main {
             System.out.println("Seat is already reserved");
         }
 
+        List<Theater.Seat> reverseSeat = new ArrayList<>(theater.getSeats());
+        Collections.reverse(reverseSeat);
+        printList(reverseSeat);
+
+        List<Theater.Seat> priceSeat = new ArrayList<>(theater.getSeats());
+        priceSeat.add(theater.new Seat("B00", 13.00));
+        priceSeat.add(theater.new Seat("A00", 13.00));
+        Collections.sort(priceSeat, Theater.PRICE_ORDER);
+        printList(priceSeat);
+
     }
 
 
     public static void printList(List<Theater.Seat> list){
         // For each loop
         for (Theater.Seat seat : list){
-            System.out.print(" " + seat.getSeatNumber() + " " + seat.getPrice());
+            System.out.print(" " + seat.getSeatNumber() + " $" + seat.getPrice());
         }
         System.out.println();
         System.out.println("=========================================================");
