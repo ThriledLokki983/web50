@@ -27,9 +27,15 @@ public class MapClass {
         }
 
         System.out.println("==========================================================================");
+        System.out.println(languages.replace("Lisp", "A functional language with imperative style"));
+        System.out.println(languages.replace("Scala", "This will be replace"));
+
         for (String key : languages.keySet()){
             System.out.println(key + " : " + languages.get(key));
         }
+
+
+        // languages.remove("Lisp");
     }
 
 }
