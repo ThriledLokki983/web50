@@ -71,7 +71,18 @@ public class SetMain {
         printSet(intersectionTest);
 
 
-
+    // BULK
+        if (nature.containsAll(divine)){
+            System.out.println("Divine is a subset of Nature: ");
+        }else{
+            System.out.println("Not happening");
+        }
+        if (nature.containsAll(intersectionTest)){
+            System.out.println("Intersection is a subset of Nature: ");
+        }
+        if (divine.containsAll(intersectionTest)){
+            System.out.println("Intersection is a subset of Divine: ");
+        }
 
 
     }
