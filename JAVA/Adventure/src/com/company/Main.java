@@ -7,39 +7,41 @@ import java.util.Scanner;
 public class Main {
 
     private static Map<Integer, Location> locationMap = new HashMap<>();
+    private static Map<String, String> vocabulary = new HashMap<>();
 
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
         locationMap.put(0, new Location(0, "You are sitting in front of a computer learning java"));
-        locationMap.put(1, new Location(1, "You are standing at the end of a road before a small bridge"));
+        locationMap.put(1, new Location(1, "You are standing at the end of a road before a small brick building"));
         locationMap.put(2, new Location(2, "You are at the top of a hill"));
-        locationMap.put(3, new Location(3, "You are inside a building, a well house for a small person"));
+        locationMap.put(3, new Location(3, "You are inside a building, a well house for a small spring"));
         locationMap.put(4, new Location(4, "You are in a vally beside a stream"));
         locationMap.put(5, new Location(5, "You are in the forest"));
-
-        //locationMap.put(6, new Location(6, "You are sitting in the garden and relaxing with a fiction book"));
 
         locationMap.get(1).addExit("W", 2);
         locationMap.get(1).addExit("E", 3);
         locationMap.get(1).addExit("S", 4);
         locationMap.get(1).addExit("N", 5);
-        //locationMap.get(1).addExit("Q", 0);
 
         locationMap.get(2).addExit("N", 5);
-        //locationMap.get(2).addExit("Q", 0);
 
-        locationMap.get(3).addExit("West", 1);
-        //locationMap.get(3).addExit("Q", 0);
+        locationMap.get(3).addExit("W", 1);
 
         locationMap.get(4).addExit("N", 1);
         locationMap.get(4).addExit("W", 2);
-        //locationMap.get(4).addExit("Q", 0);
 
         locationMap.get(5).addExit("S", 1);
         locationMap.get(5).addExit("W", 2);
-        //locationMap.get(5).addExit("Q", 0);
+
+        vocabulary.put("QUIT", "Q");
+        vocabulary.put("NORTH", "N");
+        vocabulary.put("SOUTH", "S");
+        vocabulary.put("WEST", "W");
+        vocabulary.put("EAST", "E");
+
+
 
         int loc = 1;
         while(true) {
@@ -55,26 +57,23 @@ public class Main {
             }
             System.out.println();
 
-            String[] direction = scanner.nextLine().toUpperCase().split("" );
-            for (String dir : direction){
-                if(exits.containsKey(direction.toString().contains("west"))) {
-                    loc = exits.get("W");
-
-                } else {
-                    System.out.println("You cannot go in that direction");
+            String direction = scanner.nextLine().toUpperCase();
+            if (direction.length() > 1){
+                String[] words = direction.split(" ");
+                for (String word : words){
+                    if (vocabulary.containsKey(word)){
+                        direction = vocabulary.get(word);
+                        break;
+                    }
                 }
+            }
+            if (exits.containsKey(direction)){
+                loc = exits.get(direction);
+            }else{
+                System.out.println("You cannot go in that direction");
             }
 
         }
-
-
-
-
-
-
-
-
-
 
 
 

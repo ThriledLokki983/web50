@@ -38,4 +38,6 @@ public class Location {
     public Map<String, Integer> getExits() {
         return new HashMap<>(exits);
     }
+
+
 }
