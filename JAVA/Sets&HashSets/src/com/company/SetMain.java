@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -36,5 +37,50 @@ public class SetMain {
         Set<String> words = new HashSet<>();
         String sentence = "The quick brown fox jumps over the lazy wall";
         String[] arrayWords = sentence.split(" ");
+        words.addAll(Arrays.asList(arrayWords));
+        for (String s : words){
+            System.out.println(s);
+        }
+
+        Set<String> nature = new HashSet<>();
+        Set<String> divine = new HashSet<>();
+
+        String[] natureWord = {"all", "nature", "is", "but", "art", "unknown", "to", "thee"};
+        String[] divineWord = {"to", "err", "is", "is", "human", "to", "forgive", "is", "is", "divine"};
+
+        nature.addAll(Arrays.asList(natureWord));
+        divine.addAll(Arrays.asList(divineWord));
+
+        System.out.println("Nature - Divine:");
+        Set<String> diff1 = new HashSet<>(nature);
+        diff1.removeAll(divine);
+        printSet(diff1);
+
+        System.out.println("Divine - Nature ");
+        Set<String> diff2 = new HashSet<>(divine);
+        diff2.removeAll(nature);
+        printSet(diff2);
+
+        Set<String> union1 = new HashSet<>(nature);
+        union1.addAll(divine);
+        Set<String> intersectionTest = new HashSet<>(nature);
+        intersectionTest.retainAll(divine);
+        System.out.println("All words together: ");
+        printSet(union1);
+        System.out.println("Symmetric Difference: ");
+        printSet(intersectionTest);
+
+
+
+
+
     }
+
+    public static void printSet(Set<String> something){
+        for (String i : something){
+            System.out.print("\t" + i);
+        }
+        System.out.println();
+    }
+
 }
