@@ -12,9 +12,9 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
+        Map<String, Integer> tempExit = new HashMap<>();
         locationMap.put(0, new Location(0, "You are sitting in front of a computer learning java",tempExit));
 
-        Map<String, Integer> tempExit = new HashMap<>();
 
         tempExit = new HashMap<>();
         tempExit.put("W", 2);
@@ -56,6 +56,7 @@ public class Main {
         int loc = 1;
         while(true) {
             System.out.println(locationMap.get(loc).getDescription());
+            tempExit.remove("S");
             if(loc == 0) {
                 break;
             }
