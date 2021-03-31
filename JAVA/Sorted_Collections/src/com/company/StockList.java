@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -17,7 +18,7 @@ public class StockList {
 
 
     public StockList() {
-        this.list = new HashMap<>();
+        this.list = new LinkedHashMap<>();
     }
 
     public int addItem(StockItem item){
@@ -44,7 +45,7 @@ public class StockList {
     }
 
     public StockItem get(String key){
-        return this.get(key);
+        return list.get(key);
     }
 
     public Map<String, StockItem> Items(){
@@ -53,7 +54,7 @@ public class StockList {
 
     @Override
     public String toString() {
-        StringBuilder s = new StringBuilder("\n Stock List\n");
+        StringBuilder s = new StringBuilder("\nStock List\n");
         double totalCost = 0.0;
         for (Map.Entry<String, StockItem> item : list.entrySet()){
             StockItem stockItem = item.getValue();
@@ -63,10 +64,10 @@ public class StockList {
             s.append(stockItem);
             s.append(". There are ");
             s.append(stockItem.quantityInStock());
-            s.append(" in stock. Value of items");
+            s.append(" in stock. Value of items: \t");
             s.append(String.format("%.2f", itemValue)).append("\n");
             totalCost += itemValue;
         }
-        return s + " Total stock value " + totalCost;
+        return s + "Total stock value " + totalCost;
     }
 }
