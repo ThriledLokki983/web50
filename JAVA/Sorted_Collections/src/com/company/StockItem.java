@@ -33,14 +33,12 @@ public class StockItem implements Comparable<StockItem>{
         return price;
     }
 
-    public int getQuantityStock() {
+    public int quantityInStock() {
         return quantityStock;
     }
 
     public void setPrice(double price) {
-        if (price > 0.0){
-            this.price = price;
-        }
+        if (price > 0.0) this.price = price;
     }
 
     public void setQuantityStock(int quantityStock) {
@@ -49,9 +47,7 @@ public class StockItem implements Comparable<StockItem>{
 
     public void adjustStock(int quantity){
         int newQuantity = this.quantityStock + quantity;
-        if (newQuantity >= 0 ){
-            this.quantityStock = newQuantity;
-        }
+        if (newQuantity >= 0 ) this.quantityStock = newQuantity;
     }
 
     @Override
@@ -62,12 +58,8 @@ public class StockItem implements Comparable<StockItem>{
     @Override
     public boolean equals(Object obj) {
         System.out.println("Entering StockItem.equals(): ");
-        if (obj == this){
-            return true;
-        }
-        if ((obj == null) || (obj.getClass() != this.getClass())){
-            return false;
-        }
+        if (obj == this) return true;
+        if ((obj == null) || (obj.getClass() != this.getClass())) return false;
         String objName = ((StockItem) obj).getName();
         return this.name.equals(objName);
     }
