@@ -11,8 +11,18 @@
     xmlns:fx="http://javafx.com/fxml">
     <top>
         <Label text="This should be at the top position" alignment="center"
+               BorderPane.alignment="center"
         style="-fx-border-color: blue; -fx-border-width: 3; -fx-border-style: dashed"/>
     </top>
+    <center>
+        <Label text="This should be at the center position and has a really long text" alignment="CENTER"/>
+    </center>
+    <left>
+        <Label text="This should be at the left position" alignment="center"/>
+    </left>
+    <right>
+        <Label text="This label is at the right position" alignment="center"/>
+    </right>
 
     <bottom>
         <HBox spacing="10" alignment="BOTTOM_RIGHT">
