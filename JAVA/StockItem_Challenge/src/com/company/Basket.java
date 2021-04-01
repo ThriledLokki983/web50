@@ -33,7 +33,7 @@ public class Basket {
     public int removeFromBasket(StockItem item, int quantity){
         if ((item != null) && (quantity > 0)){
             int inBasket = list.getOrDefault(item, null);
-            int newQuantity = inBasket + quantity;
+            int newQuantity = inBasket - quantity;
             if (newQuantity > 0){
                 list.put(item, newQuantity);
                 return quantity;
@@ -45,14 +45,6 @@ public class Basket {
         return 0;
     }
 
-    public int reserve(StockItem item, int quantity){
-        if ((item != null) && (quantity > 0)){
-            int resBasket = list.getOrDefault(item, 0);
-            list.put(item, resBasket + quantity);
-            return resBasket;
-        }
-        return 0;
-    }
 
     public void cleanBasket(){
         this.list.clear();
@@ -64,7 +56,7 @@ public class Basket {
 
     @Override
     public String toString() {
-        StringBuilder s = new StringBuilder("\nShopping basket " + name + " contains " + list.size() + ((list.size() == 1) ? " item" : " items") + "\n");
+        StringBuilder s = new StringBuilder("\nShopping Kart for: " + name.toUpperCase() + " contains " + list.size() + ((list.size() == 1) ? " item" : " items") + "\n");
         double totalCost = 0.0;
         for (Map.Entry<StockItem, Integer> item : list.entrySet()){
             s.append(item.getKey());

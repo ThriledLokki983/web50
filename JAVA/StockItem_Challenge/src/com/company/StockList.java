@@ -20,39 +20,30 @@ public class StockList {
         this.list = new LinkedHashMap<>();
     }
 
-    public int addItem(StockItem item){
+    public void addItem(StockItem item){
         if (item != null){
             StockItem inStock = list.getOrDefault(item.getName(), item);
-            //StockItem inStock = list.get(item.getName());
-            // check if quantity is already > 0
             if (inStock != item){
                 item.adjustStock(inStock.availableQuantity());
             }
             list.put(item.getName(), item);
-            return item.availableQuantity();
+            item.availableQuantity();
         }
-        return 0;
     }
 
-    public int sellStock(String item, int quantity){
+    public void sellStock(String item, int quantity){
         StockItem inStock = list.get(item);
-        if ((inStock != null) && (inStock.availableQuantity() >= quantity) && (quantity > 0)){
-            inStock.adjustStock(-quantity);
-            return quantity;
+        if((inStock != null) && (quantity > 0)) {
+            inStock.finalizeStock(quantity);
         }
-        return 0;
     }
 
     public int reserveItem(String item, int quantity){
         StockItem inStock = list.get(item);
         if ((inStock != null) && (quantity > 0)){
-            return inStock.finalizeStock(quantity);
+            return inStock.reserveStock(quantity);
         }
         return 0;
-//        if ((inStock != null) && (quantity >0)){
-//            return inStock.reserveStock(quantity);
-//        }
-//        return 0;
     }
 
     public int unReservedStock(String item, int quantity){

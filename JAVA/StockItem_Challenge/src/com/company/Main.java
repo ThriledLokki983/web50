@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Map;
+
 public class Main {
     private static StockList stockList = new StockList();
 
@@ -53,27 +55,59 @@ public class Main {
         }
 
         Basket gideonBasket = new Basket("Gideon");
+
         sellItem(gideonBasket, "Cake", 5);
-        System.out.println(gideonBasket);
-        System.out.println("=============================================");
         sellItem(gideonBasket, "Cake", 5);
-        System.out.println(gideonBasket);
-        System.out.println("=============================================");
         sellItem(gideonBasket, "Cake", 5);
-        System.out.println(gideonBasket);
+        if(sellItem(gideonBasket, "Cake", 1) != 1) {
+            System.out.println("Cake out of Stock");
+        }
         System.out.println("=============================================");
         sellItem(gideonBasket, "Aeroplane", 2);
-        System.out.println(gideonBasket);
-        System.out.println("=============================================");
         sellItem(gideonBasket, "Juice", 5);
-        System.out.println(gideonBasket);
-        System.out.println("=============================================");
         sellItem(gideonBasket, "Chair", 4);
         System.out.println(gideonBasket);
-
-        reserveItem(gideonBasket, "Towel", 9);
-        System.out.println(gideonBasket);
         System.out.println("=============================================");
+
+        Basket customer = new Basket("Customer");
+        sellItem(customer, "Juice", 4);
+        sellItem(customer, "Chair", 4);
+        sellItem(customer, "Towel", 4);
+        System.out.println(customer);
+
+        removeItem(gideonBasket, "Cake", 4);
+        removeItem(gideonBasket, "Cake", 1);
+        removeItem(gideonBasket, "Juice", 2);
+        removeItem(gideonBasket, "Chair", 2);
+        System.out.println("Cake removed: " + removeItem(gideonBasket, "Cake", 3));
+        System.out.println("=============================================");
+        System.out.println(gideonBasket);
+
+        removeItem(gideonBasket, "Juice", 2);
+        removeItem(gideonBasket, "Juice", 2);
+        removeItem(gideonBasket, "Chair", 3);
+        removeItem(gideonBasket, "Chair", 3);
+        System.out.println(gideonBasket);
+
+        System.out.println("\nDisplay stock list before and after checkout");
+        System.out.println(customer);
+        System.out.println(stockList);
+        checkOut(customer);
+        System.out.println(customer);
+        System.out.println(stockList);
+
+        StockItem car = stockList.Items().get("Car");
+        if (car != null){
+            car.adjustStock(200);
+        }
+        if (car != null){
+            stockList.get("Car").adjustStock(-200);
+        }
+
+        System.out.println(stockList);
+        checkOut(gideonBasket);
+        System.out.println(gideonBasket);
+
 
     }
 
@@ -82,23 +116,42 @@ public class Main {
         if (stockItem == null){
             System.out.println("We don't  sell " + item);
         }
-        if (stockList.sellStock(item, quantity) != 0){
-            basket.addToBasket(stockItem, quantity);
-            return quantity;
+        if (stockList.reserveItem(item, quantity) != 0){
+            return basket.addToBasket(stockItem, quantity);
         }
         return 0;
     }
 
-    public static int reserveItem(Basket basket, String item, int quantity){
+    public static int removeItem(Basket basket, String item, int quantity){
         StockItem stockItem = stockList.get(item);
         if (stockItem == null){
-            System.out.println(item + " unavailable");
+            System.out.println("We don't  sell " + item);
         }
-        if (stockList.reserveItem(item, quantity) != 0){
-            basket.reserve(stockItem, quantity);
-            return quantity;
+        if (basket.removeFromBasket(stockItem, quantity) == quantity){
+            return stockList.unReservedStock(item, quantity);
         }
         return 0;
     }
+
+    public static void checkOut(Basket basket){
+        for (Map.Entry<StockItem, Integer> item : basket.items().entrySet()){
+            stockList.sellStock(item.getKey().getName(), item.getValue());
+        }
+        basket.cleanBasket();
+    }
+
+/**
+ *     public static int reserveItem(Basket basket, String item, int quantity){
+ *         StockItem stockItem = stockList.get(item);
+ *         if (stockItem == null){
+ *             System.out.println(item + " unavailable");
+ *         }
+ *         if (stockList.reserveItem(item, quantity) != 0){
+ *             basket.reserve(stockItem, quantity);
+ *             return quantity;
+ *         }
+ *         return 0;
+ *     }
+**/
 
 }
