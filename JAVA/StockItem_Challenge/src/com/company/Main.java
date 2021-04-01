@@ -3,7 +3,7 @@ package com.company;
 import java.util.Map;
 
 public class Main {
-    private static StockList stockList = new StockList();
+    private static final StockList stockList = new StockList();
 
     public static void main(String[] args) {
         StockItem temp = new StockItem("Bread", 0.86, 100);
@@ -139,19 +139,5 @@ public class Main {
         }
         basket.cleanBasket();
     }
-
-/**
- *     public static int reserveItem(Basket basket, String item, int quantity){
- *         StockItem stockItem = stockList.get(item);
- *         if (stockItem == null){
- *             System.out.println(item + " unavailable");
- *         }
- *         if (stockList.reserveItem(item, quantity) != 0){
- *             basket.reserve(stockItem, quantity);
- *             return quantity;
- *         }
- *         return 0;
- *     }
-**/
 
 }
