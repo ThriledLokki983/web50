@@ -3,6 +3,7 @@ package com.company;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Name: Gideon Nimoh
@@ -18,7 +19,7 @@ public class Basket {
 
     public Basket(String name) {
         this.name = name;
-        this.list = new HashMap<>();
+        this.list = new TreeMap<>();
     }
 
     public int addToBasket(StockItem item, int quantity){
@@ -45,6 +46,6 @@ public class Basket {
             s.append(" purchased\n");
             totalCost += item.getKey().getPrice() * item.getValue();
         }
-        return s + "Total cost: " + totalCost;
+        return s + "Total cost: " + String.format("%.2f", totalCost);
     }
 }

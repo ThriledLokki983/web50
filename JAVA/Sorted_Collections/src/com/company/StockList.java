@@ -68,6 +68,6 @@ public class StockList {
             s.append(String.format("%.2f", itemValue)).append("\n");
             totalCost += itemValue;
         }
-        return s + "Total stock value " + totalCost;
+        return s + "Total stock value " + String.format("%.2f",totalCost);
     }
 }
