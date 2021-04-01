@@ -71,9 +71,13 @@ public class Main {
         sellItem(gideonBasket, "Chair", 4);
         System.out.println(gideonBasket);
 
+        reserveItem(gideonBasket, "Towel", 9);
+        System.out.println(gideonBasket);
+        printReservedItems(gideonBasket);
         System.out.println("=============================================");
 
         System.out.println(stockList);
+        printReservedItems(gideonBasket);
 
     }
 
@@ -87,5 +91,23 @@ public class Main {
             return quantity;
         }
         return 0;
+    }
+
+    public static int reserveItem(Basket basket, String item, int quantity){
+        StockItem stockItem = stockList.get(item);
+        if (stockItem == null){
+            System.out.println(item + " unavailable");
+        }
+        if (stockList.reserveItem(item, quantity) != 0){
+            basket.reserve(stockItem, quantity);
+            return quantity;
+        }
+        return 0;
+    }
+
+    public static void printReservedItems(Basket basket){
+        if (basket.items() != null){
+            System.out.println(basket.items());
+        }
     }
 }

@@ -31,9 +31,24 @@ public class Basket {
         return 0;
     }
 
+    public int reserve(StockItem item, int quantity){
+        if ((item != null) && (quantity > 0)){
+            int resBasket = list.getOrDefault(item, 0);
+            list.put(item, resBasket + quantity);
+            return resBasket;
+        }
+        return 0;
+    }
+
     public Map<StockItem, Integer> items(){
         return Collections.unmodifiableMap(list);
     }
+
+//    private void printReserveItems(StockItem item){
+//        for (StockItem item1 : lis){
+//
+//        }
+//    }
 
     @Override
     public String toString() {
@@ -48,4 +63,7 @@ public class Basket {
         }
         return s + "Total cost: " + String.format("%.2f", totalCost);
     }
+
+
+
 }
