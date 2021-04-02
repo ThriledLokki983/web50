@@ -19,6 +19,9 @@
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.Accordion?>
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="Click Here">
@@ -94,6 +97,21 @@
     <Spinner GridPane.columnIndex="4" GridPane.rowIndex="2" min="0" max="100" editable="true" initialValue="18"/>
     <ColorPicker GridPane.rowIndex="3" GridPane.columnIndex="0"/>
     <DatePicker GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <Accordion GridPane.rowIndex="3" GridPane.columnIndex="2" GridPane.columnSpan="2" expandedPane="$tp3">
+        <panes>
+            <TitledPane text="Hidden Message 1">
+                <Label text="This is the title Pane 1"/>
+            </TitledPane>
+            <TitledPane text="Hidden Message 2">
+                <Label text="This is the title Pane 2"/>
+            </TitledPane>
+            <TitledPane fx:id="tp3" text="Hidden Message 3">
+                <Label text="This is the title Pane 3"/>
+            </TitledPane>
+        </panes>
+    </Accordion>
+
 
 
 
