@@ -11,7 +11,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/samples 2.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/samples.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
