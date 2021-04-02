@@ -11,6 +11,7 @@ import javafx.scene.control.TextArea;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,17 +27,17 @@ public class Controller {
     private Label deadlineLabel;
 
     public void initialize(){
-        TodoItem item1 = new TodoItem("Send email to my boss", "Buy a 30th birthday card for John",
+        TodoItem item1 = new TodoItem("Email to my boss", "Buy a 30th birthday card for John",
                 LocalDate.of(2021, Month.APRIL, 2));
         TodoItem item2 = new TodoItem("Announce DB Upgrade", "Send announcement on the database upgrade over the holiday period",
                 LocalDate.of(2021, Month.MAY, 23));
         TodoItem item3 = new TodoItem("Doctor's Appointment", "See Doctor Smith, bring with your the insurance card",
                 LocalDate.of(2021, Month.APRIL, 8));
-        TodoItem item4 = new TodoItem("Finish design proposal", "Help with the design of Frank's new project",
+        TodoItem item4 = new TodoItem("Design proposal", "Help with the design of Frank's new project",
                 LocalDate.of(2021, Month.MARCH, 2));
-        TodoItem item5 = new TodoItem("Complete Java course", "Finish with the Java Programming language course on udemy and start with JavaScript",
+        TodoItem item5 = new TodoItem("Complete Java", "Finish with the Java Programming language course on udemy and start with JavaScript",
                 LocalDate.of(2021, Month.JUNE, 6));
-        TodoItem item6 = new TodoItem("Sign up new course", "Want to upgrade your skills, quickly continue with the React skill development on udemy",
+        TodoItem item6 = new TodoItem("New course", "Want to upgrade your skills, quickly continue with the React skill development on udemy",
                 LocalDate.of(2021, Month.APRIL, 14));
 
         todoItems = new ArrayList<TodoItem>();
@@ -52,7 +53,8 @@ public class Controller {
                 if (newValue != null){
                     TodoItem item = todoListView.getSelectionModel().getSelectedItem();
                     itemDetailsTextArea.setText(item.getDetails());
-                    deadlineLabel.setText(item.getDeadLine().toString());
+                    DateTimeFormatter df = DateTimeFormatter.ofPattern("MMM d, yyyy");
+                    deadlineLabel.setText(df.format(item.getDeadLine()));
                 }
             }
         });
