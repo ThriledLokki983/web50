@@ -17,6 +17,8 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.DatePicker?>
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="Click Here">
@@ -90,6 +92,8 @@
             showTickMarks="true" minorTickCount="4" snapToTicks="true" orientation="HORIZONTAL"/>
     <!-- If editable is set to true, then the user has to press enter to process the input value-->
     <Spinner GridPane.columnIndex="4" GridPane.rowIndex="2" min="0" max="100" editable="true" initialValue="18"/>
+    <ColorPicker GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <DatePicker GridPane.rowIndex="3" GridPane.columnIndex="1"/>
 
 
 
