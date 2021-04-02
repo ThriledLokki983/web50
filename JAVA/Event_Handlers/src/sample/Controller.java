@@ -44,6 +44,8 @@ public class Controller {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
+                            String s = Platform.isFxApplicationThread() ? "UI Thread" : "Background Thread";
+                            System.out.println("I'm updating the label on the: " + s);
                             ourLabel.setText("We did something on the background!");
                         }
                     });
