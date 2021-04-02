@@ -1,5 +1,6 @@
 package com.gideon.todolist;
 
+import dataModel.TodoData;
 import dataModel.TodoItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -47,6 +48,9 @@ public class Controller {
         todoItems.add(item4);
         todoItems.add(item5);
         todoItems.add(item6);
+
+        TodoData.getInstance().setTodoItems(todoItems);
+
         todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TodoItem>() {
             @Override
             public void changed(ObservableValue<? extends TodoItem> observableValue, TodoItem todoItem, TodoItem newValue) {
