@@ -1,5 +1,18 @@
 package ContactDataModel;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javax.xml.stream.XMLEventFactory;
+import javax.xml.stream.XMLEventReader;
+import javax.xml.stream.XMLEventWriter;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLOutputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.events.Characters;
+import javax.xml.stream.events.EndElement;
+import javax.xml.stream.events.StartDocument;
+import javax.xml.stream.events.StartElement;
+import javax.xml.stream.events.XMLEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -15,6 +28,7 @@ import java.io.InputStream;
 
 public class ContactData {
 
+    //private static final Contact instance = new Contact();
     private static final String CONTACTS_FILE = "contacts.xml";
 
     private static final String CONTACT = "contact";
@@ -25,14 +39,14 @@ public class ContactData {
 
     private ObservableList<Contact> contacts;
 
-    public ContactData(ObservableList<Contact> contacts) {
+    public ContactData(Contact e) {
         // *** initialize the contacts list here ***
-        this.contacts = contacts;
+        contacts.add(e);
     }
 
     // *** Add methods to add/delete/access contacts here ***
 
-    public void loadContacts() {
+    public void loadContacts(){
         try {
             // First, create a new XMLInputFactory
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
@@ -93,7 +107,7 @@ public class ContactData {
             }
         }
         catch (FileNotFoundException e) {
-            //e.printStackTrace();
+            e.printStackTrace();
         }
         catch (XMLStreamException e) {
             e.printStackTrace();
