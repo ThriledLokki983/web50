@@ -56,7 +56,7 @@
            </columns>
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <Contact firstName="Gideon" lastName="Nimoh" phoneNumber="0626603494" notes="This is a test note"/>
+                   <!-- <Contact firstName="Gideon" lastName="Nimoh" phoneNumber="0626603494" notes="This is a test note"/>-->
                 </FXCollections>
             </items>
         </TableView>
