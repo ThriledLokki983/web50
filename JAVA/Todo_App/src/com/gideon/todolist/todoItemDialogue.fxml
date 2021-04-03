@@ -1,0 +1,10 @@
+<?import javafx.scene.control.DialogPane?>
+
+<DialogPane fx:controller="com.gideon.todolist.DialogController"
+            xmlns:fx="http://javafx.com/fxml">
+    <!--HEADER
+        GRAPHIC
+        CONTENT
+        BUTTON  -->
+
+</DialogPane>

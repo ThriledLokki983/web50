@@ -41,9 +41,12 @@ public class TodoData {
     }
 
 
-    public void setTodoItems(List<TodoItem> todoItems) {
-        this.todoItems = todoItems;
-    }
+    /**
+     *     public void setTodoItems(List<TodoItem> todoItems) {
+     *         this.todoItems = todoItems;
+     *     }
+     * @throws IOException
+     */
 
     public void loadTodoItems() throws IOException{
         todoItems = FXCollections.observableArrayList();
