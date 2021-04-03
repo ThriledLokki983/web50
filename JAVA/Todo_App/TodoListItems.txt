@@ -6,3 +6,4 @@ Complete Java	Finish with the Java Programming language course on udemy and star
 New course	Want to upgrade your skills, quickly continue with the React skill development on udemy	14-04-2021
 Press	Go to the press for the test	28-03-2021
 New Test	testing again	31-03-2021
+Test	Testing the select option for the nwly added item	31-03-2021
