@@ -1,5 +1,4 @@
 package dataModel;
-
 import java.time.LocalDate;
 
 /**
