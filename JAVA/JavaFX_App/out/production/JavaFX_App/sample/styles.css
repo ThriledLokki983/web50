@@ -1,8 +1,12 @@
 
 
-
+.button{
+-fx-background-color: green;
+-fx-text-fill: white;
+}
 
 #button_one{
 -fx-background-color: blue;
 -fx-text-fill: white;
 }
+
