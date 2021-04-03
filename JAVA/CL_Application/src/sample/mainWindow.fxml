@@ -1,0 +1,64 @@
+<?import dataModel.Contact?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
+<BorderPane fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml">
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+    <padding>
+        <Insets left="10" right="10" bottom="10"/>
+    </padding>
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem text="New.."/>
+                    <MenuItem text="Open"/>
+                    <MenuItem text="Exit"/>
+                </Menu>
+                <Menu text="Edit">
+                    <MenuItem text="Cut"/>
+                    <MenuItem text="Copy"/>
+                    <MenuItem text="Paste"/>
+                </Menu>
+                <Menu text="Help">
+                    <MenuItem text="Settings"/>
+                    <MenuItem text="Check Update"/>
+                    <MenuItem text="Exit"/>
+                </Menu>
+            </MenuBar>
+        </VBox>
+    </top>
+    <center>
+        <TableView id="table-view">
+           <columns>
+               <TableColumn id="column" text="First Name" prefWidth="250">
+                   <cellValueFactory><PropertyValueFactory property="firstName" />
+                   </cellValueFactory>
+               </TableColumn>
+               <TableColumn  id="column" text="Last Name" prefWidth="250">
+                   <cellValueFactory><PropertyValueFactory property="lastName" />
+                   </cellValueFactory>
+               </TableColumn>
+               <TableColumn id="column" text="Phone Number" prefWidth="250">
+                   <cellValueFactory><PropertyValueFactory property="phoneNumber" />
+                   </cellValueFactory>
+               </TableColumn>
+               <TableColumn id="column" text="Notes" prefWidth="350">
+                   <cellValueFactory><PropertyValueFactory property="notes" />
+                   </cellValueFactory>
+               </TableColumn>
+           </columns>
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <Contact firstName="Gideon" lastName="Nimoh" phoneNumber="0626603494" notes="This is a test note"/>
+                </FXCollections>
+            </items>
+        </TableView>
+    </center>
+</BorderPane>

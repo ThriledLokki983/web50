@@ -1,4 +1,4 @@
-package ContactDataModel;
+package dataModel;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,7 +28,6 @@ import java.io.InputStream;
 
 public class ContactData {
 
-    //private static final Contact instance = new Contact();
     private static final String CONTACTS_FILE = "contacts.xml";
 
     private static final String CONTACT = "contact";
@@ -37,14 +36,26 @@ public class ContactData {
     private static final String PHONE_NUMBER = "phone_number";
     private static final String NOTES = "notes";
 
-    private ObservableList<Contact> contacts;
+    private final ObservableList<Contact> contacts;
 
-    public ContactData(Contact e) {
+    public ContactData() {
         // *** initialize the contacts list here ***
-        contacts.add(e);
+        contacts = FXCollections.observableArrayList();
     }
 
     // *** Add methods to add/delete/access contacts here ***
+
+    public void addContact(Contact e){
+        contacts.add(e);
+    }
+
+    public void deleteContact(Contact e){
+        contacts.remove(e);
+    }
+
+    public ObservableList<Contact> getContacts() {
+        return contacts;
+    }
 
     public void loadContacts(){
         try {
@@ -106,10 +117,7 @@ public class ContactData {
                 }
             }
         }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        catch (XMLStreamException e) {
+        catch (FileNotFoundException | XMLStreamException e) {
             e.printStackTrace();
         }
     }
