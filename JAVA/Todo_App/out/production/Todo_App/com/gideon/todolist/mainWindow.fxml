@@ -1,20 +1,16 @@
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<?import javax.tools.Tool?>
 <BorderPane fx:id="mainBorderPane" fx:controller="com.gideon.todolist.Controller"
             xmlns:fx="http://javafx.com/fxml">
     <top>
         <VBox>
             <MenuBar>
                 <Menu text="File">
-                    <items>
-                        <MenuItem text="New.." onAction="#showNewItemDialog"/>
-                        <SeparatorMenuItem/>
-                        <MenuItem text="Exit"/>
-                    </items>
+                    <MenuItem text="New.." onAction="#showNewItemDialog"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Exit" onAction="#handleExit"/>
                 </Menu>
             </MenuBar>
             <ToolBar>
@@ -25,7 +21,7 @@
                         </tooltip>
                         <graphic>
                             <ImageView>
-                                <Image url="@./toolbarButtonGraphics/general/New24.gif"/>
+                                <!--<Image url="@./toolbarButtonGraphics/general/New24.gif"/>-->
                             </ImageView>
                         </graphic>
                     </Button>

@@ -10,7 +10,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Iterator;
 
 
 /**
@@ -22,11 +21,11 @@ import java.util.Iterator;
 
 
 public class TodoData {
-    private static TodoData instance = new TodoData();
-    private static String filename = "TodoListItems.txt";
+    private static final TodoData instance = new TodoData();
+    private static final String filename = "TodoListItems.txt";
 
     private ObservableList<TodoItem> todoItems;
-    private DateTimeFormatter formatter;
+    private final DateTimeFormatter formatter;
 
     public static TodoData getInstance(){
         return instance;
@@ -45,22 +44,13 @@ public class TodoData {
     }
 
 
-    /**
-     *     public void setTodoItems(List<TodoItem> todoItems) {
-     *         this.todoItems = todoItems;
-     *     }
-     * @throws IOException
-     */
-
     public void loadTodoItems() throws IOException{
         todoItems = FXCollections.observableArrayList();
         Path path = Paths.get(filename);
-        BufferedReader br = Files.newBufferedReader(path);
 
-        String input;
-
-        try{
-            while((input = br.readLine()) != null){
+        try (BufferedReader br = Files.newBufferedReader(path)) {
+            String input;
+            while ((input = br.readLine()) != null) {
                 String[] itemPieces = input.split("\t");
 
                 String shortDescription = itemPieces[0];
@@ -71,32 +61,22 @@ public class TodoData {
                 TodoItem todoItem = new TodoItem(shortDescription, details, date);
                 todoItems.add(todoItem);
             }
-        }finally {
-            if (br != null){
-                br.close();
-            }
         }
     }
 
     public void storeTodoItems() throws IOException{
         Path path = Paths.get(filename);
-        BufferedWriter br = Files.newBufferedWriter(path);
-        try{
-            Iterator<TodoItem> iter = todoItems.iterator();
-            while(iter.hasNext()){
-                TodoItem item = iter.next();
+        try (BufferedWriter br = Files.newBufferedWriter(path)) {
+            for (TodoItem item : todoItems) {
                 br.write(String.format("%s\t%s\t%s",
                         item.getShortDescription(),
                         item.getDetails(),
                         item.getDeadLine().format(formatter)));
                 br.newLine();
             }
-        }finally {
-            if (br != null){
-                br.close();
-            }
         }
     }
+
 
     public void deleteTodoItem(TodoItem item){
         todoItems.remove(item);

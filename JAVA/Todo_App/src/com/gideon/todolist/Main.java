@@ -2,6 +2,8 @@ package com.gideon.todolist;
 
 import dataModel.TodoData;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -40,5 +42,10 @@ public class Main extends Application {
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
+    }
+
+    @FXML
+    public void handleExit(){
+        Platform.exit();
     }
 }

@@ -10,9 +10,9 @@ import java.time.LocalDate;
 
 
 public class TodoItem {
-    private String shortDescription;
-    private String details;
-    private LocalDate deadLine;
+    private final String shortDescription;
+    private final String details;
+    private final LocalDate deadLine;
 
     public TodoItem(String shortDescription, String details, LocalDate deadLine) {
         this.shortDescription = shortDescription;
@@ -24,30 +24,13 @@ public class TodoItem {
         return shortDescription;
     }
 
-    public void setShortDescription(String shortDescription) {
-        this.shortDescription = shortDescription;
-    }
-
     public String getDetails() {
         return details;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
-    }
 
     public LocalDate getDeadLine() {
         return deadLine;
     }
 
-    public void setDeadLine(LocalDate deadLine) {
-        this.deadLine = deadLine;
-    }
-
-    /**
-     *     @Override
-     *     public String toString() {
-     *         return shortDescription;
-     *     }
-     */
 }
