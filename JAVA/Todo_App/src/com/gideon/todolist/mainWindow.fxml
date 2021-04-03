@@ -11,18 +11,27 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 
 
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Button?>
 <BorderPane fx:id="mainBorderPane" fx:controller="com.gideon.todolist.Controller"
             xmlns:fx="http://javafx.com/fxml">
     <top>
-        <MenuBar>
-            <Menu text="File">
-                <items>
-                    <MenuItem text="New.." onAction="#showNewItemDialog"/>
-                    <SeparatorMenuItem/>
-                    <MenuItem text="Exit"/>
-                </items>
-            </Menu>
-        </MenuBar>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <items>
+                        <MenuItem text="New.." onAction="#showNewItemDialog"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Exit"/>
+                    </items>
+                </Menu>
+            </MenuBar>
+            <ToolBar>
+                <HBox>
+                    <Button text=" New " onAction="#showNewItemDialog"/>
+                </HBox>
+            </ToolBar>
+        </VBox>
     </top>
     <left>
         <ListView fx:id="todoListView" onKeyPressed="#handleKeyPressed">
