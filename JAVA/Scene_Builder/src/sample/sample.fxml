@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="708.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <center>
+      <Button alignment="TOP_LEFT" mnemonicParsing="false" text="Cancel" BorderPane.alignment="CENTER">
+         <graphic>
+            <Button mnemonicParsing="false" text="Button" />
+         </graphic></Button>
+
+      <Button mnemonicParsing="false" text="OK" BorderPane.alignment="CENTER" />
+      <Button mnemonicParsing="false" text="Help" BorderPane.alignment="CENTER" />
+      <Label prefHeight="59.0" prefWidth="136.0" text="My Label" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
