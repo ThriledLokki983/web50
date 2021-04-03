@@ -1,10 +1,8 @@
 Email to my boss	Buy a 30th birthday card for John	02-04-2021
-Announce DB Upgrade	Send announcement on the database upgrade over the holiday period	23-05-2021
 Doctor's Appointment	See Doctor Smith, bring with your the insurance card	08-04-2021
 Design proposal	Help with the design of Frank's new project	02-03-2021
 Complete Java	Finish with the Java Programming language course on udemy and start with JavaScript	06-06-2021
 New course	Want to upgrade your skills, quickly continue with the React skill development on udemy	14-04-2021
-Press	Go to the press for the test	28-03-2021
 New Test	testing again	31-03-2021
 Test	Testing the select option for the nwly added item	31-03-2021
 Auto populate	Trying out the ObservableList to auto populate my list instead of manually adding it	06-04-2021
