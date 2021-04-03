@@ -10,7 +10,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<BorderPane fx:controller="com.gideon.todolist.Controller"
+<BorderPane fx:id="mainBorderPane" fx:controller="com.gideon.todolist.Controller"
             xmlns:fx="http://javafx.com/fxml">
     <top>
         <MenuBar>
