@@ -14,20 +14,27 @@ import java.util.Scanner;
 
 public class Example {
     public static void main(String[] args) {
-        int result = divide();
-        System.out.println(result);
+        try{
+            int result = divide();
+            System.out.println(result);
+        }catch (ArithmeticException e){
+            System.out.println(e.toString());
+            System.out.println("Unable to divide by Zero. shutting down now");
+        }
     }
 
     private static int divide(){
-        int x;
+        int x, y;
         try {
             x = getInt();
-        }catch (NoSuchElementException e){
-            x = getInt();
+            y = getInt();
+            System.out.println("x is " + x + ", y is " + y);
+            return x / y;
+        }catch (ArithmeticException e){
+           throw new ArithmeticException("Attempted to divide by Zero");
+        } catch (NoSuchElementException e){
+            throw new ArithmeticException("Incorrect Input");
         }
-        int y = getInt();
-        System.out.println("x is " + x + ", y is " + y);
-        return x / y;
     }
 
     private static int getInt(){
