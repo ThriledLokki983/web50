@@ -23,12 +23,14 @@ public class Locations implements Map<Integer, Location> {
         try{
             locFile = new FileWriter("locations.txt");
             for (Location location : locations.values()){
-                locFile.write(location.getLocationID() + ": " + location.getDescription() + "\n");
+                locFile.write(location.getLocationID() + "," + location.getDescription() + "\n");
             }
-            locFile.close();
-        }catch (IOException e){
-            e.printStackTrace();
-            System.out.println("In Catch Block");
+        }finally {
+            System.out.println("In Finally Block");
+            if (locFile != null){
+                System.out.println("Attempting to close file");
+                locFile.close();
+            }
         }
 
     }
