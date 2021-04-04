@@ -39,4 +39,8 @@ public final class Location {
         return new HashMap<>(exits);
     }
 
+    protected void addExit(String direction, int location){
+        exits.put(direction, location);
+    }
+
 }
