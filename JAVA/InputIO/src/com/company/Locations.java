@@ -15,28 +15,20 @@ import java.util.*;
 public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locationMap = new HashMap<>();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         FileWriter locFile = null;
         try{
             locFile = new FileWriter("locations.txt");
             for (Location location : locationMap.values()){
                 locFile.write(location.getLocationID() + ", " + location.getDescription() + "\n");
             }
-        }catch (IOException e){
-            System.out.println("In catch block");
-            e.printStackTrace();
         }finally {
             System.out.println("In finally block");
-            try{
-                if (locFile != null){
-                    System.out.println("Attempting to close Loc file");
-                    locFile.close();
-                }
-            }catch (IOException e){
-                e.printStackTrace();
+            if (locFile != null){
+                System.out.println("Attempting to close Loc file");
+                locFile.close();
             }
         }
-
     }
 
     static {
