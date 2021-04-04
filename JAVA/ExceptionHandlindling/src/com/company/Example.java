@@ -17,7 +17,7 @@ public class Example {
         try{
             int result = divide();
             System.out.println(result);
-        }catch (ArithmeticException e){
+        }catch (ArithmeticException | NoSuchElementException e){
             System.out.println(e.toString());
             System.out.println("Unable to divide by Zero. shutting down now");
         }
