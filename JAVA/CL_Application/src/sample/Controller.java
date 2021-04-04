@@ -104,7 +104,7 @@ public class Controller {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Delete Contact");
         alert.setHeaderText(null);
-        alert.setContentText("Delete " + selectedContact.getFirstName() + "" + selectedContact.getLastName() + " ?");
+        alert.setContentText("Delete: " + selectedContact.getFirstName() + " " + selectedContact.getLastName() + " ?");
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.isPresent() && result.get() == ButtonType.OK){
