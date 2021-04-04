@@ -35,8 +35,7 @@ public class ContactController {
         * Add Validation here yourself
         * */
 
-        Contact newContact = new Contact(firstName, lastName, phoneNumber, notes);
-        return newContact;
+        return new Contact(firstName, lastName, phoneNumber, notes);
     }
 
     public void editContact(Contact e){

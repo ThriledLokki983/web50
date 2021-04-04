@@ -7,15 +7,15 @@
 	<notes>my Notes</notes>
 </contact>
 <contact>
-	<first_name>Francis</first_name>
-	<last_name>Nimoh</last_name>
-	<phone_number>0249094578</phone_number>
-	<notes>My Dad</notes>
-</contact>
-<contact>
 	<first_name>Last</first_name>
 	<last_name>One</last_name>
 	<phone_number>0487562</phone_number>
 	<notes>the last one</notes>
+</contact>
+<contact>
+	<first_name>Gideon</first_name>
+	<last_name>Nimoh</last_name>
+	<phone_number>0626603494</phone_number>
+	<notes>My first Contact</notes>
 </contact>
 </contacts>

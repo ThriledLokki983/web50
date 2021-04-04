@@ -111,7 +111,5 @@ public class Controller {
             data.deleteContact(selectedContact);
             data.saveContacts();
         }
-
     }
-
 }
