@@ -1,4 +1,4 @@
-package dataModel;
+package sample.dataModel;
 
 import javafx.beans.property.SimpleStringProperty;
 
@@ -11,11 +11,13 @@ import javafx.beans.property.SimpleStringProperty;
 
 
 public class Contact {
-    private final SimpleStringProperty firstName = new SimpleStringProperty("");
-    private final SimpleStringProperty lastName = new SimpleStringProperty("");
-    private final SimpleStringProperty phoneNumber = new SimpleStringProperty("");
-    private final SimpleStringProperty notes = new SimpleStringProperty("");
+    private SimpleStringProperty firstName = new SimpleStringProperty("");
+    private SimpleStringProperty lastName = new SimpleStringProperty("");
+    private SimpleStringProperty phoneNumber = new SimpleStringProperty("");
+    private SimpleStringProperty notes = new SimpleStringProperty("");
 
+    /*
+    * Our Default constructor with no parameters*/
     public Contact(){
     }
 

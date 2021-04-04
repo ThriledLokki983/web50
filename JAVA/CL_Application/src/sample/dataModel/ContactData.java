@@ -1,4 +1,4 @@
-package dataModel;
+package sample.dataModel;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -69,7 +69,6 @@ public class ContactData {
 
             while (eventReader.hasNext()) {
                 XMLEvent event = eventReader.nextEvent();
-
                 if (event.isStartElement()) {
                     StartElement startElement = event.asStartElement();
                     // If we have a contact item, we create a new contact
