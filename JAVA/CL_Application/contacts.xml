@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contacts>
+<contact>
+	<first_name>Bob</first_name>
+	<last_name>Nimoh-Agyin</last_name>
+	<phone_number>0626603494</phone_number>
+	<notes>Hello testing</notes>
+</contact>
+<contact>
+	<first_name>Nana</first_name>
+	<last_name>Yaw</last_name>
+	<phone_number>04587698</phone_number>
+	<notes>my Notes</notes>
+</contact>
+<contact>
+	<first_name>Francis</first_name>
+	<last_name>Nimoh</last_name>
+	<phone_number>0249094578</phone_number>
+	<notes>My Dad</notes>
+</contact>
+<contact>
+	<first_name>Last</first_name>
+	<last_name>One</last_name>
+	<phone_number>0487562</phone_number>
+	<notes>the last one</notes>
+</contact>
+</contacts>

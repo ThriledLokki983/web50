@@ -3,5 +3,6 @@ module CL.Application {
     requires javafx.fxml;
     requires java.xml;
 
+    opens sample.dataModel;
     opens sample;
 }

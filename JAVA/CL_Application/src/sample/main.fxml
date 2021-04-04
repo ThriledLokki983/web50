@@ -18,7 +18,8 @@
             <MenuBar>
                 <Menu text="Contacts">
                     <MenuItem text="Add New" onAction="#showAddContactDialog"/>
-                    <MenuItem text="Open"/>
+                    <MenuItem text="Edit" onAction="#showEditContactDialog"/>
+                    <MenuItem text="Delete" onAction="#deleteContact"/>
                     <MenuItem text="Exit"/>
                 </Menu>
             </MenuBar>
