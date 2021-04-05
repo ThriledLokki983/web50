@@ -17,9 +17,19 @@ public class Main {
 
         try(FileOutputStream binFile = new FileOutputStream("data.dat");
             FileChannel binChannel = binFile.getChannel()){
-
+/*
             byte[] outputByte = "Hello World!".getBytes();
-
+*/
+            ByteBuffer byteBuffer = ByteBuffer.allocate(100);
+            byte[] outputBytes = "Hello World!".getBytes();
+            byteBuffer.put(outputBytes);
+            byteBuffer.putInt(245);
+            byteBuffer.putInt(-978956);
+            byte[] outputByte2 = "Nice to meet you".getBytes();
+            byteBuffer.put(outputByte2);
+            byteBuffer.putInt(1000);
+            byteBuffer.flip();
+            binChannel.write(byteBuffer);
 
 /*            ByteBuffer buffer = ByteBuffer.allocate(outputByte.length);
             buffer.put(outputByte);
