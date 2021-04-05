@@ -8,15 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-/*        DirectoryStream.Filter<Path> filter =
-                new DirectoryStream.Filter<Path>() {
-                    @Override
-                    public boolean accept(Path entry) throws IOException {
-                        return (Files.isRegularFile(entry));
-                    }
-                };*/
-
-        DirectoryStream.Filter<Path> filter = p -> Files.isRegularFile(p);
+        DirectoryStream.Filter<Path> filter = Files::isRegularFile;
 
        // Path directory = FileSystems.getDefault().getPath("FileTree/Dir2");
         Path directory = FileSystems.getDefault().getPath("FileTree"+ File.separator + "Dir2");
@@ -69,5 +61,9 @@ public class Main {
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
+
+        File file = new File("/Examples/file.txt");
+        Path convertedPath = file.toPath();
+        System.out.println("Converted Path: " + convertedPath);
     }
 }
