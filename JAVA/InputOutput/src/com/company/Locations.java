@@ -62,24 +62,30 @@ public class Locations implements Map<Integer, Location> {
 
     static {
         try(DataInputStream locFIle = new DataInputStream(new BufferedInputStream(new FileInputStream("locations.dat")))){
-            while(true){
-                Map<String, Integer> exits = new LinkedHashMap<>();
-                int locID = locFIle.readInt();
-                String description = locFIle.readUTF();
-                int numExit = locFIle.readInt();
-                System.out.println("Read Location: " + locID + ": " + description);
-                System.out.println("Found " + numExit + ": exits.");
-                for (int i = 0; i < numExit; i++){
-                    String direction = locFIle.readUTF();
-                    int destination = locFIle.readInt();
-                    exits.put(direction, destination);
-                    System.out.println("\t\t" + direction + ": " + destination);
+            boolean eof = false;
+            while(!eof){
+                try {
+                    Map<String, Integer> exits = new LinkedHashMap<>();
+                    int locID = locFIle.readInt();
+                    String description = locFIle.readUTF();
+                    int numExit = locFIle.readInt();
+                    System.out.println("Read Location: " + locID + ": " + description);
+                    System.out.println("Found " + numExit + ": exits.");
+                    for (int i = 0; i < numExit; i++){
+                        String direction = locFIle.readUTF();
+                        int destination = locFIle.readInt();
+                        exits.put(direction, destination);
+                        System.out.println("\t\t" + direction + ": " + destination);
+                    }
+                    locations.put(locID, new Location(locID, description, exits));
+                }catch (EOFException e){
+                    eof = true;
                 }
-                locations.put(locID, new Location(locID, description, exits));
             }
         }catch (IOException e){
             System.out.println("IO Exception");
         }
+
 /*        try(BufferedReader locFile = new BufferedReader(new FileReader("locations_big.txt"))){
             String input;
             System.out.println("Started Importing ");
@@ -106,7 +112,7 @@ public class Locations implements Map<Integer, Location> {
             }
         }catch (IOException e){
             e.printStackTrace();
-        }*/ /*        try (BufferedReader dirFile = new BufferedReader(new FileReader("directions_big.txt"))){
+        }*/ /* try (BufferedReader dirFile = new BufferedReader(new FileReader("directions_big.txt"))){
             String input;
             while ((input = dirFile.readLine()) != null){
                 String[] data = input.split(",");
