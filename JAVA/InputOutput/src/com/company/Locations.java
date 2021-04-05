@@ -15,7 +15,23 @@ public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new LinkedHashMap<>();
 
     public static void main(String[] args) throws IOException {
-        try(BufferedWriter locFile = new BufferedWriter(new FileWriter("locations.txt"));
+        try(DataOutputStream locFile = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("locations.dat")))) {
+            for (Location location : locations.values()) {
+                locFile.writeInt(location.getLocationID());
+                locFile.writeUTF(location.getDescription());
+                System.out.println("Writing Location: " + location.getLocationID() + ": " + location.getDescription() + "\n");
+                System.out.println("Writing " + (location.getExits().size() - 1) + " exits");
+                locFile.writeInt(location.getExits().size() - 1);
+                for (String direction : location.getExits().keySet()) {
+                    if (!direction.equalsIgnoreCase("Q")) {
+                        System.out.println("\t\t" + direction + "," + location.getExits().get(direction));
+                        locFile.writeUTF(direction);
+                        locFile.writeInt(location.getExits().get(direction));
+                    }
+                }
+            }
+        }
+/*        try(BufferedWriter locFile = new BufferedWriter(new FileWriter("locations.txt"));
             BufferedWriter dirFile = new BufferedWriter(new FileWriter("directions.txt"))){
             for (Location location : locations.values()){
                 locFile.write(location.getLocationID() + "," + location.getDescription() + "\n");
@@ -25,8 +41,7 @@ public class Locations implements Map<Integer, Location> {
                     }
                 }
             }
-        }
-        /*FileWriter locFile = null;
+}*//*FileWriter locFile = null;
         try{
             locFile = new FileWriter("locations.txt");
             for (Location location : locations.values()){
