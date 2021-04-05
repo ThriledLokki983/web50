@@ -15,7 +15,14 @@ public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new LinkedHashMap<>();
 
     public static void main(String[] args) throws IOException {
-        try(DataOutputStream locFile = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("locations.dat")))) {
+
+        try(ObjectOutputStream locFile = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("locations.dat")))) {
+            for(Location location : locations.values()){
+                locFile.writeObject(location);
+            }
+        }
+
+/*        try(DataOutputStream locFile = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("locations.dat")))) {
             for (Location location : locations.values()) {
                 locFile.writeInt(location.getLocationID());
                 locFile.writeUTF(location.getDescription());
@@ -30,8 +37,7 @@ public class Locations implements Map<Integer, Location> {
                     }
                 }
             }
-        }
-/*        try(BufferedWriter locFile = new BufferedWriter(new FileWriter("locations.txt"));
+        }*//*        try(BufferedWriter locFile = new BufferedWriter(new FileWriter("locations.txt"));
             BufferedWriter dirFile = new BufferedWriter(new FileWriter("directions.txt"))){
             for (Location location : locations.values()){
                 locFile.write(location.getLocationID() + "," + location.getDescription() + "\n");
@@ -61,9 +67,25 @@ public class Locations implements Map<Integer, Location> {
     }
 
     static {
-        try(DataInputStream locFIle = new DataInputStream(new BufferedInputStream(new FileInputStream("locations.dat")))){
+        try(ObjectInputStream locFIle = new ObjectInputStream(new BufferedInputStream(new FileInputStream("locations.dat")))) {
             boolean eof = false;
             while(!eof){
+                try{
+                    Location location = (Location) locFIle.readObject();
+                    System.out.println("Read Location " + location.getLocationID() + " : " + location.getDescription());
+                    System.out.println("Found " + location.getExits().size() + " exits");
+
+                    locations.put(location.getLocationID(), location);
+                }catch (EOFException e){
+                    eof = true;
+                }
+            }
+        }catch (IOException e){
+            System.out.println("IO Exception" + e.getMessage());
+        }catch (ClassNotFoundException e){
+            System.out.println("Class Not Found Exception " + e.getMessage());
+        }
+/*            while(!eof){
                 try {
                     Map<String, Integer> exits = new LinkedHashMap<>();
                     int locID = locFIle.readInt();
@@ -84,9 +106,7 @@ public class Locations implements Map<Integer, Location> {
             }
         }catch (IOException e){
             System.out.println("IO Exception");
-        }
-
-/*        try(BufferedReader locFile = new BufferedReader(new FileReader("locations_big.txt"))){
+        }*//*        try(BufferedReader locFile = new BufferedReader(new FileReader("locations_big.txt"))){
             String input;
             System.out.println("Started Importing ");
             while ((input = locFile.readLine()) != null){
