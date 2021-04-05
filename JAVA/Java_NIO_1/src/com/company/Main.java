@@ -19,7 +19,12 @@ public class Main {
             FileChannel binChannel = binFile.getChannel()){
 
             byte[] outputByte = "Hello World!".getBytes();
-            ByteBuffer buffer = ByteBuffer.wrap(outputByte);
+
+
+/*            ByteBuffer buffer = ByteBuffer.allocate(outputByte.length);
+            buffer.put(outputByte);
+            buffer.flip();
+
             int numBytes = binChannel.write(buffer);
             System.out.println("Number of Bytes written " + numBytes);
 
@@ -31,7 +36,7 @@ public class Main {
 
             intBuffer.flip();
             intBuffer.putInt(-97835);
-            intBuffer.flip(); /* Always call the flip if you want to reset the position to zero */
+            intBuffer.flip(); *//* Always call the flip if you want to reset the position to zero *//*
             numBytes = binChannel.write(intBuffer);
             System.out.println("Number of Bytes: " + numBytes);
 
@@ -43,6 +48,7 @@ public class Main {
             long numBytesRead = channel.read(buffer);
             if (buffer.hasArray()){
                 System.out.println("byte buffer = " + new String(buffer.array()));
+//                System.out.println("byte buffer " + new String(outputByte));
             }
             //System.out.println("Output Bytes: " + new String(outputByte));
             intBuffer.flip();
@@ -52,9 +58,7 @@ public class Main {
             intBuffer.flip();
             numBytesRead = channel.read(intBuffer);
             intBuffer.flip();
-            System.out.println(intBuffer.getInt());
-
-/*            RandomAccessFile ra = new RandomAccessFile("data.dat", "rwd");
+            System.out.println(intBuffer.getInt());*//*            RandomAccessFile ra = new RandomAccessFile("data.dat", "rwd");
             byte[] b = new byte[outputByte.length];
             ra.read(b);
             System.out.println(new String(b));
