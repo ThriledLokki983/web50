@@ -46,4 +46,19 @@ public class CopyFiles extends SimpleFileVisitor<Path> {
         }
         return FileVisitResult.CONTINUE;
     }
+
+    @Override
+    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+        Path relativizedPath = sourceRoot.relativize(file);
+        System.out.println("RelativizedPath: " + relativizedPath);
+        Path copyDir = targetRoot.resolve(relativizedPath);
+        System.out.println("Resolved Path for COpy: " + copyDir);
+
+        try {
+            Files.copy(file, copyDir);
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+        return FileVisitResult.CONTINUE;
+    }
 }
