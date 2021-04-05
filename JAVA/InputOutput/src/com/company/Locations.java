@@ -12,11 +12,11 @@ import java.util.*;
 
 
 public class Locations implements Map<Integer, Location> {
-    private static Map<Integer, Location> locations = new HashMap<>();
+    private static Map<Integer, Location> locations = new LinkedHashMap<>();
 
     public static void main(String[] args) throws IOException {
-        try(FileWriter locFile = new FileWriter("locations.txt");
-            FileWriter dirFile = new FileWriter("directions.txt")){
+        try(BufferedWriter locFile = new BufferedWriter(new FileWriter("locations.txt"));
+            BufferedWriter dirFile = new BufferedWriter(new FileWriter("directions.txt"))){
             for (Location location : locations.values()){
                 locFile.write(location.getLocationID() + "," + location.getDescription() + "\n");
                 for (String direction : location.getExits().keySet()){
@@ -43,8 +43,22 @@ public class Locations implements Map<Integer, Location> {
 */
     }
 
-
     static {
+        try(BufferedReader locFile = new BufferedReader(new FileReader("locations_big.txt"))){
+            String input;
+            System.out.println("Started Importing ");
+            while ((input = locFile.readLine()) != null){
+                String[] data = input.split(",");
+                int loc = Integer.parseInt(data[0]);
+                String description = data[1];
+                System.out.println("Imported loc: " + loc + ": " + description);
+                Map<String, Integer> tempExit = new HashMap<>();
+                locations.put(loc, new Location(loc, description, tempExit));
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+/*
         try{ Scanner scanner = new Scanner(new FileReader("locations_big.txt"));
             scanner.useDelimiter(",");
             while (scanner.hasNextLine()){
@@ -57,7 +71,7 @@ public class Locations implements Map<Integer, Location> {
             }
         }catch (IOException e){
             e.printStackTrace();
-        }
+        }*/
 
         try (BufferedReader dirFile = new BufferedReader(new FileReader("directions_big.txt"))){
             String input;
