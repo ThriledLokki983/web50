@@ -1,0 +1,10 @@
+title: Django Tutorial
+language: English
+summary: Django Tutorial based on <a href="https://tutorial.djangogirls.org/en/django_templates/"
+  rel="noopener noreferrer nofollow">Django Girls Tutorial</a> and <a href="https://docs.djangoproject.com/en/1.10/"
+  rel="noopener noreferrer nofollow">Django official documentation</a>
+programming_language: Python
+programming_language_version: All versions
+content:
+- lesson1
+mode: Study

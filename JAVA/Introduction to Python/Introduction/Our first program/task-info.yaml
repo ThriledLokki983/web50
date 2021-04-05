@@ -28,17 +28,20 @@ files:
   visible: true
   placeholders:
   - offset: 32
-    length: 14
+    length: 6
     placeholder_text: type your name
     initial_state:
       length: 14
       offset: 32
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: Liana
   text: |
     print("Hello, world! My name is type your name")
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Tue, 30 Mar 2021 20:38:07 UTC
 record: -1

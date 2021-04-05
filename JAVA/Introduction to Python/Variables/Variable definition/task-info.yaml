@@ -4,14 +4,14 @@ files:
   visible: true
   placeholders:
   - offset: 345
-    length: 13
+    length: 20
     placeholder_text: another value
     initial_state:
       length: 13
       offset: 345
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: 5
   text: |
     a = b = 2  # This is called a "chained assignment". It assigns the value 2 to variables "a" and "b".
@@ -49,5 +49,8 @@ files:
         run_common_tests("You should redefine the variable 'greetings'")
         test_value()
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Tue, 30 Mar 2021 20:40:30 UTC
 record: -1

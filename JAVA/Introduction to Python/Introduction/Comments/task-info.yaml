@@ -11,7 +11,7 @@ files:
       offset: 138
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: new comment
   text: |
     # This is the comment for the comments.py file
@@ -28,5 +28,8 @@ files:
     if __name__ == '__main__':
         run_common_tests("You should type new comment")
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Tue, 30 Mar 2021 20:38:47 UTC
 record: -1

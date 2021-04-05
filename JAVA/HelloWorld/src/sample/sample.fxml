@@ -8,9 +8,9 @@
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <Label text="Welcome to Java" textFill="green" >
         <font>
-            <Font name="Times New Roman bold" size="70"><![CDATA[
+            <Font name="Times New Roman bold" size="70">
 
-            ]]></Font>
+            </Font>
         </font>
     </Label>
 </GridPane>
