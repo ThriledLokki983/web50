@@ -14,13 +14,13 @@ public class Main {
 
 class Message{
     private String message;
-    private boolean empty;
+    private boolean empty = true;
 
-    public synchronized String read(){
-        while (empty){
+    public synchronized String read() {
+        while(empty) {
             try {
                 wait();
-            }catch (InterruptedException e){
+            } catch(InterruptedException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -29,11 +29,11 @@ class Message{
         return message;
     }
 
-    public synchronized  void write(String message){
-        while (!empty){
+    public synchronized void write(String message) {
+        while(!empty) {
             try {
                 wait();
-            }catch (InterruptedException e){
+            } catch(InterruptedException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -43,48 +43,51 @@ class Message{
     }
 }
 
-class Writer implements Runnable{
+class Writer implements Runnable {
     private Message message;
 
-    public Writer(Message message){
+    public Writer(Message message) {
         this.message = message;
     }
 
-    public void run(){
+    public void run() {
         String messages[] = {
-                "Humpty Dumpty sat on the wall",
+                "Humpty Dumpty sat on a wall",
                 "Humpty Dumpty had a great fall",
                 "All the king's horses and all the king's men",
                 "Couldn't put Humpty together again"
         };
+
         Random random = new Random();
-        for (int i = 0; i < messages.length; i++ ){
+
+        for(int i=0; i<messages.length; i++) {
             message.write(messages[i]);
             try {
                 Thread.sleep(random.nextInt(2000));
-            }catch (InterruptedException e){
-                System.out.println(e.getCause());
+            } catch(InterruptedException e) {
+
             }
         }
         message.write("Finished");
     }
 }
 
-class Reader implements Runnable{
+class Reader implements Runnable {
     private Message message;
 
     public Reader(Message message) {
         this.message = message;
     }
 
-    public void run(){
+    public void run() {
         Random random = new Random();
-        for (String latestMessage = message.read(); !latestMessage.equals("Finished"); latestMessage = message.read()){
+        for(String latestMessage = message.read(); !latestMessage.equals("Finished");
+            latestMessage = message.read()) {
             System.out.println(latestMessage);
             try {
                 Thread.sleep(random.nextInt(2000));
-            }catch (InterruptedException e){
-                System.out.println(e.getCause());
+            } catch(InterruptedException e) {
+
             }
         }
     }
