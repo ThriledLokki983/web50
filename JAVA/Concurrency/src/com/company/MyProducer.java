@@ -32,8 +32,11 @@ public class MyProducer implements Runnable{
             try {
                 System.out.println(color + "Adding --- " + num);
                 bufferLock.lock();
-                buffer.add(num);
-                bufferLock.unlock();
+                try {
+                    buffer.add(num);
+                }finally {
+                    bufferLock.unlock();
+                }
 
                 Thread.sleep(random.nextInt(1000));
             }catch (InterruptedException e){
@@ -42,7 +45,10 @@ public class MyProducer implements Runnable{
         }
         System.out.println(color + "Adding EOF and exiting....");
         bufferLock.lock();
-        buffer.add("EOF");
-        bufferLock.unlock();
+        try {
+            buffer.add("EOF");
+        }finally {
+            bufferLock.unlock();
+        }
     }
 }
