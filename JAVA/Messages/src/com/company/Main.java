@@ -5,9 +5,12 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+	Message message = new Message();
+        (new Thread(new Writer(message))).start();
+        (new Thread(new Reader(message))).start();
     }
 }
+
 
 class Message{
     private String message;
@@ -15,18 +18,28 @@ class Message{
 
     public synchronized String read(){
         while (empty){
-
+            try {
+                wait();
+            }catch (InterruptedException e){
+                System.out.println(e.getMessage());
+            }
         }
         empty = true;
+        notifyAll();
         return message;
     }
 
     public synchronized  void write(String message){
         while (!empty){
-
+            try {
+                wait();
+            }catch (InterruptedException e){
+                System.out.println(e.getMessage());
+            }
         }
         empty = false;
         this.message = message;
+        notifyAll();
     }
 }
 
