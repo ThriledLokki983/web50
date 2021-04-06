@@ -27,20 +27,26 @@ public class MyConsumer implements Runnable{
 
     @Override
     public void run() {
+        int counter = 0;
         while (true){
-                bufferLock.lock();
-                try {
-                    if (buffer.isEmpty()){
-                        continue;
+                if (bufferLock.tryLock()){
+                    try {
+                        if (buffer.isEmpty()){
+                            continue;
+                        }
+                        System.out.println(color + "The counter = " + counter);
+                        counter = 0;
+                        if (buffer.get(0).equals(EOF)){
+                            System.out.println(color + "Exiting");
+                            break;
+                        }else{
+                            System.out.println(color + "Removed " + buffer.remove(0));
+                        }
+                    }finally {
+                        bufferLock.unlock();
                     }
-                    if (buffer.get(0).equals(EOF)){
-                        System.out.println(color + "Exiting");
-                        break;
-                    }else{
-                        System.out.println(color + "Removed " + buffer.remove(0));
-                    }
-                }finally {
-                    bufferLock.unlock();
+                }else {
+                    counter++;
                 }
         }
     }
