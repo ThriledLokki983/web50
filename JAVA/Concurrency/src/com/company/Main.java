@@ -14,7 +14,7 @@ public class Main {
         List<String> buffer = new ArrayList<>();
         ReentrantLock bufferLock = new ReentrantLock();
 
-        ExecutorService executorService = Executors.newFixedThreadPool(3);
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
         MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_PURPLE, bufferLock);
         MyConsumer consumer1 = new MyConsumer(buffer, ThreadColor.ANSI_YELLOW, bufferLock);
         MyConsumer consumer2 = new MyConsumer(buffer, ThreadColor.ANSI_BLUE, bufferLock);
@@ -30,7 +30,7 @@ public class Main {
         Future<String> future = executorService.submit(new Callable<String>() {
             @Override
             public String call() throws Exception {
-                System.out.println(ThreadColor.ANSI_GREEN + "This is being prined from the Callable Class ");
+                System.out.println(ThreadColor.ANSI_GREEN + "This is being printed from the Callable Class ");
                 return "This is the Callable Result";
             }
         });
