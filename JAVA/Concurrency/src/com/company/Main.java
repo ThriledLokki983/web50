@@ -11,13 +11,13 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
 
-        List<String> buffer = new ArrayList<>();
+        ArrayBlockingQueue<String> buffer = new ArrayBlockingQueue<String>();
         ReentrantLock bufferLock = new ReentrantLock();
 
-        ExecutorService executorService = Executors.newFixedThreadPool(5);
-        MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_PURPLE, bufferLock);
-        MyConsumer consumer1 = new MyConsumer(buffer, ThreadColor.ANSI_YELLOW, bufferLock);
-        MyConsumer consumer2 = new MyConsumer(buffer, ThreadColor.ANSI_BLUE, bufferLock);
+        ExecutorService executorService = Executors.newFixedThreadPool(6);
+        MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_PURPLE);
+        MyConsumer consumer1 = new MyConsumer(buffer, ThreadColor.ANSI_YELLOW);
+        MyConsumer consumer2 = new MyConsumer(buffer, ThreadColor.ANSI_BLUE);
 
         /*new Thread(producer).start();
         new Thread(consumer1).start();
