@@ -1,66 +1,78 @@
 package com.company;
 
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Name: Gideon Nimoh
  * Date: 4/7/21
- * Time: 5:25 PM
+ * Time: 7:15 PM
  * To change this template use File | Settings | File and Code Templates.
  */
 
 
 public class BankAccount {
-    private double balance = 0;
+    private double balance;
     private String accountNumber;
-    private ReentrantLock bankLock;
+    private Lock lock = new ReentrantLock();
 
-    public BankAccount(double balance, String accountNumber) {
-        this.balance = balance;
+    BankAccount(String accountNumber, double balance) {
         this.accountNumber = accountNumber;
-        this.bankLock = new ReentrantLock();
+        this.balance = balance;
     }
 
+    public static void main(String[] args) {
+        BankAccount account1 = new BankAccount("12345-678", 500.00);
+        BankAccount account2 = new BankAccount("98765-432", 1000.00);
 
-    public void deposit(double amount){
-       boolean status = false;
-        try {
-            if (bankLock.tryLock(1000, TimeUnit.MILLISECONDS)){
-                try {
-                    balance += amount;
-                    status = true;
-                }finally {
-                    bankLock.unlock();
-                }
-            }else {
-                System.out.println("Could not get the lock. ");
+        new Thread(new Transfer(account1, account2, 10.00), "Transfer1").start();
+        new Thread(new Transfer(account2, account1, 55.88), "Transfer2").start();
+    }
+
+    public boolean withdraw(double amount) {
+        if (lock.tryLock()) {
+            try {
+                // Simulate database access
+                Thread.sleep(100);
             }
-
-        }catch (InterruptedException e){
-            System.out.println(e.getMessage());
+            catch (InterruptedException e) {
+            }
+            balance -= amount;
+            System.out.printf("%s: Withdrew %f\n", Thread.currentThread().getName(), amount);
+            return true;
         }
-        System.out.println("Transaction status = " + status);
+        return false;
     }
 
+    public boolean deposit(double amount) {
+        if (lock.tryLock()) {
+            try {
+                // Simulate database access
+                Thread.sleep(100);
+            }
+            catch (InterruptedException e) {
+            }
+            balance += amount;
+            System.out.printf("%s: Deposited %f\n", Thread.currentThread().getName(), amount);
+            return true;
+        }
+        return false;
+    }
 
-    public void withdraw(double amount){
-        boolean status = false;
-       try {
-           if (bankLock.tryLock(1000, TimeUnit.MILLISECONDS)){
-               try {
-                   balance -= amount;
-                   status = true;
-               }finally {
-                   bankLock.unlock();
-               }
-           }else {
-               System.out.println("Could not get the lock");
-           }
-       }catch (InterruptedException e){
-           System.out.println(e.getMessage());
-       }
-        System.out.println("Transaction status = " + status);
+    public boolean transfer(BankAccount destinationAccount, double amount) {
+        if (withdraw(amount)) {
+            if (destinationAccount.deposit(amount)) {
+                return true;
+            }
+            else {
+                // The deposit failed. Refund the money back into the account.
+                System.out.printf("%s: Destination account busy. Refunding money\n",
+                        Thread.currentThread().getName());
+                deposit(amount);
+            }
+        }
+
+        return false;
     }
 
     public double getBalance() {
@@ -69,9 +81,5 @@ public class BankAccount {
 
     public String getAccountNumber() {
         return accountNumber;
-    }
-
-    public void printAccountNumber(){
-        System.out.println("Account Number: " + accountNumber);
     }
 }
