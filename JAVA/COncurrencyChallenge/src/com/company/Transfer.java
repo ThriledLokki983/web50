@@ -2,6 +2,8 @@ package com.company;
 
 import com.company.BankAccount;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 
 /**
  * Name: Gideon Nimoh
@@ -12,10 +14,9 @@ import com.company.BankAccount;
 
 
 public class Transfer implements Runnable{
-
-
     private com.company.BankAccount sourceAccount, destinationAccount;
     private double amount;
+    private ReentrantLock transferLock;
 
     Transfer(BankAccount sourceAccount, BankAccount destinationAccount, double amount) {
         this.sourceAccount = sourceAccount;
