@@ -93,6 +93,17 @@ public class Main {
                 .forEach(System.out::println);
 
 
+
+        /*Q11*/
+        System.out.println("===========================");
+        topNames2021
+                .stream()
+                .map(name -> name.substring(0, 1).toUpperCase() + name.substring(1))
+                .filter(s -> s.startsWith("A"))
+                .sorted(String::compareTo)
+                .forEach(System.out::println);
+
+
     }
 
     /*Q4*/
