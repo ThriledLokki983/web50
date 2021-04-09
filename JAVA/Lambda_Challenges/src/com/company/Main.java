@@ -1,6 +1,11 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Function;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -41,6 +46,44 @@ public class Main {
 
 
  /**/   everySecondChar(lambdaFunction.apply("1234567890"));
+        System.out.println("=====================================================");
+
+        /*Q5*/
+        Supplier<String> iLoveJav = () -> "I Love Java!";
+        System.out.println(iLoveJav.get());
+
+        System.out.println("=====================================================");
+
+        /*9*/
+        List<String> topNames2021 = Arrays.asList(
+                "Amelia", "emily", "Isla",
+                "Olivia", "Ava", "oliver",
+                "Jack", "Charlie", "harry",
+                "Jacob");
+        List<String> firstUpperCase = new ArrayList<>();
+        topNames2021.forEach(name -> {
+           char s1 = name.toUpperCase().charAt(0);
+           firstUpperCase.add(s1+name.substring(1));
+           firstUpperCase.sort((s3, s2) -> s3.compareTo(s2));
+            System.out.println(s1 + name.substring(1));
+            System.out.println("===========================");
+            firstUpperCase.forEach(s -> System.out.println(s));
+        });
+
+        System.out.println("===========================");
+
+        /*Q10*/
+        topNames2021
+                .stream()
+                .map(String::toUpperCase)
+                .sorted()
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
+
+        System.out.println("===========================");
+
+        topNames2021.sort(String::compareTo);
+        topNames2021.forEach(System.out::println);
 
 
     }
