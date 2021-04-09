@@ -73,17 +73,24 @@ public class Main {
         System.out.println("===========================");
 
         /*Q10*/
-        topNames2021
+        firstUpperCase
                 .stream()
-                .map(String::toUpperCase)
                 .sorted()
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
 
         System.out.println("===========================");
 
-        topNames2021.sort(String::compareTo);
-        topNames2021.forEach(System.out::println);
+        firstUpperCase.sort(String::compareTo);
+        firstUpperCase.forEach(System.out::println);
+
+        /*Q11*/
+        System.out.println("===========================");
+        topNames2021
+                .stream()
+                .map(name -> name.substring(0, 1).toUpperCase() + name.substring(1))
+                .sorted(String::compareTo)
+                .forEach(System.out::println);
 
 
     }
