@@ -104,6 +104,17 @@ public class Main {
                 .forEach(System.out::println);
 
 
+        /*Q12*/
+        System.out.println("===========================");
+        long nameCount =
+        topNames2021
+                .stream()
+                .map(name -> name.substring(0, 1).toUpperCase() + name.substring(1))
+                .peek(System.out::println)
+                .sorted(String::compareTo)
+                .count();
+
+        System.out.println(nameCount);
     }
 
     /*Q4*/
