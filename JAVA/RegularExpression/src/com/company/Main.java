@@ -306,10 +306,20 @@ public class Main {
         System.out.println("============================");
         /*Q13*/
         // ^[0-9]{5}\\-[0-9]{4}$
-        // ^\d{5}\-\d{4}$
+        // ^\\d{5}\\-\\d{4}$
         String usCOde1 = "11111-1111";
         System.out.println(usCOde1.matches("^[0-9]{5}\\-[0-9]{4}$"));
         System.out.println(usCOde1.matches("^\\d{5}\\-\\d{4}$"));
+
+
+        System.out.println("============================");
+        /*Q14*/
+        // ^\\d{5}|.*\\-|.*\\d{4}$
+        // "^\\d{5}(-\\d{4})?$"
+        System.out.println(usCode.matches("^\\d{5}|.*\\-|.*\\d{4}$"));
+        System.out.println(usCOde1.matches("^\\d{5}|.*\\-|.*\\d{4}$"));
+        System.out.println(usCode.matches("^\\d{5}(-\\d{4})?$"));
+        System.out.println(usCOde1.matches("^\\d{5}(-\\d{4})?$"));
 
 
         System.out.println("============================");
