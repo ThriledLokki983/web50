@@ -74,6 +74,11 @@ public class Main {
         System.out.println("============================");
         System.out.println(thirdAlphanumeric.replaceAll("^abcDe*", "YYY" )); /* Followed by e or not then continue to replace*/
         System.out.println("============================");
+        System.out.println(thirdAlphanumeric.replaceAll("^abcDe{2,5}", "YYY" ));
+        System.out.println("============================");
+        System.out.println(thirdAlphanumeric.replaceAll("h+i*j", "X")); /* H followed by zero or more i then followed by j*/
+        System.out.println("============================");
+
 
     }
 }
