@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -260,6 +261,55 @@ public class Main {
             System.out.println("Occurrence: " + matcher9.group(1));
         }
 
+
+        System.out.println("============================");
+        /*Q10*/
+        /* Print the start and the end indices of the challenge 9 */
+        String challenge10 = "abcd.135\tuvqz.7\ttzik.999\n";
+        String challenge10Pattern = "[A-Za-z]+\\.(\\d+)\\s";
+        Pattern pattern10 = Pattern.compile(challenge10Pattern);
+        Matcher matcher10 = pattern10.matcher(challenge9);
+        while(matcher10.find()){
+            System.out.println("Occurrence: " + " start " + matcher10.start(1) + " end " + (matcher10.end(1)-1));
+        }
+
+
+        System.out.println("============================");
+        /*Q11*/
+
+        String challenge11 = "{0,2}, {0,5}, {1,3}, {2,4}";
+        Pattern pattern11 = Pattern.compile("\\{(.+?)\\}");
+        Matcher matcher11 = pattern11.matcher(challenge11);
+       while (matcher11.find()){
+           System.out.println("Occurrence: " + matcher11.group(1));
+       }
+
+        System.out.println("-------------------------------------");
+
+        String challenge11a = "{0,2}, {0,5}, {1,3}, {2,4}, {4,11}, {x,y}, {12,45}, {e,89}";
+        Pattern pattern11a = Pattern.compile("\\{(\\d+,\\d+)\\}");
+        Matcher matcher11a = pattern11a.matcher(challenge11a);
+        while (matcher11a.find()){
+            System.out.println("Occurrence: " + matcher11a.group(1));
+        }
+
+
+        System.out.println("============================");
+        /*Q12*/
+        //[0-9]{5}
+        // ^\\d{5}$
+        String usCode = "11111";
+        System.out.println(usCode.matches("[0-9]{5}"));
+        System.out.println(usCode.matches("^\\d{5}$"));
+
+
+        System.out.println("============================");
+        /*Q13*/
+        // ^[0-9]{5}\\-[0-9]{4}$
+        // ^\d{5}\-\d{4}$
+        String usCOde1 = "11111-1111";
+        System.out.println(usCOde1.matches("^[0-9]{5}\\-[0-9]{4}$"));
+        System.out.println(usCOde1.matches("^\\d{5}\\-\\d{4}$"));
 
 
         System.out.println("============================");
