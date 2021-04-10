@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -79,6 +82,52 @@ public class Main {
         System.out.println(thirdAlphanumeric.replaceAll("h+i*j", "X")); /* H followed by zero or more i then followed by j*/
         System.out.println("============================");
 
+        StringBuilder htmlText = new StringBuilder("<h1>My Heading</h1>");
+        htmlText.append("<h2>Sub-Heading</h2>");
+        htmlText.append("<p>This is a paragraph about something.</p>");
+        htmlText.append("<p>This is another paragraph about something else. </p>");
+        htmlText.append("<h2>Summary</h2>");
+        htmlText.append("<p>Here is the summary.</p>");
+
+        String hPattern = ".*<h2>.*";
+        String h2Pattern = "<h2>"; /* Group method */
+        Pattern pattern = Pattern.compile(h2Pattern, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(htmlText);
+        System.out.println(matcher.matches()); /* reset matcher before we use it again */
+
+        System.out.println("============================");
+
+        matcher.reset();
+        int count = 0;
+        while (matcher.find()){
+            count++;
+            System.out.println("Occurrence " + count + ": " + matcher.start() + " to " + matcher.end());
+        }
+
+        System.out.println("============================");
+
+        String h2GroupPatter = "(<h2>)";
+        String h2GroupPattern1 = "(<h2>.*</h2>)"; /* Greedy quantifier */
+        String h2GroupPattern = "(<h2>.+?</h2>)"; /* Lazy quantifier */
+        Pattern groupPattern = Pattern.compile(h2GroupPattern);
+        Matcher groupMatcher = groupPattern.matcher(htmlText);
+        System.out.println(groupMatcher.matches());
+        groupMatcher.reset();
+
+        while (groupMatcher.find()){
+            System.out.println("Occurrence: " + groupMatcher.group(1));
+        }
+        System.out.println("============================");
+        String h2TextGroup = "(<h2>)(.+?)(</h2>)";
+        Pattern h2TextPattern = Pattern.compile(h2TextGroup);
+        Matcher textMatcher = h2TextPattern.matcher(htmlText);
+        System.out.println(textMatcher.matches());
+        textMatcher.reset();
+
+        while (textMatcher.find()){
+            System.out.println("Occurrence: " + textMatcher.group(2));
+        }
+        System.out.println("============================");
 
     }
 }
