@@ -156,10 +156,25 @@ public class Main {
         String phone2 = "(123) 456-7890";
         String phone3 = "123 456-7890";
         String phone4 = "(123)456-7890";
-        System.out.println("Phone 1: " + phone1.matches("^([\\(]{1}[0-9]{3}[\\)]{1}[ ]{1}[0-9]{3}[\\-]{1}[0-9]{4})$"));
+        System.out.println("Phone 1: " + phone1.matches("^([\\(]{1}[0-9]{3}[\\)]{1}[ ]{1}[0-9]{3}[\\-]{1}[0-9]{4})$")); /* Validating a USA number */
         System.out.println("Phone 2: " + phone2.matches("^([\\(]{1}[0-9]{3}[\\)]{1}[ ]{1}[0-9]{3}[\\-]{1}[0-9]{4})$"));
         System.out.println("Phone 3: " + phone3.matches("^([\\(]{1}[0-9]{3}[\\)]{1}[ ]{1}[0-9]{3}[\\-]{1}[0-9]{4})$"));
         System.out.println("Phone 4: " + phone4.matches("^([\\(]{1}[0-9]{3}[\\)]{1}[ ]{1}[0-9]{3}[\\-]{1}[0-9]{4})$"));
+
+        System.out.println("============================");
+        /* Validating a VISA card with Regex */
+        /* ^4[0-9]{12}([0-9]{3})?$ */
+
+        String visa1 = "44444444444444";
+        String visa2 = "54444444444444444";
+        String visa3 = "4444444444444444";
+        String visa4 = "4444";
+
+        System.out.println("Visa 1: " + visa1.matches("^4[0-9]{12}([0-9]{3})?$"));
+        System.out.println("Visa 2: " + visa2.matches("^4[0-9]{12}([0-9]{3})?$"));
+        System.out.println("Visa 3: " + visa3.matches("^4[0-9]{12}([0-9]{3})?$"));
+        System.out.println("Visa 4: " + visa4.matches("^4[0-9]{12}([0-9]{3})?$"));
+
 
         System.out.println("============================");
 
