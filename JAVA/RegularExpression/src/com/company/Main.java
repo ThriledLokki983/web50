@@ -230,11 +230,35 @@ public class Main {
         System.out.println("============================");
         /*Q7*/
         // ^[a-z]{4}[\\.]{1}[0-9]{3}
+        // ^[A-z][a-z]+\\.\\d+$
         String challenge7 = "abcd.135";
         String test = "f5.12a";
         System.out.println(challenge7.matches("^[a-z]{4}[\\.]{1}[0-9]{3}"));
+        System.out.println(challenge7.matches("^[A-z][a-z]+\\.\\d+$"));
+        System.out.println(test.matches("^[A-z][a-z]+\\.\\d+$"));
         System.out.println(test.matches("^[a-z]{4}[\\.]{1}[0-9]{3}"));
 
+
+        System.out.println("============================");
+        /*Q8*/
+        String challenge8 = "abcd.125uvqz.7tzik.999";
+        String digitPattern = "[A-Za-z]+\\.(\\d+)";
+        Pattern pattern8 = Pattern.compile(digitPattern);
+        Matcher matcher8 = pattern8.matcher(challenge8);
+        while (matcher8.find()){
+            System.out.println("Occurrence: " + matcher8.group(1));
+        }
+
+
+        System.out.println("============================");
+        /*Q9*/
+        String challenge9 = "abcd.135\tuvqz.7\ttzik.999\n";
+        String challenge9Pattern = "[A-Za-z]+\\.(\\d+)\\s";
+        Pattern pattern9 = Pattern.compile(challenge9Pattern);
+        Matcher matcher9 = pattern9.matcher(challenge9);
+        while(matcher9.find()){
+            System.out.println("Occurrence: " + matcher9.group(1));
+        }
 
 
 
