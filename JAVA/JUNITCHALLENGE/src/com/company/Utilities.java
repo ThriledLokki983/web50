@@ -38,11 +38,12 @@ public class Utilities {
         StringBuilder sb = new StringBuilder();
         char[] string = source.toCharArray();
 
-        for (int i = 0; i < string.length; i++){
-            if (string[i] != string[i++]){
-                sb.append(i);
+        for (int i = 0; i < string.length-1; i++){
+            if (string[i] != string[i+1]){
+                sb.append(string[i]);
             }
         }
+        sb.append(string[string.length-1]);
         return sb.toString();
     }
 
