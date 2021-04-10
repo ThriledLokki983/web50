@@ -13,10 +13,16 @@ public class BankAccount {
     private String lastName;
     private double balance;
 
-    public BankAccount(String firstName, String lastName, double balance) {
+    public static final int CHECKING = 1;
+    public static final int SAVINGS = 2;
+
+    private int accountType;
+
+    public BankAccount(String firstName, String lastName, double balance, int typeOfAccount) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.balance = balance;
+        this.accountType = typeOfAccount;
     }
 
     // branch is true if customer is performing a transaction at a branch and false if at the ATM
@@ -26,7 +32,7 @@ public class BankAccount {
     }
 
     // branch is true if customer is performing a transaction at a branch and false if at the ATM
-    public double withdrawal(double amount){
+    public double withdrawal(double amount, boolean branch){
         balance -= amount;
         return balance;
     }
@@ -36,8 +42,9 @@ public class BankAccount {
     }
 
 
-
-
+    public boolean isChecking() {
+        return accountType == CHECKING;
+    }
 
 
 }
