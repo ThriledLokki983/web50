@@ -316,6 +316,7 @@ public class Main {
         /*Q14*/
         // ^\\d{5}|.*\\-|.*\\d{4}$
         // "^\\d{5}(-\\d{4})?$"
+
         System.out.println(usCode.matches("^\\d{5}|.*\\-|.*\\d{4}$"));
         System.out.println(usCOde1.matches("^\\d{5}|.*\\-|.*\\d{4}$"));
         System.out.println(usCode.matches("^\\d{5}(-\\d{4})?$"));
