@@ -165,7 +165,7 @@ public class Main {
         /* Validating a VISA card with Regex */
         /* ^4[0-9]{12}([0-9]{3})?$ */
 
-        String visa1 = "44444444444444";
+        String visa1 = "4444444444444";
         String visa2 = "54444444444444444";
         String visa3 = "4444444444444444";
         String visa4 = "4444";
@@ -177,6 +177,69 @@ public class Main {
 
 
         System.out.println("============================");
+
+        /* CHALLENGES */
+
+        /*Q1*/
+        String challenge = "I want a bike.";
+        System.out.println(challenge.matches("I want a bike."));
+
+        System.out.println("============================");
+
+        /*Q2*/
+        String challenge1 = "I want a bike.";
+        String challenge2 = "I want a ball.";
+        System.out.println(challenge1.concat(challenge2).matches("I want a bike.I want a ball."));
+        String regExp = "I want a (bike|ball).";
+        System.out.println(challenge1.matches(regExp));
+        System.out.println(challenge2.matches(regExp));
+
+        System.out.println("============================");
+       /* Q3 */
+        String regExp3 = "I want a \\w+.";
+        Pattern thePattern = Pattern.compile(regExp3);
+        Matcher theMatcher = thePattern.matcher(challenge1);
+        System.out.println(theMatcher.matches());
+        Matcher theMatcher1 = thePattern.matcher(challenge2);
+        System.out.println(theMatcher1.matches());
+
+        System.out.println("============================");
+        /*Q4*/
+
+        String challenge4 = "Replace all banks with underscores";
+        System.out.println("Solution 1: " + challenge4.replaceAll(" ", "_"));
+        System.out.println("Solution 5: " + challenge4.replaceAll("\\s", "_"));
+
+
+        System.out.println("============================");
+        /* Q5 */
+
+        String challenge5 = "aaabccccccccdddefffg";
+        System.out.println("Solution: " + challenge5.matches("\\w+"));
+        System.out.println("Solution: " + challenge5.matches("[abcdefg]+"));
+        System.out.println("Solution: " + challenge5.matches("[a-g]*"));
+        System.out.println("Solution: " + challenge5.matches("[a-g]+"));
+
+
+        System.out.println("============================");
+        /* Q6 */
+        System.out.println("Solution: "+ challenge5.matches("aaabccccccccdddefffg"));
+        System.out.println("Solution: "+ challenge5.matches("^a{3}bc{8}d{3}ef{3}g$"));
+        System.out.println("Solution: "+ challenge5.replaceAll("^a{3}bc{8}d{3}ef{3}g$", "REPLACED"));
+
+        System.out.println("============================");
+        /*Q7*/
+        // ^[a-z]{4}[\\.]{1}[0-9]{3}
+        String challenge7 = "abcd.135";
+        String test = "f5.12a";
+        System.out.println(challenge7.matches("^[a-z]{4}[\\.]{1}[0-9]{3}"));
+        System.out.println(test.matches("^[a-z]{4}[\\.]{1}[0-9]{3}"));
+
+
+
+
+        System.out.println("============================");
+
 
 
     }
