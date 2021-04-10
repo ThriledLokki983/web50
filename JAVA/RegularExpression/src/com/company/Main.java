@@ -129,5 +129,29 @@ public class Main {
         }
         System.out.println("============================");
 
+        /* "abc" == "a" and "b" and "c" */
+        System.out.println("harry".replaceAll("[H|h]arry", "Larry")); /* Harry with a capital H OR a small h */
+        System.out.println("Harry".replaceAll("[H|h]arry", "Larry"));
+
+        /*
+        * [^abc] ==> Every occurrence in the text except abc (NOT OPERATOR)
+        * */
+
+        String tcText = "tstvtkt";
+        String tNotV = "t[^v]"; /* consumes characters */
+        String tNotV1 = "t(?!v)"; /* Look ahead syntax and does not consume characters they match */ /* Negative Look ahead syntax */
+        /* t(?=v) */ /* Positive Look ahead syntax */
+        /* ^([\(]{1}[0-9]{3}[\)]{1}[ ]{1}[0-9]{3}[\-]{1}[0-9]{4})$ */
+        Pattern tNotVPattern = Pattern.compile(tNotV1);
+        Matcher tNotVMatcher = tNotVPattern.matcher(tcText);
+
+        count = 0;
+        while (tNotVMatcher.find()){
+            count++;
+            System.out.println("Occurrence: " + count + " : " + tNotVMatcher.start() + " to " + tNotVMatcher.end());
+        }
+
+        System.out.println("============================");
+
     }
 }
