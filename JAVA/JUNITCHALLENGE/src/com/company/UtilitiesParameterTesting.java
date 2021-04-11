@@ -44,9 +44,6 @@ public class UtilitiesParameterTesting {
         });
     }
 
-
-
-
     @org.junit.Test
     public void removePairs_first() {
         assertEquals(output, newUtilities.removePairs(input));
