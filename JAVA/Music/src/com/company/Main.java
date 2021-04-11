@@ -26,12 +26,13 @@ public class Main {
         }
 
         List<String> albumForArtist = dataSource.queryAlbums("Carole King", dataSource.ORDER_BY_DESC);
-        System.out.println("==========================================");
+        System.out.println("=========================================================================================");
         for (String album : albumForArtist){
             System.out.println(album);
         }
 
-        List<SongArtist> songArtists = dataSource.queryArtistsForSong("Heartless", dataSource.ORDER_BY_ASC);
+        List<SongArtist> songArtists = dataSource.queryArtistsForSong("Go Your Own Way", dataSource.ORDER_BY_ASC);
+        System.out.println("=========================================================================================");
         if (songArtists == null){
             System.out.println("Not artist Found");
             return;

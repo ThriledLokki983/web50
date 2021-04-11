@@ -164,7 +164,7 @@ public class DataSource {
                 sb.append(" ASC ");
             }
         }
-        System.out.println(sb.toString());
+        //System.out.println(sb.toString());
         try(Statement statement = conn.createStatement();
         ResultSet result = statement.executeQuery(sb.toString())) {
 
