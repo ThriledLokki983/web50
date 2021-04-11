@@ -29,6 +29,7 @@ public class Main {
             insertContact(statement, "Gideon", 5689867, "gideon@gtech.nl");
             insertContact(statement, "Johnson", 49094578, "joseph@email.com");
             insertContact(statement, "Jane", 12345678, "jane@email.com");
+            insertContact(statement, "Fido", 4823467, "fido@email.com");
 
 /*            statement.execute("INSERT INTO " + TABLE_CONTACTS +
                     "(" + COLUMN_NAME + ", " + COLUMN_PHONE + ", " +
@@ -40,13 +41,11 @@ public class Main {
                     "(" + COLUMN_NAME + ", " +
                     COLUMN_PHONE + ", " +
                     COLUMN_EMAIL + ")" +
-                    "VALUES('Jane', 12345678, 'jane@email.com')");*/
-
-            statement.execute("INSERT INTO " + TABLE_CONTACTS +
+                    "VALUES('Jane', 12345678, 'jane@email.com')");*//*            statement.execute("INSERT INTO " + TABLE_CONTACTS +
                     "(" + COLUMN_NAME + ", " +
                     COLUMN_PHONE + ", " +
                     COLUMN_EMAIL + ")" +
-                    "VALUES('Fido', 4823467, 'fido@email.com')");
+                    "VALUES('Fido', 4823467, 'fido@email.com')");*/
 
             statement.execute("UPDATE " + TABLE_CONTACTS +
                     " SET " + COLUMN_PHONE +
