@@ -40,7 +40,8 @@ public class UtilitiesParameterTesting {
                 {"AB88EFFG", "AB8EFG"},
                 {"112233445566", "123456"},
                 {"ZYZQQB", "ZYZQB"},
-                {"A", "A"}
+                {"A", "A"},
+                {"", ""}
         });
     }
 
