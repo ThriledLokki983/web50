@@ -2,6 +2,7 @@ package com.company;
 
 import Model.Artist;
 import Model.DataSource;
+import Model.SongArtist;
 
 import java.util.List;
 
@@ -24,10 +25,20 @@ public class Main {
             System.out.println("ID: " + artist.getId() + "\t" + "Name: " + artist.getName());
         }
 
-        List<String> albumForArtist = dataSource.queryAlbums("Iron Maiden", dataSource.ORDER_BY_ASC);
+        List<String> albumForArtist = dataSource.queryAlbums("Carole King", dataSource.ORDER_BY_DESC);
         System.out.println("==========================================");
         for (String album : albumForArtist){
             System.out.println(album);
+        }
+
+        List<SongArtist> songArtists = dataSource.queryArtistsForSong("Heartless", dataSource.ORDER_BY_ASC);
+        if (songArtists == null){
+            System.out.println("Not artist Found");
+            return;
+        }
+        for (SongArtist artist : songArtists){
+            System.out.println("Artist Name: " + artist.getArtisName() + "\t" + "Album Name: " + artist.getAlbumName() +
+                    "\t" + "Track No: " + artist.getTrack());
         }
 
 
