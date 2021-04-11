@@ -1,6 +1,9 @@
 package com.company;
 
+import Model.Artist;
 import Model.DataSource;
+
+import java.util.List;
 
 public class Main {
 
@@ -11,6 +14,14 @@ public class Main {
             return;
         }else{
             System.out.println("Database is now ACTIVE!");
+        }
+        List<Artist> artists = dataSource.queryArtist();
+        if (artists == null){
+            System.out.println("No Artist found!");
+            return;
+        }
+        for (Artist artist : artists){
+            System.out.println("ID: " + artist.getId() + "\t" + "Name: " + artist.getName());
         }
         dataSource.close();
     }
