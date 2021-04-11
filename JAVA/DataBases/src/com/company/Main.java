@@ -26,21 +26,21 @@ public class Main {
                     COLUMN_PHONE + " integer, " +
                     COLUMN_EMAIL + " text" + ")");
 
-            statement.execute("INSERT INTO " + TABLE_CONTACTS +
+            insertContact(statement, "Gideon", 5689867, "gideon@gtech.nl");
+            insertContact(statement, "Johnson", 49094578, "joseph@email.com");
+            insertContact(statement, "Jane", 12345678, "jane@email.com");
+
+/*            statement.execute("INSERT INTO " + TABLE_CONTACTS +
                     "(" + COLUMN_NAME + ", " + COLUMN_PHONE + ", " +
                     COLUMN_EMAIL + ")" +
-                    "VALUES('Gideon', 5689867, 'gideon@gtech.nl')");
-
-            statement.execute("INSERT INTO " + TABLE_CONTACTS +
+                    "VALUES('Gideon', 5689867, 'gideon@gtech.nl')");*//*            statement.execute("INSERT INTO " + TABLE_CONTACTS +
                     "(" + COLUMN_NAME + ", " + COLUMN_PHONE + ", " +
                     COLUMN_EMAIL + ")" +
-                    "VALUES('Johnson', 49094578, 'joseph@email.com')");
-
-            statement.execute("INSERT INTO " + TABLE_CONTACTS +
+                    "VALUES('Johnson', 49094578, 'joseph@email.com')");*//*            statement.execute("INSERT INTO " + TABLE_CONTACTS +
                     "(" + COLUMN_NAME + ", " +
                     COLUMN_PHONE + ", " +
                     COLUMN_EMAIL + ")" +
-                    "VALUES('Jane', 12345678, 'jane@email.com')");
+                    "VALUES('Jane', 12345678, 'jane@email.com')");*/
 
             statement.execute("INSERT INTO " + TABLE_CONTACTS +
                     "(" + COLUMN_NAME + ", " +
