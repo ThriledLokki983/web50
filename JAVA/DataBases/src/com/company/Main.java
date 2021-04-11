@@ -1,9 +1,6 @@
 package com.company;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Main {
 
@@ -15,12 +12,24 @@ public class Main {
 
         try{
             Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/ogidi/dev/web50/JAVA/Databases/testJava.db");
-            conn.setAutoCommit(false);
+           // conn.setAutoCommit(false);
              Statement statement = conn.createStatement();
             statement.execute("CREATE TABLE IF NOT EXISTS contacts" +
                     "(name TEXT, phone INTEGER, email TEXT)");
 
-            statement.execute("INSERT INTO contacts VALUES ('Joseph', 0249094578, 'joelbasket@email.com' )");
+ /*            statement.execute("DELETE FROM contacts WHERE name='Emmanuel' ");
+         statement.execute("UPDATE contacts SET phone=89786848 WHERE name='Emmanuel' ");
+            statement.execute("INSERT INTO contacts VALUES ('Emmanuel', 9876754321, 'ammatheboss@email.com' )");
+            statement.execute("INSERT INTO contacts VALUES ('Benjamin', 9836746524, 'banthejoke@email.com' )");*/
+/*            statement.execute("SELECT * FROM contacts");
+            ResultSet result = statement.getResultSet();*/
+            ResultSet result = statement.executeQuery("SELECT * FROM contacts");
+            while (result.next()){
+                System.out.println(result.getString("name") + "\t" +
+                        result.getInt("phone") + "\t" +
+                        result.getString("email"));
+            }
+            result.close();
 
             statement.close();
             conn.close();
