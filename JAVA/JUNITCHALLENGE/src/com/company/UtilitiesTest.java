@@ -4,7 +4,12 @@ import static org.junit.Assert.*;
 
 public class UtilitiesTest {
 
-    Utilities newUtilities;
+    private Utilities newUtilities;
+
+    @org.junit.BeforeClass
+    public static void beforeClass(){
+        System.out.println("Starting test......");
+    }
 
     @org.junit.Before
     public void setup(){
@@ -46,5 +51,10 @@ public class UtilitiesTest {
         assertEquals("Gideon", newUtilities.nullIfOddLength("Gideon"));
         assertNull("Null Result", newUtilities.nullIfOddLength("tip"));
         assertNotNull("This is  not Null", newUtilities.nullIfOddLength("Gideon"));
+    }
+
+    @org.junit.AfterClass
+    public static void afterClass(){
+        System.out.println("Testing Completed");
     }
 }
