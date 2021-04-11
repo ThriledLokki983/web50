@@ -27,27 +27,39 @@ public class Main {
                     COLUMN_EMAIL + " text" + ")");
 
             statement.execute("INSERT INTO " + TABLE_CONTACTS +
-                    "(" + COLUMN_NAME + ", " + COLUMN_PHONE + ", " + COLUMN_EMAIL + ")" + "VALUES('Gideon', 5689867, 'gideon@gtech.nl')");
+                    "(" + COLUMN_NAME + ", " + COLUMN_PHONE + ", " +
+                    COLUMN_EMAIL + ")" +
+                    "VALUES('Gideon', 5689867, 'gideon@gtech.nl')");
 
             statement.execute("INSERT INTO " + TABLE_CONTACTS +
-                    "(" + COLUMN_NAME + ", " + COLUMN_PHONE + ", " + COLUMN_EMAIL + ")" + "VALUES('Johnson', 49094578, 'joseph@email.com')");
+                    "(" + COLUMN_NAME + ", " + COLUMN_PHONE + ", " +
+                    COLUMN_EMAIL + ")" +
+                    "VALUES('Johnson', 49094578, 'joseph@email.com')");
 
             statement.execute("INSERT INTO " + TABLE_CONTACTS +
-                    "(" + COLUMN_NAME + ", " + COLUMN_PHONE + ", " + COLUMN_EMAIL + ")" + "VALUES('Jane', 12345678, 'jane@email.com')");
+                    "(" + COLUMN_NAME + ", " +
+                    COLUMN_PHONE + ", " +
+                    COLUMN_EMAIL + ")" +
+                    "VALUES('Jane', 12345678, 'jane@email.com')");
 
             statement.execute("INSERT INTO " + TABLE_CONTACTS +
-                    "(" + COLUMN_NAME + ", " + COLUMN_PHONE + ", " + COLUMN_EMAIL + ")" + "VALUES('Fido', 4823467, 'fido@email.com')");
+                    "(" + COLUMN_NAME + ", " +
+                    COLUMN_PHONE + ", " +
+                    COLUMN_EMAIL + ")" +
+                    "VALUES('Fido', 4823467, 'fido@email.com')");
 
-            ''
-            statement.execute("UPDATE " + TABLE_CONTACTS + " SET " + COLUMN_PHONE + "= 12345678 " + " WHERE " + COLUMN_NAME + " ='Jane");
+            statement.execute("UPDATE " + TABLE_CONTACTS +
+                    " SET " + COLUMN_PHONE +
+                    "= 12345678 " + " WHERE " + COLUMN_NAME + "='Jane");
+
+            statement.execute("DELETE FROM " + TABLE_CONTACTS + " WHERE " + COLUMN_NAME + "='Johnson'");
 
 
-
-            ResultSet result = statement.executeQuery("SELECT * FROM contacts");
+            ResultSet result = statement.executeQuery("SELECT * FROM " + TABLE_CONTACTS);
             while (result.next()){
-                System.out.println(result.getString("name") + "\t" +
-                        result.getInt("phone") + "\t" +
-                        result.getString("email"));
+                System.out.println(result.getString(COLUMN_NAME) + "\t" +
+                        result.getInt(COLUMN_PHONE) + "\t" +
+                        result.getString(COLUMN_EMAIL));
             }
             result.close();
 
@@ -55,7 +67,15 @@ public class Main {
             conn.close();
         }catch (SQLException e){
             System.out.println("Something is wrong: " + e.getMessage());
+            e.printStackTrace();
         }
 
+    }
+
+    private static void insertContact(Statement statement, String name, int number, String email) throws SQLException{
+        statement.execute("INSERT INTO " + TABLE_CONTACTS +
+                "(" + COLUMN_NAME + ", " + COLUMN_PHONE + ", " +
+                COLUMN_EMAIL + ")" +
+                "VALUES('" + name + "', " + number + ", '" + email +"')");
     }
 }
