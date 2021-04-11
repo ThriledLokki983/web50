@@ -21,7 +21,7 @@ public class Utilities {
         char[] result = new char[returnedLength];
         int index = 0;
 
-        for (int i = n-1; i < sourceArray.length; i+= n){
+        for (int i = n - 1; i < sourceArray.length; i += n){
             result[index++] = sourceArray[i];
         }
         return result;
@@ -32,7 +32,7 @@ public class Utilities {
     * ABBCDEEF -> ABCDEF
     * */
     public String removePairs(String source){
-        if (source.length() < 2){
+        if (source.length() < 2 || source == null){
             return source;
         }
         StringBuilder sb = new StringBuilder();
