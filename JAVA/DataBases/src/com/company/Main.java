@@ -49,7 +49,7 @@ public class Main {
 
             statement.execute("UPDATE " + TABLE_CONTACTS +
                     " SET " + COLUMN_PHONE +
-                    "= 12345678 " + " WHERE " + COLUMN_NAME + "='Jane");
+                    "= 12345678 " + " WHERE " + COLUMN_NAME + "='Jane'");
 
             statement.execute("DELETE FROM " + TABLE_CONTACTS + " WHERE " + COLUMN_NAME + "='Johnson'");
 
