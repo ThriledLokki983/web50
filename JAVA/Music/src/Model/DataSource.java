@@ -69,9 +69,22 @@ public class DataSource {
         }
     }
 
-    public List<Artist> queryArtist(){
+    public List<Artist> queryArtist(int sortOrder){
+        StringBuilder sb = new StringBuilder("SELECT * FROM ");
+        sb.append(TABLE_ARTIST);
+        if (sortOrder != ORDER_BY_NONE){
+            sb.append(" ORDER BY ");
+            sb.append(COLUMN_ARTIST_NAME);
+            sb.append(" COLLATE NOCASE ");
+            if (sortOrder == ORDER_BY_ASC){
+                sb.append("DESC");
+            }else{
+                sb.append("ASC");
+            }
+        }
+
         try (Statement statement = conn.createStatement();
-             ResultSet result = statement.executeQuery("SELECT * FROM " + TABLE_ARTIST)){
+             ResultSet result = statement.executeQuery(sb.toString())){
             List<Artist> artists = new ArrayList<>();
             while (result.next()){
                 Artist artist = new Artist();

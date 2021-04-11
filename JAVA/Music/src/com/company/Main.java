@@ -15,7 +15,7 @@ public class Main {
         }else{
             System.out.println("Database is now ACTIVE!");
         }
-        List<Artist> artists = dataSource.queryArtist();
+        List<Artist> artists = dataSource.queryArtist(7);
         if (artists == null){
             System.out.println("No Artist found!");
             return;
