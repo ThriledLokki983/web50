@@ -1,0 +1,3 @@
+
+Database -- the container for all the data that you store
+Database Dictionary -- provides a comprehensive list of the structure and types of data in the database
