@@ -4,25 +4,45 @@ import java.sql.*;
 
 public class Main {
 
-    public static void main(String[] args) {
-	// Test DB
+    public static final String DB_NAME = "testJava_db";
+    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/ogidi/dev/web50/JAVA/Databases/" + DB_NAME;
 
-        // Connection conn = DriverManager.getConnection("jdbc:sqlite:D\\databases\\testJava.db");
-        /* Using the Driver Manager */
+    public static final String TABLE_CONTACTS = "contacts";
+
+    public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_PHONE = "phone";
+    public static final String COLUMN_EMAIL = "email";
+
+
+    public static void main(String[] args) {
+
 
         try{
-            Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/ogidi/dev/web50/JAVA/Databases/testJava.db");
-           // conn.setAutoCommit(false);
+            Connection conn = DriverManager.getConnection(CONNECTION_STRING);
              Statement statement = conn.createStatement();
-            statement.execute("CREATE TABLE IF NOT EXISTS contacts" +
-                    "(name TEXT, phone INTEGER, email TEXT)");
+             statement.execute("DROP TABLE IF EXISTS " + TABLE_CONTACTS);
+            statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_CONTACTS +
+                    "(" + COLUMN_NAME + " text, " +
+                    COLUMN_PHONE + " integer, " +
+                    COLUMN_EMAIL + " text" + ")");
 
- /*            statement.execute("DELETE FROM contacts WHERE name='Emmanuel' ");
-         statement.execute("UPDATE contacts SET phone=89786848 WHERE name='Emmanuel' ");
-            statement.execute("INSERT INTO contacts VALUES ('Emmanuel', 9876754321, 'ammatheboss@email.com' )");
-            statement.execute("INSERT INTO contacts VALUES ('Benjamin', 9836746524, 'banthejoke@email.com' )");*/
-/*            statement.execute("SELECT * FROM contacts");
-            ResultSet result = statement.getResultSet();*/
+            statement.execute("INSERT INTO " + TABLE_CONTACTS +
+                    "(" + COLUMN_NAME + ", " + COLUMN_PHONE + ", " + COLUMN_EMAIL + ")" + "VALUES('Gideon', 5689867, 'gideon@gtech.nl')");
+
+            statement.execute("INSERT INTO " + TABLE_CONTACTS +
+                    "(" + COLUMN_NAME + ", " + COLUMN_PHONE + ", " + COLUMN_EMAIL + ")" + "VALUES('Johnson', 49094578, 'joseph@email.com')");
+
+            statement.execute("INSERT INTO " + TABLE_CONTACTS +
+                    "(" + COLUMN_NAME + ", " + COLUMN_PHONE + ", " + COLUMN_EMAIL + ")" + "VALUES('Jane', 12345678, 'jane@email.com')");
+
+            statement.execute("INSERT INTO " + TABLE_CONTACTS +
+                    "(" + COLUMN_NAME + ", " + COLUMN_PHONE + ", " + COLUMN_EMAIL + ")" + "VALUES('Fido', 4823467, 'fido@email.com')");
+
+            ''
+            statement.execute("UPDATE " + TABLE_CONTACTS + " SET " + COLUMN_PHONE + "= 12345678 " + " WHERE " + COLUMN_NAME + " ='Jane");
+
+
+
             ResultSet result = statement.executeQuery("SELECT * FROM contacts");
             while (result.next()){
                 System.out.println(result.getString("name") + "\t" +
