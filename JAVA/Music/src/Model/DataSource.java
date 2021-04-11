@@ -100,6 +100,58 @@ public class DataSource {
         }
     }
 
+    public List<String> queryAlbums (String artistName, int sortOrder){
+        StringBuilder sb = new StringBuilder("SELECT ");
+        sb.append(TABLE_ALBUMS);
+        sb.append('.');
+        sb.append(COLUMN_ALBUM_NAME);
+        sb.append(" FROM ");
+        sb.append(TABLE_ALBUMS);
+        sb.append(" INNER JOIN ");
+        sb.append(TABLE_ARTIST);
+        sb.append(" ON ");
+        sb.append(".");
+        sb.append(COLUMN_ALBUM_ARTIST);
+        sb.append(" = ");
+        sb.append(TABLE_ARTIST);
+        sb.append('.');
+        sb.append(COLUMN_ARTIST_ID);
+        sb.append(" WHERE ");
+        sb.append(TABLE_ARTIST);
+        sb.append('.');
+        sb.append(COLUMN_ARTIST_NAME);
+        sb.append(" = \"");
+        sb.append(artistName);
+        sb.append("\"");
+
+        if (sortOrder != ORDER_BY_NONE){
+            sb.append(" ORDER BY ");
+            sb.append(TABLE_ALBUMS);
+            sb.append('.');
+            sb.append(COLUMN_ALBUM_NAME);
+            sb.append(" COLLATE NOCASE ");
+            if (sortOrder == ORDER_BY_DESC){
+                sb.append(" DESC ");
+            }else{
+                sb.append(" ASC ");
+            }
+        }
+        System.out.println("SQL statement = " + sb.toString());
+
+        try(Statement statement = conn.createStatement();
+        ResultSet result = statement.executeQuery(sb.toString())) {
+
+            List<String> albums = new ArrayList<>();
+            while (result.next()){
+                albums.add(result.getString(1));
+            }
+            return albums;
+
+        }catch (SQLException e){
+            System.out.println("Error Querying Album: " + e.getMessage());
+            return null;
+        }
+    }
 
 
 }
