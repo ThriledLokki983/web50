@@ -46,6 +46,12 @@ public class DataSource {
     public static final int ORDER_BY_ASC = 2;
     public static final int ORDER_BY_DESC = 3;
 
+    public static final String QUERY_ALBUMS_BY_ARTIST_START = "SELECT " + TABLE_ALBUMS + '.' + COLUMN_ALBUM_NAME +
+            " FROM " + TABLE_ALBUMS + " INNER JOIN " + TABLE_ARTIST + " ON " + TABLE_ALBUMS + '.' + COLUMN_ALBUM_ARTIST +
+            " = " + TABLE_ARTIST + '.' + COLUMN_ARTIST_ID + " WHERE " + TABLE_ARTIST + '.' + COLUMN_ARTIST_NAME + " = \"";
+
+    public static final String QUERY_ALBUMS_BY_ARTIST_SORT = " ORDER BY " + TABLE_ALBUMS + '.' + COLUMN_ALBUM_NAME + " COLLATE NOCASE ";
+
 
     private Connection conn;
 
@@ -110,6 +116,7 @@ public class DataSource {
         sb.append(" INNER JOIN ");
         sb.append(TABLE_ARTIST);
         sb.append(" ON ");
+        sb.append(TABLE_ALBUMS);
         sb.append(".");
         sb.append(COLUMN_ALBUM_ARTIST);
         sb.append(" = ");

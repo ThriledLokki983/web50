@@ -23,6 +23,14 @@ public class Main {
         for (Artist artist : artists){
             System.out.println("ID: " + artist.getId() + "\t" + "Name: " + artist.getName());
         }
+
+        List<String> albumForArtist = dataSource.queryAlbums("Iron Maiden", dataSource.ORDER_BY_ASC);
+        System.out.println("==========================================");
+        for (String album : albumForArtist){
+            System.out.println(album);
+        }
+
+
         dataSource.close();
     }
 
