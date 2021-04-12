@@ -70,6 +70,17 @@ public class DataSource {
     /* End of that query but can add new ones anytime we want */
 
 
+    /* VIEW Table */
+    public static final String TABLE_ARTIST_SONG_VIEW = "artist_list";
+    public static final String CREATE_ARTIST_FOR_SONG_VIEW = "CREATE VIEW IF NOT EXISTS " + TABLE_ARTIST + " AS SELECT " + TABLE_ARTIST + "." +
+            COLUMN_ARTIST_NAME + ", " + TABLE_ALBUMS + '.' + COLUMN_ALBUM_NAME + " AS " + COLUMN_SONG_ALBUM + ", " +
+            TABLE_SONGS + '.' + COLUMN_SONG_TRACK + ", " + TABLE_SONGS + "." + COLUMN_SONG_TITLE + " FROM " + TABLE_SONGS +
+            " INNER JOIN " + TABLE_ALBUMS + " ON " + TABLE_SONGS + "." + COLUMN_SONG_ALBUM + " = " + TABLE_ALBUMS + "." +
+            COLUMN_ALBUM_ID + " INNER JOIN " + TABLE_ARTIST + " ON " + TABLE_ALBUMS + "." + COLUMN_ALBUM_ARTIST + " = " + TABLE_ARTIST +
+            COLUMN_ARTIST_ID + " ORDER BY " + TABLE_ARTIST + "." + COLUMN_ARTIST_NAME + ", " + TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME + ", "
+            + TABLE_SONGS + "." + COLUMN_SONG_TRACK;
+
+
 
     private Connection conn;
 
@@ -196,6 +207,19 @@ public class DataSource {
             }
         }catch (SQLException e){
             System.out.println("ERROR " + e.getMessage());
+        }
+    }
+
+    public int getCount(String table){
+        String sql = "SELECT COUNT(*) AS count FROM " + table;
+        try(Statement statement = conn.createStatement();
+            ResultSet result = statement.executeQuery(sql)) {
+            int count = result.getInt("count");
+            //System.out.format("Count: %d " + "\t" , count);
+            return count;
+        }catch (SQLException e){
+            System.out.println("Error with count: " + e.getMessage());
+            return -1;
         }
     }
 
