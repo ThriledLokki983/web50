@@ -88,6 +88,14 @@ public class DataSource {
     public static final String QUERY_VIEW_SONG_INFO_PREP = "SELECT " + COLUMN_ARTIST_NAME + ", " + COLUMN_SONG_ALBUM + ", " +
     COLUMN_SONG_TRACK + " FROM " + TABLE_ARTIST_SONG_VIEW + " WHERE " + COLUMN_SONG_TITLE + " = ?";
 
+    /*INSERTING */
+
+    public static final String INSERT_ARTIST = "INSERT INTO " + TABLE_ARTIST + '(' + COLUMN_ARTIST_NAME + ") VALUES(?)";
+    public static final String INSERT_ALBUMS = "INSERT INT " + TABLE_ALBUMS + '(' + COLUMN_ALBUM_NAME + ", " + COLUMN_ALBUM_ARTIST +
+            ") VALUES(?, ?)";
+    public static final String INSERT_SONGS = "INSERT INTO " + TABLE_SONGS + '(' + COLUMN_SONG_TRACK + ", " + COLUMN_SONG_TITLE + ", " +
+           COLUMN_SONG_ALBUM +  ") VALUES(?, ?, ?)";
+
 
     private Connection conn;
     private PreparedStatement querySongInfoView;
