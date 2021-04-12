@@ -85,12 +85,17 @@ public class DataSource {
     public static final String QUERY_VIEW_SONG_INFO = "SELECT " + COLUMN_ARTIST_NAME + ", " + COLUMN_SONG_ALBUM + ", " +
             COLUMN_SONG_TRACK + " FROM " + TABLE_ARTIST_SONG_VIEW + " WHERE " + COLUMN_SONG_TITLE + " = \"";
 
+    public static final String QUERY_VIEW_SONG_INFO_PREP = "SELECT " + COLUMN_ARTIST_NAME + ", " + COLUMN_SONG_ALBUM + ", " +
+    COLUMN_SONG_TRACK + " FROM " + TABLE_ARTIST_SONG_VIEW + " WHERE " + COLUMN_SONG_TITLE + " = ?";
+
 
     private Connection conn;
+    private PreparedStatement querySongInfoView;
 
     public boolean open(){
         try {
             conn = DriverManager.getConnection(CONNECTION_STRING);
+            querySongInfoView = conn.prepareStatement(QUERY_VIEW_SONG_INFO_PREP);
             return true;
         }catch (SQLException e){
             System.out.println("Could not connect to database " + e.getMessage());
@@ -241,17 +246,11 @@ public class DataSource {
 
     // SELECT Album_Name, Artist_Name, Song_Title FROM artist_list WHERE Song_Title = "title";
     public List<SongArtist> querySongInfoView(String title){
-        StringBuilder sb = new StringBuilder(QUERY_VIEW_SONG_INFO);
-        sb.append(title);
-        sb.append("\"");
-
-        System.out.println(sb.toString());
-
-        try(Statement statement = conn.createStatement();
-        ResultSet result = statement.executeQuery(sb.toString())) {
-
+        try {
+            querySongInfoView.setString(1, title);
+            ResultSet result = querySongInfoView.executeQuery(title);
             List<SongArtist> songArtists = new ArrayList<>();
-            while (result.next()){
+            while (result.next()) {
                 SongArtist songArtist = new SongArtist();
 
                 songArtist.setArtisName(result.getString(1));

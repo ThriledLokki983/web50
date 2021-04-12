@@ -5,6 +5,7 @@ import Model.DataSource;
 import Model.SongArtist;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -53,7 +54,11 @@ public class Main {
 
         System.out.println("=========================================================================================");
 
-        songArtists = dataSource.querySongInfoView("joke");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Name of Song: ");
+        String title = scanner.nextLine();
+
+        songArtists = dataSource.querySongInfoView(title);
         if (songArtists.isEmpty()){
             System.out.println("No Match");
             return;
