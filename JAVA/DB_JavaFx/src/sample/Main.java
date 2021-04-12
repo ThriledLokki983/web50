@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.Model.DataSource;
 
 public class Main extends Application {
 
@@ -19,5 +20,17 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    @Override
+    public void init() throws Exception {
+        super.init();
+        DataSource.getInstance().open();
+    }
+
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        DataSource.getInstance().close();
     }
 }
