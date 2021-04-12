@@ -48,6 +48,20 @@ public class Main {
         int count = dataSource.getCount(dataSource.TABLE_SONGS);
         System.out.println("Number of Songs: " + count);
 
+        System.out.println("=========================================================================================");
+        System.out.println(dataSource.createViewSongsArtist());
+
+        System.out.println("=========================================================================================");
+
+        songArtists = dataSource.querySongInfoView("joke");
+        if (songArtists.isEmpty()){
+            System.out.println("No Match");
+            return;
+        }
+        for (SongArtist songArtist : songArtists){
+            System.out.println("Artist Name: " + songArtist.getArtisName() + "\t" + "Album Name: " + songArtist.getAlbumName() +
+                    "\t" + "Track Number: " + songArtist.getTrack());
+        }
 
         dataSource.close();
     }
