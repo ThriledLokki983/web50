@@ -41,6 +41,9 @@ public class Main {
             System.out.println("Artist Name: " + artist.getArtisName() + "\t" + "Album Name: " + artist.getAlbumName() +
                     "\t" + "Track No: " + artist.getTrack());
         }
+        System.out.println("=========================================================================================");
+
+        dataSource.querySongsMetaData();
 
 
         dataSource.close();
