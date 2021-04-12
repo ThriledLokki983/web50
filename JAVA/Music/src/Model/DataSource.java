@@ -105,6 +105,9 @@ public class DataSource {
 
     public void close(){
         try {
+            if (querySongInfoView != null){
+                querySongInfoView.close();
+            }
             if (conn != null){
                 conn.close();
             }
@@ -248,7 +251,7 @@ public class DataSource {
     public List<SongArtist> querySongInfoView(String title){
         try {
             querySongInfoView.setString(1, title);
-            ResultSet result = querySongInfoView.executeQuery(title);
+            ResultSet result = querySongInfoView.executeQuery();
             List<SongArtist> songArtists = new ArrayList<>();
             while (result.next()) {
                 SongArtist songArtist = new SongArtist();
