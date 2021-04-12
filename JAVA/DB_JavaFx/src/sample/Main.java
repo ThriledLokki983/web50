@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,7 +26,12 @@ public class Main extends Application {
     @Override
     public void init() throws Exception {
         super.init();
-        DataSource.getInstance().open();
+        if (!DataSource.getInstance().open()){
+            System.out.println("Cannot Connect to Database");
+            Platform.exit();
+        }else{
+            System.out.println("Database Connected.");
+        }
     }
 
     @Override
