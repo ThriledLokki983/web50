@@ -419,7 +419,7 @@ public class DataSource {
             ResultSet result = queryAlbumByArtistId.executeQuery();
 
             List<Album> albums = new ArrayList<>();
-            while (albums.stream().noneMatch()){
+            while (result.next()){
                 Album album = new Album();
                 album.setId(result.getInt(1));
                 album.setName(result.getString(2));
