@@ -53,10 +53,11 @@ public class Main {
         System.out.println(dataSource.createViewSongsArtist());
 
         System.out.println("=========================================================================================");
-
+/*
         Scanner scanner = new Scanner(System.in);
         System.out.print("Name of Song: ");
         String title = scanner.nextLine();
+
 
         songArtists = dataSource.querySongInfoView(title);
         if (songArtists.isEmpty()){
@@ -67,6 +68,9 @@ public class Main {
             System.out.println("Artist Name: " + songArtist.getArtisName() + "\t" + "Album Name: " + songArtist.getAlbumName() +
                     "\t" + "Track Number: " + songArtist.getTrack());
         }
+*/
+
+        dataSource.insertSong("Dabidabi", "Dady Lumba","Adkeyee Nsroma", 7);
 
         dataSource.close();
     }
