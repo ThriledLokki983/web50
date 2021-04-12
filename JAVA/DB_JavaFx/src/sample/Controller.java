@@ -16,6 +16,8 @@ public class Controller {
     public void listArtist(){
         Task<ObservableList<Artist>> task = new GetAllArtistTask();
         artistTable.itemsProperty().bind(task.valueProperty());
+
+        new Thread(task).start();
     }
 
 
@@ -25,6 +27,6 @@ public class Controller {
 
      @Override
      public ObservableList<Artist> call() {
-         return FXCollections.observableArrayList(DataSource.getInstance().queryArtist(DataSource.ORDER_BY_ASC));
+         return FXCollections.observableArrayList(DataSource.getInstance().queryArtist(DataSource.ORDER_BY_DESC));
      }
  }

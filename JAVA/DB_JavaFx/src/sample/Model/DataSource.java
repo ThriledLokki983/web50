@@ -197,7 +197,7 @@ public class DataSource {
         }
     }
 
-    public List<String> queryAlbums(String artistName, int sortOrder) {
+    public List<String> queryAlbumsForArtist(String artistName, int sortOrder) {
         StringBuilder sb = new StringBuilder(QUERY_ALBUMS_BY_ARTIST_START);
         sb.append(artistName);
         sb.append("\"");

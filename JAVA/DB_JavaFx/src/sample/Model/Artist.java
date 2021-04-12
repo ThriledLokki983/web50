@@ -15,6 +15,11 @@ public class Artist {
     private SimpleIntegerProperty id;
     private SimpleStringProperty name;
 
+    public Artist() {
+        this.id = new SimpleIntegerProperty();
+        this.name = new SimpleStringProperty();
+    }
+
     public int getId() {
         return id.get();
     }

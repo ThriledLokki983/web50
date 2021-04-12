@@ -4,4 +4,5 @@ module DB.JavaFx {
     requires java.sql;
 
     opens sample;
+    opens sample.Model;
 }
