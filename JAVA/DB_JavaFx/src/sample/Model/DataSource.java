@@ -358,7 +358,7 @@ public class DataSource {
         }
     }
 
-    public List<Album> queryAlbumFOrArtistId(int id){
+    public List<Album> queryAlbumForArtistId(int id){
         try {
             queryAlbumByArtistId.setInt(1, id);
             ResultSet result = queryAlbumByArtistId.executeQuery();
