@@ -3,6 +3,7 @@ package com.company;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.net.SocketException;
 
 public class Main {
@@ -16,7 +17,14 @@ public class Main {
                 DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
                 socket.receive(packet);
 
-                System.out.println("Text received: " + "\t" + new String(buffer));
+                System.out.println("Text received: " + "\t" + new String(buffer, 0, packet.getLength()));
+
+                String returnedString = "echo: " + new String(buffer, 0, packet.getLength());
+                byte[] buffer2 = returnedString.getBytes();
+                InetAddress address = packet.getAddress();
+                int port = packet.getPort();
+                packet = new DatagramPacket(buffer2, buffer2.length, address, port);
+                socket.send(packet);
             }
 
         }catch (SocketException e){
