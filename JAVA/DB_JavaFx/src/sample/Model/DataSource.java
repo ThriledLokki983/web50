@@ -103,6 +103,9 @@ public class DataSource {
     public static final String QUERY_ALBUMS_BY_ARTIST_ID = "SELECT * FROM " + TABLE_ALBUMS + " WHERE " + COLUMN_ALBUM_ARTIST + " = ? ORDER BY " +
             COLUMN_ALBUM_NAME + " COLLATE NOCASE";
 
+    public static final String UPDATE_ARTIST_NAME = "UPDATE " + TABLE_ARTIST + " SET " +
+            COLUMN_ARTIST_NAME + " = ? WHERE " + COLUMN_ARTIST_ID + " = ?";
+
 
     private Connection conn;
 
@@ -117,6 +120,8 @@ public class DataSource {
     private PreparedStatement queryAlbum;
 
     private PreparedStatement queryAlbumByArtistId;
+
+    private PreparedStatement updateArtistName;
 
     private static DataSource instance = new DataSource(); /* Singleton */
 
@@ -139,6 +144,7 @@ public class DataSource {
             queryAlbum = conn.prepareStatement(QUERY_ALBUM);
             queryArtist = conn.prepareStatement(QUERY_ARTIST);
             queryAlbumByArtistId = conn.prepareStatement(QUERY_ALBUMS_BY_ARTIST_ID);
+            updateArtistName = conn.prepareStatement(UPDATE_ARTIST_NAME);
 
             return true;
         } catch (SQLException e) {
@@ -171,6 +177,9 @@ public class DataSource {
             if (queryAlbumByArtistId != null){
                 queryAlbumByArtistId.close();
             }
+            if (updateArtistName != null){
+                updateArtistName.close();
+            }
             if (conn != null) {
                 conn.close();
             }
@@ -194,6 +203,11 @@ public class DataSource {
              ResultSet result = statement.executeQuery(sb.toString())) {
             List<Artist> artists = new ArrayList<>();
             while (result.next()) {
+                try {
+                    Thread.sleep(20);
+                }catch (InterruptedException e){
+                    System.out.println(e.getMessage());
+                }
                 Artist artist = new Artist();
                 artist.setId(result.getInt(INDEX_ARTIST_ID));
                 artist.setName(result.getString(INDEX_ARTIST_NAME));
@@ -321,6 +335,19 @@ public class DataSource {
             } else {
                 throw new SQLException("Could not get _id for album!");
             }
+        }
+    }
+
+    public boolean updateArtistName(int id, String NeeName){
+        try {
+            updateArtistName.setString(1, NeeName);
+            updateArtistName.setInt(2, id);
+
+            int affectedRecord = updateArtistName.executeUpdate();
+            return affectedRecord == 1;
+        }catch (SQLException e){
+            System.out.println("Error updating artist name: " + e.getMessage());
+            return false;
         }
     }
 
