@@ -11,8 +11,8 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
 
-        ArrayBlockingQueue<String> buffer = new ArrayBlockingQueue<String>();
-        ReentrantLock bufferLock = new ReentrantLock();
+        ArrayBlockingQueue<String> buffer = new ArrayBlockingQueue<String>(6);
+        /*ReentrantLock bufferLock = new ReentrantLock();*/
 
         ExecutorService executorService = Executors.newFixedThreadPool(6);
         MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_PURPLE);
