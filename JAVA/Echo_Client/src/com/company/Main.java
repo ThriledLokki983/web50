@@ -28,7 +28,6 @@ public class Main {
                 }
             }while (!echoString.equals("exit"));
 
-
         }catch (IOException e){
             System.out.println("Client error: " + e.getMessage());
         }
