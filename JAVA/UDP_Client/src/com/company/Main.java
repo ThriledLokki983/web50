@@ -24,6 +24,12 @@ public class Main {
 
                 DatagramPacket packet = new DatagramPacket(buffer, buffer.length, address, 5000);
                 socket.send(packet);
+                /* You don't usually do this in real world application */
+                byte[] buffer2 = new byte[50];
+                packet = new DatagramPacket(buffer2, buffer2.length);
+                socket.receive(packet);
+                System.out.println("Text Received: " + new String(buffer2, 0, packet.getLength()));
+
             }while (!echoString.equals("exit"));
 
         }catch (SocketTimeoutException e){
