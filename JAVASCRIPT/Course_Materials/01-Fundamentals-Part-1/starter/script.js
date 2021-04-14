@@ -191,24 +191,72 @@ console.log(typeof country);
 
 // 5 Falsy values = 0, '', undefined, null, NaN
 
-console.log(Boolean(0));
-console.log(Boolean(undefined))
-console.log(Boolean('Gideon'))
-console.log(Boolean({}))
-console.log(Boolean(''))
+// console.log(Boolean(0));
+// console.log(Boolean(undefined))
+// console.log(Boolean('Gideon'))
+// console.log(Boolean({}))
+// console.log(Boolean(''))
 
-let money = 0;
+// let money = 0;
 
-if (money) {
-  console.log("Don't spend it all")
+// if (money) {
+//   console.log("Don't spend it all")
+// } else {
+//   console.log("You should get a job")
+// }
+
+// let height = 0;
+
+// if (height) {
+//   console.log("Height is indeed DEFINED")
+// } else {
+//   console.log("No, Height is UNDEFINED")
+// }
+
+// const age = 18;
+
+// if (age === 18) { // Strict equality === and Lose equality ==
+//   console.log("This person is now an adult")
+// } else {
+//   console.log("This person is a MINOR")
+// }
+
+// let ans = Number(prompt("What is your name: "));
+// console.log(ans);
+// console.log(typeof ans);
+// if (ans === 23) {
+//   console.log(`Cool, ${ans} is correct!`);
+// } else if (ans == 7) {
+//   console.log("That is also correct");
+// } else {
+//   console.log("That is not an integer!");
+// }
+
+// const hasDriversLicense = true; // A
+// const hasGoodVision = true; // B
+
+// console.log(hasDriversLicense && hasGoodVision);
+// console.log(hasDriversLicense || hasGoodVision);
+// console.log(!hasDriversLicense && !hasGoodVision);
+// console.log(hasDriversLicense && !hasGoodVision);
+// console.log(!hasDriversLicense && !hasGoodVision);
+// console.log(!hasDriversLicense || !hasGoodVision);
+
+
+const averageScoreDolphins = 97 + 112 + 101 / 3;
+const averageScoreKoalas = 109 + 95 + 106 / 3;
+console.log(averageScoreDolphins.toFixed(0), averageScoreKoalas.toFixed(0));
+
+const draw = averageScoreDolphins === 0 && averageScoreKoalas;
+
+// console.log(draw)
+
+if (averageScoreDolphins && averageScoreKoalas > 100) {
+  if (averageScoreDolphins > 0 && averageScoreKoalas) {
+    console.log(`Dolphins won the game with a diff of ${averageScoreDolphins - averageScoreKoalas}pts`)
+  } else {
+    console.log(`Koalas won with a diff of ${averageScoreKoalas-averageScoreDolphins}pts`);
+  }
 } else {
-  console.log("You should get a job")
-}
-
-let height = 0;
-
-if (height) {
-  console.log("Height is indeed DEFINED")
-} else {
-  console.log("No, Height is UNDEFINED")
+  console.log("Condition not met")
 }
