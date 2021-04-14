@@ -12,3 +12,11 @@ let PI = 3.1314;
 
 console.log(firstName + " " + lastName)
 console.log(PI);
+
+var country = 'Ghana';
+var continent = 'Africa';
+var population = 36000000;
+
+console.log("Country: " + country);
+console.log("Population: " + population);
+console.log("Continent: " + continent);
