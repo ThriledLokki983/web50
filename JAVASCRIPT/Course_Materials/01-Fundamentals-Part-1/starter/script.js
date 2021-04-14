@@ -79,32 +79,54 @@ console.log(typeof country);
 // console.log(lastName);
 
 // OPERATORS //
-const now = 2037
-const ageGideon = now - 1990; //
-const ageSarah = now - 2018;
+// const now = 2037
+// const ageGideon = now - 1990; //
+// const ageSarah = now - 2018;
 
-// Math Operators
-console.log("Gideon is: " + ageGideon, "&  Sara is: " + ageSarah);
-console.log(ageGideon * 2, ageGideon / 10, 2 ** 3)
+// // Math Operators
+// console.log("Gideon is: " + ageGideon, "&  Sara is: " + ageSarah);
+// console.log(ageGideon * 2, ageGideon / 10, 2 ** 3)
 
 // Assignment operators
-let x = 12 + 10;
-x += 20;
-x *= 2;
-x /= 4;
-x++;
-x--;
-console.log(x);
+// let x = 12 + 10;
+// x += 20;
+// x *= 2;
+// x /= 4;
+// x++;
+// x--;
+// console.log(x);
 
-// Logical Operators
-console.log(ageGideon > ageSarah);
-console.log('----------------------------------------------------------------')
-console.log(now - 1991 > now - 2018);
+// // Logical Operators
+// console.log(ageGideon > ageSarah);
+// console.log('----------------------------------------------------------------')
+// console.log(now - 1991 > now - 2018);
 
-let b, y;
-b = y = 25 - 10 - 5;
+// let b, y;
+// b = y = 25 - 10 - 5;
 
-console.log(b, y);
-const averageAge = (ageGideon + ageSarah) / 2;
-console.log(ageGideon, ageSarah);
-console.log(averageAge)
+// console.log(b, y);
+// const averageAge = (ageGideon + ageSarah) / 2;
+// console.log(ageGideon, ageSarah);
+// console.log(averageAge)
+
+
+// CODING CHALLENGE -
+// let mass;
+// let height;
+// const BMI = mass / height ** 2;
+
+let markHeight = 1.69;
+let markMass = 78;
+let johnHeight = 1.95;
+let johnMass = 92;
+
+
+let markBmi = markMass / markHeight ** 2;
+let johnBmi = johnMass / johnHeight ** 2;
+
+
+console.log(markBmi, johnBmi);
+console.log(markBmi > johnBmi)
+johnBmi = 85 / 1.76 ** 2;
+markBmi = 95 / 1.88 ** 2;
+console.log(markBmi > johnBmi);
