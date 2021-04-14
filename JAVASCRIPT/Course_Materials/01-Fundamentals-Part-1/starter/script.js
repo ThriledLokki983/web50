@@ -260,3 +260,12 @@ console.log(typeof country);
 // } else {
 //   console.log("Draw")
 // }
+
+const day = 'Monday';
+switch (day) {
+  case 'Monday':
+    console.log("condition is met")
+    break;
+  default:
+    break;
+}
