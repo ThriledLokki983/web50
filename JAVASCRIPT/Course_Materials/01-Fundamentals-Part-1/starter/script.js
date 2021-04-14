@@ -98,4 +98,13 @@ console.log(x);
 
 // Logical Operators
 console.log(ageGideon > ageSarah);
-console.log(ageSarah >= 18);
+console.log('----------------------------------------------------------------')
+console.log(now - 1991 > now - 2018);
+
+let b, y;
+b = y = 25 - 10 - 5;
+
+console.log(b, y);
+const averageAge = (ageGideon + ageSarah) / 2;
+console.log(ageGideon, ageSarah);
+console.log(averageAge)
