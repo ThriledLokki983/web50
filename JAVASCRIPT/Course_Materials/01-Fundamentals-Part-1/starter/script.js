@@ -8,4 +8,7 @@ console.log(34);
 let firstName = "Mathilda";
 let lastName = "Nimoh";
 
+let PI = 3.1314;
+
 console.log(firstName + " " + lastName)
+console.log(PI);
