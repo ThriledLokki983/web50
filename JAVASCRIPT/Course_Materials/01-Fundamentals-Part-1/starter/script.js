@@ -243,17 +243,19 @@ console.log(typeof country);
 // console.log(!hasDriversLicense || !hasGoodVision);
 
 
-const averageScoreDolphins = 97 + 112 + 101 / 3;
-const averageScoreKoalas = 109 + 95 + 106 / 3;
+const averageScoreDolphins = (96 + 108 + 89) / 3;
+const averageScoreKoalas = (89 + 100 + 110) / 3;
 console.log(averageScoreDolphins.toFixed(0), averageScoreKoalas.toFixed(0));
 
-const draw = averageScoreDolphins === 0 && averageScoreKoalas;
+const draw = averageScoreDolphins === averageScoreKoalas;
 
 // console.log(draw)
 
 if (averageScoreDolphins && averageScoreKoalas > 100) {
-  if (averageScoreDolphins > 0 && averageScoreKoalas) {
+  if (averageScoreDolphins > averageScoreKoalas) {
     console.log(`Dolphins won the game with a diff of ${averageScoreDolphins - averageScoreKoalas}pts`)
+  } else if (draw) {
+    console.log("Draw")
   } else {
     console.log(`Koalas won with a diff of ${averageScoreKoalas-averageScoreDolphins}pts`);
   }
