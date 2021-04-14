@@ -243,22 +243,20 @@ console.log(typeof country);
 // console.log(!hasDriversLicense || !hasGoodVision);
 
 
-const averageScoreDolphins = (96 + 108 + 89) / 3;
-const averageScoreKoalas = (89 + 100 + 110) / 3;
-console.log(averageScoreDolphins.toFixed(0), averageScoreKoalas.toFixed(0));
+// const averageScoreDolphins = (97 + 112 + 101) / 3;
+// const averageScoreKoalas = (109 + 95 + 123) / 3;
+// console.log(averageScoreDolphins.toFixed(0), averageScoreKoalas.toFixed(0));
 
-const draw = averageScoreDolphins === averageScoreKoalas;
+// const draw = averageScoreDolphins === averageScoreKoalas;
 
-// console.log(draw)
+// // console.log(draw)
 
-if (averageScoreDolphins && averageScoreKoalas > 100) {
-  if (averageScoreDolphins > averageScoreKoalas) {
-    console.log(`Dolphins won the game with a diff of ${averageScoreDolphins - averageScoreKoalas}pts`)
-  } else if (draw) {
-    console.log("Draw")
-  } else {
-    console.log(`Koalas won with a diff of ${averageScoreKoalas-averageScoreDolphins}pts`);
-  }
-} else {
-  console.log("Condition not met")
-}
+// if (averageScoreDolphins > averageScoreKoalas && averageScoreDolphins >= 100) {
+//   console.log(`Dolphins won the game with a diff of ${averageScoreDolphins - averageScoreKoalas}pts`)
+// } else if (averageScoreKoalas > averageScoreDolphins && averageScoreKoalas >= 100) {
+//   console.log(`Koalas won with a diff of ${averageScoreKoalas-averageScoreDolphins}pts`);
+// } else if (averageScoreDolphins === averageScoreKoalas && averageScoreKoalas >= 100 && averageScoreDolphins >= 100) {
+//   console.log("Both wins the trophy")
+// } else {
+//   console.log("Draw")
+// }
