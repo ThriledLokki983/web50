@@ -261,11 +261,34 @@ console.log(typeof country);
 //   console.log("Draw")
 // }
 
-const day = 'Monday';
-switch (day) {
-  case 'Monday':
-    console.log("condition is met")
-    break;
-  default:
-    break;
-}
+// const day = 'Monday';
+// switch (day) {
+//   case 'Monday':
+//     console.log("condition is met")
+//     break;
+//   default:
+//     break;
+// }
+
+// let age = 18;
+
+// age > 10 ? console.log("can drink a beer") : console.log("only allowed to drink water")
+
+// console.log(age >= 10 ? true : false);
+
+// const drink = age >= 18 ? 'wine 🍷' : 'water 💧';
+// console.log(drink)
+
+// // console.log(age >= 18 ? wine : false);
+
+// console.log(`I like to drink ${age >= 18 ? 'wine 🍷' : 'water 💧'}`);
+// // ternary operator can be used inside a template literal
+
+let bill = 275;
+
+let tip = (((bill >= 50) && (bill <= 300)) ? ((bill) + (bill * 0.15)) : ((bill) + (bill * 0.20))) - bill;
+
+let final = ((bill >= 50) || (bill <= 300)) ? ((bill) + (bill * 0.15)) : ((bill) + (bill * 0.20));
+
+console.log(((bill >= 50) || (bill <= 300)) ? ((bill) + (bill * 0.15)) : ((bill) + (bill * 0.20)));
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value was ${final}`);
