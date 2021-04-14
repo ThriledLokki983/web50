@@ -83,5 +83,19 @@ const now = 2037
 const ageGideon = now - 1990; //
 const ageSarah = now - 2018;
 
+// Math Operators
 console.log("Gideon is: " + ageGideon, "&  Sara is: " + ageSarah);
 console.log(ageGideon * 2, ageGideon / 10, 2 ** 3)
+
+// Assignment operators
+let x = 12 + 10;
+x += 20;
+x *= 2;
+x /= 4;
+x++;
+x--;
+console.log(x);
+
+// Logical Operators
+console.log(ageGideon > ageSarah);
+console.log(ageSarah >= 18);
