@@ -115,18 +115,69 @@ console.log(typeof country);
 // let height;
 // const BMI = mass / height ** 2;
 
-let markHeight = 1.69;
-let markMass = 78;
-let johnHeight = 1.95;
-let johnMass = 92;
+// let markHeight = 1.69;
+// let markMass = 78;
+// let johnHeight = 1.95;
+// let johnMass = 92;
 
 
-let markBmi = markMass / markHeight ** 2;
-let johnBmi = johnMass / johnHeight ** 2;
+// let markBmi = markMass / markHeight ** 2;
+// let johnBmi = johnMass / johnHeight ** 2;
 
 
-console.log(markBmi, johnBmi);
-console.log(markBmi > johnBmi)
-johnBmi = 85 / 1.76 ** 2;
-markBmi = 95 / 1.88 ** 2;
-console.log(markBmi > johnBmi);
+// console.log(markBmi, johnBmi);
+// console.log(markBmi.toFixed(2) > johnBmi.toFixed(2))
+// if (markBmi > johnBmi) {
+//   console.log(`Mark's BMI ${markBmi.toFixed(2)} is higher than John's ${johnBmi.toFixed(2)}`);
+// } else {
+//   console.log(`John's BMI ${johnBmi.toFixed(2)} is higher than Mark's ${markBmi.toFixed(2)}`);
+// }
+// johnBmi = 85 / 1.76 ** 2;
+// markBmi = 95 / 1.88 ** 2;
+// console.log(markBmi.toFixed(2) > johnBmi.toFixed(2));
+
+// if (markBmi < johnBmi) {
+//   console.log(`John's BMI ${johnBmi.toFixed(2)} is higher than Mark's BMI ${markBmi.toFixed(2)}`);
+// } else {
+//   console.log(`Mark's BMI ${markBmi.toFixed(2)} is lower`);
+// }
+
+
+// const firstName = 'Gideon';
+// const lastName = 'Student';
+// const birthYear = 1990;
+// const year = 2037;
+
+// const gideon = "I'm " + firstName + ', a' + (year - birthYear) + " years and currently a " + lastName;
+
+// //console.log(gideon);
+
+// // template string 
+// const gideonNew = `I'm ${firstName}, a ${year- birthYear} year old ${lastName}`;
+// console.log(gideonNew);
+// console.log(`Hello, world.....`)
+
+// console.log(`This is a stinger
+// with multiple
+// lines`)
+
+// const age = 16;
+// const isOldEnough = age >= 18;
+
+// if (age >= 18) {
+//   console.log(`Ride on 🚖 !!!`);
+// } else {
+//   console.log(`You have to wait for ${18-age} more years: .....`);
+// }
+
+
+// const birthYear = 2012;
+// let century;
+
+// if (birthYear <= 2000) {
+//   century = 20;
+// } else {
+//   century = 21;
+// }
+
+// console.log(`${century}st century`);
