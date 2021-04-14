@@ -181,3 +181,34 @@ console.log(typeof country);
 // }
 
 // console.log(`${century}st century`);
+
+// const birthYear = '1990';
+// console.log(birthYear);
+// let newYear = Number(birthYear);
+// console.log(Number(birthYear));
+// console.log(newYear + 18);
+// console.log('23' > '10' - 3 + '4');
+
+// 5 Falsy values = 0, '', undefined, null, NaN
+
+console.log(Boolean(0));
+console.log(Boolean(undefined))
+console.log(Boolean('Gideon'))
+console.log(Boolean({}))
+console.log(Boolean(''))
+
+let money = 0;
+
+if (money) {
+  console.log("Don't spend it all")
+} else {
+  console.log("You should get a job")
+}
+
+let height = 0;
+
+if (height) {
+  console.log("Height is indeed DEFINED")
+} else {
+  console.log("No, Height is UNDEFINED")
+}
