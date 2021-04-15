@@ -225,32 +225,56 @@ let calcAge1 = function (birthYear) {
 //   console.log(`${mark.firstName + " " + mark.lastName}'s BMI (${mark.calcBMI().toFixed(2)}) is higher than ${john.firstName + " " + john.lastName}'s BMI (${john.calcBMI().toFixed(2)})`)
 // }
 
-const gideonArray = [
-  'Gideon', 'Nimoh', 2055 - 1990, 'App Support Analyst',
-  ['Michiel', 'John', 'Kwabena']
-];
+// const gideonArray = [
+//   'Gideon', 'Nimoh', 2055 - 1990, 'App Support Analyst',
+//   ['Michiel', 'John', 'Kwabena']
+// ];
 
-for (let i = 0; i < gideonArray.length; i++) {
-  console.log(gideonArray[i])
-  if ((gideonArray[gideonArray.length - 1]) === 1) {
-    for (let j = 0; j < gideonArray[i].length; j++) {
-      console.log(gideonArray[i][j]);
-    }
-  }
+// for (let i = 0; i < gideonArray.length; i++) {
+//   console.log(gideonArray[i])
+//   if ((gideonArray[gideonArray.length - 1]) === 1) {
+//     for (let j = 0; j < gideonArray[i].length; j++) {
+//       console.log(gideonArray[i][j]);
+//     }
+//   }
+// }
+
+// for (let i = 0; i < gideonArray.length; i++) {
+//   if (typeof gideonArray[i] !== 'string') {
+//     // if the condition is TRUE, then SKIP else execute or code
+//     continue;
+//   }
+//   console.log(gideonArray[i]);
+// }
+
+// for (let i = 0; i < gideonArray.length; i++) {
+//   if (typeof gideonArray[i] !== 'number') {
+//     // if the condition is TRUE, then SKIP else execute or code
+//     continue;
+//   }
+//   console.log(gideonArray[i]);
+// }
+
+// const gideonArray = [
+//   'Gideon', 'Nimoh', 2055 - 1990, 'App Support Analyst',
+//   ['Michiel', 'John', 'Kwabena']
+// ];
+
+// for (let i = gideonArray.length - 1; i >= 0; i--) {
+//   console.log(gideonArray[i])
+//   if (i === gideonArray.length - 1) {
+//     console.log("====== All Friends ======")
+//     for (let j = 0; j < gideonArray[gideonArray.length - 1].length; j++) {
+//       console.log(gideonArray[i][j]);
+//     }
+//   }
+// }
+
+let rep = 0;
+while (rep <= 10) {
+  console.log(`WHILE: Throwing a dice ${rep}`);
+  rep++;
 }
 
-for (let i = 0; i < gideonArray.length; i++) {
-  if (typeof gideonArray[i] !== 'string') {
-    // if the condition is TRUE, then SKIP else execute or code
-    continue;
-  }
-  console.log(gideonArray[i]);
-}
-
-for (let i = 0; i < gideonArray.length; i++) {
-  if (typeof gideonArray[i] !== 'number') {
-    // if the condition is TRUE, then SKIP else execute or code
-    continue;
-  }
-  console.log(gideonArray[i]);
-}
+let dice = Math.random() * 6 + 1;
+console.log(dice.toFixed(0))
