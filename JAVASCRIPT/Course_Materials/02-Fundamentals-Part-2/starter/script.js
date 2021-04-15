@@ -99,32 +99,96 @@ let calcAge1 = function (birthYear) {
 
 // ARRAYS:
 
-const friends = ["Gideon", "Kwame", "Jonas"];
-console.log(friends);
-console.log(friends.length);
-console.log(friends.reverse());
-console.log(friends[friends.length - 1]);
+// const friends = ["Gideon", "Kwame", "Jonas"];
+// console.log(friends);
+// console.log(friends.length);
+// console.log(friends.reverse());
+// console.log(friends[friends.length - 1]);
 
-const calcAge = (birthYear) => 2037 - birthYear;
-const years = [1990, 1967, 2002, 2010, 2018];
+// const calcAge = (birthYear) => 2037 - birthYear;
+// const years = [1990, 1967, 2002, 2010, 2018];
 
-const age1 = calcAge(years[0]);
-const age2 = calcAge(years[1]);
-const age3 = calcAge(years[2]);
-const age4 = calcAge(years[3]);
-const age5 = calcAge(years[years.length - 1]);
-console.log(age1, age2, age3, age4, age5);
+// const age1 = calcAge(years[0]);
+// const age2 = calcAge(years[1]);
+// const age3 = calcAge(years[2]);
+// const age4 = calcAge(years[3]);
+// const age5 = calcAge(years[years.length - 1]);
+// console.log(age1, age2, age3, age4, age5);
 
-const ages = [calcAge(years[0])];
-console.log(ages);
+// const ages = [calcAge(years[0])];
+// console.log(ages);
 
-for (let i = 0; i < years.length; i++) {
-  const newLength = ages.push(calcAge(years[i]));
-  const another = ages.unshift(newLength);
-  ages.unshift(another);
-}
-console.log(ages);
-console.log(ages.pop()); // delete from the end
-console.log(ages.shift()); // delete from beginning
-console.log(ages.indexOf(19));
-console.log(ages.includes(27));
+// for (let i = 0; i < years.length; i++) {
+//   const newLength = ages.push(calcAge(years[i]));
+//   const another = ages.unshift(newLength);
+//   ages.unshift(another);
+// }
+// console.log(ages);
+// console.log(ages.pop()); // delete from the end
+// console.log(ages.shift()); // delete from beginning
+// console.log(ages.indexOf(19));
+// console.log(ages.includes(27));
+
+// CHALLENGE
+
+// const calcTip = (bill) => ((bill >= 50) && (bill <= 300)) ? bill * 0.15 : bill * 0.20;
+// const calcTotal = (bill) => calcTip(bill) + bill;
+
+// console.log(calcTotal(100));
+
+// const bill = [125, 555, 44];
+// let tips = [];
+// let total = [];
+
+// for (let i = 0; i < bill.length; i++) {
+//   tips.push(calcTip(bill[i]));
+//   total.push(calcTotal(bill[i]));
+// }
+// console.log(tips);
+// console.log(total);
+
+// Objects
+
+// const object = {
+//   firstName: 'Gideon',
+//   lastName: 'Nimoh',
+//   age: 31,
+//   job: 'App Support Analyst',
+//   friends: ['Michael', 'Peter', 'Steven', 'John', 'Adam']
+// };
+
+// const nameKey = 'Name';
+
+// object.location = 'Netherlands'
+// object['twitter'] = '@nimoh_gideon'
+// console.log(object);
+
+// console.log(`${object.firstName} has ${object.friends.length} friends, and his best friend is ${object.friends[0]}`)
+
+// const ans = prompt('Make a choice: ');
+// if (object[ans]) {
+//   console.log(object[ans])
+// } else {
+//   console.log("Invalid")
+// };
+
+const object = {
+  firstName: 'Gideon',
+  lastName: 'Nimoh',
+  birthYear: 1990,
+  job: 'App Support Analyst',
+  friends: ['Michael', 'Peter', 'Steven', 'John', 'Adam'],
+  hasDriversLicense: true,
+
+  //calcAge: () => this.age = 2037 - this.birthYear, //Method of an object
+  calcAge1: function () {
+    this.age = 2037 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge1()}-year old ${this.job} and has ${this.hasDriversLicense ? 'a' : 'no'} driver's licence.`;
+  }
+};
+
+console.log(object.getSummary());
