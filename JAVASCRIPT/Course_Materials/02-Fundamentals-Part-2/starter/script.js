@@ -270,10 +270,41 @@ let calcAge1 = function (birthYear) {
 //   }
 // }
 
-let dice = Math.trunc(Math.random() * 6) + 1;
+// let dice = Math.trunc(Math.random() * 6) + 1;
 
 
-while (dice !== 6) {
-  console.log(`WHILE: Throwing a dice ${dice}`);
-  dice = Math.trunc(Math.random() * 6) + 1;
+// while (dice !== 6) {
+//   console.log(`Throwing a dice ${dice}`);
+//   dice = Math.trunc(Math.random() * 6) + 1;
+// }
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+const calcTip = (bill) => ((bill >= 50) && (bill <= 300)) ? bill * 0.15 : bill * 0.20;
+
+const calcTotal = (bill) => calcTip(bill) + bill;
+
+const calcAverage = function (arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
 }
+
+for (let i = 0; i < bills.length; i++) {
+  tips.push(calcTip(bills[i]));
+  totals.push(calcTotal(bills[i]));
+}
+
+console.log(`Bills: [${bills}]`)
+console.log(`Tips: [${tips}]`);
+console.log(`Totals: [${totals}]`);
+
+// BONUS:
+// let test = [10, 10, 10]
+console.log(calcAverage(bills).toFixed(0))
+console.log(calcAverage(tips).toFixed(0))
+console.log(calcAverage(totals).toFixed(0));
