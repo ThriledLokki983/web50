@@ -72,7 +72,7 @@ let calcAge1 = function (birthYear) {
 
 // CHALLENGE:
 
-const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+const calcAverage = (a, b, c) => (a + b + c) / 3;
 
 const dolphins = calcAverage(44, 23, 71);
 const koalas = calcAverage(65, 54, 49);
@@ -80,19 +80,19 @@ const koalas = calcAverage(65, 54, 49);
 const dolphins1 = calcAverage(85, 54, 41);
 const koalas1 = calcAverage(23, 34, 27);
 
-const checkWinner = (team1Score, team2Score) => team1Score > team2Score ? `Dolphins win (${team1Score + " vs. " + team2Score})` : `Koalas win (${team2Score + " vs. " + team1Score})`;
+const checkWinner = (team1Score, team2Score) => team1Score >= (team2Score * 2) ? `Dolphins win (${team1Score + " vs. " + team2Score})` : `Koalas win (${team2Score + " vs. " + team1Score})`;
 
 const checkWinner1 = (team1Score, team2Score) => {
-  if ((team1Score > team2Score) && (team1Score > (team2Score * 2))) {
+  if ((team1Score >= (team2Score * 2))) {
     console.log(`Dolphins win (${team1Score + " vs. " + team2Score})`);
-  } else if ((team2Score > team1Score) && (team2Score > (team1Score * 2))) {
+  } else if ((team2Score >= (team1Score * 2))) {
     console.log(`Koalas win (${team2Score + " vs. " + team1Score})`);
   } else {
-    console.log(`no Winner`);
+    console.log(`No team wins`);
   }
 }
 
 console.log(checkWinner(dolphins, koalas));
-console.log(checkWinner1(dolphins, koalas));
 console.log(checkWinner(dolphins1, koalas1));
-console.log(checkWinner1(dolphins1, koalas1));
+checkWinner1(dolphins, koalas);
+checkWinner1(dolphins1, koalas1);
