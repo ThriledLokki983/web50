@@ -270,11 +270,10 @@ let calcAge1 = function (birthYear) {
 //   }
 // }
 
-let rep = 0;
-while (rep <= 10) {
-  console.log(`WHILE: Throwing a dice ${rep}`);
-  rep++;
-}
+let dice = Math.trunc(Math.random() * 6) + 1;
 
-let dice = Math.random() * 6 + 1;
-console.log(dice.toFixed(0))
+
+while (dice !== 6) {
+  console.log(`WHILE: Throwing a dice ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+}
