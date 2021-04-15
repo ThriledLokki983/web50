@@ -62,3 +62,11 @@ function fruitProcessor(apples, oranges) {
   const juice = `Juice with ${applePieces} apples and ${orangePieces} oranges`;
   return juice;
 }
+
+const calcAge = (birthYear) => {
+  return 2021 - birthYear;
+}
+
+const yearsUntilRetirement = (birthYear, firstName) => {
+  return `${65 - calcAge(birthYear)}-years until ${firstName} goes on retirement.`
+}
