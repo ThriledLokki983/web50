@@ -40,12 +40,25 @@ let calcAge1 = function (birthYear) {
 }
 */
 
-let calcAge3 = birthYear => 2037 - birthYear;
-console.log(calcAge3(1990))
+// let calcAge3 = birthYear => 2037 - birthYear;
+// console.log(calcAge3(1990))
 
-const yearUntilRetirement = (birthYear, firstName) => {
-  return `${firstName} retires in ${65 - (2021 - birthYear)} years`;
+// const yearUntilRetirement = (birthYear, firstName) => {
+//   return `${firstName} retires in ${65 - (2021 - birthYear)} years`;
+// }
+
+// console.log(yearUntilRetirement(1990, "Gideon"));
+// console.log(yearUntilRetirement(2007, "John"));
+
+let cutFruit = (fruit) => {
+  return fruit * 4;
 }
 
-console.log(yearUntilRetirement(1990, "Gideon"));
-console.log(yearUntilRetirement(2007, "John"));
+function fruitProcessor(apples, oranges) {
+  const applePieces = cutFruit(apples);
+  const orangePieces = cutFruit(oranges);
+  console.log(apples, oranges);
+  console.log(applePieces, orangePieces);
+  const juice = `Juice with ${applePieces} apples and ${orangePieces} oranges`;
+  return juice;
+}
