@@ -172,23 +172,85 @@ let calcAge1 = function (birthYear) {
 //   console.log("Invalid")
 // };
 
-const object = {
-  firstName: 'Gideon',
-  lastName: 'Nimoh',
-  birthYear: 1990,
-  job: 'App Support Analyst',
-  friends: ['Michael', 'Peter', 'Steven', 'John', 'Adam'],
-  hasDriversLicense: true,
+// const object = {
+//   firstName: 'Gideon',
+//   lastName: 'Nimoh',
+//   birthYear: 1990,
+//   job: 'App Support Analyst',
+//   friends: ['Michael', 'Peter', 'Steven', 'John', 'Adam'],
+//   hasDriversLicense: true,
 
-  //calcAge: () => this.age = 2037 - this.birthYear, //Method of an object
-  calcAge1: function () {
-    this.age = 2037 - this.birthYear;
-    return this.age;
-  },
+//   //calcAge: () => this.age = 2037 - this.birthYear, //Method of an object
+//   calcAge1: function () {
+//     this.age = 2037 - this.birthYear;
+//     return this.age;
+//   },
 
-  getSummary: function () {
-    return `${this.firstName} is a ${this.calcAge1()}-year old ${this.job} and has ${this.hasDriversLicense ? 'a' : 'no'} driver's licence.`;
+//   getSummary: function () {
+//     return `${this.firstName} is a ${this.calcAge1()}-year old ${this.job} and has ${this.hasDriversLicense ? 'a' : 'no'} driver's licence.`;
+//   }
+// };
+
+// console.log(object.getSummary());
+
+// const john = {
+//   firstName: 'John',
+//   lastName: 'Smith',
+//   mass: 92,
+//   height: 1.95,
+
+//   calcBMI: function () {
+//     this.bmi = this.mass / this.height ** 2;
+//     return this.bmi;
+//   }
+// }
+
+// const mark = {
+//   firstName: 'Mark',
+//   lastName: 'Miller',
+//   mass: 78,
+//   height: 1.69,
+
+//   calcBMI: function () {
+//     this.bmi = this.mass / this.height ** 2;
+//     return this.bmi;
+//   }
+// }
+
+// console.log(`${john.firstName}'s BMI is ${john.calcBMI().toFixed(2)}`);
+// console.log(`${mark.firstName}'s BMI is ${mark.calcBMI().toFixed(2)}`);
+// if (john.bmi > mark.bmi) {
+//   console.log(`${john.firstName + " " + john.lastName}'s BMI (${john.bmi.toFixed(2)}) is higher than ${mark.firstName + " " + mark.lastName}'s BMI (${mark.bmi.toFixed(2)})`)
+// } else {
+//   console.log(`${mark.firstName + " " + mark.lastName}'s BMI (${mark.calcBMI().toFixed(2)}) is higher than ${john.firstName + " " + john.lastName}'s BMI (${john.calcBMI().toFixed(2)})`)
+// }
+
+const gideonArray = [
+  'Gideon', 'Nimoh', 2055 - 1990, 'App Support Analyst',
+  ['Michiel', 'John', 'Kwabena']
+];
+
+for (let i = 0; i < gideonArray.length; i++) {
+  console.log(gideonArray[i])
+  if ((gideonArray[gideonArray.length - 1]) === 1) {
+    for (let j = 0; j < gideonArray[i].length; j++) {
+      console.log(gideonArray[i][j]);
+    }
   }
-};
+}
 
-console.log(object.getSummary());
+for (let i = 0; i < gideonArray.length; i++) {
+  if (typeof gideonArray[i] !== 'string') {
+    // if the condition is TRUE, then SKIP else execute or code
+    continue;
+  }
+  console.log(gideonArray[i]);
+}
+
+for (let i = 0; i < gideonArray.length; i++) {
+  if (typeof gideonArray[i] !== 'number') {
+    // if the condition is TRUE, then SKIP else execute or code
+    continue;
+  }
+  console.log(gideonArray[i]);
+}
