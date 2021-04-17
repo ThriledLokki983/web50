@@ -9,3 +9,5 @@ document.querySelector('.score').textContent = 'Scoring'
 document.querySelector('.number').textContent = '13'
 document.querySelector('.guess').value = 23;
 console.log(document.querySelector('.guess').value);
+
+// good
