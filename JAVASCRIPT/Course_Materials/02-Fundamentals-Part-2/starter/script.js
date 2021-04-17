@@ -308,3 +308,7 @@ console.log(`Totals: [${totals}]`);
 console.log(calcAverage(bills).toFixed(0))
 console.log(calcAverage(tips).toFixed(0))
 console.log(calcAverage(totals).toFixed(0));
+
+
+
+const x = 5;
