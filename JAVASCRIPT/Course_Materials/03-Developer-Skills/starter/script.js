@@ -55,11 +55,13 @@ const test1 = [17, 21, 23];
 const test2 = [12, 5, -5, 0, 4];
 
 const printForecast = (arr) => {
+  let str = '';
   for (let i = 0; i < arr.length; i++) {
-    console.log(`${arr[i] + '\u00B0' + 'C'} in ${i+1} ${(i+1) > 1 ? 'days ...' : 'day ...'}`);
+    str += `${' ' + arr[i] + '\u00B0' + 'C'} in ${i+1} ${(i+1) > 1 ? 'days ...' : ' day ...'}`
   }
+  return str;
 }
 
-printForecast(test1);
+console.log('...' + printForecast(test1));
 console.log("=====================");
-printForecast(test2);
+console.log('...' + printForecast(test2));
