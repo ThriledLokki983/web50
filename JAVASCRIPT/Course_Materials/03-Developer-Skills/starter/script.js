@@ -15,41 +15,41 @@ const temperature = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
 
 // write our function to
 
-// const calcTempAmplitude = (temp) => {
-//   let max = temp[0];
-//   let min = temp[0];
-//   for (let i = 1; i < temp.length; i++) {
-//     const currentTemp = temp[i];
-//     if (typeof currentTemp !== 'number') {
-//       continue;
-//     }
-//     if (currentTemp > max) {
-//       max = currentTemp;
-//     }
-//     if (currentTemp < min) {
-//       min = currentTemp;
-//     }
-//   }
-//   //console.log(max, min);
-//   return max - min;
-// }
+const calcTempAmplitude = (temp) => {
+  let max = temp[0];
+  let min = temp[0];
+  for (let i = 1; i < temp.length; i++) {
+    const currentTemp = temp[i];
+    if (typeof currentTemp !== 'number') {
+      continue;
+    }
+    if (currentTemp > max) {
+      max = currentTemp;
+    }
+    if (currentTemp < min) {
+      min = currentTemp;
+    }
+  }
+  //console.log(max, min);
+  return max - min;
+}
 
-// calcTempAmplitude([9, 16, 6, 8, 3])
-// const amplitude = console.log(calcTempAmplitude(temperature));
+calcTempAmplitude([9, 16, 6, 8, 3])
+const amplitude = console.log(calcTempAmplitude(temperature));
 
-// const measureKelvin = () => {
-//   const measurement = {
-//     type: 'temp',
-//     unit: 'celsius',
-//     value: Number(prompt('Degrees celsius: '))
-//   };
+const measureKelvin = () => {
+  const measurement = {
+    type: 'temp',
+    unit: 'celsius',
+    value: Number(prompt('Degrees celsius: '))
+  };
 
-//   const kelvin = measurement.value + 273;
-//   return kelvin;
-// }
+  const kelvin = measurement.value + 273;
+  return kelvin;
+}
 
-// console.log(measureKelvin());
-//console.log('\u00B0');
+console.log(measureKelvin());
+console.log('\u00B0');
 
 const test1 = [17, 21, 23];
 const test2 = [12, 5, -5, 0, 4];
