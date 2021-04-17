@@ -37,20 +37,9 @@ document.querySelector('.check').addEventListener('click', () => {
     }
 
     // When the answer is too high
-  } else if (guess > randomNumber) {
+  } else if (guess !== randomNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent = '📈 Too High!'
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      document.querySelector('.score').textContent = 0;
-      document.querySelector('.message').textContent = '🔥 Game Over'
-    }
-    document.querySelector('body').style.backgroundColor = 'red';
-    // When the guess is too low
-  } else if (guess < randomNumber) {
-    if (score > 1) {
-      document.querySelector('.message').textContent = '📉 Too Low!'
+      document.querySelector('.message').textContent = (guess > randomNumber) ? '📈 Too High!' : 'Too Low!'
       score--;
       document.querySelector('.score').textContent = score;
     } else {
@@ -59,6 +48,21 @@ document.querySelector('.check').addEventListener('click', () => {
     }
     document.querySelector('body').style.backgroundColor = 'red';
   }
+
+  // else if (guess > randomNumber) {
+
+  //   // When the guess is too low
+  // } else if (guess < randomNumber) {
+  //   if (score > 1) {
+  //     document.querySelector('.message').textContent = '📉 Too Low!'
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else {
+  //     document.querySelector('.score').textContent = 0;
+  //     document.querySelector('.message').textContent = '🔥 Game Over'
+  //   }
+  //   document.querySelector('body').style.backgroundColor = 'red';
+  // }
 })
 
 document.querySelector('.again').addEventListener('click', () => {
