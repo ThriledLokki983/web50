@@ -17,6 +17,10 @@ const displayMessage = (message) => {
   document.querySelector('.message').textContent = message;
 }
 
+const changeColor = (color) => {
+  document.querySelector('body').style.backgroundColor = color;
+}
+
 
 document.querySelector('.check').addEventListener('click', () => {
   const guess = Number(document.querySelector('.guess').value);
@@ -29,7 +33,7 @@ document.querySelector('.check').addEventListener('click', () => {
   } else if (guess === randomNumber) {
     displayMessage('Correct Number!');
     score++;
-    document.querySelector('body').style.backgroundColor = '#60b347';
+    changeColor('#60b347')
     document.querySelector('.number').style.width = '45rem'
     document.querySelector('.number').textContent = 'Winner!'
 
@@ -41,7 +45,7 @@ document.querySelector('.check').addEventListener('click', () => {
     // When the answer is too high
   } else if (guess !== randomNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent = (guess > randomNumber) ? '📈 Too High!' : 'Too Low!'
+      displayMessage((guess > randomNumber) ? '📈 Too High!' : 'Too Low!');
       score--;
       document.querySelector('.score').textContent = score;
     } else {
