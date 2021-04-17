@@ -12,6 +12,14 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
+const switchPlayer = () => {
+  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  currentScore = 0;
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  player0El.classList.toggle("player--active"); // check if active is already there or not and decide accordingly whether to add it or not
+  player1El.classList.toggle("player--active");
+}
+
 
 // Starting Game conditions
 score0El.textContent = 0;
@@ -22,24 +30,39 @@ diceEl.classList.add('hidden');
 const scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
+let isPlaying = true;
 
 // Rolling of the Dice Functionality
 btnRoll.addEventListener('click', () => {
-  // Generate a Random dice roll and display the dice and then check if roll is 1. if so, switch player
-  const dice = Math.trunc(Math.random() * 6) + 1;
-  diceEl.classList.remove('hidden');
-  diceEl.src = `dice-${dice}.png`;
-  if (dice !== 1) {
-    // Add dice roll to player's score
-    currentScore += dice;
-    document.getElementById(`current--${activePlayer}`).textContent = currentScore;
+  if (isPlaying) {
+    // Generate a Random dice roll and display the dice and then check if roll is 1. if so, switch player
+    const dice = Math.trunc(Math.random() * 6) + 1;
+    diceEl.classList.remove('hidden');
+    diceEl.src = `dice-${dice}.png`;
+    if (dice !== 1) {
+      // Add dice roll to player's score
+      currentScore += dice;
+      document.getElementById(`current--${activePlayer}`).textContent = currentScore;
+    } else {
+      // Switch player
+      switchPlayer();
+    }
+  }
+})
 
-  } else {
-    // Switch player
-    document.getElementById(`current--${activePlayer}`).textContent = 0;
-    currentScore = 0;
-    activePlayer = activePlayer === 0 ? 1 : 0;
-    player0El.classList.toggle("player--active"); // check if active is already there or not and decide accordingly whether to add it or not
-    player1El.classList.toggle("player--active");
+btnHold.addEventListener("click", () => {
+  // 1. Add current score to active player's score and 2. check if score is >= 100, 3. finish the game or switch player
+  if (isPlaying) {
+    scores[activePlayer] += currentScore;
+    document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer];
+
+    if (scores[activePlayer] >= 20) {
+      isPlaying = false;
+      document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
+      document.querySelector(`.player--${activePlayer}`).classList.add('player--active');
+      diceEl.classList.add('hidden');
+    } else {
+      switchPlayer();
+    }
   }
 })
