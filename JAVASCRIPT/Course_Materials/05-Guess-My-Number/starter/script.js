@@ -21,21 +21,26 @@ const changeColor = (color) => {
   document.querySelector('body').style.backgroundColor = color;
 }
 
+const displayWinners = (widthSize, message) => {
+  document.querySelector('.number').style.width = widthSize;
+  document.querySelector('.number').textContent = message;
+}
+
+const changeScore = (score) => {
+  document.querySelector('.score').textContent = score;
+}
+
 
 document.querySelector('.check').addEventListener('click', () => {
   const guess = Number(document.querySelector('.guess').value);
-
   if (!guess) {
     displayMessage('🛑 No Number');
-    console.log("No value entered")
-
     // When there is a correct guess
   } else if (guess === randomNumber) {
     displayMessage('Correct Number!');
     score++;
     changeColor('#60b347')
-    document.querySelector('.number').style.width = '45rem'
-    document.querySelector('.number').textContent = 'Winner!'
+    displayWinners('45rem', 'Winner');
 
     if (score > highScore) {
       highScore = score;
@@ -47,9 +52,9 @@ document.querySelector('.check').addEventListener('click', () => {
     if (score > 1) {
       displayMessage((guess > randomNumber) ? '📈 Too High!' : 'Too Low!');
       score--;
-      document.querySelector('.score').textContent = score;
+      changeScore(score);
     } else {
-      document.querySelector('.score').textContent = 0;
+      changeScore(0);
       displayMessage('🔥 Game Over');
     }
     document.querySelector('body').style.backgroundColor = 'red';
@@ -75,9 +80,8 @@ document.querySelector('.again').addEventListener('click', () => {
   randomNumber = Math.trunc(Math.random() * 20 + 1);
   score = 20
   displayMessage('Start guessing...');
-  document.querySelector('.score').textContent = score;
+  changeScore(score);
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.guess').value = '';
-  document.querySelector('.number').style.width = '15rem';
-  document.querySelector('.number').textContent = '?';
+  displayWinners('15rem', '?')
 });
