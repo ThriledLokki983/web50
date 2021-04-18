@@ -29,8 +29,27 @@ const restaurant = {
 
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
+  },
+
+  orderDelivery: function ({
+    starterIndex,
+    mainIndex,
+    time,
+    address
+  }) {
+    console.log(`Order Received: ${this.starterMenu[starterIndex]} - Starter
+    ${this.mainMenu[mainIndex]} - Main 
+    will be delivered to ${address} 
+    at ${time}`);
   }
 };
+
+restaurant.orderDelivery({
+  time: '11:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2
+})
 
 // Destructuring objects
 const {
@@ -55,7 +74,28 @@ const {
 console.log(menu, starters);
 
 // Mutating variables while destructuring objects 
+let a = 111;
+let b = 999;
+const obj = {
+  a: 23,
+  b: 7,
+  c: 14
+};
 
+({
+  a,
+  b
+} = obj);
+console.log(a, b);
+
+// Nested Objects
+const {
+  fri: {
+    open: o,
+    close: c
+  }
+} = openingHours;
+console.log(o, c);
 
 
 // Destructuring   
