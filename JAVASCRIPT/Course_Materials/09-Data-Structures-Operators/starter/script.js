@@ -26,18 +26,64 @@ const restaurant = {
       close: 24,
     },
   },
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
+  }
 };
+
+// Destructuring objects
+const {
+  name,
+  openingHours,
+  categories
+} = restaurant;
+console.log(name, openingHours, categories);
+
+// Renaming the variables in the objects
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+// Setting default values
+const {
+  menu = [], starterMenu: starters = []
+} = restaurant;
+console.log(menu, starters);
+
+// Mutating variables while destructuring objects 
+
+
 
 // Destructuring   
 
-let [main, , , secondary] = restaurant.categories;
-console.log(main, secondary);
-
-// Switching main and secondary
-// const temp = main;
-// main = secondary;
-// secondary = temp;
+// let [main, , , secondary] = restaurant.categories;
 // console.log(main, secondary);
 
-[main, secondary] = [secondary, main];
-console.log(main, secondary);
+// // Switching main and secondary
+// // const temp = main;
+// // main = secondary;
+// // secondary = temp;
+// // console.log(main, secondary);
+
+// [main, secondary] = [secondary, main];
+// console.log(main, secondary);
+
+// const [starter, mainCourse] = restaurant.order(2, 0);
+// console.log(starter, mainCourse);
+
+// // Nested Array of -- Destructuring
+
+// const nested = [2, 4, [4, 5]];
+// const [i, , g] = nested;
+// console.log(i, g);
+
+// const [a, , [c, k]] = nested;
+// console.log(a, c, k);
+
+// // Setting default values
+// const [p = 1, q = 1, r = 1] = [3, 4];
+// console.log(p, q, r);
