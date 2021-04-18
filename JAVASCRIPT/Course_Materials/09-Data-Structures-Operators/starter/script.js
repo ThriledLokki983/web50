@@ -27,3 +27,8 @@ const restaurant = {
     },
   },
 };
+
+// Destructuring   
+
+const [main, , , secondary] = restaurant.categories;
+console.log(main, secondary);
