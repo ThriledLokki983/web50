@@ -53,163 +53,190 @@ const restaurant = {
   },
 };
 
-const arr = [1, 2, ...[3, 4]];
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a, b, others);
+console.log('--------------OR---------------');
 
-const [pizza, , rissoto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu]
+console.log(3 || 'Gideon');
+console.log('' || 'Gideon');
+console.log(true || 0);
+console.log(undefined || null);
 
-console.log(pizza, rissoto, otherFood);
+console.log(undefined || 0 || '' || 'Gideon' || 23 || null);
 
-// objects
-const {
-  sat,
-  ...weekdays
-} = restaurant.openingHours;
-console.log(sat, weekdays);
+restaurant.numGuests = 0;
+const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guest1);
+
+const guest2 = restaurant.numGuests || 10;
+console.log(guest2);
+
+console.log('--------------AND---------------');
+console.log(0 && 'Gideon'); // as soon it is false, it breaks
+console.log(7 && 'Gideon'); // if true, it continues and the last value if returned
+
+console.log('Gideon' && 23 && null && 'Hello');
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && (restaurant.orderPizza('mushrooms', 'spinach'));
+// const arr = [1, 2, ...[3, 4]];
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
+
+// const [pizza, , rissoto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu]
+
+// console.log(pizza, rissoto, otherFood);
+
+// // objects
+// const {
+//   sat,
+//   ...weekdays
+// } = restaurant.openingHours;
+// console.log(sat, weekdays);
 
 // functions
 
-const add = function (...numbers) {
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
-  }
-  return sum;
-}
-console.log(add(2, 3));
-console.log(add(5, 3, 7, 8));
-console.log(add(1, 2, 3, 4, 5, 6, 7, 8, 9));
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) {
+//     sum += numbers[i];
+//   }
+//   return sum;
+// }
+// console.log(add(2, 3));
+// console.log(add(5, 3, 7, 8));
+// console.log(add(1, 2, 3, 4, 5, 6, 7, 8, 9));
 
-const x = [3, 8, 9, 4];
-console.log(add(...x));
+// const x = [3, 8, 9, 4];
+// console.log(add(...x));
 
 
-restaurant.orderPizza('mushrooms', 'spinach', 'onions', 'lettuce');
-restaurant.orderPizza('lettuce') // with one parameter, the rest will just be an empty array  
+// restaurant.orderPizza('mushrooms', 'spinach', 'onions', 'lettuce');
+// restaurant.orderPizza('lettuce') // with one parameter, the rest will just be an empty array 
 
-const arr = [7, 8, 9];
-const badArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badArr);
+// const arr = [7, 8, 9];
+// const badArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badArr);
 
-const newArr = [1, 2, ...arr];
-console.log(newArr);
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
 
-const another = [...badArr, ...newArr];
-console.log(another);
-console.log(...another);
+// const another = [...badArr, ...newArr];
+// console.log(another);
+// console.log(...another);
 
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
 
 // // Copy Arrays
-const mainMenuCopy = [...restaurant.mainMenu];
-const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(menu);
-console.log(...menu);
+// const mainMenuCopy = [...restaurant.mainMenu];
+// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(menu);
+// console.log(...menu);
 
-const ingredients = [prompt("Let\'s make pasta! Ingredient 1?"), prompt("Let\'s make pasta! Ingredient 2?"), prompt("Let\'s make pasta! Ingredient 3?")];
+// const ingredients = [prompt("Let\'s make pasta! Ingredient 1?"), prompt("Let\'s make pasta! Ingredient 2?"), prompt("Let\'s make pasta! Ingredient 3?")];
 
-console.log(ingredients);
-restaurant.orderPasta(...ingredients);
+// console.log(ingredients);
+// restaurant.orderPasta(...ingredients);
 
 // objects
-const newRestaurant = {
-  foundedIn: 1998,
-  ...restaurant,
-  founder: 'Gussepia'
-}
+// const newRestaurant = {
+//   foundedIn: 1998,
+//   ...restaurant,
+//   founder: 'Gussepia'
+// }
 
-console.log(newRestaurant);
+// console.log(newRestaurant);
 
-const restaurantCopy = {
-  ...restaurant
-};
-restaurantCopy.name = 'Restotante Aromatica';
-console.log(newRestaurant.name);
-console.log(restaurant.name);
-console.log(...newRestaurant);
+// const restaurantCopy = {
+//   ...restaurant
+// };
+// restaurantCopy.name = 'Restotante Aromatica';
+// console.log(newRestaurant.name);
+// console.log(restaurant.name);
+// console.log(...newRestaurant);
 
-restaurant.orderDelivery({
-  time: '11:30',
-  address: 'Via del Sole, 21',
-  mainIndex: 2,
-  starterIndex: 2
-})
+// restaurant.orderDelivery({
+//   time: '11:30',
+//   address: 'Via del Sole, 21',
+//   mainIndex: 2,
+//   starterIndex: 2
+// })
 
 // // Destructuring objects
-const {
-  name,
-  openingHours,
-  categories
-} = restaurant;
-console.log(name, openingHours, categories);
+// const {
+//   name,
+//   openingHours,
+//   categories
+// } = restaurant;
+// console.log(name, openingHours, categories);
 
 // // Renaming the variables in the objects
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags
-} = restaurant;
-console.log(restaurantName, hours, tags);
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags
+// } = restaurant;
+// console.log(restaurantName, hours, tags);
 
 // // Setting default values
-const {
-  menu = [], starterMenu: starters = []
-} = restaurant;
-console.log(menu, starters);
+// const {
+//   menu = [], starterMenu: starters = []
+// } = restaurant;
+// console.log(menu, starters);
 
 // // Mutating variables while destructuring objects 
-let a = 111;
-let b = 999;
-const obj = {
-  a: 23,
-  b: 7,
-  c: 14
-};
+// let a = 111;
+// let b = 999;
+// const obj = {
+//   a: 23,
+//   b: 7,
+//   c: 14
+// };
 
-({
-  a,
-  b
-} = obj);
-console.log(a, b);
+// ({
+//   a,
+//   b
+// } = obj);
+// console.log(a, b);
 
-// Nested Objects
-const {
-  fri: {
-    open: o,
-    close: c
-  }
-} = openingHours;
-console.log(o, c);
+// // Nested Objects
+// const {
+//   fri: {
+//     open: o,
+//     close: c
+//   }
+// } = openingHours;
+// console.log(o, c);
 
 
 // Destructuring   
 
-let [main, , , secondary] = restaurant.categories;
-console.log(main, secondary);
+// let [main, , , secondary] = restaurant.categories;
+// console.log(main, secondary);
 
-//Switching main and secondary
-const temp = main;
-main = secondary;
-secondary = temp;
-console.log(main, secondary);
+// // Switching main and secondary
+// // const temp = main;
+// // main = secondary;
+// // secondary = temp;
+// // console.log(main, secondary);
 
-[main, secondary] = [secondary, main];
-console.log(main, secondary);
+// [main, secondary] = [secondary, main];
+// console.log(main, secondary);
 
-const [starter, mainCourse] = restaurant.order(2, 0);
-console.log(starter, mainCourse);
+// const [starter, mainCourse] = restaurant.order(2, 0);
+// console.log(starter, mainCourse);
 
-// Nested Array of -- Destructuring
+// // Nested Array of -- Destructuring
 
-const nested = [2, 4, [4, 5]];
-const [i, , g] = nested;
-console.log(i, g);
+// const nested = [2, 4, [4, 5]];
+// const [i, , g] = nested;
+// console.log(i, g);
 
-const [a, , [c, k]] = nested;
-console.log(a, c, k);
+// const [a, , [c, k]] = nested;
+// console.log(a, c, k);
 
-// Setting default values
-const [p = 1, q = 1, r = 1] = [3, 4];
-console.log(p, q, r);
+// // Setting default values
+// const [p = 1, q = 1, r = 1] = [3, 4];
+// console.log(p, q, r);
