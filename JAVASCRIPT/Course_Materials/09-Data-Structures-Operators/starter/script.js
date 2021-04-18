@@ -46,27 +46,67 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`);
   },
+
+  orderPizza: function (mainIngredients, ...otherIngredients) {
+    console.log(mainIngredients);
+    console.log(otherIngredients);
+  },
 };
 
-const arr = [7, 8, 9];
-const badArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badArr);
+const arr = [1, 2, ...[3, 4]];
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
 
-const newArr = [1, 2, ...arr];
-console.log(newArr);
+const [pizza, , rissoto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu]
 
-const another = [...badArr, ...newArr];
-console.log(another);
-console.log(...another);
+console.log(pizza, rissoto, otherFood);
 
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
+// objects
+const {
+  sat,
+  ...weekdays
+} = restaurant.openingHours;
+console.log(sat, weekdays);
 
-// Copy Arrays
-const mainMenuCopy = [...restaurant.mainMenu];
-const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(menu);
-console.log(...menu);
+// functions
+
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+}
+console.log(add(2, 3));
+console.log(add(5, 3, 7, 8));
+console.log(add(1, 2, 3, 4, 5, 6, 7, 8, 9));
+
+const x = [3, 8, 9, 4];
+console.log(add(...x));
+
+
+restaurant.orderPizza('mushrooms', 'spinach', 'onions', 'lettuce');
+restaurant.orderPizza('lettuce') // with one parameter, the rest will just be an empty array  
+
+// const arr = [7, 8, 9];
+// const badArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badArr);
+
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
+
+// const another = [...badArr, ...newArr];
+// console.log(another);
+// console.log(...another);
+
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
+
+// // Copy Arrays
+// const mainMenuCopy = [...restaurant.mainMenu];
+// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(menu);
+// console.log(...menu);
 
 // const ingredients = [prompt("Let\'s make pasta! Ingredient 1?"), prompt("Let\'s make pasta! Ingredient 2?"), prompt("Let\'s make pasta! Ingredient 3?")];
 
@@ -74,20 +114,20 @@ console.log(...menu);
 // restaurant.orderPasta(...ingredients);
 
 // objects
-const newRestaurant = {
-  foundedIn: 1998,
-  ...restaurant,
-  founder: 'Gussepia'
-}
+// const newRestaurant = {
+//   foundedIn: 1998,
+//   ...restaurant,
+//   founder: 'Gussepia'
+// }
 
-console.log(newRestaurant);
+// console.log(newRestaurant);
 
-const restaurantCopy = {
-  ...restaurant
-};
-restaurantCopy.name = 'Restotante Aromatica';
-console.log(newRestaurant.name);
-console.log(restaurant.name);
+// const restaurantCopy = {
+//   ...restaurant
+// };
+// restaurantCopy.name = 'Restotante Aromatica';
+// console.log(newRestaurant.name);
+// console.log(restaurant.name);
 // console.log(...newRestaurant);
 
 // restaurant.orderDelivery({
