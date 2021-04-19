@@ -76,3 +76,46 @@ s === 'B' || s === 'E' ? console.log('You got the Middle Seat 😬') : console.l
 checkMiddleSeat('11B');
 checkMiddleSeat('23C');
 checkMiddleSeat('3E');
+
+console.log(airline.toUpperCase());
+console.log(airline.toLowerCase());
+
+// Fix Capitalization in name
+const passenger = 'gIdeOn';
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect = passengerLower[0].toUpperCase()+passengerLower.slice(1);
+console.log(passengerCorrect);
+
+const correctPasshengerName = function (string){
+  let stringLower = string.toLowerCase();
+  return stringLower[0].toUpperCase()+stringLower.slice(1);
+}
+
+console.log(correctPasshengerName('jOnAS'))
+
+// comparing user input email
+const email = 'hello@gideon.io';
+const loginEmail = ' HelLo@GideON.Io \n';
+
+const checkEmail = function (string) {
+  const email = 'hello@gideon.io';
+  let emailString = string.toLowerCase().trim();
+  console.log(email === emailString);
+}
+
+checkEmail(' HelLo@GideON.Io \n');
+
+
+// Replacing parts of String
+const priceGB = '288,97£'
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement = 'All passengers should come to boarding door 23. Boarding door 23!';
+console.log(announcement.replaceAll('door', 'gate'));
+
+// Booleans
+const plane1 = 'Airbus A320neo';
+console.log(plane1.includes('A320'));
+console.log(plane1.includes('Boeing'));
+console.log(plane1.startsWith('Airb'));
