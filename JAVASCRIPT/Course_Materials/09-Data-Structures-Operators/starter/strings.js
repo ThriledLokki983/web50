@@ -146,3 +146,30 @@ const capitalizeName = function (name){
 
 capitalizeName('jessica ann smith davies')
 capitalizeName('gidoen agyin nimoh')
+
+const padding = 'Go to gate 23';
+console.log(padding.padStart(25, '+').padEnd(30, '+'));
+console.log('gideon'.padStart(25, '+')); // length of the entire string and the padding element
+console.log('Kwame'.padEnd(25, '+'));
+
+const maskCreditcard = function (cardNumber) {
+  const str = String (cardNumber); // cardNumber + '';
+  const last4 = str.slice(-4);
+  return last4.padStart(str.length, '*')
+}
+
+console.log(maskCreditcard(123456789123456));
+console.log(maskCreditcard('457827648567365'))
+
+
+// Repeat Method for string // repeat the same string multiple times
+
+const repeat = 'Bad weather... All Departures Delayed -- \n';
+console.log(repeat.repeat(5))
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'✈️'.repeat(n)}`);
+}
+
+planesInLine(5);
+planesInLine(12);
