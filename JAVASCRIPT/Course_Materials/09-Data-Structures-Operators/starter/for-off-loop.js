@@ -75,3 +75,12 @@ if (restaurant.openingHours.fri) console.log(restaurant.openingHours.fri.open);
 
 // WITH Optional Chaining Method
 console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open); // Prevent unexpected bugs
+
+
+const weekdays = ['mon', 'tues', 'weds', 'thu', 'fri', 'sat', 'sun'];
+for(let day of weekdays) {
+  // console.log(day);
+  const onday = restaurant.openingHours[day]?.open ?? 'closed'; // Nullish & Optional Chaining
+  console.log(`On ${day}, we open at ${onday}`);
+}
