@@ -1,3 +1,5 @@
+'use-strict'
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -54,3 +56,8 @@ console.log(new Set("Gideon").size) // Lenght in Array
 console.log(new Set("Gideon").has('e')); // Includes in Array
 console.log(new Set("Gideon").add('a')) // Push in Array
 console.log(new Set("Gideon").delete('a')) // Pop in Array
+new Set("Gideon").clear() // delete all of the elements in the set
+const newSet = new Set("Gideon")
+
+// Iterate over a sets
+for(const i of newSet) console.log(i);
