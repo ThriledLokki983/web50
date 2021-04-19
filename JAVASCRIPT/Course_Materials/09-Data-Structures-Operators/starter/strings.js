@@ -131,6 +131,18 @@ console.log('a+very+nice+string'.split('+')); // returns an array of strings
 console.log('Gideon Nimoh'.split(' '));
 const [firstName, lastName] = 'Gideon Nimoh'.split(' ');
 console.log(firstName, lastName);
-
 const newName = ['Mr', firstName, lastName.toUpperCase()].join(' ');
 console.log(newName);
+
+const capitalizeName = function (name){
+  const names = name.split(' ');
+  let namesCap = [];
+  for(let n of names){
+    // namesCap.push(n[0].toUpperCase() + n.slice(1));
+    namesCap.push(n.replace(n[0], n[0].toUpperCase())) // Another way of doing it
+  }
+  console.log(namesCap.join(' '));
+}
+
+capitalizeName('jessica ann smith davies')
+capitalizeName('gidoen agyin nimoh')
