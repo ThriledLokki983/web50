@@ -119,3 +119,18 @@ const plane1 = 'Airbus A320neo';
 console.log(plane1.includes('A320'));
 console.log(plane1.includes('Boeing'));
 console.log(plane1.startsWith('Airb'));
+
+if (plane1.startsWith('Airbus') && plane1.endsWith('neo')) {
+  console.log('Indeed, it is part of the Airbus Family of Planes')
+}
+
+
+// SPlit and Join
+
+console.log('a+very+nice+string'.split('+')); // returns an array of strings
+console.log('Gideon Nimoh'.split(' '));
+const [firstName, lastName] = 'Gideon Nimoh'.split(' ');
+console.log(firstName, lastName);
+
+const newName = ['Mr', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
