@@ -34,13 +34,16 @@ const gameEvents = new Map([
 // Q-1. Create an array 'events' of the different game events that happened (no duplicates)
 const events = new Set();
 const times = new Set();
-for(let [key, value] of gameEvents){
+for(let [key, value] of gameEvents){ // gameEvents.values()
   // console.log(value)
   events.add(value);
   times.add(key);
 }
 for(let i of events) console.log(i);
 // console.log(times);
+
+const eventsNew = [...new Set(gameEvents.values())];
+console.log(eventsNew);
 
 // Q-2. After the game has finished, is was found that the yellow card from minute 64 was unfair.
 // So remove this event from the game events log.
