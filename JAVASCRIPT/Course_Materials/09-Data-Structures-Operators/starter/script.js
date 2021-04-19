@@ -290,32 +290,76 @@ const game = {
     team2: 6.5,
   },
 };
+// Q1
+// const [players1] = [...game.players[0]];
+// console.log(players1);
 
-const [players1] = [game.players[0]];
-console.log(players1);
+// const [players2] = [game.players[1]];
+// console.log(players2);
 
-const [players2] = [game.players[1]];
-console.log(players2);
+// Ans 
+const [players1, players2] = game.players;
+console.log(players1, players2);
 
-const [gk, ...others] = [game.players[0][0], ...game.players[0]];
-console.log(`Goal Keeper: ${gk}
-Field Players: ${others}`);
+// Q2
+// const [gk, ...others] = [game.players[0][0], ...game.players[0]];
+// console.log(`Goal Keeper: ${gk}
+// Field Players: ${others}`);
 
-console.log(`All Players : ${players1 + ' ' + players2}`);
+// Answer
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+
+// Q3 
+// console.log(`All Players : ${players1 + ' ' + players2}`);
+
+// Answers
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
 
 // Q4 
 const player1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
 console.log(player1Final);
 
 // Q5 
-const draw = game.odds.x;
-console.log(draw);
-const team1 = game.odds.team1;
-console.log(team1);
-const team2 = game.odds.team2;
-console.log(team2);
+const draw1 = game.odds.x;
+console.log(draw1);
+const team = game.odds.team1;
+console.log(team);
+const team3 = game.odds.team2;
+console.log(team3);
+
+// Answer
+const {
+  odds: {
+    team1,
+    x: draw,
+    team2
+  }
+} = game;
+console.log(team1, draw, team2);
 
 // Q6 
-const printGoals = function (...numbers) {
-
+const printGoals1 = function (...numbers) { // Aggregate all incoming into one argument
+  for (let i = 0; i < numbers.length; i++) {
+    console.log(`${numbers[i]} scored ${i > 1 ? 'goals' : 'a goal'}`);
+  }
 }
+
+// Answer
+const printGoals = function (...numbers) {
+  for (let i = 0; i < numbers.length; i++) {
+    console.log(`${numbers.length} goals were scored`);
+  }
+}
+
+console.log(printGoals('Davies', 'Muller'));
+console.log(printGoals(...game.scored));
+
+// Q7 
+console.log(team1 || team1);
+
+// Answers
+
+team1 > team2 || console.log('Team 1 is more likely to win!');
+team2 > team1 && console.log('Team 2 is more likely to win!');
