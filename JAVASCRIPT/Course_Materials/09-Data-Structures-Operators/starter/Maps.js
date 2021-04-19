@@ -62,3 +62,7 @@ console.log(rest.get(1));
 
 const time = 21;
 console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+// Check if a map contains a key
+console.log(rest.has('categories')) // Check if it exist based on the KEY
+console.log(rest.delete(2)) // delete a key from the map 
