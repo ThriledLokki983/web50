@@ -84,3 +84,16 @@ for(let day of weekdays) {
   const onday = restaurant.openingHours[day]?.open ?? 'closed'; // Nullish & Optional Chaining
   console.log(`On ${day}, we open at ${onday}`);
 }
+
+// METHODS
+console.log(restaurant.order?.(0,1) ?? "Method not Found.....");
+console.log(restaurant.rissoto?.(0,1) ?? "Method not Found......");
+
+// ARRAYS
+const users = [
+  {name: 'Gideon',
+email: 'gideon@email.com',
+phone: '0626603494'},
+]
+
+console.log(users[1]?.name ?? "Does not exist...")
