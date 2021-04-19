@@ -74,4 +74,4 @@ if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
 if (restaurant.openingHours.fri) console.log(restaurant.openingHours.fri.open);
 
 // WITH Optional Chaining Method
-console.log(restaurant.openingHours.mon ?. open);
+console.log(restaurant.openingHours.mon?.open);
