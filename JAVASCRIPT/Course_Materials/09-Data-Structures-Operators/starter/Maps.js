@@ -65,4 +65,18 @@ console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
 
 // Check if a map contains a key
 console.log(rest.has('categories')) // Check if it exist based on the KEY
-console.log(rest.delete(2)) // delete a key from the map 
+console.log(rest.delete(2)) // delete a key from the map
+console.log(rest.size); //  Check the size of the Map
+// rest.clear(); // delete everything in the map
+console.log(rest);
+
+// Arrays as mapKeys
+const arr = [1,2];
+rest.set(arr, 'Test');
+console.log(rest)
+console.log(rest.size);
+
+console.log(rest.get(arr));
+
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
