@@ -34,8 +34,8 @@ const restaurant = {
     address
   }) {
     console.log(`Order Received: ${this.starterMenu[starterIndex]} - Starter
-    ${this.mainMenu[mainIndex]} - Main 
-    will be delivered to ${address} 
+    ${this.mainMenu[mainIndex]} - Main
+    will be delivered to ${address}
     at ${time}`);
   },
 
@@ -55,3 +55,23 @@ console.log(menu);
 for (let item of menu) {
   console.log(item);
 }
+
+// Getting an index element
+for (const item of menu.entries()) {
+  console.log(`${item[0] + 1}: ${item[1]}`);
+}
+//console.log([...menu.entries()]);
+
+
+// Using the destructuring method
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+// Optional Chaining Method
+if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+
+if (restaurant.openingHours.fri) console.log(restaurant.openingHours.fri.open);
+
+// WITH Optional Chaining Method
+console.log(restaurant.openingHours.mon ?. open);
