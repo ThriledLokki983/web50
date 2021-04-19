@@ -53,33 +53,40 @@ const restaurant = {
   },
 };
 
-console.log('--------------OR---------------');
+// restaurant.numGuests = 0;
+// const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guest1);
 
-console.log(3 || 'Gideon');
-console.log('' || 'Gideon');
-console.log(true || 0);
-console.log(undefined || null);
+// const guestCorrect = restaurant.numGuests ? ? 10;
+// console.log(guestCorrect);
 
-console.log(undefined || 0 || '' || 'Gideon' || 23 || null);
+// console.log('--------------OR---------------');
 
-restaurant.numGuests = 0;
-const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guest1);
+// console.log(3 || 'Gideon');
+// console.log('' || 'Gideon');
+// console.log(true || 0);
+// console.log(undefined || null);
 
-const guest2 = restaurant.numGuests || 10;
-console.log(guest2);
+// console.log(undefined || 0 || '' || 'Gideon' || 23 || null);
 
-console.log('--------------AND---------------');
-console.log(0 && 'Gideon'); // as soon it is false, it breaks
-console.log(7 && 'Gideon'); // if true, it continues and the last value if returned
+// restaurant.numGuests = 0;
+// const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guest1);
 
-console.log('Gideon' && 23 && null && 'Hello');
+// const guest2 = restaurant.numGuests || 10;
+// console.log(guest2);
 
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('mushrooms', 'spinach');
-}
+// console.log('--------------AND---------------');
+// console.log(0 && 'Gideon'); // as soon it is false, it breaks
+// console.log(7 && 'Gideon'); // if true, it continues and the last value if returned
 
-restaurant.orderPizza && (restaurant.orderPizza('mushrooms', 'spinach'));
+// console.log('Gideon' && 23 && null && 'Hello');
+
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushrooms', 'spinach');
+// }
+
+// restaurant.orderPizza && (restaurant.orderPizza('mushrooms', 'spinach'));
 // const arr = [1, 2, ...[3, 4]];
 // const [a, b, ...others] = [1, 2, 3, 4, 5];
 // console.log(a, b, others);
@@ -240,3 +247,75 @@ restaurant.orderPizza && (restaurant.orderPizza('mushrooms', 'spinach'));
 // // Setting default values
 // const [p = 1, q = 1, r = 1] = [3, 4];
 // console.log(p, q, r);
+
+// Challenge for Data Structure
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+const [players1] = [game.players[0]];
+console.log(players1);
+
+const [players2] = [game.players[1]];
+console.log(players2);
+
+const [gk, ...others] = [game.players[0][0], ...game.players[0]];
+console.log(`Goal Keeper: ${gk}
+Field Players: ${others}`);
+
+console.log(`All Players : ${players1 + ' ' + players2}`);
+
+// Q4 
+const player1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(player1Final);
+
+// Q5 
+const draw = game.odds.x;
+console.log(draw);
+const team1 = game.odds.team1;
+console.log(team1);
+const team2 = game.odds.team2;
+console.log(team2);
+
+// Q6 
+const printGoals = function (...numbers) {
+
+}
