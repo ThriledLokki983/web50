@@ -120,3 +120,11 @@ console.log([...question]);
 // console.log([question.entries()]);
 console.log([...question.keys()]);
 console.log([...question.values()]);
+
+//Diff between Objects && map
+
+// - use Objects when you need to include functions (methods)
+// - Use when working with JSON (can convert to Map)
+
+// - Use when you simply neew to map key to values
+// - Use when you need keys taht are not strings
