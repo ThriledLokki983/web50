@@ -61,3 +61,12 @@ const newSet = new Set("Gideon")
 
 // Iterate over a sets
 for(const i of newSet) console.log(i);
+
+// Main objective of sets is to remove duplicates from the elements
+const staff = ['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter'];
+console.log(new Set(['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter']).size);
+const staffSet = new Set(staff);
+const staffUnique = [...new Set(staff)];
+console.log(staff)
+console.log(staffSet);
+console.log(staffUnique);
