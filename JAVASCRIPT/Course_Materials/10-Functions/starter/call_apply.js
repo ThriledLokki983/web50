@@ -94,3 +94,23 @@ console.log(addtax(0.1, 200));
 const addVAT = addtax.bind(null, 0.23); // addVAT = value => value * 0.23;
 console.log(addVAT(100));
 console.log(addVAT(23));
+
+// Rewrite a fn to return the AddVAT Function
+
+const calcTax = function (rate, value) {
+	return function (value1) {
+		console.log(`Ans: ${rate * value1}`)
+	}
+};
+
+calcTax(0.23, 100)(200);
+
+const addTaxRate = function (rate) {
+	return function (value) {
+		return value + (value * rate);
+	}
+}
+
+const addVAT2 = addTaxRate(0.23);
+console.log(addVAT2(100));
+console.log(addVAT2(23));
