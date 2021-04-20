@@ -56,3 +56,41 @@ console.log(swiss);
 
 
 // Bind Method == it returns a new function where the THIS keyword is bound
+const bookEW = book.bind(eurowings); // const book = lufthansa.book;
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+
+bookEW(234, 'Stephen, Williams');
+book.bind(eurowings)(456, 'Brandon Spears');
+console.log(eurowings);
+
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Gideon Agyin-Nimoh');
+bookEW23('Johnspon Asiedu-Nkatiah');
+bookEW23('Rosemond Brown')
+console.log(eurowings.bookings);
+
+
+// With Event Listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+	console.log(this);
+	this.planes += 3;
+	console.log(this.planes);
+};
+
+eurowings.planes = 10;
+swiss.planes = 5;
+// lufthansa.buyPlane();
+
+document.querySelector('.buy').addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+
+// Partial Application // THIS keyword is sometimes not neccessary but we still use the bind Method
+
+const addtax = (rate, value) => value + (value * rate);
+console.log(addtax(0.1, 200));
+
+const addVAT = addtax.bind(null, 0.23); // addVAT = value => value * 0.23;
+console.log(addVAT(100));
+console.log(addVAT(23));
