@@ -41,34 +41,43 @@ const button = document.querySelector('button');
 
 button.addEventListener('click', () => {
 	let text = document.querySelector('textarea').value;
-	console.log(text);
-	const newWords = text.split('\n');
-	const words = [];
-	const camelWords = [];
-	const finWords = [];
-	let str = '';
+	const rows = text.split('\n');
+	// console.log(rows);
 
-	for (let word of newWords) {
-		words.push(word.trim());
+	for (let [i, row] of rows.entries()) {
+		const [first, second] = (row.trim().toLowerCase().split('_'));
+		const output = `${first}${second.replace(second[0], second[0].toUpperCase())}`;
+		console.log(`${output.padEnd(20)}${'✅'.repeat(i+1)}`);
 	}
-	console.log(newWords);
 
-	for (let w of words) {
-		w = w.toLowerCase();
-		camelWords.push(w.replace('_', ' '));
-	}
-	console.log(camelWords);
 
-	for (let n of camelWords) {
-		finWords.push((n.split(' ')));
-	}
-	console.log(finWords);
-
-	for (var i = 0; i < camelWords.size; i++) {
-		for (let [n, i] of finWords) {
-			str = (n + i[0].toUpperCase() + i.slice(1));
-		}
-	}
+	// const newWords = text.split('\n');
+	// const words = [];
+	// const camelWords = [];
+	// const finWords = [];
+	// let str = '';
+	//
+	// for (let word of newWords) {
+	// 	words.push(word.trim());
+	// }
+	// console.log(newWords);
+	//
+	// for (let w of words) {
+	// 	w = w.toLowerCase();
+	// 	camelWords.push(w.replace('_', ' '));
+	// }
+	// console.log(camelWords);
+	//
+	// for (let n of camelWords) {
+	// 	finWords.push((n.split(' ')));
+	// }
+	// console.log(finWords);
+	//
+	// for (var i = 0; i < camelWords.size; i++) {
+	// 	for (let [n, i] of finWords) {
+	// 		str = (n + i[0].toUpperCase() + i.slice(1));
+	// 	}
+	// }
 
 
 });
