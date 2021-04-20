@@ -19,3 +19,16 @@ const checkIn = (flightNum, passenger) => {
 checkIn(flight, gideon);
 console.log(flight);
 console.log(gideon);
+
+// When an object is copied, the reference is what has been copied and the content stays the same
+// which can be manipulated by the newly created variable.catch
+
+// A function to change Passport Number
+
+const changePassportNumber = (passenger) => {
+	passenger.passport = Math.trunc(Math.random() * 10000000000);
+}
+
+changePassportNumber(gideon);
+checkIn(flight, gideon);
+console.log(gideon.passport);
