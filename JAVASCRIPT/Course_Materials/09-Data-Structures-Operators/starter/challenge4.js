@@ -1,7 +1,5 @@
 'use-strict';
-
 // Coding Challenge #4
-
 /*
 Write a program that receives a list of variable names written in underscore_case and
 convert them to camelCase.
@@ -34,17 +32,13 @@ Afterwards, test with your own test data!
 
 GOOD LUCK 😀
 */
-
 document.body.append(document.createElement('textarea'));
 document.body.append(document.createElement('button'));
+const text = document.getElementsByTagName('textarea').value;
 
-const text = document.querySelector('textarea')
-	.value;
 const button = document.querySelector('button');
-
-
-
 button.addEventListener('click', () => {
-	const newWords = text.split(' ');
-	console.log(newWords)
+	console.log(text);
+	// const newWords = text.split(' ');
+	// console.log(newWords)
 });
