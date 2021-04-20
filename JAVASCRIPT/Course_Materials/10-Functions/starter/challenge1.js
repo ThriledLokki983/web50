@@ -48,15 +48,51 @@ const poll = {
 	answers: new Array(4).fill(0), // creates an array[0,0,0,0]
 
 	registerNewAnswer() {
-		let str = '';
-		for (let [index, answer] of this.options.entries()) {
-			const [i, ans] = answer.split(' ');
-			str += `${index}: ${ans} \n`;
-		}
-		const ans = Number(prompt(`${this.question} \n${str}(Write option number)`))
-		this.answers.length ? console.log(`${this.answers[ans] = this.answers[ans]+1}`) : console.log(`Incorrect Selection`);
-		console.log(ans, this.answers);
+		// Get answer
+		const answer = Number(prompt(`${this.question}\n${this.options.join('\n')}\n(Write option number)`));
+		console.log(answer);
+
+		// Register answers
+		typeof answer === 'number' && answer < this.options.length && this.answers[answer]++; // use of short circuiting
+		this.displayResults();
+		this.displayResults('string');
 	},
+
+	displayResults(type = 'array') {
+		type === 'array' ? console.log(this.answers) : console.log(`Poll results are ${this.answers.join(', ')}`)
+	}
+
 };
 
 document.querySelector('.poll').addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+poll.displayResults.call({
+	answers: [5, 2, 3]
+}, 'string');
+
+poll.displayResults.call({
+	answers: [1, 5, 3, 9, 6, 1]
+}, 'string');
+
+poll.displayResults.call({
+	answers: [1, 5, 3, 9, 6, 1]
+});
+
+// BONUS TEST DATA 1: [5, 2, 3]
+// BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
+// registerNewAnswer() {
+// 	let str = '';
+// 	for (let [index, answer] of this.options.entries()) {
+// 		const [i, ans] = answer.split(' ');
+// 		str += `${index}: ${ans} \n`;
+// 	}
+// 	const ans = Number(prompt(`${this.question} \n${str}(Write option number)`))
+// 	typeof ans === 'number' && ans < this.answers.length ? console.log(`${this.answers[ans] = this.answers[ans]+1}`) : console.log(`Incorrect Selection`);
+// 	console.log(ans, this.answers);
+// },
+//
+// displayResults(type) {
+// 	// displays the poll results.
+// 	typeof type === 'Arrays' ? console.log(`Array`) : console.log(`...type`);
+//
+// },
