@@ -9,7 +9,7 @@ const upperFirstWord = (str) => {
 	return [first.toUpperCase(), ...others].join(' ');
 };
 
-// Higher-Order function
+// Higher-Order function // Function that takes another function
 const transformer = (str, fnc) => {
 	console.log(`${str}`);
 	console.log(`Transformed string: ${fnc(str)}`);
@@ -19,3 +19,23 @@ const transformer = (str, fnc) => {
 
 transformer('JavaScript is the best!', upperFirstWord);
 transformer('JavaScript is the best!', oneWord);
+
+
+// Higher-Order function // Function that returns another function
+const greet = (greeting) => { // this works bcos of closures
+	return function (name) {
+		console.log(`${greeting} ${name}`)
+	}
+}
+let name = (n) => console.log(`${n}`);
+
+const greeter = greet('Hey');
+greeter('Gideon');
+greeter('Ama');
+
+greet('Hello')('Gideon Nimoh')
+
+// Rewrite the greet function only with Arrow function
+const greet2 = (greeting) => (n) => console.log(`${greeting} ${n}`);
+
+greet2('Hoi')('Gideon')
