@@ -34,11 +34,41 @@ GOOD LUCK 😀
 */
 document.body.append(document.createElement('textarea'));
 document.body.append(document.createElement('button'));
-const text = document.getElementsByTagName('textarea').value;
 
 const button = document.querySelector('button');
+
+
+
 button.addEventListener('click', () => {
+	let text = document.querySelector('textarea').value;
 	console.log(text);
-	// const newWords = text.split(' ');
-	// console.log(newWords)
+	const newWords = text.split('\n');
+	const words = [];
+	const camelWords = [];
+	const finWords = [];
+	let str = '';
+
+	for (let word of newWords) {
+		words.push(word.trim());
+	}
+	console.log(newWords);
+
+	for (let w of words) {
+		w = w.toLowerCase();
+		camelWords.push(w.replace('_', ' '));
+	}
+	console.log(camelWords);
+
+	for (let n of camelWords) {
+		finWords.push((n.split(' ')));
+	}
+	console.log(finWords);
+
+	for (var i = 0; i < camelWords.size; i++) {
+		for (let [n, i] of finWords) {
+			str = (n + i[0].toUpperCase() + i.slice(1));
+		}
+	}
+
+
 });
