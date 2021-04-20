@@ -40,7 +40,7 @@ document.body.append(document.createElement('button'));
 
 const text = document.querySelector('textarea')
 	.value;
-const button = document.querySelector('button')
+const button = document.querySelector('button');
 
 
 
@@ -48,12 +48,3 @@ button.addEventListener('click', () => {
 	const newWords = text.split(' ');
 	console.log(newWords)
 });
-
-// btn.addEventListener('click', function () {
-// 	console.log(words);
-// 	let newWord = words.split(' ');
-// 	let camelWords = [];
-// 	for (let n of newWord) {
-// 		console.log(n)
-// 	}
-// })

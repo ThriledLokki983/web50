@@ -1,1 +1,17 @@
-{}
+{
+  "name": "starter",
+  "version": "1.0.0",
+  "description": "javascript-fundamentals:",
+  "main": "Maps.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "goaway"
+  ],
+  "author": "Gideon",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.24.0"
+  }
+}

@@ -2,79 +2,79 @@
 
 // Data needed for a later exercise
 const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+	'_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
 const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+	name: 'Classico Italiano',
+	location: 'Via Angelo Tavanti 23, Firenze, Italy',
+	categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+	starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+	mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+	openingHours: {
+		thu: {
+			open: 12,
+			close: 22,
+		},
+		fri: {
+			open: 11,
+			close: 23,
+		},
+		sat: {
+			open: 0, // Open 24 hours
+			close: 24,
+		},
+	},
 
-  order: function (starterIndex, mainIndex) {
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
-  },
+	order: function (starterIndex, mainIndex) {
+		return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
+	},
 
-  orderDelivery: function ({
-    starterIndex,
-    mainIndex,
-    time,
-    address
-  }) {
-    console.log(`Order Received: ${this.starterMenu[starterIndex]} - Starter
-    ${this.mainMenu[mainIndex]} - Main 
-    will be delivered to ${address} 
+	orderDelivery: function ({
+		starterIndex,
+		mainIndex,
+		time,
+		address
+	}) {
+		console.log(`Order Received: ${this.starterMenu[starterIndex]} - Starter
+    ${this.mainMenu[mainIndex]} - Main
+    will be delivered to ${address}
     at ${time}`);
-  },
+	},
 
-  orderPasta: function (ing1, ing2, ing3) {
-    console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`);
-  },
+	orderPasta: function (ing1, ing2, ing3) {
+		console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`);
+	},
 
-  orderPizza: function (mainIngredients, ...otherIngredients) {
-    console.log(mainIngredients);
-    console.log(otherIngredients);
-  },
+	orderPizza: function (mainIngredients, ...otherIngredients) {
+		console.log(mainIngredients);
+		console.log(otherIngredients);
+	},
 };
 
-// restaurant.numGuests = 0;
-// const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
-// console.log(guest1);
+restaurant.numGuests = 0;
+const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guest1);
 
-// const guestCorrect = restaurant.numGuests ? ? 10;
-// console.log(guestCorrect);
+const guestCorrect = restaurant.numGuests ? ? 10;
+console.log(guestCorrect);
 
-// console.log('--------------OR---------------');
+console.log('--------------OR---------------');
 
-// console.log(3 || 'Gideon');
-// console.log('' || 'Gideon');
-// console.log(true || 0);
-// console.log(undefined || null);
+console.log(3 || 'Gideon');
+console.log('' || 'Gideon');
+console.log(true || 0);
+console.log(undefined || null);
 
-// console.log(undefined || 0 || '' || 'Gideon' || 23 || null);
+console.log(undefined || 0 || '' || 'Gideon' || 23 || null);
 
-// restaurant.numGuests = 0;
-// const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
-// console.log(guest1);
+restaurant.numGuests = 0;
+const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guest1);
 
-// const guest2 = restaurant.numGuests || 10;
-// console.log(guest2);
+const guest2 = restaurant.numGuests || 10;
+console.log(guest2);
 
 // console.log('--------------AND---------------');
 // console.log(0 && 'Gideon'); // as soon it is false, it breaks
@@ -120,7 +120,7 @@ const restaurant = {
 
 
 // restaurant.orderPizza('mushrooms', 'spinach', 'onions', 'lettuce');
-// restaurant.orderPizza('lettuce') // with one parameter, the rest will just be an empty array 
+// restaurant.orderPizza('lettuce') // with one parameter, the rest will just be an empty array
 
 // const arr = [7, 8, 9];
 // const badArr = [1, 2, arr[0], arr[1], arr[2]];
@@ -193,7 +193,7 @@ const restaurant = {
 // } = restaurant;
 // console.log(menu, starters);
 
-// // Mutating variables while destructuring objects 
+// // Mutating variables while destructuring objects
 // let a = 111;
 // let b = 999;
 // const obj = {
@@ -218,7 +218,7 @@ const restaurant = {
 // console.log(o, c);
 
 
-// Destructuring   
+// Destructuring
 
 // let [main, , , secondary] = restaurant.categories;
 // console.log(main, secondary);
@@ -251,9 +251,9 @@ const restaurant = {
 // Challenge for Data Structure
 
 const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
+	team1: 'Bayern Munich',
+	team2: 'Borrussia Dortmund',
+	players: [
     [
       'Neuer',
       'Pavard',
@@ -281,14 +281,14 @@ const game = {
       'Gotze',
     ],
   ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
+	score: '4:0',
+	scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+	date: 'Nov 9th, 2037',
+	odds: {
+		team1: 1.33,
+		x: 3.25,
+		team2: 6.5,
+	},
 };
 // Q1
 // const [players1] = [...game.players[0]];
@@ -297,7 +297,7 @@ const game = {
 // const [players2] = [game.players[1]];
 // console.log(players2);
 
-// Ans 
+// Ans
 const [players1, players2] = game.players;
 console.log(players1, players2);
 
@@ -310,18 +310,18 @@ console.log(players1, players2);
 const [gk, ...fieldPlayers] = players1;
 console.log(gk, fieldPlayers);
 
-// Q3 
+// Q3
 // console.log(`All Players : ${players1 + ' ' + players2}`);
 
 // Answers
 const allPlayers = [...players1, ...players2];
 console.log(allPlayers);
 
-// Q4 
+// Q4
 const player1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
 console.log(player1Final);
 
-// Q5 
+// Q5
 const draw1 = game.odds.x;
 console.log(draw1);
 const team = game.odds.team1;
@@ -331,32 +331,32 @@ console.log(team3);
 
 // Answer
 const {
-  odds: {
-    team1,
-    x: draw,
-    team2
-  }
+	odds: {
+		team1,
+		x: draw,
+		team2
+	}
 } = game;
 console.log(team1, draw, team2);
 
-// Q6 
+// Q6
 const printGoals1 = function (...numbers) { // Aggregate all incoming into one argument
-  for (let i = 0; i < numbers.length; i++) {
-    console.log(`${numbers[i]} scored ${i > 1 ? 'goals' : 'a goal'}`);
-  }
+	for (let i = 0; i < numbers.length; i++) {
+		console.log(`${numbers[i]} scored ${i > 1 ? 'goals' : 'a goal'}`);
+	}
 }
 
 // Answer
 const printGoals = function (...numbers) {
-  for (let i = 0; i < numbers.length; i++) {
-    console.log(`${numbers.length} goals were scored`);
-  }
+	for (let i = 0; i < numbers.length; i++) {
+		console.log(`${numbers.length} goals were scored`);
+	}
 }
 
 console.log(printGoals('Davies', 'Muller'));
 console.log(printGoals(...game.scored));
 
-// Q7 
+// Q7
 console.log(team1 || team1);
 
 // Answers
