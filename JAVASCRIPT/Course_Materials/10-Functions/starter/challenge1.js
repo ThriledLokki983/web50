@@ -43,30 +43,20 @@ GOOD LUCK 😀
 */
 
 const poll = {
-	question: 'What is your favorite programming language?',
+	question: 'What is your favourite programming language?',
 	options: ['0: Javascript', '1: Python', '2: Rust', '3: C++'],
 	answers: new Array(4).fill(0), // creates an array[0,0,0,0]
 
 	registerNewAnswer() {
-		// Get the answer from the user
-		const answer = prompt(`${this.question}`)
+		let str = '';
+		for (let [index, answer] of this.options.entries()) {
+			const [i, ans] = answer.split(' ');
+			str += `${index}: ${ans} \n`;
+		}
+		const ans = Number(prompt(`${this.question} \n${str}(Write option number)`))
+		this.answers.length ? console.log(`${this.answers[ans] = this.answers[ans]+1}`) : console.log(`Incorrect Selection`);
+		console.log(ans, this.answers);
 	},
 };
 
-// const answer = Number(
-//     prompt(
-//       `${this.question}\n${this.options.join('\n')}\n(Write option number)`
-//     )
-// poll.registerNewAnswer();
-document.querySelector('.poll').addEventListener('click', poll.registerNewAnswer);
-
-
-
-
-// let str = '';
-// for (let [index, answer] of this.options.entries()) {
-// 	const [i, ans] = answer.split(' ');
-// 	str += `${index}: ${ans} \n`;
-// }
-// const ans = Number(prompt(`${this.question} \n${str}(Write option number)`))
-// ans <= this.answers.length ? console.log(`${this.answers[ans] = this.answers[ans]+1}`) : console.log(`Incorrect Selection`);
+document.querySelector('.poll').addEventListener('click', poll.registerNewAnswer.bind(poll));
