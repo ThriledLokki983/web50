@@ -37,7 +37,8 @@ console.log(gideon.passport);
 // parse by a value
 
 // First Class Functions
-// - Javascript treats functions as first-class citizens
+// - Javascript treats functions as firs
+t - class citizens
 // - This means that functions are simply values
 // - Functions are just "type" of objects
 
