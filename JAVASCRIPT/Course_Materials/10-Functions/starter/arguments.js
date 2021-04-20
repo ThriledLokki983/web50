@@ -32,3 +32,15 @@ const changePassportNumber = (passenger) => {
 changePassportNumber(gideon);
 checkIn(flight, gideon);
 console.log(gideon.passport);
+
+// Parsing by Value && Parsing by reference :::: Javascript does not have Parsing by reference, only
+// parse by a value
+
+// First Class Functions
+// - Javascript treats functions as first-class citizens
+// - This means that functions are simply values
+// - Functions are just "type" of objects
+
+// HIGHER-ORDER Functions
+// - A function that recieves another function as an argument, that returns a new function or both
+// - This is only possible becasue of first-class Functions
