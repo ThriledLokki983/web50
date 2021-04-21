@@ -33,7 +33,7 @@ const checkDogs = function (array1, array2) {
 	const array1Copy = array1.slice(1, -2);
 	const corretData = [...array1Copy, ...array2];
 	corretData.forEach(function (value, index) {
-		const check = value >= 3 ? 'adult' : 'puppy';
+		const check = value >= 3 ? 'adult 🐕' : 'puppy 🐶';
 		const art = check === 'adult' ? 'an' : 'a';
 		const year = value > 1 ? 'years' : 'year';
 		console.log(`Dog number ${index + 1} is ${art} ${check}, and is ${value} ${year} old`)
