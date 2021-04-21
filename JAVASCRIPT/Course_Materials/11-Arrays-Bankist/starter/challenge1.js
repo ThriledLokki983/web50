@@ -57,6 +57,14 @@ const calcAverageHumanAge = function (arr) {
 console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
 console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
 
+const calcAverageHumanAge1 = arr => arr
+	.map(curr => curr <= 2 ? curr * 2 : 16 + (curr * 4))
+	.filter((curr) => curr >= 18)
+	.reduce((init, current, i, arr) => init + current / arr.length, 0).toFixed(0);
+
+console.log(calcAverageHumanAge1([5, 2, 4, 1, 15, 8, 3]));
+console.log(calcAverageHumanAge1([16, 6, 10, 5, 6, 1, 4]));
+
 // // Q-2
 // const newArr = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 // const newArr1 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);

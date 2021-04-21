@@ -78,7 +78,7 @@ displayTransactions(account1.movements);
 
 const calcDisplayTransactions = transactions => {
 	const balance = transactions.reduce((initial, current) => initial + current, 0);
-	labelBalance.textContent = `${balance}`;
+	labelBalance.textContent = `${balance}€`;
 };
 calcDisplayTransactions(account1.movements);
 
