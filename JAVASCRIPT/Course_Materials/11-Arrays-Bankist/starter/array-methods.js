@@ -83,3 +83,10 @@ console.log(withdrawals);
 // Reduce (boils) all the array elements of the original array down to a single value
 // (e.g -- aadding all the elements together)
 // accumulator + current === One single Value which is finally returned
+// Accumulator -> SNOWBALL
+console.log(movements);
+const balance = movements.reduce(function (acc, element, index, arr) {
+	console.log(`Iteration ${index + 1}:\t${acc}`)
+	return acc + element;
+}, 0);
+console.log(balance);
