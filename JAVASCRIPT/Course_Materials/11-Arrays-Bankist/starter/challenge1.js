@@ -49,8 +49,8 @@ console.log('================== Challeng - 2 ================')
 
 // Q-1
 const calcAverageHumanAge = function (arr) {
-	const calcAverageHumanAge = arr.map(curr => curr <= 2 ? curr * 2 : 16 + (curr * 4));
-	const newArr = calcAverageHumanAge.filter((curr) => curr >= 18);
+	const humanAges = arr.map(curr => curr <= 2 ? curr * 2 : 16 + (curr * 4));
+	const newArr = humanAges.filter((curr) => curr >= 18);
 	const total = newArr.reduce((initial, current) => initial + current, 0);
 	return Number((total / newArr.length).toFixed(0));
 }
