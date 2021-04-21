@@ -98,4 +98,8 @@ let balance2 = 0;
 for (let i of movements) {
 	balance2 += i;
 }
-console.log(balance2)
+console.log(balance2);
+
+// Maximum Value of the movements
+const max = movements.reduce((acc, curr) => acc > curr ? acc : curr, 200);
+console.log(max);
