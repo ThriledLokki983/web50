@@ -76,8 +76,13 @@ const displayTransactions = function (transactions) { // pass the data into the 
 }
 displayTransactions(account1.movements);
 
-const createUser = function (str) {
-	const theUser = str.toLowerCase().split(' ').map((name) => name[0]).join('');
-	console.log(theUser);
+const createUser = function (accs) {
+	accs.forEach(function (ac) {
+		ac.username = ac.owner
+			.toLowerCase()
+			.split(' ')
+			.map((name) => name[0]).join('');
+	})
 }
-createUser('Steven Thomas Williams');
+createUser(accounts);
+console.log(accounts);
