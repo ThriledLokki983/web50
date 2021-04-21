@@ -33,12 +33,27 @@ console.log(letters);
 
 // Join Method ---
 console.log(letters.join(' - '));
+//////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // MAP Method -- for looping (just like the forEach Method) but this one creates
 // a brand new array
 // Maps the value of the original array into a new array (e.g * 4);
 // Returns a NEW ARRAY Containing the results of applying an operation on all the original array elements
 // current  * 2
+const eurosToUsd = 1.1;
+// const movementsUsd = movements.map(function (currentElement) {
+// 	return Number((currentElement * eurosToUsd).toFixed(0));
+// });
+// 
+const movementsUsd =
+	movements.map(currentElement => Number((currentElement * eurosToUsd).toFixed(0)));
+
+console.log(movements);
+console.log(movementsUsd);
+
+
 
 // FILTER
 // Filter for an element in the original array which satisfies a particular condition
@@ -48,4 +63,4 @@ console.log(letters.join(' - '));
 // REDUCE
 // Reduce (boils) all the array elements of the original array down to a single value
 // (e.g -- aadding all the elements together)
-// accumulator + current === One single Value which is finally returned 
+// accumulator + current === One single Value which is finally returned
