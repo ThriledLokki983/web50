@@ -63,6 +63,13 @@ console.log(newMove);
 // Returns a NEW ARRAY Containing the array elements that passed a specified TEST CONDITION
 // Curernt > 2
 
+const deposits = movements.filter(function (mov) {
+	return mov > 0; // return a boolean value
+});
+
+console.log(deposits);
+
+
 // REDUCE
 // Reduce (boils) all the array elements of the original array down to a single value
 // (e.g -- aadding all the elements together)
