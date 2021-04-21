@@ -67,7 +67,16 @@ const deposits = movements.filter(function (mov) {
 	return mov > 0; // return a boolean value
 });
 
+const deposit = [];
+const withdrawals = [];
+for (let mov of movements) {
+	mov > 0 ? deposit.push(mov) : withdrawals.push(mov);
+}
+
+
 console.log(deposits);
+console.log(deposit);
+console.log(withdrawals);
 
 
 // REDUCE
