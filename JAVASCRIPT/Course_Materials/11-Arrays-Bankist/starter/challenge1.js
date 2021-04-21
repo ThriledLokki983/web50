@@ -42,4 +42,7 @@ const checkDogs = function (array1, array2) {
 console.log('================== TEST DATA-1 ================')
 checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 console.log('================== TEST DATA-2 ================')
-checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4])
+checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+
+
+console.log('================== Challeng - 2 ================')

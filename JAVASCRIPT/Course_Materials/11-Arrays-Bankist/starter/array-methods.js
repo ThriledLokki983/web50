@@ -101,5 +101,5 @@ for (let i of movements) {
 console.log(balance2);
 
 // Maximum Value of the movements
-const max = movements.reduce((acc, curr) => acc > curr ? acc : curr, 200);
+const max = movements.reduce((acc, curr) => acc > curr ? acc : curr, movements[0]);
 console.log(max);
