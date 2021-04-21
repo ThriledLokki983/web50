@@ -46,12 +46,15 @@ const eurosToUsd = 1.1;
 // const movementsUsd = movements.map(function (currentElement) {
 // 	return Number((currentElement * eurosToUsd).toFixed(0));
 // });
-// 
+//
 const movementsUsd =
 	movements.map(currentElement => Number((currentElement * eurosToUsd).toFixed(0)));
 
 console.log(movements);
 console.log(movementsUsd);
+
+const newMove = movements.map((mov, i) => `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(mov)}`);
+console.log(newMove);
 
 
 
