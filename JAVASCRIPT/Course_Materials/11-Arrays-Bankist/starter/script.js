@@ -69,7 +69,7 @@ const displayTransactions = function (transactions) { // pass the data into the 
 		const html = `
     <div class="movements__row">
       <div class="movements__type movements__type--${type}">${i+1} ${type} </div>
-      <div class="movements__value">${mov}</div>
+      <div class="movements__value">${mov}€</div>
     </div>`;
 		containerMovements.insertAdjacentHTML('afterbegin', html) // afterbegin & beforeend
 	})
@@ -78,7 +78,7 @@ displayTransactions(account1.movements);
 
 const calcDisplayTransactions = transactions => {
 	const balance = transactions.reduce((initial, current) => initial + current, 0);
-	labelBalance.textContent = `${balance} EUR`
+	labelBalance.textContent = `${balance}`;
 };
 calcDisplayTransactions(account1.movements);
 
@@ -92,6 +92,22 @@ const createUser = function (accs) {
 }
 createUser(accounts);
 // console.log(accounts);
+
+const calcDisplaySummary = transaction => {
+	const deposits = transaction.filter((curr) => curr > 0)
+		.reduce((acc, current) => acc + current, 0);
+	const withdrawals = transaction.filter((curr) => curr < 0)
+		.reduce((acc, current) => acc + current, 0);
+	const interest = transaction.filter((item) => item > 0)
+		.map((deposit) => deposit * 0.012)
+		.filter((curr) => curr >= 1)
+		.reduce((acc, int) => acc + int, 0);
+
+	labelSumIn.textContent = `${deposits} €`;
+	labelSumOut.textContent = `${Math.abs(withdrawals)} €`;
+	labelSumInterest.textContent = `${Math.abs(interest)} €`;
+}
+calcDisplaySummary(account1.movements);
 
 
 // console.log(calcTransactionBalance(account1.movements));

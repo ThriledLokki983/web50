@@ -47,6 +47,9 @@ const eurosToUsd = 1.1;
 // 	return Number((currentElement * eurosToUsd).toFixed(0));
 // });
 //
+// 1. the current element
+// 2. the current index
+// 3. the entire array we are lopping over
 const movementsUsd =
 	movements.map(currentElement => Number((currentElement * eurosToUsd).toFixed(0)));
 
@@ -62,6 +65,9 @@ console.log(newMove);
 // Filter for an element in the original array which satisfies a particular condition
 // Returns a NEW ARRAY Containing the array elements that passed a specified TEST CONDITION
 // Curernt > 2
+// 1. the current element
+// 2. the current index
+// 3. the entire array we are lopping over
 
 const deposits = movements.filter(function (mov) {
 	return mov > 0; // return a boolean value
@@ -84,6 +90,9 @@ console.log(withdrawals);
 // (e.g -- aadding all the elements together)
 // accumulator + current === One single Value which is finally returned
 // Accumulator -> SNOWBALL
+// 1. the current element
+// 2. the current index
+// 3. the entire array we are lopping over
 console.log(movements);
 const balance = movements.reduce(function (acc, element, index, arr) {
 	console.log(`Iteration ${index + 1}:\t${acc}`)
@@ -104,7 +113,7 @@ console.log(balance2);
 const max = movements.reduce((acc, curr) => acc > curr ? acc : curr, movements[0]);
 console.log(max);
 
-// Chaining of Array Methods -- disadvantage -- Hardto Debug
+// Chaining of Array Methods -- disadvantage -- Hard to Debug
 const totalDeposits = movements
 	.filter(mov => mov > 0)
 	.map((mov) => mov * eurosToUsd)
