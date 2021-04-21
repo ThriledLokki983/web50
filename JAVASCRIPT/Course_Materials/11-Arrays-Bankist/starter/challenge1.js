@@ -46,3 +46,31 @@ checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
 
 
 console.log('================== Challeng - 2 ================')
+
+// Q-1
+const calcAverageHumanAge = function (arr) {
+	const calcAverageHumanAge = arr.map(curr => curr <= 2 ? curr * 2 : 16 + (curr * 4));
+	const newArr = calcAverageHumanAge.filter((curr) => curr >= 18);
+	const total = newArr.reduce((initial, current) => initial + current, 0);
+	return Number((total / newArr.length).toFixed(0));
+}
+console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
+console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
+
+// // Q-2
+// const newArr = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+// const newArr1 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+// const atLeast18 = newArr.filter(curr => curr >= 18);
+// const atLeast181 = newArr1.filter(curr => curr >= 18);
+// console.log(atLeast18);
+// console.log(atLeast181);
+//
+// // Q-3
+// let sum = 0;
+// const allAdults = [...atLeast18, ...atLeast181];
+// for (let i of allAdults) {
+// 	sum += i;
+// }
+// console.log(Number((sum / allAdults.length).toFixed(0)));
+//
+// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
