@@ -90,3 +90,12 @@ const balance = movements.reduce(function (acc, element, index, arr) {
 	return acc + element;
 }, 0);
 console.log(balance);
+
+const balance3 = movements.reduce((acc, curr) => acc + curr, 0);
+console.log(balance3);
+
+let balance2 = 0;
+for (let i of movements) {
+	balance2 += i;
+}
+console.log(balance2)

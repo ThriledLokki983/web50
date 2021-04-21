@@ -76,6 +76,12 @@ const displayTransactions = function (transactions) { // pass the data into the 
 }
 displayTransactions(account1.movements);
 
+const calcDisplayTransactions = transactions => {
+	const balance = transactions.reduce((initial, current) => initial + current, 0);
+	labelBalance.textContent = `${balance} EUR`
+};
+calcDisplayTransactions(account1.movements);
+
 const createUser = function (accs) {
 	accs.forEach(function (ac) {
 		ac.username = ac.owner
@@ -85,4 +91,7 @@ const createUser = function (accs) {
 	})
 }
 createUser(accounts);
-console.log(accounts);
+// console.log(accounts);
+
+
+// console.log(calcTransactionBalance(account1.movements));
