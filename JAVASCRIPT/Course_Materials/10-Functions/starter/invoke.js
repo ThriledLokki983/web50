@@ -73,13 +73,11 @@ console.dir(f);
 const boardPassengers = function (n, wait) {
 	const perGroup = n / 3;
 	setTimeout(function () {
-		console.log(
-			`We are now boarding all ${n} passengers`);
+		console.log(`We are now boarding all ${n} passengers`);
 		console.log(`There are 3 groups, each with ${perGroup} passengers`)
-	}, wait * 1000); // callback fn after 1sec
-
+	}, wait * 1000); // callback fn executed after (wait)sec
 
 	console.log(`Will start boarding in ${wait} seconds`)
 }
-
+const perGroup = 36;
 boardPassengers(180, 3);
