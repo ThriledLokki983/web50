@@ -97,6 +97,13 @@ console.log(arr)
 console.log(arr.splice(1, 2));
 console.log(arr);
 
-// Reverse Method
-console.log(arr2.reverse())
+// Reverse Method -- Mutates the array
+console.log(arr2.reverse());
 console.log(arr2);
+
+// Concat Method -- does not mutate the original array
+const letters = arr.concat(arr2); // console.log([...arr, ...arr2])
+console.log(letters);
+
+// Join Method ---
+console.log(letters.join(' - '));
