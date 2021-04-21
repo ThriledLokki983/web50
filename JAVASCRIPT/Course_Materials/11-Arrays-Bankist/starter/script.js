@@ -167,6 +167,24 @@ btnTransfer.addEventListener('click', e => {
 	}
 	// UPDATING UI
 	updateUI(currentAccount);
+});
 
+btnClose.addEventListener('click', e => {
+	e.preventDefault();
+	const user = inputCloseUsername.value;
+	const pin = Number(inputClosePin.value);
 
+	// checking for credentials
+	if (user === currentAccount.username && pin === currentAccount.pin) {
+		const index = accounts.findIndex(acc => acc.username === currentAccount.username);
+		// console.log(index);
+
+		// Delete Account
+		accounts.splice(index, 1);
+
+		// Hide UI
+		containerApp.style.opacity = 0;
+	}
+	// Clear the fields
+	inputClosePin.value = inputCloseUsername.value = '';
 });
