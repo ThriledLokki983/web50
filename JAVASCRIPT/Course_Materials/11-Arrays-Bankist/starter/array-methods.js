@@ -104,10 +104,10 @@ console.log(balance2);
 const max = movements.reduce((acc, curr) => acc > curr ? acc : curr, movements[0]);
 console.log(max);
 
-// Chaining of Array Methods
-const totalDeposits =
-	movements.filter(mov => mov > 0)
+// Chaining of Array Methods -- disadvantage -- Hardto Debug
+const totalDeposits = movements
+	.filter(mov => mov > 0)
 	.map((mov) => mov * eurosToUsd)
 	.reduce((initial, current) => initial + current, 0);
 
-console.log(totalDeposits);
+console.log(Number(totalDeposits.toFixed(0)));
