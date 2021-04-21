@@ -33,3 +33,14 @@ console.log(letters);
 
 // Join Method ---
 console.log(letters.join(' - '));
+
+// MAP Method -- for looping (just like the forEach Method) but this one creates
+// a brand new array
+// Maps the value of the original array into a new array (e.g * 4);
+
+
+
+// FILTER
+
+
+// REDUCE
