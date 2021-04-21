@@ -76,4 +76,8 @@ const displayTransactions = function (transactions) { // pass the data into the 
 }
 displayTransactions(account1.movements);
 
-console.log(containerMovements.innerHTML);
+const createUser = function (str) {
+	const theUser = str.toLowerCase().split(' ').map((name) => name[0]).join('');
+	console.log(theUser);
+}
+createUser('Steven Thomas Williams');
