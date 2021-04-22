@@ -62,9 +62,12 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 
-const displayTransactions = function (transactions) { // pass the data into the function rather than using directly a global variable
+const displayTransactions = function (transactions, sort = false) { // pass the data into the function rather than using directly a global variable
 	containerMovements.innerHTML = '';
-	transactions.forEach(function (mov, i) {
+
+	const trans = sort ? transactions.slice().sort((a, b) => a - b) : transactions;
+
+	trans.forEach(function (mov, i) {
 		const type = mov > 0 ? 'deposit' : 'withdrawal';
 		const html = `
     <div class="movements__row">
@@ -206,3 +209,16 @@ btnClose.addEventListener('click', e => {
 	// Clear the fields
 	inputClosePin.value = inputCloseUsername.value = '';
 });
+
+// A state variable to monitor if sort button is clisked or not
+let sorted = false;
+
+btnSort.addEventListener('click', e => {
+	e.preventDefault();
+
+	displayTransactions(currentAccount.movements, !sorted);
+	sorted = !sorted;
+});
+
+
+///
