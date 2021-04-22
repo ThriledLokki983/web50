@@ -248,6 +248,21 @@ btnSort.addEventListener('click', function (e) {
 	sorted = !sorted;
 });
 
+
+labelBalance.addEventListener('click', function () {
+[...document.querySelectorAll('.movements__row')].forEach(function (row, i) {
+		if (i % 2 === 0) {
+			row.style.backgroundColor = 'orangered'
+		}
+		// if (i % 5 === 0) {
+		// 	row.style.backgroundColor = 'blue'
+		// }
+	});
+});
+
+console.log(new Date(account1.movementsDates[0]));
+
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES

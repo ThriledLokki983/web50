@@ -75,6 +75,81 @@ console.log('----------------------')
 // Floating points // Decimals
 console.log(+(2.3).toFixed(0));
 
+console.log('----------- Remainder Operations -----------')
+
+console.log(5 % 2);
+console.log(5 / 2); // 5 = 2 * 2 + 1
+
+
+
+// BIGINT
+console.log('----------- BIGINT Operations -----------')
+console.log(2 ** 53 - 1)
+console.log(Number.MAX_SAFE_INTEGER); // Largest positive Number
+
+console.log(457937927302475802748970249075983947283923802479232);
+console.log(457937927302475802748970249075983947283923802479232n);
+console.log(BigInt(45793792730247580274897024907598394728398698957867923802479232));
+
+console.log(1000n + 1999n);
+console.log(1879086870n * 7569087875679n); // Cannot mix BigInt with other types
+
+// Exceptions for BigInt
+console.log(20n > 15);
+console.log(20n === 20); // will not work bcos the strict equal operator does not do type cohersion
+console.log(typeof 20n);
+console.log(20n == 20);
+console.log(20n == '20');
+
+
+// Division
+
+console.log(14n / 3n);
+console.log(10 / 3);
+
+
+
+// CREATING DATES AND TIMES
+// Createa a date == 4 ways to do it with new Date
+
+const now = new Date(); // 1
+console.log(now);
+
+// Parsing a date from a date string
+console.log(new Date('Apr 22 2021 15: 05: 25')); // 2
+console.log(new Date('January 13, 1990')); // this can be quite unreliable unless created by javascript itself
+// console.log(new Date(account1.movementsDates[0]));
+
+console.log(new Date(1990, 0, 13, 15, 23, 5))
+console.log(new Date(1990, 0, 33))
+
+console.log('===============================')
+console.log(new Date(0));
+console.log(new Date(3 * 24 * 60 * 60 * 1000)); //convert days into milliseconds
+
+console.log('===============================')
+// WOrking with DATES
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate()); // day of the Month
+console.log(future.getDay()); // day of week (sun-0, mon-1, tues-2, wed-3, thurs-4, fri-5, sat-6)
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString()); // very useful conver date and store somewhere
+console.log(future.getTime()); // time passed since 1970
+
+
+console.log(new Date(2142253380000));
+
+console.log(Date.now());
+console.log(new Date(Date.now()));
+
+future.setFullYear(2040);
+console.log(future);
+
 
 
 
