@@ -361,4 +361,19 @@ const depo1 = accounts1
 
 console.log(depo1);
 
+
+// EX - 4
+// Create a function to convert a string to a title case (all words capitalize except for some of them);
+const convertTitleCase = function (e) {
+	const capitalize = str => str[0].toUpperCase() + str.slice(1);
+	const exceptions = ['a', 'an', 'and', 'on', 'the', 'or', 'on', 'in', 'with'];
+
+	const titleCase = e.toLowerCase().split(' ').map((word) => exceptions.includes(word) ? word : capitalize(word)).join(' ');
+	return capitalize(titleCase);
+}
+
+console.log(convertTitleCase('this is a nice title'));
+console.log(convertTitleCase('this is a LONG title but not too long'));
+console.log(convertTitleCase('and here is another tittle with an EXAMPLE'))
+
 // Hello
