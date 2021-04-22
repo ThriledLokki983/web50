@@ -220,9 +220,49 @@ console.log(totalBalance1);
 
 // FLATMAP METHOD -- maps the array and right afterwards, flattens it
 const totalBalance2 = accounts
-	.flatMap(item => item.movements)
+	.flatMap(item => item.movements) // goes only one level deep
 	.reduce((init, amt) => init + amt, 0);
 console.log(totalBalance2);
+
+
+// Sorting Arrays -- javascript built-in sort methods
+
+// Strings
+const owners = ['Gideon', 'Jonas', 'Martha'];
+console.log(owners.sort()); // mutates the original array -- so check befor euse
+console.log(owners);
+
+
+//Numbers --
+console.log(movements);
+// console.log(movements.sort()); //The sort method converts to strings first and the sorts
+
+
+// Return < 0, A before B // Keep Order
+// Return > 0, B before A // Switch Order
+// Ascending
+movements.sort((a, b) => { // Sort in Ascending Order
+	if (a > b) return 1;
+	if (a < b) return -1;
+});
+console.log(movements);
+
+// Same but simplier
+movements.sort((a, b) => a - b);
+console.log(movements);
+
+
+// Descending
+movements.sort((a, b) => { // Sort in Decending Order
+	if (a > b) return -1;
+	if (a < b) return 1;
+});
+console.log(movements);
+
+// Same but simplier
+movements.sort((a, b) => b - a)
+console.log(movements);
+
 
 
 
