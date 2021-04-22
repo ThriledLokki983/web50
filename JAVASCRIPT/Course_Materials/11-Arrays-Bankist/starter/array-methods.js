@@ -216,3 +216,15 @@ const totalBalance1 = accounts
 	.reduce((init, amt) => init + amt, 0);
 
 console.log(totalBalance1);
+
+
+// FLATMAP METHOD -- maps the array and right afterwards, flattens it
+const totalBalance2 = accounts
+	.flatMap(item => item.movements)
+	.reduce((init, amt) => init + amt, 0);
+console.log(totalBalance2);
+
+
+
+
+// Hello
