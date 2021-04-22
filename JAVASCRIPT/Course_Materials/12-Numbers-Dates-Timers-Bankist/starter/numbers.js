@@ -149,6 +149,41 @@ console.log(new Date(Date.now()));
 
 future.setFullYear(2040);
 console.log(future);
+console.log('....')
+console.log('....')
+console.log('....')
+console.log('....')
+console.log('....')
+console.log('....')
+console.log('....')
+console.log('....')
+console.log('....')
+console.log('....')
+console.log('....')
+console.log('....')
+console.log('....')
+
+
+// DOing calculations with dates
+const future1 = new Date(2037, 3, 14);
+const future2 = new Date(2037, 3, 14);
+console.log(+future);
+
+// A function that takes 2 dates and return the difference btn the two dates
+const calcDaysPassed = (date1, date2) => Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+const days = calcDaysPassed(future1, future2)
+console.log(days);
+
+
+// Internationalization API
+console.log('....')
+console.log('....')
+console.log('....')
+console.log('....')
+console.log('....')
+console.log('....')
+console.log('....')
+
 
 
 
