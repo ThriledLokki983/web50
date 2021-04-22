@@ -307,5 +307,58 @@ labelBalance1.addEventListener('click', ev => {
 });
 
 
+console.log('======================= Practice Array Methods =============================')
+// EX -1
+// const bankDepositSum = accounts1
+// 	.map((item) => item.movements)
+// 	.flat()
+const bankDepositSum = accounts1
+	.flatMap((item) => item.movements)
+	.filter((item) => item > 0)
+	.reduce((init, amt) => init + amt, 0)
+
+console.log(bankDepositSum);
+
+// EX -2
+// Count all deposits over 1000
+const numDeposits = accounts1
+	.flatMap(item => item.movements)
+	.filter((item) => item >= 1000)
+	.length
+
+const numDeposits1 = accounts1
+	.flatMap(item => item.movements)
+	.reduce((count, amt) => amt >= 1000 ? ++count : count, 0) // Prefixed ++
+
+console.log(numDeposits);
+console.log(numDeposits1);
+
+
+// EX - 3
+// Create an object which contains the sum of the deposits and withdrawals with the reduce method
+const depo = accounts1
+	.flatMap(acc => acc.movements)
+	.reduce((sum, curr) => {
+		curr > 0 ? sum.deposits += curr : sum.withdrawals += curr;
+		return sum;
+	}, {
+		deposits: 0,
+		withdrawals: 0
+	})
+
+console.log(depo);
+
+const depo1 = accounts1
+	.flatMap(acc => acc.movements)
+	.reduce((sum, curr) => {
+		// curr > 0 ? sum.deposits += curr : sum.withdrawals += curr;
+		sum[curr > 0 ? 'deposits' : 'withdrawals'] += curr;
+		return sum;
+	}, {
+		deposits: 0,
+		withdrawals: 0
+	})
+
+console.log(depo1);
 
 // Hello
