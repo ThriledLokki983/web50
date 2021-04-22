@@ -97,7 +97,7 @@ const dogs = [
 // Q- 1
 //const newDogs = dogs.map(item => item.recFood = Number(((item.weight / 1000) ** 0.75 * 28).toFixed(2)));
 for (let dog of dogs) {
-	dog.recFood = Number(((dog.weight) ** 0.75 * 28).toFixed(0));
+	dog.recFood = Math.trunc((dog.weight) ** 0.75 * 28);
 }
 console.log(dogs);
 
@@ -133,14 +133,22 @@ console.log(`${ownersEatTooMuch.join(' and ')}'s dogs eat too much`);
 console.log(`${ownersEatTooLittle.join(' and ')}'s dogs eat too littel`);
 
 // Q -5
-
+console.log(dogs.some(item => item.curFood === item.recFood));
 
 
 // Q - 6
+const checkEatingOk = item =>
+	item.curFood > item.recFood * 0.9 &&
+	item.curFood < item.recFood * 1.1;
+
+console.log(dogs.some(checkEatingOk));
 
 // Q -7
+console.log(dogs.filter(checkEatingOk));
 
 // Q - 8
+const dogsCopy = dogs.slice().sort((a, b) => a.recFood - b.recFood);
+console.log(dogsCopy);
 
 
 
