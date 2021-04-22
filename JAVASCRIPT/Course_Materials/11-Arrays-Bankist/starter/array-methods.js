@@ -165,3 +165,12 @@ console.log(account)
 for (let acc of accounts) {
 	acc.owner === 'Jessica Davis' ? console.log(acc) : '';
 }
+
+
+// SOME METHOD
+console.log(movements);
+console.log(movements.includes(-130)); // check only for equality
+
+// check if our transaction has a deposit or a withdrawal
+const anyDeposit = movements.some(mov => mov > 500); // check for condition 
+console.log(anyDeposit);
