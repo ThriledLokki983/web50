@@ -172,5 +172,47 @@ console.log(movements);
 console.log(movements.includes(-130)); // check only for equality
 
 // check if our transaction has a deposit or a withdrawal
-const anyDeposit = movements.some(mov => mov > 500); // check for condition 
+const anyDeposit = movements.some(mov => mov > 500); // check for condition
 console.log(anyDeposit);
+
+
+// EVERY METHOD -- returns true if every element satisfies the condition provide in the callback function
+
+console.log(movements.every(mov => mov > 0));
+
+
+//Separate callback
+const deposit2 = mov => mov < 0;
+console.log(movements.some(deposit2));
+console.log(movements.every(deposit2));
+console.log(movements.filter(deposit2));
+
+
+// FLAT -- consolidates all newsted arrays into a single array, hence the name FLAT
+// Goes only one level deep during the flatening of the array
+const arr5 = [1, 2, 3, [4, 5, 6], [7, 8], 8];
+console.log(arr5.flat());
+
+// Specify the depth of levels
+const arrDeep = [1, 2, 3, [4, [5, 6]], [[7], 8], 8];
+console.log(arrDeep.flat());
+
+const arrDeep1 = [1, 2, 3, [4, [5, 6]], [[7], 8], 8];
+console.log(arrDeep1.flat(2));
+
+
+console.log(accounts);
+
+const accountMove = accounts.map(acc => acc.movements);
+console.log(accountMove);
+const allMove = accountMove.flat();
+console.log(allMove);
+const totalBalance = allMove.reduce((acc, amt) => acc + amt, 0);
+console.log(totalBalance);
+
+const totalBalance1 = accounts
+	.map((item) => item.movements)
+	.flat()
+	.reduce((init, amt) => init + amt, 0);
+
+console.log(totalBalance1);

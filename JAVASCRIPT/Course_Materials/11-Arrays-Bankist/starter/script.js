@@ -169,6 +169,24 @@ btnTransfer.addEventListener('click', e => {
 	updateUI(currentAccount);
 });
 
+
+btnLoan.addEventListener('click', e => {
+	e.preventDefault();
+
+	const amount = Number(inputLoanAmount.value);
+	let currAmount = currentAccount.movements;
+
+	if (amount > 0 && currAmount.some(mov => mov >= (amount * 0.1))) {
+		// Add transaction
+		currAmount.push(amount);
+
+		// Update UI
+		updateUI(currentAccount);
+	}
+	inputLoanAmount.value = '';
+});
+
+
 btnClose.addEventListener('click', e => {
 	e.preventDefault();
 	const user = inputCloseUsername.value;
