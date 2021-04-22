@@ -1,35 +1,35 @@
 'use strict';
 
 // Data
-const account1 = {
+const account5 = {
 	owner: 'Jonas Schmedtmann',
 	movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
 	interestRate: 1.2, // %
 	pin: 1111,
 };
 
-const account2 = {
+const account6 = {
 	owner: 'Jessica Davis',
 	movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
 	interestRate: 1.5,
 	pin: 2222,
 };
 
-const account3 = {
+const account7 = {
 	owner: 'Steven Thomas Williams',
 	movements: [200, -200, 340, -300, -20, 50, 400, -460],
 	interestRate: 0.7,
 	pin: 3333,
 };
 
-const account4 = {
+const account8 = {
 	owner: 'Sarah Smith',
 	movements: [430, 1000, 700, 50, 90],
 	interestRate: 1,
 	pin: 4444,
 };
 
-const accounts = [account1, account2, account3, account4];
+const accounts1 = [account5, account6, account7, account8];
 
 // Methods on Arrays
 let arr = ['a', 'b', 'c', 'd', 'e'];
@@ -157,12 +157,12 @@ const first = movements.find(mov => mov < 0);
 console.log(movements);
 console.log(first);
 
-console.log(accounts);
+console.log(accounts1);
 
-const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+const account = accounts1.find(acc => acc.owner === 'Jessica Davis');
 console.log(account)
 
-for (let acc of accounts) {
+for (let acc of accounts1) {
 	acc.owner === 'Jessica Davis' ? console.log(acc) : '';
 }
 
@@ -201,16 +201,16 @@ const arrDeep1 = [1, 2, 3, [4, [5, 6]], [[7], 8], 8];
 console.log(arrDeep1.flat(2));
 
 
-console.log(accounts);
+console.log(accounts1);
 
-const accountMove = accounts.map(acc => acc.movements);
+const accountMove = accounts1.map(acc => acc.movements);
 console.log(accountMove);
 const allMove = accountMove.flat();
 console.log(allMove);
 const totalBalance = allMove.reduce((acc, amt) => acc + amt, 0);
 console.log(totalBalance);
 
-const totalBalance1 = accounts
+const totalBalance1 = accounts1
 	.map((item) => item.movements)
 	.flat()
 	.reduce((init, amt) => init + amt, 0);
@@ -219,7 +219,7 @@ console.log(totalBalance1);
 
 
 // FLATMAP METHOD -- maps the array and right afterwards, flattens it
-const totalBalance2 = accounts
+const totalBalance2 = accounts1
 	.flatMap(item => item.movements) // goes only one level deep
 	.reduce((init, amt) => init + amt, 0);
 console.log(totalBalance2);
@@ -263,7 +263,48 @@ console.log(movements);
 movements.sort((a, b) => b - a)
 console.log(movements);
 
+console.log('===================================================')
 
+// Programmatically creating and filling Arrays
+const arr8 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(new Array(1, 2, 3, 4, 5, 6, 7, 8, 9));
+
+const x = new Array(7);
+console.log(x);
+// console.log(x.map((item) => item * 5));
+console.log(x.fill(1)); // Will mutate the entire array
+console.log(x.fill(5, 3, 6));
+console.log(x.fill(23, 6, 7));
+
+// Array.from Method
+const y = Array.from({
+	length: 7
+}, () => 1);
+console.log(Array.from(y));
+
+const z = Array.from({
+	length: 7
+}, (_, i) => i / 2.5);
+console.log(z);
+
+// Simulate a 100 dice rolls
+// const diceRoll = Array.from({
+// 	length: 100
+// }, (_, i) => Math.trunc((Math.random() * i / 6)));
+// console.log(diceRoll);
+const labelBalance1 = document.querySelector('.balance__value');
+
+
+labelBalance1.addEventListener('click', ev => {
+	const movementsUI = Array.from(document.querySelectorAll('.movements__value'),
+		(item) => Number(item.textContent.replace('€', '')));
+
+
+	console.log(movementsUI);
+
+	const movementsUI2 = [...document.querySelectorAll('.movements__value')];
+	console.log(movementsUI2);
+});
 
 
 
