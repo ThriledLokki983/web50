@@ -152,7 +152,7 @@ console.log(h1.children); // only for direct children
 // h1.lastElementChild.style.color = 'orangered';
 console.log(h1.firstElementChild);
 
-// Gouing Upwards
+// Going Upwards
 console.log(h1.parentNode);
 console.log(h1.parentElement);
 console.log(h1.closest('.header'));

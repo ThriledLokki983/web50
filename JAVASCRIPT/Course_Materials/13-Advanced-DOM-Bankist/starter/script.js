@@ -142,11 +142,11 @@ const handleHover = function (e) {
 	}
 }
 
-// -- select the parenet element
+// -- select the parent element
 // nav.addEventListener('mouseover', function (e) {
 // 	handleHover(e, 0.5);
 // });
-// Passing an arugument into a handler
+// Passing an argument into a handler
 nav.addEventListener('mouseover', handleHover.bind(0.5));
 
 // nav.addEventListener('mouseout', function (e) {
@@ -157,7 +157,7 @@ nav.addEventListener('mouseout', handleHover.bind(1));
 
 
 
-// STICKY NAVAGATION
+// STICKY NAVIGATION
 // const initCoords = section1.getBoundingClientRect();
 // console.log(initCoords);
 
@@ -168,7 +168,7 @@ nav.addEventListener('mouseout', handleHover.bind(1));
 // 	else nav.classList.remove('sticky');
 // });
 
-// Using the Intersection Observser API to implement the sticky navigation
+// Using the Intersection Observer API to implement the sticky navigation
 // const obsCallback = function (entries, observer) {
 // 	entries.forEach(t => {
 // 		console.log(t);
@@ -176,7 +176,7 @@ nav.addEventListener('mouseout', handleHover.bind(1));
 // };
 //
 // const obsOptions = {
-// 	// fiorst is the root property
+// 	// first is the root property
 // 	root: null,
 // 	threshold: [0, 0.2],
 // };
@@ -202,10 +202,5 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 	rootMargin: `-${navHeight}px`,
 });
 
-headerObserver.observe(header1);
+headerObserver.observe(header1); 
 
-
-
-
-
-////
