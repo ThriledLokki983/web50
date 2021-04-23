@@ -80,11 +80,36 @@ btnScrollTo.addEventListener('click', e => {
 document.querySelector('.nav__links').addEventListener('click', function (e) {
 	e.preventDefault();
 
-	// Matching strategy -- to ignore clicks that are not within the range we want 
+	// Matching strategy -- to ignore clicks that are not within the range we want
 	if (e.target.classList.contains('nav__link')) {
 		const id = e.target.getAttribute('href');
 		document.querySelector(id).scrollIntoView({
 			behavior: 'smooth'
 		});
 	};
+});
+
+
+//TABBED COMPONENT
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+// tabs.forEach(e => e.addEventListener('click', () => console.log('TAB'))); Not efficient
+
+// USe event delegation -- attach the event handler to the parent element that contains all the elemtns we want to work with
+tabsContainer.addEventListener('click', function (e) {
+	const clicked = e.target.closest('.operations__tab');
+
+	// Guard clause
+	if (!clicked) return;
+
+	// Clear the active class from all elements that already has it
+	tabs.forEach(t => t.classList.remove('operations__tab--active'));
+	// Add it to the one that was clicked
+	clicked.classList.add('operations__tab--active');
+
+	// Activate the content of the clicked button 
+
+	console.log(clicked);
 });
