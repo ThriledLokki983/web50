@@ -91,6 +91,24 @@ logo.classList.remove()
 // logo.className = '..'
 
 
+// EVENTS & EVENT HANDLERS
+const h1 = document.querySelector('h1');
+
+const alertH1 = e => { // function called when a mouse hovers over an element
+	alert('addEventListener: Got ya')
+
+	// h1.removeEventListener('mouseenter', alertH1);
+};
+
+h1.addEventListener('mouseenter', alertH1);
+
+setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
+
+// h1.onmouseenter = function (e) {
+// 	alert('addEventListener: Got ya')
+// }
+
+
 
 
 
