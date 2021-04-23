@@ -116,30 +116,66 @@ const randomInt = (min, max) => Math.floor(Math.random() * (max - min) + min);
 const randomColor = () => `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`;
 // console.log(randomColor(0, 255));
 
-document.querySelector('.nav__links').addEventListener('click', function (e) {
-	this.style.backgroundColor = randomColor();
-	console.log('CONTAINER', e.target, e.currentTarget);
-	console.log(e.currentTarget === this);
-	console.log(e.target === this);
+// document.querySelector('.nav__links').addEventListener('click', function (e) {
+// 	this.style.backgroundColor = randomColor();
+// 	console.log('CONTAINER', e.target, e.currentTarget);
+// 	console.log(e.currentTarget === this);
+// 	console.log(e.target === this);
+//
+//
+// });
+//
+// document.querySelector('.nav__link').addEventListener('click', function (e) {
+// 	this.style.backgroundColor = randomColor();
+// 	console.log('LINK', e.target, e.currentTarget); // TARGET not the element but where the event happened
+// 	console.log(e.currentTarget === this);
+// 	console.log(e.target === this);
+//
+// 	// Stopping the event Propagation
+// 	e.stopPropagation(); // In practice, this is not ideal/ good idea
+// });
+//
+// document.querySelector('.nav').addEventListener('click', function (e) {
+// 	this.style.backgroundColor = randomColor();
+// 	console.log('NAV', e.target, e.currentTarget);
+// 	console.log(e.currentTarget === this);
+// 	console.log(e.target === this);
+// });
 
 
-});
+// DOM-TRAVERSING
 
-document.querySelector('.nav__link').addEventListener('click', function (e) {
-	this.style.backgroundColor = randomColor();
-	console.log('LINK', e.target, e.currentTarget); // TARGET not the element but where the event happened
-	console.log(e.currentTarget === this);
-	console.log(e.target === this);
+console.log(h1.querySelectorAll('.highlight'));
+console.log(h1.childNodes);
+console.log(h1.children); // only for direct children
+h1.firstElementChild.style.color = 'white'
+h1.lastElementChild.style.color = 'orangered';
+console.log(h1.firstElementChild);
 
-	// Stopping the event Propagation
-	e.stopPropagation(); // In practice, this is not ideal/ good idea
-});
+// Gouing Upwards
+console.log(h1.parentNode);
+console.log(h1.parentElement);
+console.log(h1.closest('.header'));
+// h1.closest('.header').style.background = 'white'
 
-document.querySelector('.nav').addEventListener('click', function (e) {
-	this.style.backgroundColor = randomColor();
-	console.log('NAV', e.target, e.currentTarget);
-	console.log(e.currentTarget === this);
-	console.log(e.target === this);
+// h1.closest('h1').style.background = 'yellow'
+
+
+// Going Sideways == selecting sibblings
+
+console.log(h1.previousElementSibling);
+console.log(h1.nextElementSibling);
+
+console.log(h1.previousSibling);
+console.log(h1.nextSibling);
+
+
+console.log(h1.parentElement.children);
+
+[...h1.parentElement.children].forEach(function (el) {
+	if (el === h1) {
+		// el.style.transform = 'scale(0.5)'
+	}
 });
 
 
