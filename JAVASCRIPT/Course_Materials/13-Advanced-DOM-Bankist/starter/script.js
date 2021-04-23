@@ -33,3 +33,31 @@ document.addEventListener('keydown', function (e) {
 		closeModal();
 	}
 });
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', e => {
+	const s1coords = section1.getBoundingClientRect();
+	// console.log(s1coords);
+	// console.log(e.target.getBoundingClientRect());
+	//
+	// console.log('Current Scroll X/Y', window.pageXOffset, window.pageYOffset);
+	// console.log('Hight and Width ViewPort', document.documentElement.clientHeight, document.documentElement.clientWidth);
+
+	// Scrolling
+	// window.scrollTo(s1coords.left + window.pageXOffset, // current position + current scroll
+	// 	s1coords.top + window.pageYOffset);
+
+	// Old way of doing it
+	// window.scrollTo({
+	// 	left: s1coords.left + window.pageXOffset,
+	// 	top: s1coords.top + window.pageYOffset,
+	// 	behavior: 'smootInt
+	// });
+
+	section1.scrollIntoView({
+		behavior: 'smooth'
+	});
+
+});

@@ -53,7 +53,7 @@ msg.style.height = Number.parseFloat(getComputedStyle(msg).height, 10) + 40 + 'p
 console.log(getComputedStyle(msg).height);
 
 // CSS Custom Properties
-document.documentElement.style.setProperty('--color-primary', 'yellow')
+// document.documentElement.style.setProperty('--color-primary', 'yellow')
 
 // STTRIBUTES // e.g. src, alt, class, id // standard attributes
 const logo = document.querySelector('.nav__logo');
