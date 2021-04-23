@@ -179,8 +179,9 @@ console.log(days);
 const num = 4986.34;
 
 const options = {
-	style: 'unit',
-	unit: 'mile-per-hour',
+	style: 'unit', // percent, currency
+	unit: 'mile-per-hour', // celcius
+	// useGrouping: false
 }
 
 console.log('US:  ', new Intl.NumberFormat('en-US', options).format(num));
@@ -189,6 +190,23 @@ console.log('AR:  ', new Intl.NumberFormat('ar-SY').format(num));
 console.log(navigator.language, new Intl.NumberFormat(navigator.language).format(num));
 
 
+
+// TIMERS / SET-TIMEOUT / SET-INTERVAL in JAVASCRIPT
+setTimeout(() => console.log(`Here is your pizza 🍕`), 3000) // callback func is the first argument for the timeOut method
+// console.log('Waiting...')
+
+// Passing in arguments to the timeout func
+// const ing = ['olives', 'spinach']
+// setTimeout((arg1, arg2) => console.log(`Here is your pizza with ${arg1} and ${arg2} 🍕`), 5000, 'olives', 'spinach')
+// console.log('Waiting...');
+
+const ing = ['olives', 'spinach']
+const pizza = setTimeout((arg1, arg2) => console.log(`Here is your pizza with ${arg1} and ${arg2} 🍕`), 5000, ...ing)
+console.log('Waiting...');
+
+if (ing.includes('lettuce')) {
+	clearTimeout(pizza);
+}
 
 
 
