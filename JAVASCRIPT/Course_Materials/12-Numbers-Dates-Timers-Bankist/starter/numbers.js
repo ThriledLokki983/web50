@@ -208,6 +208,14 @@ if (ing.includes('lettuce')) {
 	clearTimeout(pizza);
 }
 
+// setTimeout
+setInterval(function () {
+	const now = new Date();
+	const min = now.getMinutes();
+	const sec = now.getSeconds();
+	console.log(`${now.getHours()}:${now.getMinutes()}:${sec}`);
+}, 1000);
+
 
 
 
