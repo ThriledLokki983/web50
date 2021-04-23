@@ -148,8 +148,8 @@ const randomColor = () => `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${ran
 console.log(h1.querySelectorAll('.highlight'));
 console.log(h1.childNodes);
 console.log(h1.children); // only for direct children
-h1.firstElementChild.style.color = 'white'
-h1.lastElementChild.style.color = 'orangered';
+// h1.firstElementChild.style.color = 'white'
+// h1.lastElementChild.style.color = 'orangered';
 console.log(h1.firstElementChild);
 
 // Gouing Upwards

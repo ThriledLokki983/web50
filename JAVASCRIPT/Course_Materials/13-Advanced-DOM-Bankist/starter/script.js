@@ -109,7 +109,12 @@ tabsContainer.addEventListener('click', function (e) {
 	// Add it to the one that was clicked
 	clicked.classList.add('operations__tab--active');
 
-	// Activate the content of the clicked button 
+	// Clear all content active class form the elements and then add it to the selcted button
+	tabsContent.forEach(c => c.classList.remove('operations__content--active'))
 
-	console.log(clicked);
+	// Activate the content Area of the clicked button
+	document.querySelector(`.operations__content--${clicked.dataset.tab}`)
+		.classList.add('operations__content--active');
+
+	// console.log(clicked.dataset.tab);
 });
