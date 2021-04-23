@@ -9,6 +9,11 @@ const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+const nav = document.querySelector('.nav');
+
 
 const openModal = function (e) {
 	e.preventDefault();
@@ -91,9 +96,7 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 
 
 //TABBED COMPONENT
-const tabs = document.querySelectorAll('.operations__tab');
-const tabsContainer = document.querySelector('.operations__tab-container');
-const tabsContent = document.querySelectorAll('.operations__content');
+
 
 // tabs.forEach(e => e.addEventListener('click', () => console.log('TAB'))); Not efficient
 
@@ -118,3 +121,44 @@ tabsContainer.addEventListener('click', function (e) {
 
 	// console.log(clicked.dataset.tab);
 });
+
+
+// MENU FADE ANIMATION
+const handleHover = function (e) {
+	console.log(this, e.currentTarget);
+
+	if (e.target.classList.contains('nav__link')) {
+		const navLink = e.target;
+
+		// Select the sibling elements
+		const sibling = navLink.closest('.nav').querySelectorAll('.nav__link');
+		const logo = navLink.closest('.nav').querySelector('img');
+
+		sibling.forEach(el => {
+			if (el !== navLink) el.style.opacity = this;
+		});
+
+		logo.style.opacity = this;
+	}
+}
+
+// -- select the parenet element
+// nav.addEventListener('mouseover', function (e) {
+// 	handleHover(e, 0.5);
+// });
+// Passing an arugument into a handler
+nav.addEventListener('mouseover', handleHover.bind(0.5));
+
+
+// nav.addEventListener('mouseout', function (e) {
+// 	handleHover(e, 1);
+// });
+nav.addEventListener('mouseout', handleHover.bind(1));
+
+
+
+
+
+
+
+////
