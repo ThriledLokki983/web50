@@ -36,3 +36,64 @@ document.querySelector('.btn--close--cookie').addEventListener('click', function
 	msg.remove();
 	// msg.parentElement.removeChild(msg); // Old way of doing it -- DOM Traversing
 });
+
+
+
+// Styles
+msg.style.backgroundColor = '#37383d';
+msg.style.width = '120%'
+
+console.log(msg.style.color);
+console.log(msg.style.backgroundColor);
+
+console.log(getComputedStyle(msg).color);
+console.log(getComputedStyle(msg).height);
+
+msg.style.height = Number.parseFloat(getComputedStyle(msg).height, 10) + 40 + 'px'
+console.log(getComputedStyle(msg).height);
+
+// CSS Custom Properties
+document.documentElement.style.setProperty('--color-primary', 'yellow')
+
+// STTRIBUTES // e.g. src, alt, class, id // standard attributes
+const logo = document.querySelector('.nav__logo');
+console.log(logo.alt);
+console.log(logo.src);
+console.log(logo.className);
+
+// Set attributes
+logo.alt = 'Beautiful minimalistic logo'
+
+
+// Non standard attributes
+logo.setAttribute('desiner', 'Gideon');
+logo.setAttribute('desinger', 'Nimoh');
+console.log(logo.desinger);
+console.log(logo.getAttribute('desinger'));
+
+const link = document.querySelector('.twitter-link');
+console.log(link.href);
+console.log(link.getAttribute('href'));
+
+
+// Data Attributes
+
+console.log(logo.dataset.versionNumber);
+
+
+// CLASSES
+logo.classList.add()
+logo.classList.remove()
+// logo.classList.toggle()
+// logo.classList.constains()
+
+// Don't use this, it overrides the already existing class
+// logo.className = '..'
+
+
+
+
+
+
+
+//////
