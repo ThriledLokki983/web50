@@ -14,17 +14,16 @@ const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
 const nav = document.querySelector('.nav');
 
-
 const openModal = function (e) {
-	e.preventDefault();
+  e.preventDefault();
 
-	modal.classList.remove('hidden');
-	overlay.classList.remove('hidden');
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
 };
 
 const closeModal = function () {
-	modal.classList.add('hidden');
-	overlay.classList.add('hidden');
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
 };
 
 btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));
@@ -36,34 +35,34 @@ btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
 
 document.addEventListener('keydown', function (e) {
-	if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-		closeModal();
-	}
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
 });
 
 // Button Scrolling
 btnScrollTo.addEventListener('click', e => {
-	const s1coords = section1.getBoundingClientRect();
-	// console.log(s1coords);
-	// console.log(e.target.getBoundingClientRect());
-	//
-	// console.log('Current Scroll X/Y', window.pageXOffset, window.pageYOffset);
-	// console.log('Hight and Width ViewPort', document.documentElement.clientHeight, document.documentElement.clientWidth);
+  const s1coords = section1.getBoundingClientRect();
+  // console.log(s1coords);
+  // console.log(e.target.getBoundingClientRect());
+  //
+  // console.log('Current Scroll X/Y', window.pageXOffset, window.pageYOffset);
+  // console.log('Hight and Width ViewPort', document.documentElement.clientHeight, document.documentElement.clientWidth);
 
-	// Scrolling
-	// window.scrollTo(s1coords.left + window.pageXOffset, // current position + current scroll
-	// 	s1coords.top + window.pageYOffset);
+  // Scrolling
+  // window.scrollTo(s1coords.left + window.pageXOffset, // current position + current scroll
+  // 	s1coords.top + window.pageYOffset);
 
-	// Old way of doing it
-	// window.scrollTo({
-	// 	left: s1coords.left + window.pageXOffset,
-	// 	top: s1coords.top + window.pageYOffset,
-	// 	behavior: 'smootInt
-	// });
+  // Old way of doing it
+  // window.scrollTo({
+  // 	left: s1coords.left + window.pageXOffset,
+  // 	top: s1coords.top + window.pageYOffset,
+  // 	behavior: 'smooth
+  // });
 
-	section1.scrollIntoView({
-		behavior: 'smooth'
-	});
+  section1.scrollIntoView({
+    behavior: 'smooth',
+  });
 });
 
 //  PAGE NAVIGATION
@@ -74,73 +73,71 @@ btnScrollTo.addEventListener('click', e => {
 //
 // 		const id = this.getAttribute('href');
 // 		document.querySelector(id).scrollIntoView({
-// 			bahaviour: 'smooth'
+// 			behaviour: 'smooth'
 // 		})
 // 		// console.log(id);
 // 	});
 // });
 // ------ EVENT DELEGATION
 // 1. Add event addEventListener to common parent element
-// 2. Determin what element generated the event
+// 2. Determine what element generated the event
 document.querySelector('.nav__links').addEventListener('click', function (e) {
-	e.preventDefault();
+  e.preventDefault();
 
-	// Matching strategy -- to ignore clicks that are not within the range we want
-	if (e.target.classList.contains('nav__link')) {
-		const id = e.target.getAttribute('href');
-		document.querySelector(id).scrollIntoView({
-			behavior: 'smooth'
-		});
-	};
+  // Matching strategy -- to ignore clicks that are not within the range we want
+  if (e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href');
+    document.querySelector(id).scrollIntoView({
+      behavior: 'smooth',
+    });
+  }
 });
-
 
 //TABBED COMPONENT
 
-
 // tabs.forEach(e => e.addEventListener('click', () => console.log('TAB'))); Not efficient
 
-// USe event delegation -- attach the event handler to the parent element that contains all the elemtns we want to work with
+// USe event delegation -- attach the event handler to the parent element that contains all the elements we want to work with
 tabsContainer.addEventListener('click', function (e) {
-	const clicked = e.target.closest('.operations__tab');
+  const clicked = e.target.closest('.operations__tab');
 
-	// Guard clause
-	if (!clicked) return;
+  // Guard clause
+  if (!clicked) return;
 
-	// Clear the active class from all elements that already has it
-	tabs.forEach(t => t.classList.remove('operations__tab--active'));
-	// Add it to the one that was clicked
-	clicked.classList.add('operations__tab--active');
+  // Clear the active class from all elements that already has it
+  tabs.forEach(t => t.classList.remove('operations__tab--active'));
+  // Add it to the one that was clicked
+  clicked.classList.add('operations__tab--active');
 
-	// Clear all content active class form the elements and then add it to the selcted button
-	tabsContent.forEach(c => c.classList.remove('operations__content--active'))
+  // Clear all content active class form the elements and then add it to the selected button
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'));
 
-	// Activate the content Area of the clicked button
-	document.querySelector(`.operations__content--${clicked.dataset.tab}`)
-		.classList.add('operations__content--active');
+  // Activate the content Area of the clicked button
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
 
-	// console.log(clicked.dataset.tab);
+  // console.log(clicked.dataset.tab);
 });
-
 
 // MENU FADE ANIMATION
 const handleHover = function (e) {
-	// console.log(this, e.currentTarget);
+  // console.log(this, e.currentTarget);
 
-	if (e.target.classList.contains('nav__link')) {
-		const navLink = e.target;
+  if (e.target.classList.contains('nav__link')) {
+    const navLink = e.target;
 
-		// Select the sibling elements
-		const sibling = navLink.closest('.nav').querySelectorAll('.nav__link');
-		const logo = navLink.closest('.nav').querySelector('img');
+    // Select the sibling elements
+    const sibling = navLink.closest('.nav').querySelectorAll('.nav__link');
+    const logo = navLink.closest('.nav').querySelector('img');
 
-		sibling.forEach(el => {
-			if (el !== navLink) el.style.opacity = this;
-		});
+    sibling.forEach(el => {
+      if (el !== navLink) el.style.opacity = this;
+    });
 
-		logo.style.opacity = this;
-	}
-}
+    logo.style.opacity = this;
+  }
+};
 
 // -- select the parent element
 // nav.addEventListener('mouseover', function (e) {
@@ -153,9 +150,6 @@ nav.addEventListener('mouseover', handleHover.bind(0.5));
 // 	handleHover(e, 1);
 // });
 nav.addEventListener('mouseout', handleHover.bind(1));
-
-
-
 
 // STICKY NAVIGATION
 // const initCoords = section1.getBoundingClientRect();
@@ -184,23 +178,22 @@ nav.addEventListener('mouseout', handleHover.bind(1));
 // const observer = new IntersectionObserver(obsCallback, obsOptions);
 // observer.observe(section1);
 
-const header1 = document.querySelector('.header')
+const header1 = document.querySelector('.header');
 const navHeight = nav.getBoundingClientRect().height;
 // console.log(navHeight);
 
 const stickyNav = function (entries) {
-	const [entry] = entries;
-	// console.log(entry);
+  const [entry] = entries;
+  // console.log(entry);
 
-	if (!entry.isIntersecting) nav.classList.add('sticky');
-	else nav.classList.remove('sticky');
-}
+  if (!entry.isIntersecting) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+};
 
 const headerObserver = new IntersectionObserver(stickyNav, {
-	root: null,
-	threshold: 0,
-	rootMargin: `-${navHeight}px`,
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}px`,
 });
 
-headerObserver.observe(header1); 
-
+headerObserver.observe(header1);
