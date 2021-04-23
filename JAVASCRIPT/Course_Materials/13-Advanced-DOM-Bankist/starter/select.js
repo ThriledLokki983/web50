@@ -25,5 +25,14 @@ msg.classList.add('cookie-message');
 msg.textContent = 'We use Cookies for Improving the user experience';
 msg.innerHTML = 'We use Cookies for Improving the user experience<button class="btn btn--close--cookie">Got it!</button>';
 header.prepend(msg);
-header.append(msg);
+header.append(msg); // There can only be one element ata time .
+// header.append(msg.cloneNode(true));
+header.before(msg);
+// header.after(msg)
 console.log(msg);
+
+// Deleting elements
+document.querySelector('.btn--close--cookie').addEventListener('click', function () {
+	msg.remove();
+	// msg.parentElement.removeChild(msg); // Old way of doing it -- DOM Traversing
+});
