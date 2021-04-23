@@ -109,6 +109,38 @@ setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
 // }
 
 
+// Event Propagation
+// BUBLING
+
+const randomInt = (min, max) => Math.floor(Math.random() * (max - min) + min);
+const randomColor = () => `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`;
+// console.log(randomColor(0, 255));
+
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+	this.style.backgroundColor = randomColor();
+	console.log('CONTAINER', e.target, e.currentTarget);
+	console.log(e.currentTarget === this);
+	console.log(e.target === this);
+
+
+});
+
+document.querySelector('.nav__link').addEventListener('click', function (e) {
+	this.style.backgroundColor = randomColor();
+	console.log('LINK', e.target, e.currentTarget); // TARGET not the element but where the event happened
+	console.log(e.currentTarget === this);
+	console.log(e.target === this);
+
+	// Stopping the event Propagation
+	e.stopPropagation(); // In practice, this is not ideal/ good idea
+});
+
+document.querySelector('.nav').addEventListener('click', function (e) {
+	this.style.backgroundColor = randomColor();
+	console.log('NAV', e.target, e.currentTarget);
+	console.log(e.currentTarget === this);
+	console.log(e.target === this);
+});
 
 
 
