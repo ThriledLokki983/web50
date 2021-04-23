@@ -209,12 +209,11 @@ if (ing.includes('lettuce')) {
 }
 
 // setTimeout
-setInterval(function () {
-	const now = new Date();
-	const min = now.getMinutes();
-	const sec = now.getSeconds();
-	console.log(`${now.getHours()}:${now.getMinutes()}:${sec}`);
-}, 1000);
+// setInterval(function () {
+// 	const now = new Date();
+// 	const sec = now.getSeconds();
+// 	console.log(`${now.getHours()}:${now.getMinutes()}:${sec}`);
+// }, 1000);
 
 
 
