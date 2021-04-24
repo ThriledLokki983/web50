@@ -24,12 +24,12 @@
 
 This is not a single straightforward answer to this. However we thus have **4** Fundamental principles to guide us create good classes:
 
-### Fundamental-1: ABSTRACTION
+### Fundamental ==> 1: ABSTRACTION
 
 **Abstraction:** Ignoring or hiding details that _don't matter_, allowing us to get an _overview_ perspective of the thing we're implementing, instead of messing with details that don't really matter to our implementation
 
-### Fundamental-2: ENCAPSULATION
+### Fundamental ==> 2: ENCAPSULATION
 
-### Fundamental-3: INHERITANCE
+### Fundamental ==> 3: INHERITANCE
 
-### Fundamental-4: POLYMORPHISM
+### Fundamental ==> 4: POLYMORPHISM
