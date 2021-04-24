@@ -66,7 +66,7 @@ This is not a single straightforward answer to this. However we thus have **4** 
 
   - this is the easiest and most straightforward way of linking an object to a prototype object.
 
-  ####POINTS TO NOT
+  #### POINTS TO NOTE
 
   > Arrow function will not work as a function constructor bcos it does not have its own **THIS** keyword
   > Never create a method inside a constructor function - if not, every instance will be carrying around this method with this as soon as they are created
