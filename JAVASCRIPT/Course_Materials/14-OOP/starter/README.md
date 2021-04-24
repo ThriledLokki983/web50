@@ -16,7 +16,9 @@
 
 # CLASSES & INSTANCES
 
-**Class:** A blueprint from which we can create _new objects_ / not yet a real object to be used. However, it can be used to create multiple instances that are readily available to be used.
+**Class:**
+
+> A blueprint from which we can create _new objects_ / not yet a real object to be used. However, it can be used to create multiple instances that are readily available to be used.
 
 **Instance:** All objects created though a _class_ / a real object which can be used
 
