@@ -180,6 +180,7 @@ sara.calcAge();
 
 // INHERITANCE
 
+// Using COnstructors for Inheritance between classes 
 const Student = function (name, year, course) {
   Person.call(this, name, year);
   this.course = course;
@@ -204,3 +205,26 @@ console.log(mike instanceof Person);
 
 Student.prototype.constructor = Student;
 console.dir(Student.prototype.constructor);
+
+
+// Using ES6 for Inheritance Between classes 
+class StudentCl extends PersonCl {
+  constructor(name, year, course) {
+    // Always call the super() first in order to have access to the THIS keyword on this class
+    super(name, year);
+    this.course = course;
+  }
+
+  introduce() {
+    console.log(`My name is ${this.fullName} and I study ${this.course}`);
+  }
+
+  calcAge() {
+    console.log(`I am ${2037-this.year} years old, but as a student I feel more like ${2037 - this.year + 10}`);
+  }
+}
+
+// const martha = new StudentCl('Martha Jones', 2002);
+const martha = new StudentCl('Martha Jones', 2012, 'Computer Science');
+martha.introduce();
+martha.calcAge();
