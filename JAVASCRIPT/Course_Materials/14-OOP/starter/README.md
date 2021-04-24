@@ -19,3 +19,15 @@
 **Class:** A blueprint from which we can create _new objects_ / not yet a real object to be used. However, it can be used to create multiple instances that are readily available to be used.
 
 **Instance:** All objects created though a _class_ / a real object which can be used
+
+### How do we model a real case into classes ?
+
+This is not a single straightforward answer to this. However we thus have **4** Fundamental principles to guide us create good classes:
+
+### Fundamentals-1: ABSTRACTION
+
+### Fundamentals-2: ENCAPSULATION
+
+### Fundamentals-3: INHERITANCE
+
+### Fundamentals-4: POLYMORPHISM
