@@ -34,4 +34,8 @@ This is not a single straightforward answer to this. However we thus have **4** 
 
 ### Fundamental ==> 3: INHERITANCE
 
+**Inheritance:**
+
 ### Fundamental ==> 4: POLYMORPHISM
+
+**Polymorphism:**
