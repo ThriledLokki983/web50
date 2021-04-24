@@ -78,7 +78,7 @@ Ev.prototype.chargeBatteryTo = function (chargeTo) {
 
 Ev.prototype.accelerate = function () {
   this.speed += 20;
-  this.charge -= 1;
+  this.charge--;
 
   console.log(`${this.make} going at ${this.speed}km/h, with a charge of ${Math.trunc(this.charge)}%`);
 }
@@ -91,3 +91,4 @@ tesla.break();
 console.log(tesla);
 tesla.chargeBatteryTo(90);
 console.log(tesla);
+tesla.accelerate();
