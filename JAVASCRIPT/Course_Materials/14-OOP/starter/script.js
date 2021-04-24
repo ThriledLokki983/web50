@@ -64,6 +64,28 @@ console.dir(x => x + 1);
 
 // ES6 Classes 
 // 
-class PersonCl = {
+class PersonCl {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
 
+  calcAge() {
+    console.log(2037 - this.year);
+  }
+
+  greet() {
+    console.log(`Hey! ${this.name}`)
+  }
 }
+
+const jes = new PersonCl('Jesicca', 1989);
+jes.calcAge();
+
+console.log(jes.__proto__ === PersonCl.prototype);
+
+// PersonCl.prototype.greet = function () {
+//   console.log(`Hey! ${this.name}`);
+// }
+
+jes.greet();
