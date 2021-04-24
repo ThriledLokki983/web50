@@ -60,3 +60,10 @@ console.log(h1);
 console.dir(h1);
 
 console.dir(x => x + 1);
+
+
+// ES6 Classes 
+// 
+class PersonCl = {
+
+}

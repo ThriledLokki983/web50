@@ -81,3 +81,12 @@ This is not a single straightforward answer to this. However we thus have **4** 
       > The new object is linked _(**proto**property)_ to the constructor function's prototype property
   4.  function automatically returns the {} from the beginning
       > The new object is returned from the constructor function call
+
+  \*\*ES6 CLASSES
+
+  - Class expression:
+    > const Person = class {
+    > }
+  - Class Declaration
+    > class Person {
+    }
