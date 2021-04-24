@@ -74,6 +74,10 @@ This is not a single straightforward answer to this. However we thus have **4** 
   ##### What Happens when a new Constructor is created
 
   1.  New {} is created
+      > New empty object is created
   2.  function is called, this = {}
+      > this keyword in constructor function call is et to the new object created
   3.  {} linked to a prototype
+      > the new object is linked _(**proto**property)_ to the constructor function's prototype property
   4.  function automatically returns the {} from the beginning
+      > the new object is returned from the constructor function call
