@@ -172,4 +172,4 @@ console.log(h1.parentElement.children);
   }
 });
 
-//////
+//LAZY LOADING OF IMAGES
