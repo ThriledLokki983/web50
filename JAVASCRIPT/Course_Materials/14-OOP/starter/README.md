@@ -26,20 +26,20 @@ This is not a single straightforward answer to this. However we thus have **4** 
 
 ### Fundamental ==> 1: ABSTRACTION
 
-**Abstraction:** Ignoring or hiding details that _don't matter_, allowing us to get an _overview_ perspective of the thing we're implementing, instead of messing with details that don't really matter to our implementation
+- **Abstraction:** Ignoring or hiding details that _don't matter_, allowing us to get an _overview_ perspective of the thing we're implementing, instead of messing with details that don't really matter to our implementation
 
 ### Fundamental ==> 2: ENCAPSULATION
 
-**Encapsulation:** Keeping properties and methods _private_ inside the class, so that they are **not accessible from outside the class**. SOme methods can be **exposed** as public interface (API).
-**WHY** Prevent external _code_/_users_ from accidentally manipulating the internal state/properties.
+- **Encapsulation:** Keeping properties and methods _private_ inside the class, so that they are **not accessible from outside the class**. SOme methods can be **exposed** as public interface (API).
+  **WHY** Prevent external _code_/_users_ from accidentally manipulating the internal state/properties.
 
 ### Fundamental ==> 3: INHERITANCE
 
-**Inheritance:** Making all properties and methods of a certain class **available to a child class**, forming a hierarchical relationship between classes. This allows us to **reuse common logic** and to model real-world relationships.
+- **Inheritance:** Making all properties and methods of a certain class **available to a child class**, forming a hierarchical relationship between classes. This allows us to **reuse common logic** and to model real-world relationships.
 
 ### Fundamental ==> 4: POLYMORPHISM
 
-**Polymorphism:** A child class can **overwrite** a method it inherited from a parent class [it's more complex than that, but this is enough coming a Java]
+- **Polymorphism:** A child class can **overwrite** a method it inherited from a parent class [it's more complex than that, but this is enough coming a Java]
 
 # PROTOTYPES
 
