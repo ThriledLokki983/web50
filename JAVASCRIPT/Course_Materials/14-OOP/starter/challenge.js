@@ -61,3 +61,33 @@ ford.accelerate();
 console.log(ford.speedUS);
 ford.speedUS = 50;
 console.log(ford);
+
+//TODO: CHALLENGE-3
+
+const Ev = function (make, speed, charge) {
+  Car.call(this, make, speed);
+  this.charge = charge;
+}
+
+// Link the prototype of Car to Ev
+Ev.prototype = Object.create(Car.prototype);
+
+Ev.prototype.chargeBatteryTo = function (chargeTo) {
+  this.charge = chargeTo;
+}
+
+Ev.prototype.accelerate = function () {
+  this.speed += 20;
+  this.charge -= 1;
+
+  console.log(`${this.make} going at ${this.speed}km/h, with a charge of ${Math.trunc(this.charge)}%`);
+}
+
+const tesla = new Ev('Tesla', 120, 23);
+console.log(tesla);
+tesla.accelerate();
+console.log(tesla);
+tesla.break();
+console.log(tesla);
+tesla.chargeBatteryTo(90);
+console.log(tesla);
