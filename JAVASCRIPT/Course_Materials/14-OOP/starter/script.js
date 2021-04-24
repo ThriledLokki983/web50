@@ -29,3 +29,11 @@ console.log(per.__proto__);
 console.log(per.__proto__ === Person.prototype);
 console.log(Person.prototype.isPrototypeOf(per));
 console.log(Person.prototype.isPrototypeOf(Person));
+
+//? You can set other properties other than methods on prototypes which all instances will have access to
+Person.prototype.species = 'Homo Sapiens';
+console.log(per);
+console.log(pat);
+
+console.log(per.hasOwnProperty('name'));
+console.log(per.hasOwnProperty('calcAge()'));
