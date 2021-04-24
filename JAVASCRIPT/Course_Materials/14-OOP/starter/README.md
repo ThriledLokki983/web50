@@ -10,7 +10,7 @@
 
 **Point-4:** Interactions happen through a **Public Interface (API)** methods that the code **outside** of the object can access and use to communicate with the object
 
-### Why does OOP exist ?
+#### Why does OOP exist ?
 
 **Answer:** OOP was developed with the goal of organizing code, to make it **more flexible and easier to maintain** (avoid "spaghetti code");
 
