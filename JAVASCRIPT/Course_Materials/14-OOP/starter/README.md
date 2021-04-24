@@ -71,7 +71,7 @@ This is not a single straightforward answer to this. However we thus have **4** 
   > - Arrow function will not work as a function constructor bcos it does not have its own **THIS** keyword
   > - Never create a method inside a constructor function - if not, every instance will be carrying around this method with this as soon as they are created
 
-  ##### What Happens when a new Constructor is created
+  ##### What Happens when a new Constructor is created (ES6)
 
   1.  New {} is created
       > New empty object is created
