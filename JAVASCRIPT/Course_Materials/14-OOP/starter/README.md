@@ -62,4 +62,4 @@ This is not a single straightforward answer to this. However we thus have **4** 
   - Modern alternative to constructor functions syntax;
   - "Syntactic sugar": behind the scenes, ES6 classes works _exactly_ like constructor functions;
   - They do **NOT** behave like classes in "classical OOP" (last lecture).
-- ## **Object.create**
+- **Object.create()**
