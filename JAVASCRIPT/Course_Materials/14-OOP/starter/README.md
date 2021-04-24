@@ -7,3 +7,5 @@
 **Point2:** In OOP, objects are _Self-Contained_ pieces/blocks of code:
 
 **Point3:** Objects are _building blocks_ of applications, and interact with one another
+
+**Point4:** Interactions happen through a **Public Interface (API)** methods that the code **outside** of the object can access and use to communicate with the object
