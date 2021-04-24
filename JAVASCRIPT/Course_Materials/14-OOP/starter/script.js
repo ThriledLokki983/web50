@@ -4,6 +4,11 @@ const Person = function (name, year) {
   // Instance Properties
   this.name = name;
   this.year = year;
+
+  // Never create a method inside a constructor function - if not, every instance will be carrying around this method with this as soon as they are created
+  this.calcAge = function () {
+    console.log(2037 - this.year);
+  };
 };
 
 const per = new Person('Gideon', 1991);
