@@ -35,7 +35,7 @@ This is not a single straightforward answer to this. However we thus have **4** 
 
 ### Fundamental ==> 3: INHERITANCE
 
-**Inheritance:**
+**Inheritance:** Making all properties and methods of a certain class **available to a child class**, forming a hierarchical relationship between classes. This allows us to **reuse common logic** and to model real-world relationships.
 
 ### Fundamental ==> 4: POLYMORPHISM
 
