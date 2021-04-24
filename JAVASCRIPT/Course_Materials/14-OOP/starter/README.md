@@ -73,6 +73,7 @@ This is not a single straightforward answer to this. However we thus have **4** 
   > - Classes are NOT Hoisted
   > - Classes are first-class citizens -- can be passed into functions and can also be returned from functions
   > - Classes are executed in Strict mode
+  > - Adding a method to the prototype allows all instances of that class to get access to this method, however, if a _Method_ is added strait to the Class, **NON** of the instances of that _Class_ will have access to it.
 
   ##### What Happens when a new Constructor is created (ES6)
 

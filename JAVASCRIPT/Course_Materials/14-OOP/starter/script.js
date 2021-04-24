@@ -130,3 +130,14 @@ account.latest = 50;
 console.log(account.transactions);
 
 console.log(jes.age);
+
+
+//TODO: STSTIC METHODS
+//! Static methods are attached to the Constructor intself and no on its prototypes. Therefore, all instances created from that class will NOT have access to this method.
+
+// Addint a static Method 
+Person.hey = function () {
+  console.log('Hey! 👋🏾');
+}
+
+Person.hey();
