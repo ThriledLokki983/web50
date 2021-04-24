@@ -219,7 +219,7 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 
 allSections.forEach(function (section) {
   sectionObserver.observe(section);
-  section.classList.add('section--hidden');
+  // section.classList.add('section--hidden'); /// UNCOMMENT HERE !!!!!
 });
 
 // Loading Lazy images
@@ -249,3 +249,89 @@ const imgObserver = new IntersectionObserver(loading, {
 imagTargets.forEach(img => imgObserver.observe(img));
 
 // SLIDER
+const slider = function () {
+  const slides = document.querySelectorAll('.slide');
+  const btnLeft = document.querySelector('.slider__btn--left');
+  const btnRight = document.querySelector('.slider__btn--right');
+  const dotContainer = document.querySelector('.dots');
+
+  let currentSlide = 0;
+  const maxSlide = slides.length;
+
+  // const slider = document.querySelector('.slider');
+  // slider.style.transform = 'scale(0.3) translateX(-1000px)';
+  // slider.style.overflow = 'visible';
+
+  // // 1. 0% -- 2. 100% -- 3. 200% -- 4. 300% ........ // Put all the slides side-by-side
+  // slides.forEach((s, i) => (s.style.transform = `translateX(${100 * i}%)`));
+
+  // function for the dots
+  const createDots = function () {
+    slides.forEach(function (_, i) {
+      dotContainer.insertAdjacentHTML(
+        'beforeend',
+        `<button class="dots__dot" data-slide="${i}"></button>`
+      );
+    });
+  };
+
+  // Function to make the current slid correspond to a dot with an active class
+  const activateDot = function (slide) {
+    document
+      .querySelectorAll('.dots__dot')
+      .forEach(dot => dot.classList.remove('dots__dot--active'));
+
+    document
+      .querySelector(`.dots__dot[data-slide="${slide}"]`)
+      .classList.add('dots__dot--active');
+  };
+
+  // Refactoring
+  const goToSlide = function (slide) {
+    slides.forEach(
+      (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+    );
+  };
+
+  const nextSlide = function () {
+    currentSlide === maxSlide - 1 ? (currentSlide = 0) : currentSlide++;
+    goToSlide(currentSlide);
+    activateDot(currentSlide);
+  };
+
+  const prevSlide = function () {
+    currentSlide === 0 ? (currentSlide = maxSlide - 1) : currentSlide--;
+    goToSlide(currentSlide);
+    activateDot(currentSlide);
+  };
+
+  const init = function () {
+    goToSlide(0);
+    createDots();
+    activateDot(0);
+  };
+  init();
+
+  // Next Slide to the Right
+  btnRight.addEventListener('click', nextSlide);
+
+  // Next SLide to the Left
+  btnLeft.addEventListener('click', prevSlide);
+
+  // Add event handlers to the arrow keys to support our slider
+  document.addEventListener('keydown', function (e) {
+    e.key === 'ArrowLeft' && prevSlide(); // could also use ternary operator or if condition, depending on whichever you want as a developer. I personally like the ternary.
+    e.key === 'ArrowRight' && nextSlide();
+  });
+
+  // Add event handlers to all the dots
+  dotContainer.addEventListener('click', function (e) {
+    if (e.target.classList.contains('dots__dot')) {
+      // console.log('DOT');
+      const { slide } = e.target.dataset; // de-structure because the target and our variable have the dame name
+      goToSlide(slide);
+      activateDot(slide);
+    }
+  });
+};
+slider();
