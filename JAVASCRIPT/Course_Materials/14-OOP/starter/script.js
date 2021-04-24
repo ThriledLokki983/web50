@@ -43,7 +43,20 @@ console.log(per.__proto__.__proto__);
 
 console.log(Person.prototype.constructor);
 
-const arr = [1, 2, 3, 4, 5];
+const arr = [1, 2, 3, 4, 5, 5, 1, 1, 4]; //! new Array === []
 console.log(arr.__proto__);
 console.log(arr.__proto__ === Array.prototype);
 console.log(arr.__proto__.__proto__);
+
+Array.prototype.unique = function () {
+  //! Adding a new function to the array object
+  return [...new Set(this)];
+};
+
+console.log(arr.unique());
+
+const h1 = document.querySelector('h1');
+console.log(h1);
+console.dir(h1);
+
+console.dir(x => x + 1);
