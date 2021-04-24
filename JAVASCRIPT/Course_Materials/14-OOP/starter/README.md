@@ -17,3 +17,4 @@
 # CLASSES & INSTANCES
 
 **Class:** A blueprint from which we can create _new objects_
+**Instance:** All objects created though a _class_
