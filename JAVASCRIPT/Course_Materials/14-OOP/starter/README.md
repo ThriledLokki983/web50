@@ -69,3 +69,10 @@ This is not a single straightforward answer to this. However we thus have **4** 
   ####POINTS TO NOT
 
   - Arrow function will not work as a function constructor bcos it does not have its own **THIS** keyword
+
+  ##### What Happens when a new Constructor is created
+
+  - 1.  New {} is created
+  - 2. function is called, this = {}
+  - 3.  {} linked to a prototype
+  - 4.  function automatically returns the {} from the beginning
