@@ -68,8 +68,8 @@ This is not a single straightforward answer to this. However we thus have **4** 
 
   ####POINTS TO NOT
 
-  - Arrow function will not work as a function constructor bcos it does not have its own **THIS** keyword
-  - Never create a method inside a constructor function - if not, every instance will be carrying around this method with this as soon as they are created
+  > Arrow function will not work as a function constructor bcos it does not have its own **THIS** keyword
+  > Never create a method inside a constructor function - if not, every instance will be carrying around this method with this as soon as they are created
 
   ##### What Happens when a new Constructor is created
 
