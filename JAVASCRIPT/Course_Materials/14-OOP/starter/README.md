@@ -26,6 +26,8 @@ This is not a single straightforward answer to this. However we thus have **4** 
 
 ### Fundamentals-1: ABSTRACTION
 
+**Abstraction:** Ignoring or hiding details that _don't matter_, allowing us to get an _overview_ perspective of the thing we're implementing, instead of messing with details that don't really matter to our implementation
+
 ### Fundamentals-2: ENCAPSULATION
 
 ### Fundamentals-3: INHERITANCE
