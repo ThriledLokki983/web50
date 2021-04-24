@@ -176,3 +176,31 @@ console.log(gideon.__proto__ === PersonProto);
 const sara = Object.create(PersonProto);
 sara.init('Sarah', 1993);
 sara.calcAge();
+
+
+// INHERITANCE
+
+const Student = function (name, year, course) {
+  Person.call(this, name, year);
+  this.course = course;
+}
+
+// Linking Prototypes 
+Student.prototype = Object.create(Person.prototype);
+
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.name} and I study ${this.course}`);
+}
+
+const mike = new Student('Mike', 2020, 'Computer Science');
+mike.introduce();
+mike.calcAge();
+console.log(mike.__proto__);
+console.log(mike.__proto__.__proto__);
+
+console.log(mike instanceof Student);
+console.log(mike instanceof Person);
+
+Student.prototype.constructor = Student;
+console.dir(Student.prototype.constructor);
