@@ -190,3 +190,18 @@ window.addEventListener('load', function (e) {
 //   console.log(e);
 //   e.returnValue = '';
 // });
+
+// Efficient ways of Loading script into the HTML file
+
+// REGULAR
+// Script src = "script.js">
+
+// NEVER Include a script in the HEAD
+// it causes the Parsing of the HTML to wait for [Fetching and executing the script] before it continues with Finishing the Parsing of the HTML document (DOMContentLoaded) -- However, when put at the end of the HTML file, the process is like this: PARSING HTML ==> FETCH SCRIPT ==> EXECUTE: (also not an ideal option bcos we could have fetched the script while parsing the html)
+
+// ASYNC  																			<script async src="script.js"></script>
+// Process when done like this
+// HEAD: PARSING HTML ==> WAIT ==> FINISH PARSING HTML (Here, while the html is being parsed, the script is fetched asynchronously, when done, it will have to be executed before html can finish parsing)
+
+// DEFER																			<script defer src="script.js"></script>
+// HEAD: PARSING HTML ==> EXECUTE (Here, Html code is parsed and finished while asynchronously fetched the script but only executed when HTML is done parsing)
