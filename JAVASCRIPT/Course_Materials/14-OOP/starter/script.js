@@ -37,3 +37,13 @@ console.log(pat);
 
 console.log(per.hasOwnProperty('name'));
 console.log(per.hasOwnProperty('calcAge()'));
+
+//////////////? OBJECT.prototype
+console.log(per.__proto__.__proto__);
+
+console.log(Person.prototype.constructor);
+
+const arr = [1, 2, 3, 4, 5];
+console.log(arr.__proto__);
+console.log(arr.__proto__ === Array.prototype);
+console.log(arr.__proto__.__proto__);
