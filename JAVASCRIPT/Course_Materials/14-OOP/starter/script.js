@@ -137,7 +137,8 @@ console.log(jes.age);
 
 // Addint a static Method 
 Person.hey = function () {
-  console.log('Hey! 👋🏾');
+  console.log('Hey! there 👋🏾');
+  console.log(this);
 }
 
 Person.hey();
