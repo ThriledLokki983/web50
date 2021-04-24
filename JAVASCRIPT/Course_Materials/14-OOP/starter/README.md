@@ -58,7 +58,8 @@ This is not a single straightforward answer to this. However we thus have **4** 
   - Creates objects from functions
   - Thi sis how built-in objects like Arrays, Maps or Sets are actually implemented
 
-- **ES6 Classes**
-  -
-- **Object.create**
-  -
+- **ES6 Classes:**
+  - Modern alternative to constructor functions syntax;
+  - "Syntactic sugar": behind the scenes, ES6 classes works _exactly_ like constructor functions;
+  - They do **NOT** behave like classes in "classical OOP" (last lecture).
+- ## **Object.create**
