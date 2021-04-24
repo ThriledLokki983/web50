@@ -30,6 +30,8 @@ This is not a single straightforward answer to this. However we thus have **4** 
 
 ### Fundamental ==> 2: ENCAPSULATION
 
+**Encapsulation** Keeping properties and methods _private_ inside the class, so that they are **not accessible from outside the class**. SOme methods can be **exposed** as public interface (API).
+
 ### Fundamental ==> 3: INHERITANCE
 
 ### Fundamental ==> 4: POLYMORPHISM
