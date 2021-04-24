@@ -1,6 +1,6 @@
 # OOP -- WHAT IS OBJECT-ORIENTED PROGRAMMING - JavaScript (JS)
 
-**Def:**
+**Definition:**
 
 > This is a programming paradigm based on the concepts of objects -- We use objects to _Model_ / _Describe_ real-world or abstract features;
 
@@ -50,3 +50,15 @@ This is not a single straightforward answer to this. However we thus have **4** 
 **Instantiation:** Objects (instances) are instantiated from a class, which functions like a blueprint
 
 > Objects are **linked** to a prototype object ==> **Prototypal Inheritance:** The prototype contains methods (behavior) _that are accessible to all objects linked to that prototype_
+
+**Creating and Linking Objects to Prototypes -- Create new objects without having classes**
+
+- **Constructor Functions:**
+
+  - Creates objects from functions
+  - Thi sis how built-in objects like Arrays, Maps or Sets are actually implemented
+
+- **ES6 Classes**
+  -
+- **Object.create**
+  -
