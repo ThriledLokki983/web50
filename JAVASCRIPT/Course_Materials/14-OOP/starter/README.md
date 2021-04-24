@@ -63,3 +63,4 @@ This is not a single straightforward answer to this. However we thus have **4** 
   - "Syntactic sugar": behind the scenes, ES6 classes works _exactly_ like constructor functions;
   - They do **NOT** behave like classes in "classical OOP" (last lecture).
 - **Object.create()**
+  - this is the easiest and most straightforward way of linking an object to a prototype object.
