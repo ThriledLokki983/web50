@@ -65,11 +65,12 @@ console.dir(x => x + 1);
 // ES6 Classes 
 // 
 class PersonCl {
-  constructor(name, year) {
-    this.name = name;
+  constructor(fullName, year) {
+    this.fullName = fullName;
     this.year = year;
   }
 
+  // Methods will be added to .prototype
   calcAge() {
     console.log(2037 - this.year);
   }
@@ -77,10 +78,24 @@ class PersonCl {
   greet() {
     console.log(`Hey! ${this.name}`)
   }
+
+  get age() {
+    return 2037 - this.year;
+  }
+  // be careful of the _ below, it help when setting the variable that the constructor is already ataking care of. 
+  set fullName(name) {
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`The name ${name} is invalid`)
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
 }
 
-const jes = new PersonCl('Jesicca', 1989);
+const jes = new PersonCl('Jesicca Davies', 1989);
 jes.calcAge();
+console.log(jes);
 
 console.log(jes.__proto__ === PersonCl.prototype);
 
@@ -89,3 +104,29 @@ console.log(jes.__proto__ === PersonCl.prototype);
 // }
 
 jes.greet();
+
+
+const walter = new PersonCl('Walter White', 1969);
+
+//! Setters & Getters 
+
+const account = {
+  owner: 'Gideon',
+  transactions: [200, 345, 89, -75, 34],
+
+  get latest() {
+    return this.transactions.slice(-1).pop();
+  },
+
+  set latest(tran) {
+    this.transactions.push(tran);
+  }
+}
+
+console.log(account.latest);
+
+account.latest = 50;
+
+console.log(account.transactions);
+
+console.log(jes.age);

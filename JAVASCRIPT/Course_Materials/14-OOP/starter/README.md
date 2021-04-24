@@ -70,7 +70,7 @@ This is not a single straightforward answer to this. However we thus have **4** 
 
   > - Arrow function will not work as a function constructor bcos it does not have its own **THIS** keyword
   > - Never create a method inside a constructor function - if not, every instance will be carrying around this method with this as soon as they are created
-  > - Classes are not Hoisted
+  > - Classes are NOT Hoisted
   > - Classes are first-class citizens -- can be passed into functions and can also be returned from functions
   > - Classes are executed in Strict mode
 
