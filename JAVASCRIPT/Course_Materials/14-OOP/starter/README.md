@@ -40,3 +40,7 @@ This is not a single straightforward answer to this. However we thus have **4** 
 ### Fundamental ==> 4: POLYMORPHISM
 
 **Polymorphism:** A child class can **overwrite** a method it inherited from a parent class [it's more complex than that, but this is enough coming a Java]
+
+# PROTOTYPES
+
+- **Instantiation:** Objects (instances) are instantiated from a class, which functions like a blueprint
