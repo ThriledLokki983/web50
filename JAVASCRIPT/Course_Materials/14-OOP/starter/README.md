@@ -12,5 +12,8 @@
 
 ### Why does OOP exist ?
 
-**Answer:** OOP was developed with the goal of organizing code, to make it **more flexible and easier to maintain** (avoid "spaghetti code")
-;
+**Answer:** OOP was developed with the goal of organizing code, to make it **more flexible and easier to maintain** (avoid "spaghetti code");
+
+# CLASSES & INSTANCES
+
+**Class:** A blueprint from which we can create _new objects_
