@@ -91,6 +91,12 @@ class PersonCl {
   get fullName() {
     return this._fullName;
   }
+
+  //! Static Method to a Class
+  static hey() {
+    console.log(`Hey there! 🙉👋🏾`);
+    console.log(this);
+  }
 }
 
 const jes = new PersonCl('Jesicca Davies', 1989);
@@ -142,3 +148,31 @@ Person.hey = function () {
 }
 
 Person.hey();
+
+PersonCl.hey();
+
+
+// Using the Object.create() Method 
+
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.year);
+  },
+
+  init(firstName, year) {
+    this.firstName = firstName;
+    this.year = year;
+  },
+};
+
+const gideon = Object.create(PersonProto);
+console.log(gideon);
+gideon.name = 'Gideon';
+gideon.year = 1990;
+gideon.calcAge();
+console.log(gideon.__proto__);
+console.log(gideon.__proto__ === PersonProto);
+
+const sara = Object.create(PersonProto);
+sara.init('Sarah', 1993);
+sara.calcAge();
