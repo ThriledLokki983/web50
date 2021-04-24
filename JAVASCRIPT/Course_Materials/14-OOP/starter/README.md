@@ -43,4 +43,6 @@ This is not a single straightforward answer to this. However we thus have **4** 
 
 # PROTOTYPES
 
-- **Instantiation:** Objects (instances) are instantiated from a class, which functions like a blueprint
+**Instantiation:** Objects (instances) are instantiated from a class, which functions like a blueprint
+
+- Objects are **linked** to a prototype object ==> **Prototypal Inheritance:** The prototype contains methods (behavior) _that are accessible to all objects linked to that prototype_
