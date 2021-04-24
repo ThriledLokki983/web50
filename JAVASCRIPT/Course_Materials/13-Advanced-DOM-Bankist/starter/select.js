@@ -173,3 +173,20 @@ console.log(h1.parentElement.children);
 });
 
 //LAZY LOADING OF IMAGES
+
+// LIFE CYCLE OF WEB PAGES
+// DOM Content Loader
+
+document.addEventListener('DOMContentLoaded', function (e) {
+  console.log(e);
+});
+
+window.addEventListener('load', function (e) {
+  console.log(e);
+});
+
+// window.addEventListener('beforeunload', function (e) {
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = '';
+// });
