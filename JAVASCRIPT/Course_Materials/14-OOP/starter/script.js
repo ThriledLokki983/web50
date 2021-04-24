@@ -5,10 +5,7 @@ const Person = function (name, year) {
   this.name = name;
   this.year = year;
 
-  // Never create a method inside a constructor function - if not, every instance will be carrying around this method with this as soon as they are created
-  //   this.calcAge = function () {
-  //     console.log(2037 - this.year);
-  //   };
+  //? Check Notes -- Something very important there
 };
 
 const per = new Person('Gideon', 1991);
@@ -19,7 +16,16 @@ console.log(mat);
 console.log(pat);
 console.log(pat instanceof Person);
 
-// 1. New {} is created
-// 2. function is called, this = {}
-// 3. {} linked to a prototype
-// 4. function automatically returns the {} from the beginning
+// Prototypes
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.year);
+};
+
+console.log(Person.prototype);
+
+per.calcAge();
+pat.calcAge();
+console.log(per.__proto__);
+console.log(per.__proto__ === Person.prototype);
+console.log(Person.prototype.isPrototypeOf(per));
+console.log(Person.prototype.isPrototypeOf(Person));
