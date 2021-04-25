@@ -11,24 +11,14 @@ const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
 
-let map;
-let mapEvent;
-
 class App {
     #map;
     #mapEvent;
 
     constructor() {
         this._getPosition();
-
-        form.addEventListener('submit', function (e) {
-
-        });
-
-        inputType.addEventListener('change', function () {
-            inputElevation.closest('.form__row').classList.toggle('form__row--hidden');
-            inputCadence.closest('.form__row').classList.toggle('form__row--hidden');
-        });
+        form.addEventListener('submit', this._newWorkOut.bind(this));
+        inputType.addEventListener('change', this._toggleElevationField);
     }
 
     _getPosition() {
@@ -54,19 +44,18 @@ class App {
         }).addTo(this.#map);
 
         // Handleclick on map
-        this.#map.on('click', function (mapE) {
-            this.#mapEvent = mapE;
-            form.classList.remove('hidden');
-            inputDistance.focus();
-        })
+        this.#map.on('click', this._showForm.bind(this))
     }
 
-    _showForm() {
-
+    _showForm(mapE) {
+        this.#mapEvent = mapE;
+        form.classList.remove('hidden');
+        inputDistance.focus();
     }
 
     _toggleElevationField() {
-
+        inputElevation.closest('.form__row').classList.toggle('form__row--hidden');
+        inputCadence.closest('.form__row').classList.toggle('form__row--hidden');
     }
 
     _newWorkOut(e) {
@@ -79,7 +68,7 @@ class App {
         const {
             lat,
             lng
-        } = mapEvent.latlng;
+        } = this.#mapEvent.latlng;
 
         L.marker([lat, lng])
             .addTo(this.#map)
@@ -92,7 +81,6 @@ class App {
             }))
             .setPopupContent('Workout')
             .openPopup();
-
     }
 }
 
