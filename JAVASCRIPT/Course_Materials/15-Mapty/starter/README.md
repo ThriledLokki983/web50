@@ -10,6 +10,10 @@
 
 > e.g. As a user, I want to ** log my cycling workouts with location, distance, time, speed, and elevation gain**, so I can keep a log of all my cycling
 
+> e.g. As a user, I want to see all my workout at a glance so I can easily track my progress over time.
+
+> e.g. As a user, I want to see all my workouts on a map, so I caneasily check where I wouk out the most
+
 **Features:**
 
 **FlowChart:** _What we will build_
