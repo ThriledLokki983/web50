@@ -2,7 +2,9 @@
 
 ## Porject Planning
 
-**User Stories:** Description of the application's functionality form the user's _perspective_. All user stories put together describes the entire application. > High level overview of the applications
+**User Stories:** Description of the application's functionality form the user's _perspective_. All user stories put together describes the entire application. > High level overview of the applications.
+
+> Common format: as a [type of user]-_who_, I want [an action]-_what_ so that [a benefit]-_why_.
 
 **Features:**
 
