@@ -26,6 +26,8 @@ Description of the application's functionality form the user's _perspective_. Al
 - Form to input, time, speed, elevation gain
 - Display all workouts in a list
 - Display all workouts on the map
+- Store workout data in the browser using local storage API
+- On page load, read the saved data from local storage and display
 
 **FlowChart:** _What we will build_
 
