@@ -283,7 +283,6 @@ class App {
         // Using the publick interface
         // workout.click();
     }
-
     // Localstorage is an API provided by the browser which is readily available to use
     _setLocalStorage(){
         localStorage.setItem('workouts', JSON.stringify(this.#workouts));
@@ -291,7 +290,7 @@ class App {
 
     _getLocalStorage(){
         const data = JSON.parse(localStorage.getItem('workouts'));
-        console.log(data);
+        // console.log(data);
 
         // do something with the data
         if(!data) return;
