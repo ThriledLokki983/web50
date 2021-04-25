@@ -317,10 +317,8 @@ class Account1 {
   locale = navigator.language;
 
   // Private Fields
-  #
-  movements = []; // can be tested in Google Chrome
-  #
-  pin;
+  // #movements = []; // can be tested in Google Chrome
+  // #pin;
 
   constructor(owner, currency, pin) {
     this.owner = owner;
