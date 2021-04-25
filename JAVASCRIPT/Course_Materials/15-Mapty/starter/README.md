@@ -10,4 +10,4 @@
 
 **Project Architecture:** how we will organize our code and implement the features described above. This is what holds all the codes together - _How we will build it_
 
-**Development** Implementation of our plan using code
+**Development:** Implementation of our plan using _code_
