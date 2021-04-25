@@ -241,3 +241,63 @@ const jay = Object.create(StudentProto);
 jay.init('Jayson', 1992, 'Computer Science');
 jay.introduce();
 jay.calcAge();
+
+// Another Class Example
+class Account {
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    // Protected data
+    this._pin = pin;
+    // Protected data
+    this._movements = [];
+    this.locale = navigator.language;
+
+    console.log(`Welcome to NumberOne Bank, ${owner}...🍻`);
+  }
+
+  // Public Interface for this class
+
+  getMovements() {
+    return this._movements;
+  }
+
+  deposit(amount) {
+    this._movements.push(amount);
+  }
+
+  withdrawal(amount) {
+    this.deposit(-amount);
+  }
+
+  _approveLoan(val) {
+    return true;
+  }
+
+  requestLoan(value) {
+    this._approveLoan(value) && this.deposit(value);
+    console.log('Loan approved');
+  }
+}
+
+const acc1 = new Account('Gideon', 'USD', 1111);
+console.log(acc1);
+
+// Deposits & withdarwals
+// acc1.movements.push(200);
+// acc1.movements.push(-120); // it is not a good idea to directly interract with inner properties like this. Instead, create a method that interracts with these properties to avoidn bugs
+
+acc1.deposit(200);
+acc1.withdrawal(78);
+
+console.log(acc1);
+
+acc1.requestLoan(500);
+console.log(acc1);
+
+//? Making some properties Inaccessible to the user
+//? Encapsulation & Data Privacy
+
+// _movements -- convention
+
+console.log(acc1.getMovements());
