@@ -264,10 +264,12 @@ class Account {
 
   deposit(amount) {
     this._movements.push(amount);
+    return this;
   }
 
   withdrawal(amount) {
     this.deposit(-amount);
+    return this;
   }
 
   _approveLoan(val) {
@@ -277,6 +279,7 @@ class Account {
   requestLoan(value) {
     this._approveLoan(value) && this.deposit(value);
     console.log('Loan approved');
+    return this;
   }
 }
 
@@ -306,7 +309,7 @@ console.log(acc1.getMovements());
 // Private Fields
 // Public Methods
 // Private methods
-// There is also the static format for all the 4 above -- which is also only available to the class itself and not on its instances
+// There is also the static format for all the 4 above -- which is also only available to the class itself and not on its instances300
 
 //! /////////////////////////////////////////////////!!
 class Account1 {
@@ -353,3 +356,9 @@ console.log(jay1);
 
 console.log(jay1.requestLoan(500));
 console.log(jay1);
+
+/// Chaining Methods
+// To chain methods, return (this) the object itslef in your individual methods to allow this chaining techinique
+acc1.deposit(300).deposit(400).withdrawal(50).requestLoan(1000).withdrawal(20);
+console.log(acc1);
+console.log(acc1.getMovements());
