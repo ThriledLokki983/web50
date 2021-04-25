@@ -225,3 +225,19 @@ class StudentCl extends PersonCl {
 const martha = new StudentCl('Martha Jones', 2012, 'Computer Science');
 martha.introduce();
 martha.calcAge();
+
+// Using Object.create()
+const StudentProto = Object.create(PersonProto);
+StudentProto.init = function (name, year, course) {
+  PersonProto.init.call(this, name, year); // first call the init form the Person proto to assign the THIS keyword to this very object's instances created.
+  this.course = course;
+};
+
+StudentProto.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const jay = Object.create(StudentProto);
+jay.init('Jayson', 1992, 'Computer Science');
+jay.introduce();
+jay.calcAge();
