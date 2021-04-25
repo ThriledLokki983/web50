@@ -1,1 +1,3 @@
-# MAPTY Project
+# MAPTY PROJECT
+
+## Porject Planning
