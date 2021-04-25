@@ -43,6 +43,6 @@ Description of the application's functionality form the user's _perspective_. Al
 **Project Architecture:** how we will organize our code and implement the features described above. This is what holds all the codes together - _How we will build it_
 its all about giveing you code a sructure -- e.g. OOP
 
-**Development:** Implementation of our plan using _code_
+> ![Screenshot](Mapty-architecture-part-1.png)
 
-![Screenshot](Mapty-architecture-part-1.png)
+**Development:** Implementation of our plan using _code_
