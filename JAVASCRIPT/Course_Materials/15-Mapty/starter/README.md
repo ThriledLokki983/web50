@@ -14,6 +14,8 @@
 
 > e.g. As a user, I want to see all my workouts on a map, so I caneasily check where I wouk out the most
 
+- **User stories helps to described what the application will do**.
+
 **Features:**
 
 **FlowChart:** _What we will build_
