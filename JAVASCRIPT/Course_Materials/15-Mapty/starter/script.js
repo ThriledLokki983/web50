@@ -14,34 +14,56 @@ const inputElevation = document.querySelector('.form__input--elevation');
 let map;
 let mapEvent;
 
-navigator.geolocation && navigator.geolocation.getCurrentPosition(function (pos) {
-    const {
-        latitude
-    } = pos.coords;
-    const {
-        longitude
-    } = pos.coords;
-    // console.log(pos.coords);
-    // console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
-    const coords = [latitude, longitude];
+class App {
+    constructor() {
 
-    map = L.map('map').setView(coords, 15);
-    // console.log(map);
+    }
 
-    L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    _getPosition() {
+        navigator.geolocation && navigator.geolocation.getCurrentPosition(this._loadMap, function () {
+            alert('Could not get your location')
+        });
+    }
 
-    // Handleclick on map
-    map.on('click', function (mapE) {
-        mapEvent = mapE;
-        form.classList.remove('hidden');
-        inputDistance.focus();
-    })
+    _loadMap(pos) {
+        const {
+            latitude
+        } = pos.coords;
+        const {
+            longitude
+        } = pos.coords;
 
-}, function () {
-    alert('Could not get your location')
-});
+        const coords = [latitude, longitude];
+
+        map = L.map('map').setView(coords, 15);
+        // console.log(map);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Handleclick on map
+        map.on('click', function (mapE) {
+            mapEvent = mapE;
+            form.classList.remove('hidden');
+            inputDistance.focus();
+        })
+    }
+
+    _showForm() {
+
+    }
+
+    _toggleElevationField() {
+
+    }
+
+    _newWorkOut() {
+
+    }
+}
+
+
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
