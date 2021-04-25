@@ -297,6 +297,24 @@ class App {
         this.#workouts = data;
         this.#workouts.forEach(work => this._renderWorkout(work));
     }
+
+    reset(){
+        localStorage.removeItem('workouts');
+        location.reload();
+    }
 }
 
 const app = new App();
+
+
+// TODO
+// 1. Edit workout
+// 2. Delete Workout
+// 3. Delete all workouts 
+// 4. Sort workouts by a certain field (e.g distance)
+// 5. Re-build running and Cycling objects coming from Local Storage
+// 6. More realistic error and confirmation message **have it fade out after some time
+// 7. Ability to position the map to show all workouts [very hard]; -- check the leaflet library
+// 8. Ability to draw lines and shapes instead of just points [very hard] -- check the leaflet library
+// 9. Geocode location from coordinates (Run in Faro, Portugal) [after asynchronous Javascript section];
+// 10. Display weather data for workout time and place [after asynchronous Javascript section]
