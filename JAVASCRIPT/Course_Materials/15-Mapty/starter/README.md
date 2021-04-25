@@ -8,6 +8,8 @@
 
 > e.g: As a user, I want to **log my running workouts with location, distance, time, pace steps/minute** so I can keep a log of all my running.
 
+> e.g. As a user, I want to ** log my cycling workouts with location, distance, time, speed, and elevation gain**, so I can keep a log of all my cycling
+
 **Features:**
 
 **FlowChart:** _What we will build_
