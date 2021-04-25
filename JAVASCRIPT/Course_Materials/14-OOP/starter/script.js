@@ -317,34 +317,34 @@ class Account1 {
   locale = navigator.language;
 
   // Private Fields
-  #movements = []; // can be tested in Google Chrome
-  #pin;
+  // #movements = []; // can be tested in Google Chrome
+  // #pin;
 
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
-    this.#pin = pin;
+    // this.#pin = pin;
   }
 
   // Private Methods
   getMovements() {
-    return this._movements;
+    // return this.#movements;
   }
 
   deposit(amount) {
-    this.#movements.push(amount);
+    // this.#movements.push(amount);
   }
 
   withdrawal(amount) {
     this.deposit(-amount);
   }
 
-  #approveLoan(val) {
-    return true;
-  }
+  // # approveLoan(val) {
+  //   return true;
+  // }
 
   requestLoan(value) {
-    this.#approveLoan(value) && this.deposit(value);
+    // this.#approveLoan(value) && this.deposit(value);
     console.log('Loan approved');
   }
 }

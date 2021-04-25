@@ -8,11 +8,13 @@ const Car = function (make, speed) {
 Car.prototype.accelerate = function () {
   this.speed += 10;
   console.log(`${this.speed}km/h`);
+  return this;
 };
 
 Car.prototype.break = function () {
   this.speed -= 5;
   console.log(`${this.speed}km/h`);
+  return this;
 };
 
 const bmw = new Car('BMW', 120);
@@ -40,6 +42,7 @@ class Car1 {
   break () {
     this.speed -= 5;
     console.log(`Break: ${this.speed}km/h`);
+    return this;
   }
 
   get speedUS() {
@@ -92,3 +95,34 @@ console.log(tesla);
 tesla.chargeBatteryTo(90);
 console.log(tesla);
 tesla.accelerate();
+
+
+
+/// Unisng The ES6 method 
+
+class Evcl extends Car1 {
+
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this._charge = charge;
+  }
+
+  accelerate() {
+    this.speed += 20;
+    this._charge--;
+
+    console.log(`${this.make} going at ${this.speed}km/h, with a charge of ${this._charge}%`);
+    return this;
+  }
+
+  chargeBatteryTo(chargeTo) {
+    this._charge = chargeTo;
+    return this;
+  }
+}
+
+
+const evcl = new Evcl('Rivian', 120, 23);
+console.log(evcl);
+evcl.accelerate().accelerate().accelerate().break().break().chargeBatteryTo(50).break().accelerate();
+console.log(evcl.speedUS);
