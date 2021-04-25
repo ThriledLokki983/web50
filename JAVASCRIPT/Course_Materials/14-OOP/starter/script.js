@@ -301,3 +301,55 @@ console.log(acc1);
 // _movements -- convention
 
 console.log(acc1.getMovements());
+
+// Public Fields
+// Private Fields
+// Public Methods
+// Private methods
+// There is also the static format for all the 4 above -- which is also only available to the class itself and not on its instances
+
+//! /////////////////////////////////////////////////!!
+class Account1 {
+  // Public fields
+  locale = navigator.language;
+
+  // Private Fields
+  #movements = []; // can be tested in Google Chrome
+  #pin;
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.#pin = pin;
+  }
+
+  // Private Methods
+  getMovements() {
+    return this._movements;
+  }
+
+  deposit(amount) {
+    this.#movements.push(amount);
+  }
+
+  withdrawal(amount) {
+    this.deposit(-amount);
+  }
+
+  #approveLoan(val) {
+    return true;
+  }
+
+  requestLoan(value) {
+    this.#approveLoan(value) && this.deposit(value);
+    console.log('Loan approved');
+  }
+}
+
+const jay1 = new Account1('Kwame', 'EUR', 2568);
+console.log(jay1);
+// console.log(jay1.#movements);
+// console.log(jay1.#pin);
+
+console.log(jay1.requestLoan(500));
+console.log(jay1);
