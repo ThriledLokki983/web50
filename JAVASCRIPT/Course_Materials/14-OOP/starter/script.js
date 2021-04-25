@@ -61,9 +61,8 @@ console.dir(h1);
 
 console.dir(x => x + 1);
 
-
-// ES6 Classes 
-// 
+// ES6 Classes
+//
 class PersonCl {
   constructor(fullName, year) {
     this.fullName = fullName;
@@ -76,16 +75,16 @@ class PersonCl {
   }
 
   greet() {
-    console.log(`Hey! ${this.name}`)
+    console.log(`Hey! ${this.name}`);
   }
 
   get age() {
     return 2037 - this.year;
   }
-  // be careful of the _ below, it help when setting the variable that the constructor is already ataking care of. 
+  // be careful of the _ below, it help when setting the variable that the constructor is already ataking care of.
   set fullName(name) {
     if (name.includes(' ')) this._fullName = name;
-    else alert(`The name ${name} is invalid`)
+    else alert(`The name ${name} is invalid`);
   }
 
   get fullName() {
@@ -111,10 +110,9 @@ console.log(jes.__proto__ === PersonCl.prototype);
 
 jes.greet();
 
-
 const walter = new PersonCl('Walter White', 1969);
 
-//! Setters & Getters 
+//! Setters & Getters
 
 const account = {
   owner: 'Gideon',
@@ -126,8 +124,8 @@ const account = {
 
   set latest(tran) {
     this.transactions.push(tran);
-  }
-}
+  },
+};
 
 console.log(account.latest);
 
@@ -137,22 +135,20 @@ console.log(account.transactions);
 
 console.log(jes.age);
 
-
 //TODO: STSTIC METHODS
 //! Static methods are attached to the Constructor intself and no on its prototypes. Therefore, all instances created from that class will NOT have access to this method.
 
-// Addint a static Method 
+// Addint a static Method
 Person.hey = function () {
   console.log('Hey! there 👋🏾');
   console.log(this);
-}
+};
 
 Person.hey();
 
 PersonCl.hey();
 
-
-// Using the Object.create() Method 
+// Using the Object.create() Method
 
 const PersonProto = {
   calcAge() {
@@ -177,22 +173,20 @@ const sara = Object.create(PersonProto);
 sara.init('Sarah', 1993);
 sara.calcAge();
 
-
 // INHERITANCE
 
-// Using COnstructors for Inheritance between classes 
+// Using COnstructors for Inheritance between classes
 const Student = function (name, year, course) {
   Person.call(this, name, year);
   this.course = course;
-}
+};
 
-// Linking Prototypes 
+// Linking Prototypes
 Student.prototype = Object.create(Person.prototype);
-
 
 Student.prototype.introduce = function () {
   console.log(`My name is ${this.name} and I study ${this.course}`);
-}
+};
 
 const mike = new Student('Mike', 2020, 'Computer Science');
 mike.introduce();
@@ -206,8 +200,7 @@ console.log(mike instanceof Person);
 Student.prototype.constructor = Student;
 console.dir(Student.prototype.constructor);
 
-
-// Using ES6 for Inheritance Between classes 
+// Using ES6 for Inheritance Between classes
 class StudentCl extends PersonCl {
   constructor(name, year, course) {
     // Always call the super() first in order to have access to the THIS keyword on this class
@@ -220,7 +213,11 @@ class StudentCl extends PersonCl {
   }
 
   calcAge() {
-    console.log(`I am ${2037-this.year} years old, but as a student I feel more like ${2037 - this.year + 10}`);
+    console.log(
+      `I am ${2037 - this.year} years old, but as a student I feel more like ${
+        2037 - this.year + 10
+      }`
+    );
   }
 }
 
