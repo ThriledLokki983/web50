@@ -21,6 +21,8 @@ Description of the application's functionality form the user's _perspective_. Al
 **Features:**
 
 - Map where user clicks to add new workout (best way to get a location coordinates)
+- Geolocation to display map at current location (more user friendly)
+- Form to input distance, time, pace, steps/minute.
 
 **FlowChart:** _What we will build_
 
