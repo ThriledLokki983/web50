@@ -27,4 +27,19 @@
     Asynchronous Javascript And XML: 
     It allows us to communicate with remote servers in an asynchronous way. With AJAX calls, we can request data from web servers dynamically.
 
+> API: 
+- Piece of software tha can be used by another pice of software, in order to allow **applications to talk to each other** e.g. DOM API, Geolocation API, Own Class API 
+
+> Online API: Application running on a server, that receives requests for a data, and sends data back as response. Building our own Online API (requires back-end development, e.g. with Node.js) or use 3rd-party API's
+> - Weather data
+> - Data about countries
+> - Flights data
+> - Currency conversion data
+> - APIs for sending emails
+> - Google Maps
+> - Millions of possibilities
+
+
+
+
 
