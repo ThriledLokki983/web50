@@ -8,7 +8,7 @@
 
 
 # ASYNCHRONOUS Javascript
-    >setTimout(()=> {p.textContent = 'My name is asynchronous'}, 5000)
+    setTimout(()=> {p.textContent = 'My name is asynchronous'}, 5000)
 
 - Code is executed after a task that runs in the 'background' finishes.
 
