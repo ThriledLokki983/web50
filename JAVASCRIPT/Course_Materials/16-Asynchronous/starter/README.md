@@ -96,4 +96,4 @@ Promise: An object that is used as a placeholder for the future result of an asy
 > - Pending
 > - Settled
 > - - Fulfilled promises: _Success, The value is now available_
-> - - Rejected promises: _Error occured _
+> - - Rejected promises: _Error occured_
