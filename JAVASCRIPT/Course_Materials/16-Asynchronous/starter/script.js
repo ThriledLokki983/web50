@@ -93,5 +93,24 @@ const renderCountry = function (data, className = '') {
 
 
 
-const request = fetch(`https://restcountries.eu/rest/v2/name/ghana`);
-console.log(request);
+// const request = fetch(`https://restcountries.eu/rest/v2/name/ghana`);
+// console.log(request);
+
+// Using hte ES6 Promise method
+// const getCountryData = function (country) {
+//     const request = fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+//         .then(function (response) {
+//             console.log(response);
+//             return response.json(); // reading the data from the data (returns a promise so call the (then()) on that)
+//         }).then(function (data) {
+//             console.log(data); // the final data we are looking for
+//             renderCountry(data[0])
+//         })
+// };
+
+const getCountryData = function (country) {
+    const request = fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+        .then(response => response.json())
+        .then(data => renderCountry(data[0]));
+};
+getCountryData('ghana');

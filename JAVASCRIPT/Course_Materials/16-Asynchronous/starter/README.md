@@ -103,3 +103,12 @@ Promise: An object that is used as a placeholder for the future result of an asy
 **Build Promise:** e.g fetch API returns promise
 
 **Consume Promise:** When we already have a promise e.g. promise returned from Fetch API
+
+```
+const getCountryData = function (country) {
+    const request = fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+        .then(response => response.json())
+        .then(data => renderCountry(data[0]));
+};
+getCountryData('ghana');
+```
