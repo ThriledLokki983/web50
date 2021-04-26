@@ -59,3 +59,7 @@
 **Callback Hell:** In order to solve this, you will have to create a sequence for which one call runs after the first one is done.
 
 > When there is a lot of nested callbacks in orther to execute asynchronous tasks in sequence.
+
+```
+hello => function();
+```
