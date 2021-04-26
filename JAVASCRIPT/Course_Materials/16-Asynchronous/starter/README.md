@@ -93,7 +93,9 @@ Promise: An object that is used as a placeholder for the future result of an asy
 
 **LifeCycle of Promises**:
 
-> - Pending
-> - Settled
+> - **Pending**
+> - **Settled**
 > - - Fulfilled promises: _Success, The value is now available_
 > - - Rejected promises: _Error occured_
+
+- In this way, we are able to **handle** these different states in our code
