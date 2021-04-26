@@ -20,4 +20,6 @@
 
 - Callback functions does not automatically make a code asynchronous! *you have to know which one do (e.g. setTimeout(), src attribute) and which one does not (e.g. map())
 
+- EventListners does NOT make automatically make code asynchronous 
+
 
