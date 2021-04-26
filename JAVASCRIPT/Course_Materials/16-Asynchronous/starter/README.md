@@ -60,6 +60,8 @@
 
 > When there is a lot of nested callbacks in orther to execute asynchronous tasks in sequence.
 
+- e.g. :
+
 ```
 setTimeout(() => {
     setTimeout(() => {
