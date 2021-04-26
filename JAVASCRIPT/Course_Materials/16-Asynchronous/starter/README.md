@@ -55,3 +55,5 @@
 > - TCP/IP Socket Connection
 > - HTTP request
 > - HTTP Response
+
+**Callback Hell:** In order to solve this, you will have to create a sequence for which one call runs after the first one is done.
