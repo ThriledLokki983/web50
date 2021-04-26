@@ -26,6 +26,7 @@
 ## AJAX Calls 
     Asynchronous Javascript And XML: 
     It allows us to communicate with remote servers in an asynchronous way. With AJAX calls, we can request data from web servers dynamically.
+    
     Most popular API data format: JSON data format - a Javascript object converted to a string
 
 > API: 
