@@ -23,3 +23,8 @@
 - EventListners does NOT make automatically make code asynchronous 
 
 
+## AJAX Calls 
+    Asynchronous Javascript And XML: 
+    It allows us to communicate with remote servers in an asynchronous way. With AJAX calls, we can request data from web servers dynamically.
+
+
