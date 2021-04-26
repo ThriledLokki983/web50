@@ -12,10 +12,9 @@ const renderError = function (err) {
 
 const getJSON = function (url, errMsg = 'Something went wrong') {
     return fetch(url).then(response => {
-        if (!response.ok) {
+        if (!response.ok)
             throw new Error(`${errMsg}, (${response.status})`);
-            return response.json()
-        };
+        return response.json();
     });
 }
 
@@ -38,30 +37,20 @@ const renderCountry = function (data, className = '') {
 
 const getCountryData = function (country) {
     // Country (1)
-    fetch(`https://restcountries.eu/rest/v2/name/${country}`)
-        .then(response => {
-            console.log(response);
-
-            if (!response.ok) {
-                throw new Error(`Country not Found (${response.status})`);
-            }
-            return response.json();
-        })
+    getJSON(`https://restcountries.eu/rest/v2/name/${country}`, 'Country Not found')
         .then(data => {
             renderCountry(data[0]);
             const neighbour = data[0].borders[0];
-            if (!neighbour) return;
+            if (!neighbour) throw new Error('No neighbouring country');
             // Country (2)
-            return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
+            return getJSON(`https://restcountries.eu/rest/v2/alpha/${neighbour}`, 'Country not found');
         })
-        .then(response => response.json())
         .then(data => renderCountry(data, 'neighbour'))
         .catch(err => {
             console.error(`${err} 🔥🔥🔥`);
-            renderError(`✋🏽- ${err.message}. Try Again`)
+            renderError(`✋🏽- ${err.message}.`)
         })
         .finally(() => {
-            // This will be called no matter waht happens to the promise (hide a spnner);
             countriesContainer.style.opacity = 1;
         });
 };
