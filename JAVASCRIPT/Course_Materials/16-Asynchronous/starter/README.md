@@ -80,3 +80,5 @@ setTimeout(() => {
 - This makes the code look very messy
 - Hard to understand and to reason about
 - Postential to have many bugs - bad code
+
+### Escaping Callback Hell - Promises
