@@ -90,3 +90,10 @@ Promise: An object that is used as a placeholder for the future result of an asy
 
 1. We no longer need to rely on events and callbacks passed into asynchronous functions to handle asynchronous results;
 2. Instead of nesting callbacks, we can _chain promises_ for a sequence of asynchronous operations: **escaping callback hell**
+
+**LifeCycle of Promises**:
+
+> - Pending
+> - Settled
+> - - Fulfilled promises: _Success, The value is now available_
+> - - Rejected promises: _Error occured _
