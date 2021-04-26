@@ -81,4 +81,4 @@ setTimeout(() => {
 - Hard to understand and to reason about
 - Postential to have many bugs - bad code
 
-### Escaping Callback Hell - Promises
+### Escaping Callback Hell - Promises (ES6)
