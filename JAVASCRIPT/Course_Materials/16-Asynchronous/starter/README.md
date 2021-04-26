@@ -61,5 +61,16 @@
 > When there is a lot of nested callbacks in orther to execute asynchronous tasks in sequence.
 
 ```
-hello => function();
+setTimeout(() => {
+    setTimeout(() => {
+        setTimeout(() => {
+            setTimeout(() => {
+                console.log('4 Second just passed')
+            }, 1000)
+            console.log('3 Second just passed')
+        }, 1000)
+        console.log('2 Second just passed')
+    }, 1000)
+    console.log('1 Second just passed')
+}, 1000)
 ```
