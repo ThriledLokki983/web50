@@ -93,9 +93,12 @@ Promise: An object that is used as a placeholder for the future result of an asy
 
 **LifeCycle of Promises**:
 
-> - **Pending**
-> - **Settled**
+> - **Pending:** _Before the future value is available_
+> - **Settled:** _Asynchronous task has finished_
 > - - Fulfilled promises: _Success, The value is now available_
 > - - Rejected promises: _Error occured_
 
 - In this way, we are able to **handle** these different states in our code
+
+**Build Promise:** e.g fetch API returns promise
+**Consume Promise:** When we already have a promise e.g. promise returned from Fetch API
