@@ -33,6 +33,7 @@
 
     https://github.com/public-apis/public-apis
     CORS ==> Yes / Unknown : Cross Origin Resource Sharing 
+    API Endpoint : another name for the URL that we need.
 
 > API: 
 - Piece of software tha can be used by another pice of software, in order to allow **applications to talk to each other** e.g. DOM API, Geolocation API, Own Class API 
