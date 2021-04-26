@@ -7,7 +7,7 @@ const countriesContainer = document.querySelector('.countries');
 const renderError = function (err) {
     countriesContainer.insertAdjacentText('beforeend',
         err);
-    // countriesContainer.style.opacity = 1;
+    countriesContainer.style.opacity = 1;
 }
 
 const getJSON = function (url, errMsg = 'Something went wrong') {
@@ -31,29 +31,29 @@ const renderCountry = function (data, className = '') {
     </div>
   </article>`;
     countriesContainer.insertAdjacentHTML('beforeend', html);
-    // countriesContainer.style.opacity = 1;
+    countriesContainer.style.opacity = 1;
 }
 
 
-const getCountryData = function (country) {
-    // Country (1)
-    getJSON(`https://restcountries.eu/rest/v2/name/${country}`, 'Country Not found')
-        .then(data => {
-            renderCountry(data[0]);
-            const neighbour = data[0].borders[0];
-            if (!neighbour) throw new Error('No neighbouring country');
-            // Country (2)
-            return getJSON(`https://restcountries.eu/rest/v2/alpha/${neighbour}`, 'Country not found');
-        })
-        .then(data => renderCountry(data, 'neighbour'))
-        .catch(err => {
-            console.error(`${err} 🔥🔥🔥`);
-            renderError(`✋🏽- ${err.message}.`)
-        })
-        .finally(() => {
-            countriesContainer.style.opacity = 1;
-        });
-};
+// const getCountryData = function (country) {
+//     // Country (1)
+//     getJSON(`https://restcountries.eu/rest/v2/name/${country}`, 'Country Not found')
+//         .then(data => {
+//             renderCountry(data[0]);
+//             const neighbour = data[0].borders[0];
+//             if (!neighbour) throw new Error('No neighbouring country');
+//             // Country (2)
+//             return getJSON(`https://restcountries.eu/rest/v2/alpha/${neighbour}`, 'Country not found');
+//         })
+//         .then(data => renderCountry(data, 'neighbour'))
+//         .catch(err => {
+//             console.error(`${err} 🔥🔥🔥`);
+//             renderError(`✋🏽- ${err.message}.`)
+//         })
+//         .finally(() => {
+//             countriesContainer.style.opacity = 1;
+//         });
+// };
 
 btn.addEventListener('click', function () {
     getCountryData('ghana');
