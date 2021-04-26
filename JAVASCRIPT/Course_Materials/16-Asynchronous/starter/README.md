@@ -18,6 +18,6 @@
 
 - Coordinating behavior of a program over a period of time. 
 
-- Callback functions does not automatically make a code asynchronous! *you have to know which one do (e.g. setTimeout()) and which one does not (e.g. map())
+- Callback functions does not automatically make a code asynchronous! *you have to know which one do (e.g. setTimeout(), src attribute) and which one does not (e.g. map())
 
 
