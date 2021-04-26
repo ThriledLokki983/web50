@@ -82,3 +82,11 @@ setTimeout(() => {
 - Postential to have many bugs - bad code
 
 ### Escaping Callback Hell - Promises (ES6)
+
+Promise: An object that is used as a placeholder for the future result of an asynchronous operations.
+
+> A container for an asynchronously delivered value / A container for a future value (e.g. response from AJAX call);
+> **Advantages of Using Promises:**
+
+1. We no longer need to rely on events and callbacks passed into asynchronous functions to handle asynchronous results;
+2. Instead of nesting callbacks, we can _chain promises_ for a sequence of asynchronous operations: **escaping callback hell**

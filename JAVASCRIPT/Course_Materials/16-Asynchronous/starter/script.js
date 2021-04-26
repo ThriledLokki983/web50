@@ -59,7 +59,6 @@ const renderCountry = function (data, className = '') {
 }
 
 // const getCountryAndNeighbour = function (country) {
-
 //     // AJAX call country (1)
 //     const request = new XMLHttpRequest();
 //     request.open('GET', `https://restcountries.eu/rest/v2/name/${country}`);
@@ -92,4 +91,7 @@ const renderCountry = function (data, className = '') {
 
 // getCountryAndNeighbour('mexico');
 
-fetch()
+
+
+const request = fetch(`https://restcountries.eu/rest/v2/name/ghana`);
+console.log(request);
