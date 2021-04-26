@@ -76,3 +76,7 @@ setTimeout(() => {
     console.log('1 Second just passed')
 }, 1000)
 ```
+
+- This makes the code look very messy
+- Hard to understand and to reason about
+- Postential to have many bugs - bad code
