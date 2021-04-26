@@ -84,4 +84,39 @@ const getCountryData = function (country) {
 
         // getCountryData('netherlands');
         // getCountryData('usa');
-        getCountryData('ghana');
+        getCountryData('ghana')
+
+
+        const getCountryData = function (country) {
+            // Country (1)
+            fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+                .then(response => {
+                    console.log(response);
+
+                    if (!response.ok) {
+                        throw new Error(`Country not Found (${response.status})`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    renderCountry(data[0]);
+                    const neighbour = data[0].borders[0];
+                    if (!neighbour) return;
+                    // Country (2)
+                    return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
+                })
+                .then(response => response.json())
+                .then(data => renderCountry(data, 'neighbour'))
+                .catch(err => {
+                    console.error(`${err} 🔥🔥🔥`);
+                    renderError(`✋🏽- ${err.message}. Try Again`)
+                })
+                .finally(() => {
+                    // This will be called no matter waht happens to the promise (hide a spnner);
+                    countriesContainer.style.opacity = 1;
+                });
+        };
+
+        btn.addEventListener('click', function () {
+            getCountryData('ghana');
+        });

@@ -4,6 +4,21 @@ const countriesContainer = document.querySelector('.countries');
 
 //! 2nd Part
 
+const renderError = function (err) {
+    countriesContainer.insertAdjacentText('beforeend',
+        err);
+    // countriesContainer.style.opacity = 1;
+}
+
+const getJSON = function (url, errMsg = 'Something went wrong') {
+    return fetch(url).then(response => {
+        if (!response.ok) {
+            throw new Error(`${errMsg}, (${response.status})`);
+            return response.json()
+        };
+    });
+}
+
 const renderCountry = function (data, className = '') {
     const html = `
     <article class="country ${className}">
@@ -17,14 +32,21 @@ const renderCountry = function (data, className = '') {
     </div>
   </article>`;
     countriesContainer.insertAdjacentHTML('beforeend', html);
-    countriesContainer.style.opacity = 1;
+    // countriesContainer.style.opacity = 1;
 }
 
 
 const getCountryData = function (country) {
     // Country (1)
     fetch(`https://restcountries.eu/rest/v2/name/${country}`)
-        .then(response => response.json())
+        .then(response => {
+            console.log(response);
+
+            if (!response.ok) {
+                throw new Error(`Country not Found (${response.status})`);
+            }
+            return response.json();
+        })
         .then(data => {
             renderCountry(data[0]);
             const neighbour = data[0].borders[0];
@@ -33,6 +55,17 @@ const getCountryData = function (country) {
             return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
         })
         .then(response => response.json())
-        .then(data => renderCountry(data, 'neighbour'));
+        .then(data => renderCountry(data, 'neighbour'))
+        .catch(err => {
+            console.error(`${err} 🔥🔥🔥`);
+            renderError(`✋🏽- ${err.message}. Try Again`)
+        })
+        .finally(() => {
+            // This will be called no matter waht happens to the promise (hide a spnner);
+            countriesContainer.style.opacity = 1;
+        });
 };
-getCountryData('portugal');
+
+btn.addEventListener('click', function () {
+    getCountryData('ghana');
+});
