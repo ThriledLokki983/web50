@@ -35,26 +35,26 @@ const renderCountry = function (data, className = '') {
 }
 
 
-// const getCountryData = function (country) {
-//     // Country (1)
-//     getJSON(`https://restcountries.eu/rest/v2/name/${country}`, 'Country Not found')
-//         .then(data => {
-//             renderCountry(data[0]);
-//             const neighbour = data[0].borders[0];
-//             if (!neighbour) throw new Error('No neighbouring country');
-//             // Country (2)
-//             return getJSON(`https://restcountries.eu/rest/v2/alpha/${neighbour}`, 'Country not found');
-//         })
-//         .then(data => renderCountry(data, 'neighbour'))
-//         .catch(err => {
-//             console.error(`${err} 🔥🔥🔥`);
-//             renderError(`✋🏽- ${err.message}.`)
-//         })
-//         .finally(() => {
-//             countriesContainer.style.opacity = 1;
-//         });
-// };
+const getCountryData = function (country) {
+    // Country (1)
+    getJSON(`https://restcountries.eu/rest/v2/name/${country}`, 'Country Not found')
+        .then(data => {
+            renderCountry(data[0]);
+            const neighbour = data[0].borders[0];
+            if (!neighbour) throw new Error('No neighbouring country');
+            // Country (2)
+            return getJSON(`https://restcountries.eu/rest/v2/alpha/${neighbour}`, 'Country not found');
+        })
+        .then(data => renderCountry(data, 'neighbour'))
+        .catch(err => {
+            console.error(`${err} 🔥🔥🔥`);
+            renderError(`✋🏽- ${err.message}.`)
+        })
+        .finally(() => {
+            countriesContainer.style.opacity = 1;
+        });
+};
 
-btn.addEventListener('click', function () {
-    getCountryData('ghana');
-});
+// btn.addEventListener('click', function () {
+//     getCountryData('ghana');
+// });
