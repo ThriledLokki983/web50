@@ -17,4 +17,15 @@
 > **Organized code:** Modules naturally lead to a more organized codebase
 > **Reuse code:** Modules allow us to easily reuse the same code, even across multiple projects.
 
+### ES6 MODULES
+
+    Modules stored in files, exactly one module per file.
+    Thus:
+    > top-level variables and can be used only after exporting
+    > Default mode : strict mode
+    > Top-level this: undefined
+    > imports (hoisted) & exports: YES
+    > HTML Linking <script type="module">
+    > File downloading: Asynchronous
+
 > **NPM:** Contains open-source packages to include 3rd-party code in our own code (e.g. React, JQuery, Leaflet)
