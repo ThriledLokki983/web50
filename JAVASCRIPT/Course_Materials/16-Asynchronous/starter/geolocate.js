@@ -46,4 +46,4 @@ const whereAmI = function () {
         .catch(err => console.log(`${err.message} 🛑`));
 }
 
-btn.addEventListener('click', whereAmI);
+// btn.addEventListener('click', whereAmI);
