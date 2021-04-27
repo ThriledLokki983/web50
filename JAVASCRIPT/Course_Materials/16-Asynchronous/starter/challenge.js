@@ -1,22 +1,22 @@
 'use strict';
 
 // Create a function whereAmI which takes inputs lat & lng 
-// let info = [];
-// const getMyPosition = function () {
-//     navigator.geolocation.getCurrentPosition(pos => {
-//         const {
-//             latitude,
-//             longitude
-//         } = pos.coords;
-//         info.push(latitude);
-//         info.push(longitude);
-//         return info;
-//         // console.log(latitude, longitude);
-//     }, function () {
-//         alert('location not found')
-//     });
-// }
-// console.log(getMyPosition());
+let info = [];
+const getMyPosition = function () {
+    navigator.geolocation.getCurrentPosition(pos => {
+        const {
+            latitude,
+            longitude
+        } = pos.coords;
+        info.push(latitude);
+        info.push(longitude);
+        return info;
+        // console.log(latitude, longitude);
+    }, function () {
+        alert('location not found')
+    });
+}
+console.log(getMyPosition());
 
 // const getPos = function (url, errMsg = 'Please wait 3sec before reload') {
 //     return fetch(url).then(response => {
@@ -46,9 +46,8 @@ const whereAmI = function (lat, long) {
             return res.json()
         })
         .then(data => {
-            console.log(data);
+            // console.log(data);
             console.log(`You are in ${data.city}, ${data.country}`);
-
             return fetch(`https://restcountries.eu/rest/v2/name/${data.country}`)
         })
         .then(res => {
@@ -60,5 +59,6 @@ const whereAmI = function (lat, long) {
 }
 
 whereAmI(52.508, 13.381);
-whereAmI(19.037, 72.873);
+// whereAmI(19.037, 72.873);
 whereAmI(-33.933, 18.474);
+whereAmI(53.1989, 6.584);

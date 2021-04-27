@@ -122,3 +122,13 @@ const getCountryData = function (country) {
 };
 getCountryData('usa');
 ```
+
+# How Asynchronous Javascript Works Behind The Scence
+
+    How can asynchronous code be executed in a non-blocking way, if there is one thread of execution in the engine
+
+**Web API:** Where asynchronous task run
+
+**Microtask Queue:** Just like callback queue but only related to promises: This one has priority over callback queue!
+
+**Callback Queue:** deceides when each callback is executed: orchestration
