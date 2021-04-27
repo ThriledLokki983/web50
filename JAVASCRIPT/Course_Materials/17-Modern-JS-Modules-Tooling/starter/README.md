@@ -7,6 +7,11 @@
 
 **Modules:**
 
-- Reusable piece of code that **encapsulates** implementation details _COmpose software_ Modules are small building blocks that we put together to build complex applications
+- Reusable piece of code that **encapsulates** implementation details
 
-  > **NPM:** Contains open-source packages to include 3rd-party code in our own code (e.g. React, JQuery, Leaflet)
+### Why Use Modules
+
+> **Compose software** Modules are small building blocks that we put together to build complex applications
+> **Isolate components:** Modules can be developed in isolation without thinking about the entire codebase
+
+> **NPM:** Contains open-source packages to include 3rd-party code in our own code (e.g. React, JQuery, Leaflet)
