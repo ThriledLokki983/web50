@@ -3,7 +3,7 @@
     Modules - Building - Transpiling/Polyfiling - Javascript Bundle
                 (BABEL - compiles our code to ES5 where all browsers can make use of - build tools - WebPack, Parcel);
 
-    IMPORT (dependency) -- **MODULE** -- EXPORT (Public API)
+    IMPORT (dependency) -- MODULE -- EXPORT (Public API)
 
 **Modules:**
 
