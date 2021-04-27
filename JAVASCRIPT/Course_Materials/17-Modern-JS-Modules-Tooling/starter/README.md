@@ -1,7 +1,7 @@
 # MODERN JAVASCRIPT DEVELOPMENT
 
     Modules - Building - Transpiling/Polyfiling - Javascript Bundle
-                        (BABEL - compiles our code to ES5 where all browsers can make use of)
+                (BABEL - compiles our code to ES5 where all browsers can make use of - build tools - WebPack, Parcel)
 
 **Modules: - NPM -**
 
