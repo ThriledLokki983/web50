@@ -27,9 +27,5 @@ const whereIam = async function () {
     }
 }
 whereIam();
-whereIam();
-whereIam();
-whereIam();
-whereIam();
-whereIam();
+
 console.log("called first")
