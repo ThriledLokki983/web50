@@ -66,3 +66,5 @@ const gid = new Person('Gideon');
 Promise.resolve('TEST').then(res => console.log(res));
 
 import 'core-js/stable';
+import 'core-js/stable/array/find';
+import 'regenerator-runtime/runtime'
