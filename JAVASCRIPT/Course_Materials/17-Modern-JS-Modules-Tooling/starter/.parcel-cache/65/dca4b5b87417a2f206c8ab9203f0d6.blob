@@ -1,0 +1,48 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseDifferenceJs = require('./_baseDifference.js');
+var _baseDifferenceJsDefault = _parcelHelpers.interopDefault(_baseDifferenceJs);
+var _baseFlattenJs = require('./_baseFlatten.js');
+var _baseFlattenJsDefault = _parcelHelpers.interopDefault(_baseFlattenJs);
+var _baseIterateeJs = require('./_baseIteratee.js');
+var _baseIterateeJsDefault = _parcelHelpers.interopDefault(_baseIterateeJs);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+var _isArrayLikeObjectJs = require('./isArrayLikeObject.js');
+var _isArrayLikeObjectJsDefault = _parcelHelpers.interopDefault(_isArrayLikeObjectJs);
+var _lastJs = require('./last.js');
+var _lastJsDefault = _parcelHelpers.interopDefault(_lastJs);
+/**
+* This method is like `_.difference` except that it accepts `iteratee` which
+* is invoked for each element of `array` and `values` to generate the criterion
+* by which they're compared. The order and references of result values are
+* determined by the first array. The iteratee is invoked with one argument:
+* (value).
+*
+* **Note:** Unlike `_.pullAllBy`, this method returns a new array.
+*
+* @static
+* @memberOf _
+* @since 4.0.0
+* @category Array
+* @param {Array} array The array to inspect.
+* @param {...Array} [values] The values to exclude.
+* @param {Function} [iteratee=_.identity] The iteratee invoked per element.
+* @returns {Array} Returns the new array of filtered values.
+* @example
+*
+* _.differenceBy([2.1, 1.2], [2.3, 3.4], Math.floor);
+* // => [1.2]
+*
+* // The `_.property` iteratee shorthand.
+* _.differenceBy([{ 'x': 2 }, { 'x': 1 }], [{ 'x': 1 }], 'x');
+* // => [{ 'x': 2 }]
+*/
+var differenceBy = _baseRestJsDefault.default(function (array, values) {
+  var iteratee = _lastJsDefault.default(values);
+  if (_isArrayLikeObjectJsDefault.default(iteratee)) {
+    iteratee = undefined;
+  }
+  return _isArrayLikeObjectJsDefault.default(array) ? _baseDifferenceJsDefault.default(array, _baseFlattenJsDefault.default(values, 1, _isArrayLikeObjectJsDefault.default, true), _baseIterateeJsDefault.default(iteratee, 2)) : [];
+});
+exports.default = differenceBy;

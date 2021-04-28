@@ -1,0 +1,29 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseIsDateJs = require('./_baseIsDate.js');
+var _baseIsDateJsDefault = _parcelHelpers.interopDefault(_baseIsDateJs);
+var _baseUnaryJs = require('./_baseUnary.js');
+var _baseUnaryJsDefault = _parcelHelpers.interopDefault(_baseUnaryJs);
+var _nodeUtilJs = require('./_nodeUtil.js');
+var _nodeUtilJsDefault = _parcelHelpers.interopDefault(_nodeUtilJs);
+/*Node.js helper references.*/
+var nodeIsDate = _nodeUtilJsDefault.default && _nodeUtilJsDefault.default.isDate;
+/**
+* Checks if `value` is classified as a `Date` object.
+*
+* @static
+* @memberOf _
+* @since 0.1.0
+* @category Lang
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `value` is a date object, else `false`.
+* @example
+*
+* _.isDate(new Date);
+* // => true
+*
+* _.isDate('Mon April 23 2012');
+* // => false
+*/
+var isDate = nodeIsDate ? _baseUnaryJsDefault.default(nodeIsDate) : _baseIsDateJsDefault.default;
+exports.default = isDate;

@@ -1,0 +1,65 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _SetCacheJs = require('./_SetCache.js');
+var _SetCacheJsDefault = _parcelHelpers.interopDefault(_SetCacheJs);
+var _arrayIncludesJs = require('./_arrayIncludes.js');
+var _arrayIncludesJsDefault = _parcelHelpers.interopDefault(_arrayIncludesJs);
+var _arrayIncludesWithJs = require('./_arrayIncludesWith.js');
+var _arrayIncludesWithJsDefault = _parcelHelpers.interopDefault(_arrayIncludesWithJs);
+var _cacheHasJs = require('./_cacheHas.js');
+var _cacheHasJsDefault = _parcelHelpers.interopDefault(_cacheHasJs);
+var _createSetJs = require('./_createSet.js');
+var _createSetJsDefault = _parcelHelpers.interopDefault(_createSetJs);
+var _setToArrayJs = require('./_setToArray.js');
+var _setToArrayJsDefault = _parcelHelpers.interopDefault(_setToArrayJs);
+/** Used as the size to enable large array optimizations.*/
+var LARGE_ARRAY_SIZE = 200;
+/**
+* The base implementation of `_.uniqBy` without support for iteratee shorthands.
+*
+* @private
+* @param {Array} array The array to inspect.
+* @param {Function} [iteratee] The iteratee invoked per element.
+* @param {Function} [comparator] The comparator invoked per element.
+* @returns {Array} Returns the new duplicate free array.
+*/
+function baseUniq(array, iteratee, comparator) {
+  var index = -1, includes = _arrayIncludesJsDefault.default, length = array.length, isCommon = true, result = [], seen = result;
+  if (comparator) {
+    isCommon = false;
+    includes = _arrayIncludesWithJsDefault.default;
+  } else if (length >= LARGE_ARRAY_SIZE) {
+    var set = iteratee ? null : _createSetJsDefault.default(array);
+    if (set) {
+      return _setToArrayJsDefault.default(set);
+    }
+    isCommon = false;
+    includes = _cacheHasJsDefault.default;
+    seen = new _SetCacheJsDefault.default();
+  } else {
+    seen = iteratee ? [] : result;
+  }
+  outer: while (++index < length) {
+    var value = array[index], computed = iteratee ? iteratee(value) : value;
+    value = comparator || value !== 0 ? value : 0;
+    if (isCommon && computed === computed) {
+      var seenIndex = seen.length;
+      while (seenIndex--) {
+        if (seen[seenIndex] === computed) {
+          continue outer;
+        }
+      }
+      if (iteratee) {
+        seen.push(computed);
+      }
+      result.push(value);
+    } else if (!includes(seen, computed, comparator)) {
+      if (seen !== result) {
+        seen.push(computed);
+      }
+      result.push(value);
+    }
+  }
+  return result;
+}
+exports.default = baseUniq;

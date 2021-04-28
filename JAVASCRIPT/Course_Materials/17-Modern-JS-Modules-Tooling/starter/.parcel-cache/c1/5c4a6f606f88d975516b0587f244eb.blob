@@ -1,0 +1,38 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseGetTagJs = require('./_baseGetTag.js');
+var _baseGetTagJsDefault = _parcelHelpers.interopDefault(_baseGetTagJs);
+var _isObjectLikeJs = require('./isObjectLike.js');
+var _isObjectLikeJsDefault = _parcelHelpers.interopDefault(_isObjectLikeJs);
+/** `Object#toString` result references.*/
+var numberTag = '[object Number]';
+/**
+* Checks if `value` is classified as a `Number` primitive or object.
+*
+* **Note:** To exclude `Infinity`, `-Infinity`, and `NaN`, which are
+* classified as numbers, use the `_.isFinite` method.
+*
+* @static
+* @memberOf _
+* @since 0.1.0
+* @category Lang
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `value` is a number, else `false`.
+* @example
+*
+* _.isNumber(3);
+* // => true
+*
+* _.isNumber(Number.MIN_VALUE);
+* // => true
+*
+* _.isNumber(Infinity);
+* // => true
+*
+* _.isNumber('3');
+* // => false
+*/
+function isNumber(value) {
+  return typeof value == 'number' || _isObjectLikeJsDefault.default(value) && _baseGetTagJsDefault.default(value) == numberTag;
+}
+exports.default = isNumber;

@@ -1,0 +1,42 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arraySampleSizeJs = require('./_arraySampleSize.js');
+var _arraySampleSizeJsDefault = _parcelHelpers.interopDefault(_arraySampleSizeJs);
+var _baseSampleSizeJs = require('./_baseSampleSize.js');
+var _baseSampleSizeJsDefault = _parcelHelpers.interopDefault(_baseSampleSizeJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+var _isIterateeCallJs = require('./_isIterateeCall.js');
+var _isIterateeCallJsDefault = _parcelHelpers.interopDefault(_isIterateeCallJs);
+var _toIntegerJs = require('./toInteger.js');
+var _toIntegerJsDefault = _parcelHelpers.interopDefault(_toIntegerJs);
+/**
+* Gets `n` random elements at unique keys from `collection` up to the
+* size of `collection`.
+*
+* @static
+* @memberOf _
+* @since 4.0.0
+* @category Collection
+* @param {Array|Object} collection The collection to sample.
+* @param {number} [n=1] The number of elements to sample.
+* @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+* @returns {Array} Returns the random elements.
+* @example
+*
+* _.sampleSize([1, 2, 3], 2);
+* // => [3, 1]
+*
+* _.sampleSize([1, 2, 3], 4);
+* // => [2, 3, 1]
+*/
+function sampleSize(collection, n, guard) {
+  if (guard ? _isIterateeCallJsDefault.default(collection, n, guard) : n === undefined) {
+    n = 1;
+  } else {
+    n = _toIntegerJsDefault.default(n);
+  }
+  var func = _isArrayJsDefault.default(collection) ? _arraySampleSizeJsDefault.default : _baseSampleSizeJsDefault.default;
+  return func(collection, n);
+}
+exports.default = sampleSize;

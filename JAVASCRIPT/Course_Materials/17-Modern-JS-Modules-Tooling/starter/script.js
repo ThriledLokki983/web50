@@ -52,3 +52,17 @@ console.log(stateDeepClone);
 if (module.hot) {
   module.hot.accept()
 }
+// let greeting;
+
+class Person {
+  constructor(name) {
+    this.name = name;
+    console.log(`Hey, ${this.name}`);
+  }
+}
+
+const gid = new Person('Gideon');
+
+Promise.resolve('TEST').then(res => console.log(res));
+
+import 'core-js/stable';

@@ -1,0 +1,7 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "default", function () {
+  return _forEachJsDefault.default;
+});
+var _forEachJs = require('./forEach.js');
+var _forEachJsDefault = _parcelHelpers.interopDefault(_forEachJs);

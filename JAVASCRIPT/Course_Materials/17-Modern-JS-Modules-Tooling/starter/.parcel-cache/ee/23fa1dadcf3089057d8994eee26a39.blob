@@ -1,0 +1,31 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _eqJs = require('./eq.js');
+var _eqJsDefault = _parcelHelpers.interopDefault(_eqJs);
+var _isArrayLikeJs = require('./isArrayLike.js');
+var _isArrayLikeJsDefault = _parcelHelpers.interopDefault(_isArrayLikeJs);
+var _isIndexJs = require('./_isIndex.js');
+var _isIndexJsDefault = _parcelHelpers.interopDefault(_isIndexJs);
+var _isObjectJs = require('./isObject.js');
+var _isObjectJsDefault = _parcelHelpers.interopDefault(_isObjectJs);
+/**
+* Checks if the given arguments are from an iteratee call.
+*
+* @private
+* @param {*} value The potential iteratee value argument.
+* @param {*} index The potential iteratee index or key argument.
+* @param {*} object The potential iteratee object argument.
+* @returns {boolean} Returns `true` if the arguments are from an iteratee call,
+*  else `false`.
+*/
+function isIterateeCall(value, index, object) {
+  if (!_isObjectJsDefault.default(object)) {
+    return false;
+  }
+  var type = typeof index;
+  if (type == 'number' ? _isArrayLikeJsDefault.default(object) && _isIndexJsDefault.default(index, object.length) : type == 'string' && (index in object)) {
+    return _eqJsDefault.default(object[index], value);
+  }
+  return false;
+}
+exports.default = isIterateeCall;

@@ -1,0 +1,82 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "add", function () {
+  return _addJsDefault.default;
+});
+_parcelHelpers.export(exports, "ceil", function () {
+  return _ceilJsDefault.default;
+});
+_parcelHelpers.export(exports, "divide", function () {
+  return _divideJsDefault.default;
+});
+_parcelHelpers.export(exports, "floor", function () {
+  return _floorJsDefault.default;
+});
+_parcelHelpers.export(exports, "max", function () {
+  return _maxJsDefault.default;
+});
+_parcelHelpers.export(exports, "maxBy", function () {
+  return _maxByJsDefault.default;
+});
+_parcelHelpers.export(exports, "mean", function () {
+  return _meanJsDefault.default;
+});
+_parcelHelpers.export(exports, "meanBy", function () {
+  return _meanByJsDefault.default;
+});
+_parcelHelpers.export(exports, "min", function () {
+  return _minJsDefault.default;
+});
+_parcelHelpers.export(exports, "minBy", function () {
+  return _minByJsDefault.default;
+});
+_parcelHelpers.export(exports, "multiply", function () {
+  return _multiplyJsDefault.default;
+});
+_parcelHelpers.export(exports, "round", function () {
+  return _roundJsDefault.default;
+});
+_parcelHelpers.export(exports, "subtract", function () {
+  return _subtractJsDefault.default;
+});
+_parcelHelpers.export(exports, "sum", function () {
+  return _sumJsDefault.default;
+});
+_parcelHelpers.export(exports, "sumBy", function () {
+  return _sumByJsDefault.default;
+});
+_parcelHelpers.export(exports, "default", function () {
+  return _mathDefaultJsDefault.default;
+});
+var _addJs = require('./add.js');
+var _addJsDefault = _parcelHelpers.interopDefault(_addJs);
+var _ceilJs = require('./ceil.js');
+var _ceilJsDefault = _parcelHelpers.interopDefault(_ceilJs);
+var _divideJs = require('./divide.js');
+var _divideJsDefault = _parcelHelpers.interopDefault(_divideJs);
+var _floorJs = require('./floor.js');
+var _floorJsDefault = _parcelHelpers.interopDefault(_floorJs);
+var _maxJs = require('./max.js');
+var _maxJsDefault = _parcelHelpers.interopDefault(_maxJs);
+var _maxByJs = require('./maxBy.js');
+var _maxByJsDefault = _parcelHelpers.interopDefault(_maxByJs);
+var _meanJs = require('./mean.js');
+var _meanJsDefault = _parcelHelpers.interopDefault(_meanJs);
+var _meanByJs = require('./meanBy.js');
+var _meanByJsDefault = _parcelHelpers.interopDefault(_meanByJs);
+var _minJs = require('./min.js');
+var _minJsDefault = _parcelHelpers.interopDefault(_minJs);
+var _minByJs = require('./minBy.js');
+var _minByJsDefault = _parcelHelpers.interopDefault(_minByJs);
+var _multiplyJs = require('./multiply.js');
+var _multiplyJsDefault = _parcelHelpers.interopDefault(_multiplyJs);
+var _roundJs = require('./round.js');
+var _roundJsDefault = _parcelHelpers.interopDefault(_roundJs);
+var _subtractJs = require('./subtract.js');
+var _subtractJsDefault = _parcelHelpers.interopDefault(_subtractJs);
+var _sumJs = require('./sum.js');
+var _sumJsDefault = _parcelHelpers.interopDefault(_sumJs);
+var _sumByJs = require('./sumBy.js');
+var _sumByJsDefault = _parcelHelpers.interopDefault(_sumByJs);
+var _mathDefaultJs = require('./math.default.js');
+var _mathDefaultJsDefault = _parcelHelpers.interopDefault(_mathDefaultJs);

@@ -1,0 +1,17 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _coreJsDataJs = require('./_coreJsData.js');
+var _coreJsDataJsDefault = _parcelHelpers.interopDefault(_coreJsDataJs);
+var _isFunctionJs = require('./isFunction.js');
+var _isFunctionJsDefault = _parcelHelpers.interopDefault(_isFunctionJs);
+var _stubFalseJs = require('./stubFalse.js');
+var _stubFalseJsDefault = _parcelHelpers.interopDefault(_stubFalseJs);
+/**
+* Checks if `func` is capable of being masked.
+*
+* @private
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `func` is maskable, else `false`.
+*/
+var isMaskable = _coreJsDataJsDefault.default ? _isFunctionJsDefault.default : _stubFalseJsDefault.default;
+exports.default = isMaskable;

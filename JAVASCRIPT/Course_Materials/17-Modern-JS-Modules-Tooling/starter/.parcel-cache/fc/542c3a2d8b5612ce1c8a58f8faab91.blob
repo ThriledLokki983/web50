@@ -1,0 +1,22 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _isStrictComparableJs = require('./_isStrictComparable.js');
+var _isStrictComparableJsDefault = _parcelHelpers.interopDefault(_isStrictComparableJs);
+var _keysJs = require('./keys.js');
+var _keysJsDefault = _parcelHelpers.interopDefault(_keysJs);
+/**
+* Gets the property names, values, and compare flags of `object`.
+*
+* @private
+* @param {Object} object The object to query.
+* @returns {Array} Returns the match data of `object`.
+*/
+function getMatchData(object) {
+  var result = _keysJsDefault.default(object), length = result.length;
+  while (length--) {
+    var key = result[length], value = object[key];
+    result[length] = [key, value, _isStrictComparableJsDefault.default(value)];
+  }
+  return result;
+}
+exports.default = getMatchData;

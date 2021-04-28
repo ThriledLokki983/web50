@@ -1,0 +1,43 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseClampJs = require('./_baseClamp.js');
+var _baseClampJsDefault = _parcelHelpers.interopDefault(_baseClampJs);
+var _baseToStringJs = require('./_baseToString.js');
+var _baseToStringJsDefault = _parcelHelpers.interopDefault(_baseToStringJs);
+var _toIntegerJs = require('./toInteger.js');
+var _toIntegerJsDefault = _parcelHelpers.interopDefault(_toIntegerJs);
+var _toStringJs = require('./toString.js');
+var _toStringJsDefault = _parcelHelpers.interopDefault(_toStringJs);
+/**
+* Checks if `string` ends with the given target string.
+*
+* @static
+* @memberOf _
+* @since 3.0.0
+* @category String
+* @param {string} [string=''] The string to inspect.
+* @param {string} [target] The string to search for.
+* @param {number} [position=string.length] The position to search up to.
+* @returns {boolean} Returns `true` if `string` ends with `target`,
+*  else `false`.
+* @example
+*
+* _.endsWith('abc', 'c');
+* // => true
+*
+* _.endsWith('abc', 'b');
+* // => false
+*
+* _.endsWith('abc', 'b', 2);
+* // => true
+*/
+function endsWith(string, target, position) {
+  string = _toStringJsDefault.default(string);
+  target = _baseToStringJsDefault.default(target);
+  var length = string.length;
+  position = position === undefined ? length : _baseClampJsDefault.default(_toIntegerJsDefault.default(position), 0, length);
+  var end = position;
+  position -= target.length;
+  return position >= 0 && string.slice(position, end) == target;
+}
+exports.default = endsWith;

@@ -1,0 +1,21 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _basePickByJs = require('./_basePickBy.js');
+var _basePickByJsDefault = _parcelHelpers.interopDefault(_basePickByJs);
+var _hasInJs = require('./hasIn.js');
+var _hasInJsDefault = _parcelHelpers.interopDefault(_hasInJs);
+/**
+* The base implementation of `_.pick` without support for individual
+* property identifiers.
+*
+* @private
+* @param {Object} object The source object.
+* @param {string[]} paths The property paths to pick.
+* @returns {Object} Returns the new object.
+*/
+function basePick(object, paths) {
+  return _basePickByJsDefault.default(object, paths, function (value, path) {
+    return _hasInJsDefault.default(object, path);
+  });
+}
+exports.default = basePick;

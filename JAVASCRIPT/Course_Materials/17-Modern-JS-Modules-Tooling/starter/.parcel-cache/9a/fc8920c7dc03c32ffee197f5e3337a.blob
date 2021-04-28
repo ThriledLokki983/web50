@@ -1,0 +1,7 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "default", function () {
+  return _assignInJsDefault.default;
+});
+var _assignInJs = require('./assignIn.js');
+var _assignInJsDefault = _parcelHelpers.interopDefault(_assignInJs);

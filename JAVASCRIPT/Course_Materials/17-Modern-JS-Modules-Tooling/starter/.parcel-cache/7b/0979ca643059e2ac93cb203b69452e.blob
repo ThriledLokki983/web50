@@ -1,0 +1,17 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _assocIndexOfJs = require('./_assocIndexOf.js');
+var _assocIndexOfJsDefault = _parcelHelpers.interopDefault(_assocIndexOfJs);
+/**
+* Checks if a list cache value for `key` exists.
+*
+* @private
+* @name has
+* @memberOf ListCache
+* @param {string} key The key of the entry to check.
+* @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+*/
+function listCacheHas(key) {
+  return _assocIndexOfJsDefault.default(this.__data__, key) > -1;
+}
+exports.default = listCacheHas;

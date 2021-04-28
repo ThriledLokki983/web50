@@ -1,0 +1,62 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayMapJs = require('./_arrayMap.js');
+var _arrayMapJsDefault = _parcelHelpers.interopDefault(_arrayMapJs);
+var _baseCloneJs = require('./_baseClone.js');
+var _baseCloneJsDefault = _parcelHelpers.interopDefault(_baseCloneJs);
+var _baseUnsetJs = require('./_baseUnset.js');
+var _baseUnsetJsDefault = _parcelHelpers.interopDefault(_baseUnsetJs);
+var _castPathJs = require('./_castPath.js');
+var _castPathJsDefault = _parcelHelpers.interopDefault(_castPathJs);
+var _copyObjectJs = require('./_copyObject.js');
+var _copyObjectJsDefault = _parcelHelpers.interopDefault(_copyObjectJs);
+var _customOmitCloneJs = require('./_customOmitClone.js');
+var _customOmitCloneJsDefault = _parcelHelpers.interopDefault(_customOmitCloneJs);
+var _flatRestJs = require('./_flatRest.js');
+var _flatRestJsDefault = _parcelHelpers.interopDefault(_flatRestJs);
+var _getAllKeysInJs = require('./_getAllKeysIn.js');
+var _getAllKeysInJsDefault = _parcelHelpers.interopDefault(_getAllKeysInJs);
+/** Used to compose bitmasks for cloning.*/
+var CLONE_DEEP_FLAG = 1, CLONE_FLAT_FLAG = 2, CLONE_SYMBOLS_FLAG = 4;
+/**
+* The opposite of `_.pick`; this method creates an object composed of the
+* own and inherited enumerable property paths of `object` that are not omitted.
+*
+* **Note:** This method is considerably slower than `_.pick`.
+*
+* @static
+* @since 0.1.0
+* @memberOf _
+* @category Object
+* @param {Object} object The source object.
+* @param {...(string|string[])} [paths] The property paths to omit.
+* @returns {Object} Returns the new object.
+* @example
+*
+* var object = { 'a': 1, 'b': '2', 'c': 3 };
+*
+* _.omit(object, ['a', 'c']);
+* // => { 'b': '2' }
+*/
+var omit = _flatRestJsDefault.default(function (object, paths) {
+  var result = {};
+  if (object == null) {
+    return result;
+  }
+  var isDeep = false;
+  paths = _arrayMapJsDefault.default(paths, function (path) {
+    path = _castPathJsDefault.default(path, object);
+    isDeep || (isDeep = path.length > 1);
+    return path;
+  });
+  _copyObjectJsDefault.default(object, _getAllKeysInJsDefault.default(object), result);
+  if (isDeep) {
+    result = _baseCloneJsDefault.default(result, CLONE_DEEP_FLAG | CLONE_FLAT_FLAG | CLONE_SYMBOLS_FLAG, _customOmitCloneJsDefault.default);
+  }
+  var length = paths.length;
+  while (length--) {
+    _baseUnsetJsDefault.default(result, paths[length]);
+  }
+  return result;
+});
+exports.default = omit;

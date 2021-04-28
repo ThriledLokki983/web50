@@ -1,0 +1,17 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _copyArrayJs = require('./_copyArray.js');
+var _copyArrayJsDefault = _parcelHelpers.interopDefault(_copyArrayJs);
+var _shuffleSelfJs = require('./_shuffleSelf.js');
+var _shuffleSelfJsDefault = _parcelHelpers.interopDefault(_shuffleSelfJs);
+/**
+* A specialized version of `_.shuffle` for arrays.
+*
+* @private
+* @param {Array} array The array to shuffle.
+* @returns {Array} Returns the new shuffled array.
+*/
+function arrayShuffle(array) {
+  return _shuffleSelfJsDefault.default(_copyArrayJsDefault.default(array));
+}
+exports.default = arrayShuffle;

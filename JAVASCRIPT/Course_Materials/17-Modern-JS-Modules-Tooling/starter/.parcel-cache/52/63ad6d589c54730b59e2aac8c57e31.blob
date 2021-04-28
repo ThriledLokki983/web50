@@ -1,0 +1,40 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayMapJs = require('./_arrayMap.js');
+var _arrayMapJsDefault = _parcelHelpers.interopDefault(_arrayMapJs);
+var _copyArrayJs = require('./_copyArray.js');
+var _copyArrayJsDefault = _parcelHelpers.interopDefault(_copyArrayJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+var _isSymbolJs = require('./isSymbol.js');
+var _isSymbolJsDefault = _parcelHelpers.interopDefault(_isSymbolJs);
+var _stringToPathJs = require('./_stringToPath.js');
+var _stringToPathJsDefault = _parcelHelpers.interopDefault(_stringToPathJs);
+var _toKeyJs = require('./_toKey.js');
+var _toKeyJsDefault = _parcelHelpers.interopDefault(_toKeyJs);
+var _toStringJs = require('./toString.js');
+var _toStringJsDefault = _parcelHelpers.interopDefault(_toStringJs);
+/**
+* Converts `value` to a property path array.
+*
+* @static
+* @memberOf _
+* @since 4.0.0
+* @category Util
+* @param {*} value The value to convert.
+* @returns {Array} Returns the new property path array.
+* @example
+*
+* _.toPath('a.b.c');
+* // => ['a', 'b', 'c']
+*
+* _.toPath('a[0].b.c');
+* // => ['a', '0', 'b', 'c']
+*/
+function toPath(value) {
+  if (_isArrayJsDefault.default(value)) {
+    return _arrayMapJsDefault.default(value, _toKeyJsDefault.default);
+  }
+  return _isSymbolJsDefault.default(value) ? [value] : _copyArrayJsDefault.default(_stringToPathJsDefault.default(_toStringJsDefault.default(value)));
+}
+exports.default = toPath;

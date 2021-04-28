@@ -1,0 +1,36 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseGetTagJs = require('./_baseGetTag.js');
+var _baseGetTagJsDefault = _parcelHelpers.interopDefault(_baseGetTagJs);
+var _isObjectLikeJs = require('./isObjectLike.js');
+var _isObjectLikeJsDefault = _parcelHelpers.interopDefault(_isObjectLikeJs);
+var _isPlainObjectJs = require('./isPlainObject.js');
+var _isPlainObjectJsDefault = _parcelHelpers.interopDefault(_isPlainObjectJs);
+/** `Object#toString` result references.*/
+var domExcTag = '[object DOMException]', errorTag = '[object Error]';
+/**
+* Checks if `value` is an `Error`, `EvalError`, `RangeError`, `ReferenceError`,
+* `SyntaxError`, `TypeError`, or `URIError` object.
+*
+* @static
+* @memberOf _
+* @since 3.0.0
+* @category Lang
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `value` is an error object, else `false`.
+* @example
+*
+* _.isError(new Error);
+* // => true
+*
+* _.isError(Error);
+* // => false
+*/
+function isError(value) {
+  if (!_isObjectLikeJsDefault.default(value)) {
+    return false;
+  }
+  var tag = _baseGetTagJsDefault.default(value);
+  return tag == errorTag || tag == domExcTag || typeof value.message == 'string' && typeof value.name == 'string' && !_isPlainObjectJsDefault.default(value);
+}
+exports.default = isError;

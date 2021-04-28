@@ -1,0 +1,21 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _basePropertyOfJs = require('./_basePropertyOf.js');
+var _basePropertyOfJsDefault = _parcelHelpers.interopDefault(_basePropertyOfJs);
+/** Used to map HTML entities to characters.*/
+var htmlUnescapes = {
+  '&amp;': '&',
+  '&lt;': '<',
+  '&gt;': '>',
+  '&quot;': '"',
+  '&#39;': "'"
+};
+/**
+* Used by `_.unescape` to convert HTML entities to characters.
+*
+* @private
+* @param {string} chr The matched character to unescape.
+* @returns {string} Returns the unescaped character.
+*/
+var unescapeHtmlChar = _basePropertyOfJsDefault.default(htmlUnescapes);
+exports.default = unescapeHtmlChar;

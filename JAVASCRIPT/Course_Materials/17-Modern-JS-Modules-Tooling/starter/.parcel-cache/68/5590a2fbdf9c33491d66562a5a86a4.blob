@@ -1,0 +1,21 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseClampJs = require('./_baseClamp.js');
+var _baseClampJsDefault = _parcelHelpers.interopDefault(_baseClampJs);
+var _shuffleSelfJs = require('./_shuffleSelf.js');
+var _shuffleSelfJsDefault = _parcelHelpers.interopDefault(_shuffleSelfJs);
+var _valuesJs = require('./values.js');
+var _valuesJsDefault = _parcelHelpers.interopDefault(_valuesJs);
+/**
+* The base implementation of `_.sampleSize` without param guards.
+*
+* @private
+* @param {Array|Object} collection The collection to sample.
+* @param {number} n The number of elements to sample.
+* @returns {Array} Returns the random elements.
+*/
+function baseSampleSize(collection, n) {
+  var array = _valuesJsDefault.default(collection);
+  return _shuffleSelfJsDefault.default(array, _baseClampJsDefault.default(n, 0, array.length));
+}
+exports.default = baseSampleSize;

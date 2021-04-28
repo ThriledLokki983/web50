@@ -1,0 +1,45 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseToStringJs = require('./_baseToString.js');
+var _baseToStringJsDefault = _parcelHelpers.interopDefault(_baseToStringJs);
+var _castSliceJs = require('./_castSlice.js');
+var _castSliceJsDefault = _parcelHelpers.interopDefault(_castSliceJs);
+var _charsStartIndexJs = require('./_charsStartIndex.js');
+var _charsStartIndexJsDefault = _parcelHelpers.interopDefault(_charsStartIndexJs);
+var _stringToArrayJs = require('./_stringToArray.js');
+var _stringToArrayJsDefault = _parcelHelpers.interopDefault(_stringToArrayJs);
+var _toStringJs = require('./toString.js');
+var _toStringJsDefault = _parcelHelpers.interopDefault(_toStringJs);
+/** Used to match leading whitespace.*/
+var reTrimStart = /^\s+/;
+/**
+* Removes leading whitespace or specified characters from `string`.
+*
+* @static
+* @memberOf _
+* @since 4.0.0
+* @category String
+* @param {string} [string=''] The string to trim.
+* @param {string} [chars=whitespace] The characters to trim.
+* @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+* @returns {string} Returns the trimmed string.
+* @example
+*
+* _.trimStart('  abc  ');
+* // => 'abc  '
+*
+* _.trimStart('-_-abc-_-', '_-');
+* // => 'abc-_-'
+*/
+function trimStart(string, chars, guard) {
+  string = _toStringJsDefault.default(string);
+  if (string && (guard || chars === undefined)) {
+    return string.replace(reTrimStart, '');
+  }
+  if (!string || !(chars = _baseToStringJsDefault.default(chars))) {
+    return string;
+  }
+  var strSymbols = _stringToArrayJsDefault.default(string), start = _charsStartIndexJsDefault.default(strSymbols, _stringToArrayJsDefault.default(chars));
+  return _castSliceJsDefault.default(strSymbols, start).join('');
+}
+exports.default = trimStart;

@@ -1,0 +1,35 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseGetTagJs = require('./_baseGetTag.js');
+var _baseGetTagJsDefault = _parcelHelpers.interopDefault(_baseGetTagJs);
+var _isObjectJs = require('./isObject.js');
+var _isObjectJsDefault = _parcelHelpers.interopDefault(_isObjectJs);
+/** `Object#toString` result references.*/
+var asyncTag = '[object AsyncFunction]', funcTag = '[object Function]', genTag = '[object GeneratorFunction]', proxyTag = '[object Proxy]';
+/**
+* Checks if `value` is classified as a `Function` object.
+*
+* @static
+* @memberOf _
+* @since 0.1.0
+* @category Lang
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `value` is a function, else `false`.
+* @example
+*
+* _.isFunction(_);
+* // => true
+*
+* _.isFunction(/abc/);
+* // => false
+*/
+function isFunction(value) {
+  if (!_isObjectJsDefault.default(value)) {
+    return false;
+  }
+  // The use of `Object#toString` avoids issues with the `typeof` operator
+  // in Safari 9 which returns 'object' for typed arrays and other constructors.
+  var tag = _baseGetTagJsDefault.default(value);
+  return tag == funcTag || tag == genTag || tag == asyncTag || tag == proxyTag;
+}
+exports.default = isFunction;

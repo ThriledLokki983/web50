@@ -1,0 +1,21 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _toNumberJs = require('./toNumber.js');
+var _toNumberJsDefault = _parcelHelpers.interopDefault(_toNumberJs);
+/**
+* Creates a function that performs a relational operation on two values.
+*
+* @private
+* @param {Function} operator The function to perform the operation.
+* @returns {Function} Returns the new relational operation function.
+*/
+function createRelationalOperation(operator) {
+  return function (value, other) {
+    if (!(typeof value == 'string' && typeof other == 'string')) {
+      value = _toNumberJsDefault.default(value);
+      other = _toNumberJsDefault.default(other);
+    }
+    return operator(value, other);
+  };
+}
+exports.default = createRelationalOperation;

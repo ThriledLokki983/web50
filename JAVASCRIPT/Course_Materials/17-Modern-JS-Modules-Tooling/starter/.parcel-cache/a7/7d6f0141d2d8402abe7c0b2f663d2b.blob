@@ -1,0 +1,24 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+var _unzipJs = require('./unzip.js');
+var _unzipJsDefault = _parcelHelpers.interopDefault(_unzipJs);
+/**
+* Creates an array of grouped elements, the first of which contains the
+* first elements of the given arrays, the second of which contains the
+* second elements of the given arrays, and so on.
+*
+* @static
+* @memberOf _
+* @since 0.1.0
+* @category Array
+* @param {...Array} [arrays] The arrays to process.
+* @returns {Array} Returns the new array of grouped elements.
+* @example
+*
+* _.zip(['a', 'b'], [1, 2], [true, false]);
+* // => [['a', 1, true], ['b', 2, false]]
+*/
+var zip = _baseRestJsDefault.default(_unzipJsDefault.default);
+exports.default = zip;

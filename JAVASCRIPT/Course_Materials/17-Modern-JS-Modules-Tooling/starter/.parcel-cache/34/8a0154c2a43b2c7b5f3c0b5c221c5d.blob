@@ -1,0 +1,18 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _copyObjectJs = require('./_copyObject.js');
+var _copyObjectJsDefault = _parcelHelpers.interopDefault(_copyObjectJs);
+var _getSymbolsInJs = require('./_getSymbolsIn.js');
+var _getSymbolsInJsDefault = _parcelHelpers.interopDefault(_getSymbolsInJs);
+/**
+* Copies own and inherited symbols of `source` to `object`.
+*
+* @private
+* @param {Object} source The object to copy symbols from.
+* @param {Object} [object={}] The object to copy symbols to.
+* @returns {Object} Returns `object`.
+*/
+function copySymbolsIn(source, object) {
+  return _copyObjectJsDefault.default(source, _getSymbolsInJsDefault.default(source), object);
+}
+exports.default = copySymbolsIn;

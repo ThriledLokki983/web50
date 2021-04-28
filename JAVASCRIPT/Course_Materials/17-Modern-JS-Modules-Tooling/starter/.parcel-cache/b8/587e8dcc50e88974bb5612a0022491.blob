@@ -1,0 +1,19 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+/**
+* This method returns `true`.
+*
+* @static
+* @memberOf _
+* @since 4.13.0
+* @category Util
+* @returns {boolean} Returns `true`.
+* @example
+*
+* _.times(2, _.stubTrue);
+* // => [true, true]
+*/
+function stubTrue() {
+  return true;
+}
+exports.default = stubTrue;

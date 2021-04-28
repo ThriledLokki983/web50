@@ -1,0 +1,30 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _isArrayLikeJs = require('./isArrayLike.js');
+var _isArrayLikeJsDefault = _parcelHelpers.interopDefault(_isArrayLikeJs);
+/**
+* Creates a `baseEach` or `baseEachRight` function.
+*
+* @private
+* @param {Function} eachFunc The function to iterate over a collection.
+* @param {boolean} [fromRight] Specify iterating from right to left.
+* @returns {Function} Returns the new base function.
+*/
+function createBaseEach(eachFunc, fromRight) {
+  return function (collection, iteratee) {
+    if (collection == null) {
+      return collection;
+    }
+    if (!_isArrayLikeJsDefault.default(collection)) {
+      return eachFunc(collection, iteratee);
+    }
+    var length = collection.length, index = fromRight ? length : -1, iterable = Object(collection);
+    while (fromRight ? index-- : ++index < length) {
+      if (iteratee(iterable[index], index, iterable) === false) {
+        break;
+      }
+    }
+    return collection;
+  };
+}
+exports.default = createBaseEach;

@@ -1,0 +1,19 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _asciiSizeJs = require('./_asciiSize.js');
+var _asciiSizeJsDefault = _parcelHelpers.interopDefault(_asciiSizeJs);
+var _hasUnicodeJs = require('./_hasUnicode.js');
+var _hasUnicodeJsDefault = _parcelHelpers.interopDefault(_hasUnicodeJs);
+var _unicodeSizeJs = require('./_unicodeSize.js');
+var _unicodeSizeJsDefault = _parcelHelpers.interopDefault(_unicodeSizeJs);
+/**
+* Gets the number of symbols in `string`.
+*
+* @private
+* @param {string} string The string to inspect.
+* @returns {number} Returns the string size.
+*/
+function stringSize(string) {
+  return _hasUnicodeJsDefault.default(string) ? _unicodeSizeJsDefault.default(string) : _asciiSizeJsDefault.default(string);
+}
+exports.default = stringSize;

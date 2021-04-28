@@ -1,0 +1,29 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseIsTypedArrayJs = require('./_baseIsTypedArray.js');
+var _baseIsTypedArrayJsDefault = _parcelHelpers.interopDefault(_baseIsTypedArrayJs);
+var _baseUnaryJs = require('./_baseUnary.js');
+var _baseUnaryJsDefault = _parcelHelpers.interopDefault(_baseUnaryJs);
+var _nodeUtilJs = require('./_nodeUtil.js');
+var _nodeUtilJsDefault = _parcelHelpers.interopDefault(_nodeUtilJs);
+/*Node.js helper references.*/
+var nodeIsTypedArray = _nodeUtilJsDefault.default && _nodeUtilJsDefault.default.isTypedArray;
+/**
+* Checks if `value` is classified as a typed array.
+*
+* @static
+* @memberOf _
+* @since 3.0.0
+* @category Lang
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
+* @example
+*
+* _.isTypedArray(new Uint8Array);
+* // => true
+*
+* _.isTypedArray([]);
+* // => false
+*/
+var isTypedArray = nodeIsTypedArray ? _baseUnaryJsDefault.default(nodeIsTypedArray) : _baseIsTypedArrayJsDefault.default;
+exports.default = isTypedArray;

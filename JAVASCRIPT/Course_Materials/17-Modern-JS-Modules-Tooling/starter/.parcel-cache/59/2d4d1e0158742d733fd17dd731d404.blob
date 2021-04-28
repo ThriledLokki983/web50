@@ -1,0 +1,16 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _isObjectJs = require('./isObject.js');
+var _isObjectJsDefault = _parcelHelpers.interopDefault(_isObjectJs);
+/**
+* Checks if `value` is suitable for strict equality comparisons, i.e. `===`.
+*
+* @private
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `value` if suitable for strict
+*  equality comparisons, else `false`.
+*/
+function isStrictComparable(value) {
+  return value === value && !_isObjectJsDefault.default(value);
+}
+exports.default = isStrictComparable;

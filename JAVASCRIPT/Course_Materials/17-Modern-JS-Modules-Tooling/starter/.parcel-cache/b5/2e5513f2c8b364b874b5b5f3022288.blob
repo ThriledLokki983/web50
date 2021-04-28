@@ -1,0 +1,28 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _LazyWrapperJs = require('./_LazyWrapper.js');
+var _LazyWrapperJsDefault = _parcelHelpers.interopDefault(_LazyWrapperJs);
+var _arrayPushJs = require('./_arrayPush.js');
+var _arrayPushJsDefault = _parcelHelpers.interopDefault(_arrayPushJs);
+var _arrayReduceJs = require('./_arrayReduce.js');
+var _arrayReduceJsDefault = _parcelHelpers.interopDefault(_arrayReduceJs);
+/**
+* The base implementation of `wrapperValue` which returns the result of
+* performing a sequence of actions on the unwrapped `value`, where each
+* successive action is supplied the return value of the previous.
+*
+* @private
+* @param {*} value The unwrapped value.
+* @param {Array} actions Actions to perform to resolve the unwrapped value.
+* @returns {*} Returns the resolved value.
+*/
+function baseWrapperValue(value, actions) {
+  var result = value;
+  if (result instanceof _LazyWrapperJsDefault.default) {
+    result = result.value();
+  }
+  return _arrayReduceJsDefault.default(actions, function (result, action) {
+    return action.func.apply(action.thisArg, _arrayPushJsDefault.default([result], action.args));
+  }, result);
+}
+exports.default = baseWrapperValue;

@@ -1,0 +1,79 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseKeysJs = require('./_baseKeys.js');
+var _baseKeysJsDefault = _parcelHelpers.interopDefault(_baseKeysJs);
+var _getTagJs = require('./_getTag.js');
+var _getTagJsDefault = _parcelHelpers.interopDefault(_getTagJs);
+var _isArgumentsJs = require('./isArguments.js');
+var _isArgumentsJsDefault = _parcelHelpers.interopDefault(_isArgumentsJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+var _isArrayLikeJs = require('./isArrayLike.js');
+var _isArrayLikeJsDefault = _parcelHelpers.interopDefault(_isArrayLikeJs);
+var _isBufferJs = require('./isBuffer.js');
+var _isBufferJsDefault = _parcelHelpers.interopDefault(_isBufferJs);
+var _isPrototypeJs = require('./_isPrototype.js');
+var _isPrototypeJsDefault = _parcelHelpers.interopDefault(_isPrototypeJs);
+var _isTypedArrayJs = require('./isTypedArray.js');
+var _isTypedArrayJsDefault = _parcelHelpers.interopDefault(_isTypedArrayJs);
+/** `Object#toString` result references.*/
+var mapTag = '[object Map]', setTag = '[object Set]';
+/** Used for built-in method references.*/
+var objectProto = Object.prototype;
+/** Used to check objects for own properties.*/
+var hasOwnProperty = objectProto.hasOwnProperty;
+/**
+* Checks if `value` is an empty object, collection, map, or set.
+*
+* Objects are considered empty if they have no own enumerable string keyed
+* properties.
+*
+* Array-like values such as `arguments` objects, arrays, buffers, strings, or
+* jQuery-like collections are considered empty if they have a `length` of `0`.
+* Similarly, maps and sets are considered empty if they have a `size` of `0`.
+*
+* @static
+* @memberOf _
+* @since 0.1.0
+* @category Lang
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `value` is empty, else `false`.
+* @example
+*
+* _.isEmpty(null);
+* // => true
+*
+* _.isEmpty(true);
+* // => true
+*
+* _.isEmpty(1);
+* // => true
+*
+* _.isEmpty([1, 2, 3]);
+* // => false
+*
+* _.isEmpty({ 'a': 1 });
+* // => false
+*/
+function isEmpty(value) {
+  if (value == null) {
+    return true;
+  }
+  if (_isArrayLikeJsDefault.default(value) && (_isArrayJsDefault.default(value) || typeof value == 'string' || typeof value.splice == 'function' || _isBufferJsDefault.default(value) || _isTypedArrayJsDefault.default(value) || _isArgumentsJsDefault.default(value))) {
+    return !value.length;
+  }
+  var tag = _getTagJsDefault.default(value);
+  if (tag == mapTag || tag == setTag) {
+    return !value.size;
+  }
+  if (_isPrototypeJsDefault.default(value)) {
+    return !_baseKeysJsDefault.default(value).length;
+  }
+  for (var key in value) {
+    if (hasOwnProperty.call(value, key)) {
+      return false;
+    }
+  }
+  return true;
+}
+exports.default = isEmpty;

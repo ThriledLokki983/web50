@@ -1,0 +1,23 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseSortedUniqJs = require('./_baseSortedUniq.js');
+var _baseSortedUniqJsDefault = _parcelHelpers.interopDefault(_baseSortedUniqJs);
+/**
+* This method is like `_.uniq` except that it's designed and optimized
+* for sorted arrays.
+*
+* @static
+* @memberOf _
+* @since 4.0.0
+* @category Array
+* @param {Array} array The array to inspect.
+* @returns {Array} Returns the new duplicate free array.
+* @example
+*
+* _.sortedUniq([1, 1, 2]);
+* // => [1, 2]
+*/
+function sortedUniq(array) {
+  return array && array.length ? _baseSortedUniqJsDefault.default(array) : [];
+}
+exports.default = sortedUniq;

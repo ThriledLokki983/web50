@@ -1,0 +1,55 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseToStringJs = require('./_baseToString.js');
+var _baseToStringJsDefault = _parcelHelpers.interopDefault(_baseToStringJs);
+var _castSliceJs = require('./_castSlice.js');
+var _castSliceJsDefault = _parcelHelpers.interopDefault(_castSliceJs);
+var _hasUnicodeJs = require('./_hasUnicode.js');
+var _hasUnicodeJsDefault = _parcelHelpers.interopDefault(_hasUnicodeJs);
+var _isIterateeCallJs = require('./_isIterateeCall.js');
+var _isIterateeCallJsDefault = _parcelHelpers.interopDefault(_isIterateeCallJs);
+var _isRegExpJs = require('./isRegExp.js');
+var _isRegExpJsDefault = _parcelHelpers.interopDefault(_isRegExpJs);
+var _stringToArrayJs = require('./_stringToArray.js');
+var _stringToArrayJsDefault = _parcelHelpers.interopDefault(_stringToArrayJs);
+var _toStringJs = require('./toString.js');
+var _toStringJsDefault = _parcelHelpers.interopDefault(_toStringJs);
+/** Used as references for the maximum length and index of an array.*/
+var MAX_ARRAY_LENGTH = 4294967295;
+/**
+* Splits `string` by `separator`.
+*
+* **Note:** This method is based on
+* [`String#split`](https://mdn.io/String/split).
+*
+* @static
+* @memberOf _
+* @since 4.0.0
+* @category String
+* @param {string} [string=''] The string to split.
+* @param {RegExp|string} separator The separator pattern to split by.
+* @param {number} [limit] The length to truncate results to.
+* @returns {Array} Returns the string segments.
+* @example
+*
+* _.split('a-b-c', '-', 2);
+* // => ['a', 'b']
+*/
+function split(string, separator, limit) {
+  if (limit && typeof limit != 'number' && _isIterateeCallJsDefault.default(string, separator, limit)) {
+    separator = limit = undefined;
+  }
+  limit = limit === undefined ? MAX_ARRAY_LENGTH : limit >>> 0;
+  if (!limit) {
+    return [];
+  }
+  string = _toStringJsDefault.default(string);
+  if (string && (typeof separator == 'string' || separator != null && !_isRegExpJsDefault.default(separator))) {
+    separator = _baseToStringJsDefault.default(separator);
+    if (!separator && _hasUnicodeJsDefault.default(string)) {
+      return _castSliceJsDefault.default(_stringToArrayJsDefault.default(string), 0, limit);
+    }
+  }
+  return string.split(separator, limit);
+}
+exports.default = split;

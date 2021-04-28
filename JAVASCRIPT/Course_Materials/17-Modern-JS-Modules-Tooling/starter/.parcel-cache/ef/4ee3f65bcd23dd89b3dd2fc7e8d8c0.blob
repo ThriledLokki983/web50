@@ -1,0 +1,71 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayEachJs = require('./_arrayEach.js');
+var _arrayEachJsDefault = _parcelHelpers.interopDefault(_arrayEachJs);
+var _baseCreateJs = require('./_baseCreate.js');
+var _baseCreateJsDefault = _parcelHelpers.interopDefault(_baseCreateJs);
+var _baseForOwnJs = require('./_baseForOwn.js');
+var _baseForOwnJsDefault = _parcelHelpers.interopDefault(_baseForOwnJs);
+var _baseIterateeJs = require('./_baseIteratee.js');
+var _baseIterateeJsDefault = _parcelHelpers.interopDefault(_baseIterateeJs);
+var _getPrototypeJs = require('./_getPrototype.js');
+var _getPrototypeJsDefault = _parcelHelpers.interopDefault(_getPrototypeJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+var _isBufferJs = require('./isBuffer.js');
+var _isBufferJsDefault = _parcelHelpers.interopDefault(_isBufferJs);
+var _isFunctionJs = require('./isFunction.js');
+var _isFunctionJsDefault = _parcelHelpers.interopDefault(_isFunctionJs);
+var _isObjectJs = require('./isObject.js');
+var _isObjectJsDefault = _parcelHelpers.interopDefault(_isObjectJs);
+var _isTypedArrayJs = require('./isTypedArray.js');
+var _isTypedArrayJsDefault = _parcelHelpers.interopDefault(_isTypedArrayJs);
+/**
+* An alternative to `_.reduce`; this method transforms `object` to a new
+* `accumulator` object which is the result of running each of its own
+* enumerable string keyed properties thru `iteratee`, with each invocation
+* potentially mutating the `accumulator` object. If `accumulator` is not
+* provided, a new object with the same `[[Prototype]]` will be used. The
+* iteratee is invoked with four arguments: (accumulator, value, key, object).
+* Iteratee functions may exit iteration early by explicitly returning `false`.
+*
+* @static
+* @memberOf _
+* @since 1.3.0
+* @category Object
+* @param {Object} object The object to iterate over.
+* @param {Function} [iteratee=_.identity] The function invoked per iteration.
+* @param {*} [accumulator] The custom accumulator value.
+* @returns {*} Returns the accumulated value.
+* @example
+*
+* _.transform([2, 3, 4], function(result, n) {
+*   result.push(n *= n);
+*   return n % 2 == 0;
+* }, []);
+* // => [4, 9]
+*
+* _.transform({ 'a': 1, 'b': 2, 'c': 1 }, function(result, value, key) {
+*   (result[value] || (result[value] = [])).push(key);
+* }, {});
+* // => { '1': ['a', 'c'], '2': ['b'] }
+*/
+function transform(object, iteratee, accumulator) {
+  var isArr = _isArrayJsDefault.default(object), isArrLike = isArr || _isBufferJsDefault.default(object) || _isTypedArrayJsDefault.default(object);
+  iteratee = _baseIterateeJsDefault.default(iteratee, 4);
+  if (accumulator == null) {
+    var Ctor = object && object.constructor;
+    if (isArrLike) {
+      accumulator = isArr ? new Ctor() : [];
+    } else if (_isObjectJsDefault.default(object)) {
+      accumulator = _isFunctionJsDefault.default(Ctor) ? _baseCreateJsDefault.default(_getPrototypeJsDefault.default(object)) : {};
+    } else {
+      accumulator = {};
+    }
+  }
+  (isArrLike ? _arrayEachJsDefault.default : _baseForOwnJsDefault.default)(object, function (value, index, object) {
+    return iteratee(accumulator, value, index, object);
+  });
+  return accumulator;
+}
+exports.default = transform;

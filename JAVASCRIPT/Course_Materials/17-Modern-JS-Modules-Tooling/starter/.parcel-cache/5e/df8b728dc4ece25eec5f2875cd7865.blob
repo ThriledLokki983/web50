@@ -1,0 +1,45 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _StackJs = require('./_Stack.js');
+var _StackJsDefault = _parcelHelpers.interopDefault(_StackJs);
+var _assignMergeValueJs = require('./_assignMergeValue.js');
+var _assignMergeValueJsDefault = _parcelHelpers.interopDefault(_assignMergeValueJs);
+var _baseForJs = require('./_baseFor.js');
+var _baseForJsDefault = _parcelHelpers.interopDefault(_baseForJs);
+var _baseMergeDeepJs = require('./_baseMergeDeep.js');
+var _baseMergeDeepJsDefault = _parcelHelpers.interopDefault(_baseMergeDeepJs);
+var _isObjectJs = require('./isObject.js');
+var _isObjectJsDefault = _parcelHelpers.interopDefault(_isObjectJs);
+var _keysInJs = require('./keysIn.js');
+var _keysInJsDefault = _parcelHelpers.interopDefault(_keysInJs);
+var _safeGetJs = require('./_safeGet.js');
+var _safeGetJsDefault = _parcelHelpers.interopDefault(_safeGetJs);
+/**
+* The base implementation of `_.merge` without support for multiple sources.
+*
+* @private
+* @param {Object} object The destination object.
+* @param {Object} source The source object.
+* @param {number} srcIndex The index of `source`.
+* @param {Function} [customizer] The function to customize merged values.
+* @param {Object} [stack] Tracks traversed source values and their merged
+*  counterparts.
+*/
+function baseMerge(object, source, srcIndex, customizer, stack) {
+  if (object === source) {
+    return;
+  }
+  _baseForJsDefault.default(source, function (srcValue, key) {
+    stack || (stack = new _StackJsDefault.default());
+    if (_isObjectJsDefault.default(srcValue)) {
+      _baseMergeDeepJsDefault.default(object, source, key, srcIndex, baseMerge, customizer, stack);
+    } else {
+      var newValue = customizer ? customizer(_safeGetJsDefault.default(object, key), srcValue, key + '', object, source, stack) : undefined;
+      if (newValue === undefined) {
+        newValue = srcValue;
+      }
+      _assignMergeValueJsDefault.default(object, key, newValue);
+    }
+  }, _keysInJsDefault.default);
+}
+exports.default = baseMerge;

@@ -1,0 +1,49 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseKeysJs = require('./_baseKeys.js');
+var _baseKeysJsDefault = _parcelHelpers.interopDefault(_baseKeysJs);
+var _getTagJs = require('./_getTag.js');
+var _getTagJsDefault = _parcelHelpers.interopDefault(_getTagJs);
+var _isArrayLikeJs = require('./isArrayLike.js');
+var _isArrayLikeJsDefault = _parcelHelpers.interopDefault(_isArrayLikeJs);
+var _isStringJs = require('./isString.js');
+var _isStringJsDefault = _parcelHelpers.interopDefault(_isStringJs);
+var _stringSizeJs = require('./_stringSize.js');
+var _stringSizeJsDefault = _parcelHelpers.interopDefault(_stringSizeJs);
+/** `Object#toString` result references.*/
+var mapTag = '[object Map]', setTag = '[object Set]';
+/**
+* Gets the size of `collection` by returning its length for array-like
+* values or the number of own enumerable string keyed properties for objects.
+*
+* @static
+* @memberOf _
+* @since 0.1.0
+* @category Collection
+* @param {Array|Object|string} collection The collection to inspect.
+* @returns {number} Returns the collection size.
+* @example
+*
+* _.size([1, 2, 3]);
+* // => 3
+*
+* _.size({ 'a': 1, 'b': 2 });
+* // => 2
+*
+* _.size('pebbles');
+* // => 7
+*/
+function size(collection) {
+  if (collection == null) {
+    return 0;
+  }
+  if (_isArrayLikeJsDefault.default(collection)) {
+    return _isStringJsDefault.default(collection) ? _stringSizeJsDefault.default(collection) : collection.length;
+  }
+  var tag = _getTagJsDefault.default(collection);
+  if (tag == mapTag || tag == setTag) {
+    return collection.size;
+  }
+  return _baseKeysJsDefault.default(collection).length;
+}
+exports.default = size;

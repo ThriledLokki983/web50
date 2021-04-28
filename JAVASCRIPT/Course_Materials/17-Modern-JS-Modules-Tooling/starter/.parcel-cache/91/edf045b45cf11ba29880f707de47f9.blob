@@ -1,0 +1,44 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayPushJs = require('./_arrayPush.js');
+var _arrayPushJsDefault = _parcelHelpers.interopDefault(_arrayPushJs);
+var _baseFlattenJs = require('./_baseFlatten.js');
+var _baseFlattenJsDefault = _parcelHelpers.interopDefault(_baseFlattenJs);
+var _copyArrayJs = require('./_copyArray.js');
+var _copyArrayJsDefault = _parcelHelpers.interopDefault(_copyArrayJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+/**
+* Creates a new array concatenating `array` with any additional arrays
+* and/or values.
+*
+* @static
+* @memberOf _
+* @since 4.0.0
+* @category Array
+* @param {Array} array The array to concatenate.
+* @param {...*} [values] The values to concatenate.
+* @returns {Array} Returns the new concatenated array.
+* @example
+*
+* var array = [1];
+* var other = _.concat(array, 2, [3], [[4]]);
+*
+* console.log(other);
+* // => [1, 2, 3, [4]]
+*
+* console.log(array);
+* // => [1]
+*/
+function concat() {
+  var length = arguments.length;
+  if (!length) {
+    return [];
+  }
+  var args = Array(length - 1), array = arguments[0], index = length;
+  while (index--) {
+    args[index - 1] = arguments[index];
+  }
+  return _arrayPushJsDefault.default(_isArrayJsDefault.default(array) ? _copyArrayJsDefault.default(array) : [array], _baseFlattenJsDefault.default(args, 1));
+}
+exports.default = concat;

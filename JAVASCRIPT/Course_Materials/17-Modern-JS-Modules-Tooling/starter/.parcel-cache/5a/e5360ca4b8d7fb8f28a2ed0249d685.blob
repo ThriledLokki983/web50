@@ -1,0 +1,21 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseAssignValueJs = require('./_baseAssignValue.js');
+var _baseAssignValueJsDefault = _parcelHelpers.interopDefault(_baseAssignValueJs);
+var _eqJs = require('./eq.js');
+var _eqJsDefault = _parcelHelpers.interopDefault(_eqJs);
+/**
+* This function is like `assignValue` except that it doesn't assign
+* `undefined` values.
+*
+* @private
+* @param {Object} object The object to modify.
+* @param {string} key The key of the property to assign.
+* @param {*} value The value to assign.
+*/
+function assignMergeValue(object, key, value) {
+  if (value !== undefined && !_eqJsDefault.default(object[key], value) || value === undefined && !((key in object))) {
+    _baseAssignValueJsDefault.default(object, key, value);
+  }
+}
+exports.default = assignMergeValue;

@@ -1,0 +1,29 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseGetTagJs = require('./_baseGetTag.js');
+var _baseGetTagJsDefault = _parcelHelpers.interopDefault(_baseGetTagJs);
+var _isObjectLikeJs = require('./isObjectLike.js');
+var _isObjectLikeJsDefault = _parcelHelpers.interopDefault(_isObjectLikeJs);
+/** `Object#toString` result references.*/
+var symbolTag = '[object Symbol]';
+/**
+* Checks if `value` is classified as a `Symbol` primitive or object.
+*
+* @static
+* @memberOf _
+* @since 4.0.0
+* @category Lang
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+* @example
+*
+* _.isSymbol(Symbol.iterator);
+* // => true
+*
+* _.isSymbol('abc');
+* // => false
+*/
+function isSymbol(value) {
+  return typeof value == 'symbol' || _isObjectLikeJsDefault.default(value) && _baseGetTagJsDefault.default(value) == symbolTag;
+}
+exports.default = isSymbol;

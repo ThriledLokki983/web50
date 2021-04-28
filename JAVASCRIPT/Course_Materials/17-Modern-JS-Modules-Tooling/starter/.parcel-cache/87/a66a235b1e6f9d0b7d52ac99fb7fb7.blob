@@ -1,0 +1,27 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _castSliceJs = require('./_castSlice.js');
+var _castSliceJsDefault = _parcelHelpers.interopDefault(_castSliceJs);
+var _hasUnicodeJs = require('./_hasUnicode.js');
+var _hasUnicodeJsDefault = _parcelHelpers.interopDefault(_hasUnicodeJs);
+var _stringToArrayJs = require('./_stringToArray.js');
+var _stringToArrayJsDefault = _parcelHelpers.interopDefault(_stringToArrayJs);
+var _toStringJs = require('./toString.js');
+var _toStringJsDefault = _parcelHelpers.interopDefault(_toStringJs);
+/**
+* Creates a function like `_.lowerFirst`.
+*
+* @private
+* @param {string} methodName The name of the `String` case method to use.
+* @returns {Function} Returns the new case function.
+*/
+function createCaseFirst(methodName) {
+  return function (string) {
+    string = _toStringJsDefault.default(string);
+    var strSymbols = _hasUnicodeJsDefault.default(string) ? _stringToArrayJsDefault.default(string) : undefined;
+    var chr = strSymbols ? strSymbols[0] : string.charAt(0);
+    var trailing = strSymbols ? _castSliceJsDefault.default(strSymbols, 1).join('') : string.slice(1);
+    return chr[methodName]() + trailing;
+  };
+}
+exports.default = createCaseFirst;

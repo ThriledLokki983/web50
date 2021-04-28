@@ -1,0 +1,51 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _DataViewJs = require('./_DataView.js');
+var _DataViewJsDefault = _parcelHelpers.interopDefault(_DataViewJs);
+var _MapJs = require('./_Map.js');
+var _MapJsDefault = _parcelHelpers.interopDefault(_MapJs);
+var _PromiseJs = require('./_Promise.js');
+var _PromiseJsDefault = _parcelHelpers.interopDefault(_PromiseJs);
+var _SetJs = require('./_Set.js');
+var _SetJsDefault = _parcelHelpers.interopDefault(_SetJs);
+var _WeakMapJs = require('./_WeakMap.js');
+var _WeakMapJsDefault = _parcelHelpers.interopDefault(_WeakMapJs);
+var _baseGetTagJs = require('./_baseGetTag.js');
+var _baseGetTagJsDefault = _parcelHelpers.interopDefault(_baseGetTagJs);
+var _toSourceJs = require('./_toSource.js');
+var _toSourceJsDefault = _parcelHelpers.interopDefault(_toSourceJs);
+/** `Object#toString` result references.*/
+var mapTag = '[object Map]', objectTag = '[object Object]', promiseTag = '[object Promise]', setTag = '[object Set]', weakMapTag = '[object WeakMap]';
+var dataViewTag = '[object DataView]';
+/** Used to detect maps, sets, and weakmaps.*/
+var dataViewCtorString = _toSourceJsDefault.default(_DataViewJsDefault.default), mapCtorString = _toSourceJsDefault.default(_MapJsDefault.default), promiseCtorString = _toSourceJsDefault.default(_PromiseJsDefault.default), setCtorString = _toSourceJsDefault.default(_SetJsDefault.default), weakMapCtorString = _toSourceJsDefault.default(_WeakMapJsDefault.default);
+/**
+* Gets the `toStringTag` of `value`.
+*
+* @private
+* @param {*} value The value to query.
+* @returns {string} Returns the `toStringTag`.
+*/
+var getTag = _baseGetTagJsDefault.default;
+// Fallback for data views, maps, sets, and weak maps in IE 11 and promises in Node.js < 6.
+if (_DataViewJsDefault.default && getTag(new _DataViewJsDefault.default(new ArrayBuffer(1))) != dataViewTag || _MapJsDefault.default && getTag(new _MapJsDefault.default()) != mapTag || _PromiseJsDefault.default && getTag(_PromiseJsDefault.default.resolve()) != promiseTag || _SetJsDefault.default && getTag(new _SetJsDefault.default()) != setTag || _WeakMapJsDefault.default && getTag(new _WeakMapJsDefault.default()) != weakMapTag) {
+  getTag = function (value) {
+    var result = _baseGetTagJsDefault.default(value), Ctor = result == objectTag ? value.constructor : undefined, ctorString = Ctor ? _toSourceJsDefault.default(Ctor) : '';
+    if (ctorString) {
+      switch (ctorString) {
+        case dataViewCtorString:
+          return dataViewTag;
+        case mapCtorString:
+          return mapTag;
+        case promiseCtorString:
+          return promiseTag;
+        case setCtorString:
+          return setTag;
+        case weakMapCtorString:
+          return weakMapTag;
+      }
+    }
+    return result;
+  };
+}
+exports.default = getTag;

@@ -1,0 +1,45 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseToStringJs = require('./_baseToString.js');
+var _baseToStringJsDefault = _parcelHelpers.interopDefault(_baseToStringJs);
+var _castSliceJs = require('./_castSlice.js');
+var _castSliceJsDefault = _parcelHelpers.interopDefault(_castSliceJs);
+var _charsEndIndexJs = require('./_charsEndIndex.js');
+var _charsEndIndexJsDefault = _parcelHelpers.interopDefault(_charsEndIndexJs);
+var _stringToArrayJs = require('./_stringToArray.js');
+var _stringToArrayJsDefault = _parcelHelpers.interopDefault(_stringToArrayJs);
+var _toStringJs = require('./toString.js');
+var _toStringJsDefault = _parcelHelpers.interopDefault(_toStringJs);
+var _trimmedEndIndexJs = require('./_trimmedEndIndex.js');
+var _trimmedEndIndexJsDefault = _parcelHelpers.interopDefault(_trimmedEndIndexJs);
+/**
+* Removes trailing whitespace or specified characters from `string`.
+*
+* @static
+* @memberOf _
+* @since 4.0.0
+* @category String
+* @param {string} [string=''] The string to trim.
+* @param {string} [chars=whitespace] The characters to trim.
+* @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+* @returns {string} Returns the trimmed string.
+* @example
+*
+* _.trimEnd('  abc  ');
+* // => '  abc'
+*
+* _.trimEnd('-_-abc-_-', '_-');
+* // => '-_-abc'
+*/
+function trimEnd(string, chars, guard) {
+  string = _toStringJsDefault.default(string);
+  if (string && (guard || chars === undefined)) {
+    return string.slice(0, _trimmedEndIndexJsDefault.default(string) + 1);
+  }
+  if (!string || !(chars = _baseToStringJsDefault.default(chars))) {
+    return string;
+  }
+  var strSymbols = _stringToArrayJsDefault.default(string), end = _charsEndIndexJsDefault.default(strSymbols, _stringToArrayJsDefault.default(chars)) + 1;
+  return _castSliceJsDefault.default(strSymbols, 0, end).join('');
+}
+exports.default = trimEnd;
