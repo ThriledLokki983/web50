@@ -1,0 +1,34 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _listCacheClearJs = require('./_listCacheClear.js');
+var _listCacheClearJsDefault = _parcelHelpers.interopDefault(_listCacheClearJs);
+var _listCacheDeleteJs = require('./_listCacheDelete.js');
+var _listCacheDeleteJsDefault = _parcelHelpers.interopDefault(_listCacheDeleteJs);
+var _listCacheGetJs = require('./_listCacheGet.js');
+var _listCacheGetJsDefault = _parcelHelpers.interopDefault(_listCacheGetJs);
+var _listCacheHasJs = require('./_listCacheHas.js');
+var _listCacheHasJsDefault = _parcelHelpers.interopDefault(_listCacheHasJs);
+var _listCacheSetJs = require('./_listCacheSet.js');
+var _listCacheSetJsDefault = _parcelHelpers.interopDefault(_listCacheSetJs);
+/**
+* Creates an list cache object.
+*
+* @private
+* @constructor
+* @param {Array} [entries] The key-value pairs to cache.
+*/
+function ListCache(entries) {
+  var index = -1, length = entries == null ? 0 : entries.length;
+  this.clear();
+  while (++index < length) {
+    var entry = entries[index];
+    this.set(entry[0], entry[1]);
+  }
+}
+// Add methods to `ListCache`.
+ListCache.prototype.clear = _listCacheClearJsDefault.default;
+ListCache.prototype['delete'] = _listCacheDeleteJsDefault.default;
+ListCache.prototype.get = _listCacheGetJsDefault.default;
+ListCache.prototype.has = _listCacheHasJsDefault.default;
+ListCache.prototype.set = _listCacheSetJsDefault.default;
+exports.default = ListCache;

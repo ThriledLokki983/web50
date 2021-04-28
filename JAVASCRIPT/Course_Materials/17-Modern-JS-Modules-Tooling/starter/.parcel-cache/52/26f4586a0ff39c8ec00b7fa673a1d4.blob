@@ -1,0 +1,19 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _getTagJs = require('./_getTag.js');
+var _getTagJsDefault = _parcelHelpers.interopDefault(_getTagJs);
+var _isObjectLikeJs = require('./isObjectLike.js');
+var _isObjectLikeJsDefault = _parcelHelpers.interopDefault(_isObjectLikeJs);
+/** `Object#toString` result references.*/
+var setTag = '[object Set]';
+/**
+* The base implementation of `_.isSet` without Node.js optimizations.
+*
+* @private
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `value` is a set, else `false`.
+*/
+function baseIsSet(value) {
+  return _isObjectLikeJsDefault.default(value) && _getTagJsDefault.default(value) == setTag;
+}
+exports.default = baseIsSet;

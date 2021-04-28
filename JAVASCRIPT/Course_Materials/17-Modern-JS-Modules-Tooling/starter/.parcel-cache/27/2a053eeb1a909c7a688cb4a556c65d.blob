@@ -1,0 +1,19 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseIsNativeJs = require('./_baseIsNative.js');
+var _baseIsNativeJsDefault = _parcelHelpers.interopDefault(_baseIsNativeJs);
+var _getValueJs = require('./_getValue.js');
+var _getValueJsDefault = _parcelHelpers.interopDefault(_getValueJs);
+/**
+* Gets the native function at `key` of `object`.
+*
+* @private
+* @param {Object} object The object to query.
+* @param {string} key The key of the method to get.
+* @returns {*} Returns the function if it's native, else `undefined`.
+*/
+function getNative(object, key) {
+  var value = _getValueJsDefault.default(object, key);
+  return _baseIsNativeJsDefault.default(value) ? value : undefined;
+}
+exports.default = getNative;

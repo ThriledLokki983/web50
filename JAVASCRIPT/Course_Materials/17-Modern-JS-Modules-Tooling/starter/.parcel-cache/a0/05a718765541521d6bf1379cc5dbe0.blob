@@ -1,0 +1,22 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _nativeCreateJs = require('./_nativeCreate.js');
+var _nativeCreateJsDefault = _parcelHelpers.interopDefault(_nativeCreateJs);
+/** Used for built-in method references.*/
+var objectProto = Object.prototype;
+/** Used to check objects for own properties.*/
+var hasOwnProperty = objectProto.hasOwnProperty;
+/**
+* Checks if a hash value for `key` exists.
+*
+* @private
+* @name has
+* @memberOf Hash
+* @param {string} key The key of the entry to check.
+* @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+*/
+function hashHas(key) {
+  var data = this.__data__;
+  return _nativeCreateJsDefault.default ? data[key] !== undefined : hasOwnProperty.call(data, key);
+}
+exports.default = hashHas;

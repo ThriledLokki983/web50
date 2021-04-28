@@ -1,0 +1,36 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _ListCacheJs = require('./_ListCache.js');
+var _ListCacheJsDefault = _parcelHelpers.interopDefault(_ListCacheJs);
+var _MapJs = require('./_Map.js');
+var _MapJsDefault = _parcelHelpers.interopDefault(_MapJs);
+var _MapCacheJs = require('./_MapCache.js');
+var _MapCacheJsDefault = _parcelHelpers.interopDefault(_MapCacheJs);
+/** Used as the size to enable large array optimizations.*/
+var LARGE_ARRAY_SIZE = 200;
+/**
+* Sets the stack `key` to `value`.
+*
+* @private
+* @name set
+* @memberOf Stack
+* @param {string} key The key of the value to set.
+* @param {*} value The value to set.
+* @returns {Object} Returns the stack cache instance.
+*/
+function stackSet(key, value) {
+  var data = this.__data__;
+  if (data instanceof _ListCacheJsDefault.default) {
+    var pairs = data.__data__;
+    if (!_MapJsDefault.default || pairs.length < LARGE_ARRAY_SIZE - 1) {
+      pairs.push([key, value]);
+      this.size = ++data.size;
+      return this;
+    }
+    data = this.__data__ = new _MapCacheJsDefault.default(pairs);
+  }
+  data.set(key, value);
+  this.size = data.size;
+  return this;
+}
+exports.default = stackSet;

@@ -1,0 +1,20 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _coreJsDataJs = require('./_coreJsData.js');
+var _coreJsDataJsDefault = _parcelHelpers.interopDefault(_coreJsDataJs);
+/** Used to detect methods masquerading as native.*/
+var maskSrcKey = (function () {
+  var uid = (/[^.]+$/).exec(_coreJsDataJsDefault.default && _coreJsDataJsDefault.default.keys && _coreJsDataJsDefault.default.keys.IE_PROTO || '');
+  return uid ? 'Symbol(src)_1.' + uid : '';
+})();
+/**
+* Checks if `func` has its source masked.
+*
+* @private
+* @param {Function} func The function to check.
+* @returns {boolean} Returns `true` if `func` is masked, else `false`.
+*/
+function isMasked(func) {
+  return !!maskSrcKey && (maskSrcKey in func);
+}
+exports.default = isMasked;

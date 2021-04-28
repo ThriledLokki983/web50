@@ -1,0 +1,9 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _freeGlobalJs = require('./_freeGlobal.js');
+var _freeGlobalJsDefault = _parcelHelpers.interopDefault(_freeGlobalJs);
+/** Detect free variable `self`.*/
+var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+/** Used as a reference to the global object.*/
+var root = _freeGlobalJsDefault.default || freeSelf || Function('return this')();
+exports.default = root;

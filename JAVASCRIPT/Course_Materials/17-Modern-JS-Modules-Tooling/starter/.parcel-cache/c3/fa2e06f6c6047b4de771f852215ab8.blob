@@ -1,0 +1,40 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseTimesJs = require('./_baseTimes.js');
+var _baseTimesJsDefault = _parcelHelpers.interopDefault(_baseTimesJs);
+var _isArgumentsJs = require('./isArguments.js');
+var _isArgumentsJsDefault = _parcelHelpers.interopDefault(_isArgumentsJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+var _isBufferJs = require('./isBuffer.js');
+var _isBufferJsDefault = _parcelHelpers.interopDefault(_isBufferJs);
+var _isIndexJs = require('./_isIndex.js');
+var _isIndexJsDefault = _parcelHelpers.interopDefault(_isIndexJs);
+var _isTypedArrayJs = require('./isTypedArray.js');
+var _isTypedArrayJsDefault = _parcelHelpers.interopDefault(_isTypedArrayJs);
+/** Used for built-in method references.*/
+var objectProto = Object.prototype;
+/** Used to check objects for own properties.*/
+var hasOwnProperty = objectProto.hasOwnProperty;
+/**
+* Creates an array of the enumerable property names of the array-like `value`.
+*
+* @private
+* @param {*} value The value to query.
+* @param {boolean} inherited Specify returning inherited property names.
+* @returns {Array} Returns the array of property names.
+*/
+function arrayLikeKeys(value, inherited) {
+  var isArr = _isArrayJsDefault.default(value), isArg = !isArr && _isArgumentsJsDefault.default(value), isBuff = !isArr && !isArg && _isBufferJsDefault.default(value), isType = !isArr && !isArg && !isBuff && _isTypedArrayJsDefault.default(value), skipIndexes = isArr || isArg || isBuff || isType, result = skipIndexes ? _baseTimesJsDefault.default(value.length, String) : [], length = result.length;
+  for (var key in value) {
+    if ((inherited || hasOwnProperty.call(value, key)) && !(skipIndexes && (// Safari 9 has enumerable `arguments.length` in strict mode.
+    key == 'length' || // Node.js 0.10 has enumerable non-index properties on buffers.
+    isBuff && (key == 'offset' || key == 'parent') || // PhantomJS 2 has enumerable non-index properties on typed arrays.
+    isType && (key == 'buffer' || key == 'byteLength' || key == 'byteOffset') || // Skip index properties.
+    _isIndexJsDefault.default(key, length)))) {
+      result.push(key);
+    }
+  }
+  return result;
+}
+exports.default = arrayLikeKeys;

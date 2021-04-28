@@ -1,7 +1,7 @@
 {
   "name": "starter",
   "version": "1.0.0",
-  "description": "Modules - Building - Transpiling/Polyfiling - Javascript Bundle                 (BABEL - compiles our code to ES5 where all browsers can make use of - build tools - WebPack, Parcel);",
+  "description": "Modules - Building - Transpiling/Polyfiling);",
   "main": "clean.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +11,8 @@
   "dependencies": {
     "leaflet": "^1.7.1",
     "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.2"
   }
 }

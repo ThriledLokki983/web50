@@ -1,0 +1,7 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _overArgJs = require('./_overArg.js');
+var _overArgJsDefault = _parcelHelpers.interopDefault(_overArgJs);
+/*Built-in method references for those with the same name as other `lodash` methods.*/
+var nativeKeys = _overArgJsDefault.default(Object.keys, Object);
+exports.default = nativeKeys;

@@ -1,0 +1,9 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _getNativeJs = require('./_getNative.js');
+var _getNativeJsDefault = _parcelHelpers.interopDefault(_getNativeJs);
+var _rootJs = require('./_root.js');
+var _rootJsDefault = _parcelHelpers.interopDefault(_rootJs);
+/*Built-in method references that are verified to be native.*/
+var Map = _getNativeJsDefault.default(_rootJsDefault.default, 'Map');
+exports.default = Map;

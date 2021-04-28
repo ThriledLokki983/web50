@@ -1,0 +1,7 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _rootJs = require('./_root.js');
+var _rootJsDefault = _parcelHelpers.interopDefault(_rootJs);
+/** Built-in value references.*/
+var Uint8Array = _rootJsDefault.default.Uint8Array;
+exports.default = Uint8Array;

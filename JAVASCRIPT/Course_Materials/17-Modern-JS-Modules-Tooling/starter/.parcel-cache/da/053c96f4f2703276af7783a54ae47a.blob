@@ -1,0 +1,34 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _hashClearJs = require('./_hashClear.js');
+var _hashClearJsDefault = _parcelHelpers.interopDefault(_hashClearJs);
+var _hashDeleteJs = require('./_hashDelete.js');
+var _hashDeleteJsDefault = _parcelHelpers.interopDefault(_hashDeleteJs);
+var _hashGetJs = require('./_hashGet.js');
+var _hashGetJsDefault = _parcelHelpers.interopDefault(_hashGetJs);
+var _hashHasJs = require('./_hashHas.js');
+var _hashHasJsDefault = _parcelHelpers.interopDefault(_hashHasJs);
+var _hashSetJs = require('./_hashSet.js');
+var _hashSetJsDefault = _parcelHelpers.interopDefault(_hashSetJs);
+/**
+* Creates a hash object.
+*
+* @private
+* @constructor
+* @param {Array} [entries] The key-value pairs to cache.
+*/
+function Hash(entries) {
+  var index = -1, length = entries == null ? 0 : entries.length;
+  this.clear();
+  while (++index < length) {
+    var entry = entries[index];
+    this.set(entry[0], entry[1]);
+  }
+}
+// Add methods to `Hash`.
+Hash.prototype.clear = _hashClearJsDefault.default;
+Hash.prototype['delete'] = _hashDeleteJsDefault.default;
+Hash.prototype.get = _hashGetJsDefault.default;
+Hash.prototype.has = _hashHasJsDefault.default;
+Hash.prototype.set = _hashSetJsDefault.default;
+exports.default = Hash;

@@ -1,0 +1,24 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _HashJs = require('./_Hash.js');
+var _HashJsDefault = _parcelHelpers.interopDefault(_HashJs);
+var _ListCacheJs = require('./_ListCache.js');
+var _ListCacheJsDefault = _parcelHelpers.interopDefault(_ListCacheJs);
+var _MapJs = require('./_Map.js');
+var _MapJsDefault = _parcelHelpers.interopDefault(_MapJs);
+/**
+* Removes all key-value entries from the map.
+*
+* @private
+* @name clear
+* @memberOf MapCache
+*/
+function mapCacheClear() {
+  this.size = 0;
+  this.__data__ = {
+    'hash': new _HashJsDefault.default(),
+    'map': new (_MapJsDefault.default || _ListCacheJsDefault.default)(),
+    'string': new _HashJsDefault.default()
+  };
+}
+exports.default = mapCacheClear;

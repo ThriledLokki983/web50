@@ -1,0 +1,7 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _rootJs = require('./_root.js');
+var _rootJsDefault = _parcelHelpers.interopDefault(_rootJs);
+/** Used to detect overreaching core-js shims.*/
+var coreJsData = _rootJsDefault.default['__core-js_shared__'];
+exports.default = coreJsData;

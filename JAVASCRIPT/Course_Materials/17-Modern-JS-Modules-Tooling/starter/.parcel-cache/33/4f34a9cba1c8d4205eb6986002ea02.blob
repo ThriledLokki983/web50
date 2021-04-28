@@ -1,0 +1,19 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _copyObjectJs = require('./_copyObject.js');
+var _copyObjectJsDefault = _parcelHelpers.interopDefault(_copyObjectJs);
+var _keysJs = require('./keys.js');
+var _keysJsDefault = _parcelHelpers.interopDefault(_keysJs);
+/**
+* The base implementation of `_.assign` without support for multiple sources
+* or `customizer` functions.
+*
+* @private
+* @param {Object} object The destination object.
+* @param {Object} source The source object.
+* @returns {Object} Returns `object`.
+*/
+function baseAssign(object, source) {
+  return object && _copyObjectJsDefault.default(source, _keysJsDefault.default(source), object);
+}
+exports.default = baseAssign;
