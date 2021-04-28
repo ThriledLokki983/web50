@@ -1,0 +1,17 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _trimmedEndIndexJs = require('./_trimmedEndIndex.js');
+var _trimmedEndIndexJsDefault = _parcelHelpers.interopDefault(_trimmedEndIndexJs);
+/** Used to match leading whitespace.*/
+var reTrimStart = /^\s+/;
+/**
+* The base implementation of `_.trim`.
+*
+* @private
+* @param {string} string The string to trim.
+* @returns {string} Returns the trimmed string.
+*/
+function baseTrim(string) {
+  return string ? string.slice(0, _trimmedEndIndexJsDefault.default(string) + 1).replace(reTrimStart, '') : string;
+}
+exports.default = baseTrim;

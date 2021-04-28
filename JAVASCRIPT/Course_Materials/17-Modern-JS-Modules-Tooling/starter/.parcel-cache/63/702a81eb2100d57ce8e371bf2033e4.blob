@@ -1,0 +1,29 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseIsSetJs = require('./_baseIsSet.js');
+var _baseIsSetJsDefault = _parcelHelpers.interopDefault(_baseIsSetJs);
+var _baseUnaryJs = require('./_baseUnary.js');
+var _baseUnaryJsDefault = _parcelHelpers.interopDefault(_baseUnaryJs);
+var _nodeUtilJs = require('./_nodeUtil.js');
+var _nodeUtilJsDefault = _parcelHelpers.interopDefault(_nodeUtilJs);
+/*Node.js helper references.*/
+var nodeIsSet = _nodeUtilJsDefault.default && _nodeUtilJsDefault.default.isSet;
+/**
+* Checks if `value` is classified as a `Set` object.
+*
+* @static
+* @memberOf _
+* @since 4.3.0
+* @category Lang
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `value` is a set, else `false`.
+* @example
+*
+* _.isSet(new Set);
+* // => true
+*
+* _.isSet(new WeakSet);
+* // => false
+*/
+var isSet = nodeIsSet ? _baseUnaryJsDefault.default(nodeIsSet) : _baseIsSetJsDefault.default;
+exports.default = isSet;

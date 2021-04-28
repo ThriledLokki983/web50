@@ -1,0 +1,32 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _ListCacheJs = require('./_ListCache.js');
+var _ListCacheJsDefault = _parcelHelpers.interopDefault(_ListCacheJs);
+var _stackClearJs = require('./_stackClear.js');
+var _stackClearJsDefault = _parcelHelpers.interopDefault(_stackClearJs);
+var _stackDeleteJs = require('./_stackDelete.js');
+var _stackDeleteJsDefault = _parcelHelpers.interopDefault(_stackDeleteJs);
+var _stackGetJs = require('./_stackGet.js');
+var _stackGetJsDefault = _parcelHelpers.interopDefault(_stackGetJs);
+var _stackHasJs = require('./_stackHas.js');
+var _stackHasJsDefault = _parcelHelpers.interopDefault(_stackHasJs);
+var _stackSetJs = require('./_stackSet.js');
+var _stackSetJsDefault = _parcelHelpers.interopDefault(_stackSetJs);
+/**
+* Creates a stack cache object to store key-value pairs.
+*
+* @private
+* @constructor
+* @param {Array} [entries] The key-value pairs to cache.
+*/
+function Stack(entries) {
+  var data = this.__data__ = new _ListCacheJsDefault.default(entries);
+  this.size = data.size;
+}
+// Add methods to `Stack`.
+Stack.prototype.clear = _stackClearJsDefault.default;
+Stack.prototype['delete'] = _stackDeleteJsDefault.default;
+Stack.prototype.get = _stackGetJsDefault.default;
+Stack.prototype.has = _stackHasJsDefault.default;
+Stack.prototype.set = _stackSetJsDefault.default;
+exports.default = Stack;

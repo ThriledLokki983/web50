@@ -1,0 +1,61 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayEveryJs = require('./_arrayEvery.js');
+var _arrayEveryJsDefault = _parcelHelpers.interopDefault(_arrayEveryJs);
+var _baseEveryJs = require('./_baseEvery.js');
+var _baseEveryJsDefault = _parcelHelpers.interopDefault(_baseEveryJs);
+var _baseIterateeJs = require('./_baseIteratee.js');
+var _baseIterateeJsDefault = _parcelHelpers.interopDefault(_baseIterateeJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+var _isIterateeCallJs = require('./_isIterateeCall.js');
+var _isIterateeCallJsDefault = _parcelHelpers.interopDefault(_isIterateeCallJs);
+/**
+* Checks if `predicate` returns truthy for **all** elements of `collection`.
+* Iteration is stopped once `predicate` returns falsey. The predicate is
+* invoked with three arguments: (value, index|key, collection).
+*
+* **Note:** This method returns `true` for
+* [empty collections](https://en.wikipedia.org/wiki/Empty_set) because
+* [everything is true](https://en.wikipedia.org/wiki/Vacuous_truth) of
+* elements of empty collections.
+*
+* @static
+* @memberOf _
+* @since 0.1.0
+* @category Collection
+* @param {Array|Object} collection The collection to iterate over.
+* @param {Function} [predicate=_.identity] The function invoked per iteration.
+* @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+* @returns {boolean} Returns `true` if all elements pass the predicate check,
+*  else `false`.
+* @example
+*
+* _.every([true, 1, null, 'yes'], Boolean);
+* // => false
+*
+* var users = [
+*   { 'user': 'barney', 'age': 36, 'active': false },
+*   { 'user': 'fred',   'age': 40, 'active': false }
+* ];
+*
+* // The `_.matches` iteratee shorthand.
+* _.every(users, { 'user': 'barney', 'active': false });
+* // => false
+*
+* // The `_.matchesProperty` iteratee shorthand.
+* _.every(users, ['active', false]);
+* // => true
+*
+* // The `_.property` iteratee shorthand.
+* _.every(users, 'active');
+* // => false
+*/
+function every(collection, predicate, guard) {
+  var func = _isArrayJsDefault.default(collection) ? _arrayEveryJsDefault.default : _baseEveryJsDefault.default;
+  if (guard && _isIterateeCallJsDefault.default(collection, predicate, guard)) {
+    predicate = undefined;
+  }
+  return func(collection, _baseIterateeJsDefault.default(predicate, 3));
+}
+exports.default = every;

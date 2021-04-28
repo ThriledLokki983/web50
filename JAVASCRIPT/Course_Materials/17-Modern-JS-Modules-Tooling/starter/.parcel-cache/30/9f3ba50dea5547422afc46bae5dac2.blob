@@ -1,0 +1,35 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayLikeKeysJs = require('./_arrayLikeKeys.js');
+var _arrayLikeKeysJsDefault = _parcelHelpers.interopDefault(_arrayLikeKeysJs);
+var _baseKeysInJs = require('./_baseKeysIn.js');
+var _baseKeysInJsDefault = _parcelHelpers.interopDefault(_baseKeysInJs);
+var _isArrayLikeJs = require('./isArrayLike.js');
+var _isArrayLikeJsDefault = _parcelHelpers.interopDefault(_isArrayLikeJs);
+/**
+* Creates an array of the own and inherited enumerable property names of `object`.
+*
+* **Note:** Non-object values are coerced to objects.
+*
+* @static
+* @memberOf _
+* @since 3.0.0
+* @category Object
+* @param {Object} object The object to query.
+* @returns {Array} Returns the array of property names.
+* @example
+*
+* function Foo() {
+*   this.a = 1;
+*   this.b = 2;
+* }
+*
+* Foo.prototype.c = 3;
+*
+* _.keysIn(new Foo);
+* // => ['a', 'b', 'c'] (iteration order is not guaranteed)
+*/
+function keysIn(object) {
+  return _isArrayLikeJsDefault.default(object) ? _arrayLikeKeysJsDefault.default(object, true) : _baseKeysInJsDefault.default(object);
+}
+exports.default = keysIn;

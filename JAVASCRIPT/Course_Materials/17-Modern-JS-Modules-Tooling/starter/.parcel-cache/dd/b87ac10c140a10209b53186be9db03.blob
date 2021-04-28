@@ -1,0 +1,40 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseClampJs = require('./_baseClamp.js');
+var _baseClampJsDefault = _parcelHelpers.interopDefault(_baseClampJs);
+var _baseToStringJs = require('./_baseToString.js');
+var _baseToStringJsDefault = _parcelHelpers.interopDefault(_baseToStringJs);
+var _toIntegerJs = require('./toInteger.js');
+var _toIntegerJsDefault = _parcelHelpers.interopDefault(_toIntegerJs);
+var _toStringJs = require('./toString.js');
+var _toStringJsDefault = _parcelHelpers.interopDefault(_toStringJs);
+/**
+* Checks if `string` starts with the given target string.
+*
+* @static
+* @memberOf _
+* @since 3.0.0
+* @category String
+* @param {string} [string=''] The string to inspect.
+* @param {string} [target] The string to search for.
+* @param {number} [position=0] The position to search from.
+* @returns {boolean} Returns `true` if `string` starts with `target`,
+*  else `false`.
+* @example
+*
+* _.startsWith('abc', 'a');
+* // => true
+*
+* _.startsWith('abc', 'b');
+* // => false
+*
+* _.startsWith('abc', 'b', 1);
+* // => true
+*/
+function startsWith(string, target, position) {
+  string = _toStringJsDefault.default(string);
+  position = position == null ? 0 : _baseClampJsDefault.default(_toIntegerJsDefault.default(position), 0, string.length);
+  target = _baseToStringJsDefault.default(target);
+  return string.slice(position, position + target.length) == target;
+}
+exports.default = startsWith;

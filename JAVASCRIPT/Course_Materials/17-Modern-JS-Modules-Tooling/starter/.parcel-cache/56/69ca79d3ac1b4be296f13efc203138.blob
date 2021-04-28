@@ -1,0 +1,14 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+/**
+* Removes all key-value entries from the list cache.
+*
+* @private
+* @name clear
+* @memberOf ListCache
+*/
+function listCacheClear() {
+  this.__data__ = [];
+  this.size = 0;
+}
+exports.default = listCacheClear;

@@ -1,0 +1,26 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _realNamesJs = require('./_realNames.js');
+var _realNamesJsDefault = _parcelHelpers.interopDefault(_realNamesJs);
+/** Used for built-in method references.*/
+var objectProto = Object.prototype;
+/** Used to check objects for own properties.*/
+var hasOwnProperty = objectProto.hasOwnProperty;
+/**
+* Gets the name of `func`.
+*
+* @private
+* @param {Function} func The function to query.
+* @returns {string} Returns the function name.
+*/
+function getFuncName(func) {
+  var result = func.name + '', array = _realNamesJsDefault.default[result], length = hasOwnProperty.call(_realNamesJsDefault.default, result) ? array.length : 0;
+  while (length--) {
+    var data = array[length], otherFunc = data.func;
+    if (otherFunc == null || otherFunc == func) {
+      return data.name;
+    }
+  }
+  return result;
+}
+exports.default = getFuncName;

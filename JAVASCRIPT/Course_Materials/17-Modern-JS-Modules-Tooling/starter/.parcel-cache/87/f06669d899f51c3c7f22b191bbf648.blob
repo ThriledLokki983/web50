@@ -1,0 +1,27 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _isObjectLikeJs = require('./isObjectLike.js');
+var _isObjectLikeJsDefault = _parcelHelpers.interopDefault(_isObjectLikeJs);
+var _isPlainObjectJs = require('./isPlainObject.js');
+var _isPlainObjectJsDefault = _parcelHelpers.interopDefault(_isPlainObjectJs);
+/**
+* Checks if `value` is likely a DOM element.
+*
+* @static
+* @memberOf _
+* @since 0.1.0
+* @category Lang
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `value` is a DOM element, else `false`.
+* @example
+*
+* _.isElement(document.body);
+* // => true
+*
+* _.isElement('<body>');
+* // => false
+*/
+function isElement(value) {
+  return _isObjectLikeJsDefault.default(value) && value.nodeType === 1 && !_isPlainObjectJsDefault.default(value);
+}
+exports.default = isElement;

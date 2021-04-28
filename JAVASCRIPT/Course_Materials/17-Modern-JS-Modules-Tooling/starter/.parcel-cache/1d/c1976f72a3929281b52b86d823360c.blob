@@ -1,0 +1,38 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _applyJs = require('./_apply.js');
+var _applyJsDefault = _parcelHelpers.interopDefault(_applyJs);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+var _isErrorJs = require('./isError.js');
+var _isErrorJsDefault = _parcelHelpers.interopDefault(_isErrorJs);
+/**
+* Attempts to invoke `func`, returning either the result or the caught error
+* object. Any additional arguments are provided to `func` when it's invoked.
+*
+* @static
+* @memberOf _
+* @since 3.0.0
+* @category Util
+* @param {Function} func The function to attempt.
+* @param {...*} [args] The arguments to invoke `func` with.
+* @returns {*} Returns the `func` result or error object.
+* @example
+*
+* // Avoid throwing errors for invalid selectors.
+* var elements = _.attempt(function(selector) {
+*   return document.querySelectorAll(selector);
+* }, '>_>');
+*
+* if (_.isError(elements)) {
+*   elements = [];
+* }
+*/
+var attempt = _baseRestJsDefault.default(function (func, args) {
+  try {
+    return _applyJsDefault.default(func, undefined, args);
+  } catch (e) {
+    return _isErrorJsDefault.default(e) ? e : new Error(e);
+  }
+});
+exports.default = attempt;

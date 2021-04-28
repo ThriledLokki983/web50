@@ -1,0 +1,19 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _identityJs = require('./identity.js');
+var _identityJsDefault = _parcelHelpers.interopDefault(_identityJs);
+var _metaMapJs = require('./_metaMap.js');
+var _metaMapJsDefault = _parcelHelpers.interopDefault(_metaMapJs);
+/**
+* The base implementation of `setData` without support for hot loop shorting.
+*
+* @private
+* @param {Function} func The function to associate metadata with.
+* @param {*} data The metadata.
+* @returns {Function} Returns `func`.
+*/
+var baseSetData = !_metaMapJsDefault.default ? _identityJsDefault.default : function (func, data) {
+  _metaMapJsDefault.default.set(func, data);
+  return func;
+};
+exports.default = baseSetData;

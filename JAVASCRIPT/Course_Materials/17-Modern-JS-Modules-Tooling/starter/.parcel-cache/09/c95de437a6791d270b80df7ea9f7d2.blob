@@ -1,0 +1,25 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _LazyWrapperJs = require('./_LazyWrapper.js');
+var _LazyWrapperJsDefault = _parcelHelpers.interopDefault(_LazyWrapperJs);
+var _copyArrayJs = require('./_copyArray.js');
+var _copyArrayJsDefault = _parcelHelpers.interopDefault(_copyArrayJs);
+/**
+* Creates a clone of the lazy wrapper object.
+*
+* @private
+* @name clone
+* @memberOf LazyWrapper
+* @returns {Object} Returns the cloned `LazyWrapper` object.
+*/
+function lazyClone() {
+  var result = new _LazyWrapperJsDefault.default(this.__wrapped__);
+  result.__actions__ = _copyArrayJsDefault.default(this.__actions__);
+  result.__dir__ = this.__dir__;
+  result.__filtered__ = this.__filtered__;
+  result.__iteratees__ = _copyArrayJsDefault.default(this.__iteratees__);
+  result.__takeCount__ = this.__takeCount__;
+  result.__views__ = _copyArrayJsDefault.default(this.__views__);
+  return result;
+}
+exports.default = lazyClone;

@@ -1,0 +1,63 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _applyJs = require('./_apply.js');
+var _applyJsDefault = _parcelHelpers.interopDefault(_applyJs);
+var _arrayMapJs = require('./_arrayMap.js');
+var _arrayMapJsDefault = _parcelHelpers.interopDefault(_arrayMapJs);
+var _baseFlattenJs = require('./_baseFlatten.js');
+var _baseFlattenJsDefault = _parcelHelpers.interopDefault(_baseFlattenJs);
+var _baseIterateeJs = require('./_baseIteratee.js');
+var _baseIterateeJsDefault = _parcelHelpers.interopDefault(_baseIterateeJs);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+var _baseUnaryJs = require('./_baseUnary.js');
+var _baseUnaryJsDefault = _parcelHelpers.interopDefault(_baseUnaryJs);
+var _castRestJs = require('./_castRest.js');
+var _castRestJsDefault = _parcelHelpers.interopDefault(_castRestJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+/*Built-in method references for those with the same name as other `lodash` methods.*/
+var nativeMin = Math.min;
+/**
+* Creates a function that invokes `func` with its arguments transformed.
+*
+* @static
+* @since 4.0.0
+* @memberOf _
+* @category Function
+* @param {Function} func The function to wrap.
+* @param {...(Function|Function[])} [transforms=[_.identity]]
+*  The argument transforms.
+* @returns {Function} Returns the new function.
+* @example
+*
+* function doubled(n) {
+*   return n * 2;
+* }
+*
+* function square(n) {
+*   return n * n;
+* }
+*
+* var func = _.overArgs(function(x, y) {
+*   return [x, y];
+* }, [square, doubled]);
+*
+* func(9, 3);
+* // => [81, 6]
+*
+* func(10, 5);
+* // => [100, 10]
+*/
+var overArgs = _castRestJsDefault.default(function (func, transforms) {
+  transforms = transforms.length == 1 && _isArrayJsDefault.default(transforms[0]) ? _arrayMapJsDefault.default(transforms[0], _baseUnaryJsDefault.default(_baseIterateeJsDefault.default)) : _arrayMapJsDefault.default(_baseFlattenJsDefault.default(transforms, 1), _baseUnaryJsDefault.default(_baseIterateeJsDefault.default));
+  var funcsLength = transforms.length;
+  return _baseRestJsDefault.default(function (args) {
+    var index = -1, length = nativeMin(args.length, funcsLength);
+    while (++index < length) {
+      args[index] = transforms[index].call(this, args[index]);
+    }
+    return _applyJsDefault.default(func, this, args);
+  });
+});
+exports.default = overArgs;

@@ -1,0 +1,13 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _basePropertyJs = require('./_baseProperty.js');
+var _basePropertyJsDefault = _parcelHelpers.interopDefault(_basePropertyJs);
+/**
+* Gets the size of an ASCII `string`.
+*
+* @private
+* @param {string} string The string inspect.
+* @returns {number} Returns the string size.
+*/
+var asciiSize = _basePropertyJsDefault.default('length');
+exports.default = asciiSize;

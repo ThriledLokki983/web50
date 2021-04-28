@@ -1,0 +1,31 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _capitalizeJs = require('./capitalize.js');
+var _capitalizeJsDefault = _parcelHelpers.interopDefault(_capitalizeJs);
+var _createCompounderJs = require('./_createCompounder.js');
+var _createCompounderJsDefault = _parcelHelpers.interopDefault(_createCompounderJs);
+/**
+* Converts `string` to [camel case](https://en.wikipedia.org/wiki/CamelCase).
+*
+* @static
+* @memberOf _
+* @since 3.0.0
+* @category String
+* @param {string} [string=''] The string to convert.
+* @returns {string} Returns the camel cased string.
+* @example
+*
+* _.camelCase('Foo Bar');
+* // => 'fooBar'
+*
+* _.camelCase('--foo-bar--');
+* // => 'fooBar'
+*
+* _.camelCase('__FOO_BAR__');
+* // => 'fooBar'
+*/
+var camelCase = _createCompounderJsDefault.default(function (result, word, index) {
+  word = word.toLowerCase();
+  return result + (index ? _capitalizeJsDefault.default(word) : word);
+});
+exports.default = camelCase;

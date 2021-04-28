@@ -1,0 +1,40 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _copyObjectJs = require('./_copyObject.js');
+var _copyObjectJsDefault = _parcelHelpers.interopDefault(_copyObjectJs);
+var _createAssignerJs = require('./_createAssigner.js');
+var _createAssignerJsDefault = _parcelHelpers.interopDefault(_createAssignerJs);
+var _keysJs = require('./keys.js');
+var _keysJsDefault = _parcelHelpers.interopDefault(_keysJs);
+/**
+* This method is like `_.assign` except that it accepts `customizer`
+* which is invoked to produce the assigned values. If `customizer` returns
+* `undefined`, assignment is handled by the method instead. The `customizer`
+* is invoked with five arguments: (objValue, srcValue, key, object, source).
+*
+* **Note:** This method mutates `object`.
+*
+* @static
+* @memberOf _
+* @since 4.0.0
+* @category Object
+* @param {Object} object The destination object.
+* @param {...Object} sources The source objects.
+* @param {Function} [customizer] The function to customize assigned values.
+* @returns {Object} Returns `object`.
+* @see _.assignInWith
+* @example
+*
+* function customizer(objValue, srcValue) {
+*   return _.isUndefined(objValue) ? srcValue : objValue;
+* }
+*
+* var defaults = _.partialRight(_.assignWith, customizer);
+*
+* defaults({ 'a': 1 }, { 'b': 2 }, { 'a': 3 });
+* // => { 'a': 1, 'b': 2 }
+*/
+var assignWith = _createAssignerJsDefault.default(function (object, source, srcIndex, customizer) {
+  _copyObjectJsDefault.default(source, _keysJsDefault.default(source), object, customizer);
+});
+exports.default = assignWith;

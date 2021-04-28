@@ -1,0 +1,22 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseWrapperValueJs = require('./_baseWrapperValue.js');
+var _baseWrapperValueJsDefault = _parcelHelpers.interopDefault(_baseWrapperValueJs);
+/**
+* Executes the chain sequence to resolve the unwrapped value.
+*
+* @name value
+* @memberOf _
+* @since 0.1.0
+* @alias toJSON, valueOf
+* @category Seq
+* @returns {*} Returns the resolved unwrapped value.
+* @example
+*
+* _([1, 2, 3]).value();
+* // => [1, 2, 3]
+*/
+function wrapperValue() {
+  return _baseWrapperValueJsDefault.default(this.__wrapped__, this.__actions__);
+}
+exports.default = wrapperValue;

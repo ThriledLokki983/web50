@@ -1,0 +1,12 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "now", function () {
+  return _nowJsDefault.default;
+});
+_parcelHelpers.export(exports, "default", function () {
+  return _dateDefaultJsDefault.default;
+});
+var _nowJs = require('./now.js');
+var _nowJsDefault = _parcelHelpers.interopDefault(_nowJs);
+var _dateDefaultJs = require('./date.default.js');
+var _dateDefaultJsDefault = _parcelHelpers.interopDefault(_dateDefaultJs);

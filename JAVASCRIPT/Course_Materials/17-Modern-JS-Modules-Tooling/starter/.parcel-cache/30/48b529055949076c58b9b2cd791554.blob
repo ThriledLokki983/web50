@@ -1,0 +1,19 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseGetTagJs = require('./_baseGetTag.js');
+var _baseGetTagJsDefault = _parcelHelpers.interopDefault(_baseGetTagJs);
+var _isObjectLikeJs = require('./isObjectLike.js');
+var _isObjectLikeJsDefault = _parcelHelpers.interopDefault(_isObjectLikeJs);
+/** `Object#toString` result references.*/
+var argsTag = '[object Arguments]';
+/**
+* The base implementation of `_.isArguments`.
+*
+* @private
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `value` is an `arguments` object,
+*/
+function baseIsArguments(value) {
+  return _isObjectLikeJsDefault.default(value) && _baseGetTagJsDefault.default(value) == argsTag;
+}
+exports.default = baseIsArguments;

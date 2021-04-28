@@ -1,0 +1,28 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _toStringJs = require('./toString.js');
+var _toStringJsDefault = _parcelHelpers.interopDefault(_toStringJs);
+/** Used to generate unique IDs.*/
+var idCounter = 0;
+/**
+* Generates a unique ID. If `prefix` is given, the ID is appended to it.
+*
+* @static
+* @since 0.1.0
+* @memberOf _
+* @category Util
+* @param {string} [prefix=''] The value to prefix the ID with.
+* @returns {string} Returns the unique ID.
+* @example
+*
+* _.uniqueId('contact_');
+* // => 'contact_104'
+*
+* _.uniqueId();
+* // => '105'
+*/
+function uniqueId(prefix) {
+  var id = ++idCounter;
+  return _toStringJsDefault.default(prefix) + id;
+}
+exports.default = uniqueId;

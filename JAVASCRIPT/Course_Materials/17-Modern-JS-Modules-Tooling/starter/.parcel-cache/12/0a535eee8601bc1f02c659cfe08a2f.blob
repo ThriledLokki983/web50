@@ -1,0 +1,39 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseFlattenJs = require('./_baseFlatten.js');
+var _baseFlattenJsDefault = _parcelHelpers.interopDefault(_baseFlattenJs);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+var _baseUniqJs = require('./_baseUniq.js');
+var _baseUniqJsDefault = _parcelHelpers.interopDefault(_baseUniqJs);
+var _isArrayLikeObjectJs = require('./isArrayLikeObject.js');
+var _isArrayLikeObjectJsDefault = _parcelHelpers.interopDefault(_isArrayLikeObjectJs);
+var _lastJs = require('./last.js');
+var _lastJsDefault = _parcelHelpers.interopDefault(_lastJs);
+/**
+* This method is like `_.union` except that it accepts `comparator` which
+* is invoked to compare elements of `arrays`. Result values are chosen from
+* the first array in which the value occurs. The comparator is invoked
+* with two arguments: (arrVal, othVal).
+*
+* @static
+* @memberOf _
+* @since 4.0.0
+* @category Array
+* @param {...Array} [arrays] The arrays to inspect.
+* @param {Function} [comparator] The comparator invoked per element.
+* @returns {Array} Returns the new array of combined values.
+* @example
+*
+* var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
+* var others = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
+*
+* _.unionWith(objects, others, _.isEqual);
+* // => [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }, { 'x': 1, 'y': 1 }]
+*/
+var unionWith = _baseRestJsDefault.default(function (arrays) {
+  var comparator = _lastJsDefault.default(arrays);
+  comparator = typeof comparator == 'function' ? comparator : undefined;
+  return _baseUniqJsDefault.default(_baseFlattenJsDefault.default(arrays, 1, _isArrayLikeObjectJsDefault.default, true), undefined, comparator);
+});
+exports.default = unionWith;

@@ -1,0 +1,23 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _castPathJs = require('./_castPath.js');
+var _castPathJsDefault = _parcelHelpers.interopDefault(_castPathJs);
+var _toKeyJs = require('./_toKey.js');
+var _toKeyJsDefault = _parcelHelpers.interopDefault(_toKeyJs);
+/**
+* The base implementation of `_.get` without support for default values.
+*
+* @private
+* @param {Object} object The object to query.
+* @param {Array|string} path The path of the property to get.
+* @returns {*} Returns the resolved value.
+*/
+function baseGet(object, path) {
+  path = _castPathJsDefault.default(path, object);
+  var index = 0, length = path.length;
+  while (object != null && index < length) {
+    object = object[_toKeyJsDefault.default(path[index++])];
+  }
+  return index && index == length ? object : undefined;
+}
+exports.default = baseGet;

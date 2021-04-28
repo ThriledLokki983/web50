@@ -1,0 +1,18 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _assocIndexOfJs = require('./_assocIndexOf.js');
+var _assocIndexOfJsDefault = _parcelHelpers.interopDefault(_assocIndexOfJs);
+/**
+* Gets the list cache value for `key`.
+*
+* @private
+* @name get
+* @memberOf ListCache
+* @param {string} key The key of the value to get.
+* @returns {*} Returns the entry value.
+*/
+function listCacheGet(key) {
+  var data = this.__data__, index = _assocIndexOfJsDefault.default(data, key);
+  return index < 0 ? undefined : data[index][1];
+}
+exports.default = listCacheGet;

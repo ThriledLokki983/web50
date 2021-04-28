@@ -1,0 +1,45 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayFilterJs = require('./_arrayFilter.js');
+var _arrayFilterJsDefault = _parcelHelpers.interopDefault(_arrayFilterJs);
+var _baseIterateeJs = require('./_baseIteratee.js');
+var _baseIterateeJsDefault = _parcelHelpers.interopDefault(_baseIterateeJs);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+var _baseXorJs = require('./_baseXor.js');
+var _baseXorJsDefault = _parcelHelpers.interopDefault(_baseXorJs);
+var _isArrayLikeObjectJs = require('./isArrayLikeObject.js');
+var _isArrayLikeObjectJsDefault = _parcelHelpers.interopDefault(_isArrayLikeObjectJs);
+var _lastJs = require('./last.js');
+var _lastJsDefault = _parcelHelpers.interopDefault(_lastJs);
+/**
+* This method is like `_.xor` except that it accepts `iteratee` which is
+* invoked for each element of each `arrays` to generate the criterion by
+* which by which they're compared. The order of result values is determined
+* by the order they occur in the arrays. The iteratee is invoked with one
+* argument: (value).
+*
+* @static
+* @memberOf _
+* @since 4.0.0
+* @category Array
+* @param {...Array} [arrays] The arrays to inspect.
+* @param {Function} [iteratee=_.identity] The iteratee invoked per element.
+* @returns {Array} Returns the new array of filtered values.
+* @example
+*
+* _.xorBy([2.1, 1.2], [2.3, 3.4], Math.floor);
+* // => [1.2, 3.4]
+*
+* // The `_.property` iteratee shorthand.
+* _.xorBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x');
+* // => [{ 'x': 2 }]
+*/
+var xorBy = _baseRestJsDefault.default(function (arrays) {
+  var iteratee = _lastJsDefault.default(arrays);
+  if (_isArrayLikeObjectJsDefault.default(iteratee)) {
+    iteratee = undefined;
+  }
+  return _baseXorJsDefault.default(_arrayFilterJsDefault.default(arrays, _isArrayLikeObjectJsDefault.default), _baseIterateeJsDefault.default(iteratee, 2));
+});
+exports.default = xorBy;

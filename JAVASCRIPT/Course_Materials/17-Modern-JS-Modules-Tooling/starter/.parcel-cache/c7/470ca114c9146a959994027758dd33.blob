@@ -1,0 +1,40 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _castPathJs = require('./_castPath.js');
+var _castPathJsDefault = _parcelHelpers.interopDefault(_castPathJs);
+var _isArgumentsJs = require('./isArguments.js');
+var _isArgumentsJsDefault = _parcelHelpers.interopDefault(_isArgumentsJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+var _isIndexJs = require('./_isIndex.js');
+var _isIndexJsDefault = _parcelHelpers.interopDefault(_isIndexJs);
+var _isLengthJs = require('./isLength.js');
+var _isLengthJsDefault = _parcelHelpers.interopDefault(_isLengthJs);
+var _toKeyJs = require('./_toKey.js');
+var _toKeyJsDefault = _parcelHelpers.interopDefault(_toKeyJs);
+/**
+* Checks if `path` exists on `object`.
+*
+* @private
+* @param {Object} object The object to query.
+* @param {Array|string} path The path to check.
+* @param {Function} hasFunc The function to check properties.
+* @returns {boolean} Returns `true` if `path` exists, else `false`.
+*/
+function hasPath(object, path, hasFunc) {
+  path = _castPathJsDefault.default(path, object);
+  var index = -1, length = path.length, result = false;
+  while (++index < length) {
+    var key = _toKeyJsDefault.default(path[index]);
+    if (!(result = object != null && hasFunc(object, key))) {
+      break;
+    }
+    object = object[key];
+  }
+  if (result || ++index != length) {
+    return result;
+  }
+  length = object == null ? 0 : object.length;
+  return !!length && _isLengthJsDefault.default(length) && _isIndexJsDefault.default(key, length) && (_isArrayJsDefault.default(object) || _isArgumentsJsDefault.default(object));
+}
+exports.default = hasPath;

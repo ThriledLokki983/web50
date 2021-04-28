@@ -1,0 +1,16 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseForOwnRightJs = require('./_baseForOwnRight.js');
+var _baseForOwnRightJsDefault = _parcelHelpers.interopDefault(_baseForOwnRightJs);
+var _createBaseEachJs = require('./_createBaseEach.js');
+var _createBaseEachJsDefault = _parcelHelpers.interopDefault(_createBaseEachJs);
+/**
+* The base implementation of `_.forEachRight` without support for iteratee shorthands.
+*
+* @private
+* @param {Array|Object} collection The collection to iterate over.
+* @param {Function} iteratee The function invoked per iteration.
+* @returns {Array|Object} Returns `collection`.
+*/
+var baseEachRight = _createBaseEachJsDefault.default(_baseForOwnRightJsDefault.default, true);
+exports.default = baseEachRight;

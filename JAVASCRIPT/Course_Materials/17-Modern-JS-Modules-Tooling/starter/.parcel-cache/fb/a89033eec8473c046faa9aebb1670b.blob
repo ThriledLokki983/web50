@@ -1,0 +1,19 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseGetTagJs = require('./_baseGetTag.js');
+var _baseGetTagJsDefault = _parcelHelpers.interopDefault(_baseGetTagJs);
+var _isObjectLikeJs = require('./isObjectLike.js');
+var _isObjectLikeJsDefault = _parcelHelpers.interopDefault(_isObjectLikeJs);
+/** `Object#toString` result references.*/
+var dateTag = '[object Date]';
+/**
+* The base implementation of `_.isDate` without Node.js optimizations.
+*
+* @private
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `value` is a date object, else `false`.
+*/
+function baseIsDate(value) {
+  return _isObjectLikeJsDefault.default(value) && _baseGetTagJsDefault.default(value) == dateTag;
+}
+exports.default = baseIsDate;

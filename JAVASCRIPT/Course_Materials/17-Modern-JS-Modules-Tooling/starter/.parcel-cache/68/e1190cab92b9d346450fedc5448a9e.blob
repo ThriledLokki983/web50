@@ -1,0 +1,92 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _assignMergeValueJs = require('./_assignMergeValue.js');
+var _assignMergeValueJsDefault = _parcelHelpers.interopDefault(_assignMergeValueJs);
+var _cloneBufferJs = require('./_cloneBuffer.js');
+var _cloneBufferJsDefault = _parcelHelpers.interopDefault(_cloneBufferJs);
+var _cloneTypedArrayJs = require('./_cloneTypedArray.js');
+var _cloneTypedArrayJsDefault = _parcelHelpers.interopDefault(_cloneTypedArrayJs);
+var _copyArrayJs = require('./_copyArray.js');
+var _copyArrayJsDefault = _parcelHelpers.interopDefault(_copyArrayJs);
+var _initCloneObjectJs = require('./_initCloneObject.js');
+var _initCloneObjectJsDefault = _parcelHelpers.interopDefault(_initCloneObjectJs);
+var _isArgumentsJs = require('./isArguments.js');
+var _isArgumentsJsDefault = _parcelHelpers.interopDefault(_isArgumentsJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+var _isArrayLikeObjectJs = require('./isArrayLikeObject.js');
+var _isArrayLikeObjectJsDefault = _parcelHelpers.interopDefault(_isArrayLikeObjectJs);
+var _isBufferJs = require('./isBuffer.js');
+var _isBufferJsDefault = _parcelHelpers.interopDefault(_isBufferJs);
+var _isFunctionJs = require('./isFunction.js');
+var _isFunctionJsDefault = _parcelHelpers.interopDefault(_isFunctionJs);
+var _isObjectJs = require('./isObject.js');
+var _isObjectJsDefault = _parcelHelpers.interopDefault(_isObjectJs);
+var _isPlainObjectJs = require('./isPlainObject.js');
+var _isPlainObjectJsDefault = _parcelHelpers.interopDefault(_isPlainObjectJs);
+var _isTypedArrayJs = require('./isTypedArray.js');
+var _isTypedArrayJsDefault = _parcelHelpers.interopDefault(_isTypedArrayJs);
+var _safeGetJs = require('./_safeGet.js');
+var _safeGetJsDefault = _parcelHelpers.interopDefault(_safeGetJs);
+var _toPlainObjectJs = require('./toPlainObject.js');
+var _toPlainObjectJsDefault = _parcelHelpers.interopDefault(_toPlainObjectJs);
+/**
+* A specialized version of `baseMerge` for arrays and objects which performs
+* deep merges and tracks traversed objects enabling objects with circular
+* references to be merged.
+*
+* @private
+* @param {Object} object The destination object.
+* @param {Object} source The source object.
+* @param {string} key The key of the value to merge.
+* @param {number} srcIndex The index of `source`.
+* @param {Function} mergeFunc The function to merge values.
+* @param {Function} [customizer] The function to customize assigned values.
+* @param {Object} [stack] Tracks traversed source values and their merged
+*  counterparts.
+*/
+function baseMergeDeep(object, source, key, srcIndex, mergeFunc, customizer, stack) {
+  var objValue = _safeGetJsDefault.default(object, key), srcValue = _safeGetJsDefault.default(source, key), stacked = stack.get(srcValue);
+  if (stacked) {
+    _assignMergeValueJsDefault.default(object, key, stacked);
+    return;
+  }
+  var newValue = customizer ? customizer(objValue, srcValue, key + '', object, source, stack) : undefined;
+  var isCommon = newValue === undefined;
+  if (isCommon) {
+    var isArr = _isArrayJsDefault.default(srcValue), isBuff = !isArr && _isBufferJsDefault.default(srcValue), isTyped = !isArr && !isBuff && _isTypedArrayJsDefault.default(srcValue);
+    newValue = srcValue;
+    if (isArr || isBuff || isTyped) {
+      if (_isArrayJsDefault.default(objValue)) {
+        newValue = objValue;
+      } else if (_isArrayLikeObjectJsDefault.default(objValue)) {
+        newValue = _copyArrayJsDefault.default(objValue);
+      } else if (isBuff) {
+        isCommon = false;
+        newValue = _cloneBufferJsDefault.default(srcValue, true);
+      } else if (isTyped) {
+        isCommon = false;
+        newValue = _cloneTypedArrayJsDefault.default(srcValue, true);
+      } else {
+        newValue = [];
+      }
+    } else if (_isPlainObjectJsDefault.default(srcValue) || _isArgumentsJsDefault.default(srcValue)) {
+      newValue = objValue;
+      if (_isArgumentsJsDefault.default(objValue)) {
+        newValue = _toPlainObjectJsDefault.default(objValue);
+      } else if (!_isObjectJsDefault.default(objValue) || _isFunctionJsDefault.default(objValue)) {
+        newValue = _initCloneObjectJsDefault.default(srcValue);
+      }
+    } else {
+      isCommon = false;
+    }
+  }
+  if (isCommon) {
+    // Recursively merge objects and arrays (susceptible to call stack limits).
+    stack.set(srcValue, newValue);
+    mergeFunc(newValue, srcValue, srcIndex, customizer, stack);
+    stack['delete'](srcValue);
+  }
+  _assignMergeValueJsDefault.default(object, key, newValue);
+}
+exports.default = baseMergeDeep;

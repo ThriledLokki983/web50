@@ -1,0 +1,31 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _createCompounderJs = require('./_createCompounder.js');
+var _createCompounderJsDefault = _parcelHelpers.interopDefault(_createCompounderJs);
+var _upperFirstJs = require('./upperFirst.js');
+var _upperFirstJsDefault = _parcelHelpers.interopDefault(_upperFirstJs);
+/**
+* Converts `string` to
+* [start case](https://en.wikipedia.org/wiki/Letter_case#Stylistic_or_specialised_usage).
+*
+* @static
+* @memberOf _
+* @since 3.1.0
+* @category String
+* @param {string} [string=''] The string to convert.
+* @returns {string} Returns the start cased string.
+* @example
+*
+* _.startCase('--foo-bar--');
+* // => 'Foo Bar'
+*
+* _.startCase('fooBar');
+* // => 'Foo Bar'
+*
+* _.startCase('__FOO_BAR__');
+* // => 'FOO BAR'
+*/
+var startCase = _createCompounderJsDefault.default(function (result, word, index) {
+  return result + (index ? ' ' : '') + _upperFirstJsDefault.default(word);
+});
+exports.default = startCase;

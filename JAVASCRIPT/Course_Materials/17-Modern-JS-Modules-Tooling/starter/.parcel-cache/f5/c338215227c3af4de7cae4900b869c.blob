@@ -1,0 +1,19 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _flattenJs = require('./flatten.js');
+var _flattenJsDefault = _parcelHelpers.interopDefault(_flattenJs);
+var _overRestJs = require('./_overRest.js');
+var _overRestJsDefault = _parcelHelpers.interopDefault(_overRestJs);
+var _setToStringJs = require('./_setToString.js');
+var _setToStringJsDefault = _parcelHelpers.interopDefault(_setToStringJs);
+/**
+* A specialized version of `baseRest` which flattens the rest array.
+*
+* @private
+* @param {Function} func The function to apply a rest parameter to.
+* @returns {Function} Returns the new function.
+*/
+function flatRest(func) {
+  return _setToStringJsDefault.default(_overRestJsDefault.default(func, undefined, _flattenJsDefault.default), func + '');
+}
+exports.default = flatRest;

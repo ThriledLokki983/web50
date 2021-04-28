@@ -1,0 +1,39 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseSliceJs = require('./_baseSlice.js');
+var _baseSliceJsDefault = _parcelHelpers.interopDefault(_baseSliceJs);
+var _isIterateeCallJs = require('./_isIterateeCall.js');
+var _isIterateeCallJsDefault = _parcelHelpers.interopDefault(_isIterateeCallJs);
+var _toIntegerJs = require('./toInteger.js');
+var _toIntegerJsDefault = _parcelHelpers.interopDefault(_toIntegerJs);
+/**
+* Creates a slice of `array` from `start` up to, but not including, `end`.
+*
+* **Note:** This method is used instead of
+* [`Array#slice`](https://mdn.io/Array/slice) to ensure dense arrays are
+* returned.
+*
+* @static
+* @memberOf _
+* @since 3.0.0
+* @category Array
+* @param {Array} array The array to slice.
+* @param {number} [start=0] The start position.
+* @param {number} [end=array.length] The end position.
+* @returns {Array} Returns the slice of `array`.
+*/
+function slice(array, start, end) {
+  var length = array == null ? 0 : array.length;
+  if (!length) {
+    return [];
+  }
+  if (end && typeof end != 'number' && _isIterateeCallJsDefault.default(array, start, end)) {
+    start = 0;
+    end = length;
+  } else {
+    start = start == null ? 0 : _toIntegerJsDefault.default(start);
+    end = end === undefined ? length : _toIntegerJsDefault.default(end);
+  }
+  return _baseSliceJsDefault.default(array, start, end);
+}
+exports.default = slice;

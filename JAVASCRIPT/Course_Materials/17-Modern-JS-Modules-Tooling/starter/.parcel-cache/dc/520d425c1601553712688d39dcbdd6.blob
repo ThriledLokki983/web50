@@ -1,0 +1,42 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayMapJs = require('./_arrayMap.js');
+var _arrayMapJsDefault = _parcelHelpers.interopDefault(_arrayMapJs);
+var _baseIntersectionJs = require('./_baseIntersection.js');
+var _baseIntersectionJsDefault = _parcelHelpers.interopDefault(_baseIntersectionJs);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+var _castArrayLikeObjectJs = require('./_castArrayLikeObject.js');
+var _castArrayLikeObjectJsDefault = _parcelHelpers.interopDefault(_castArrayLikeObjectJs);
+var _lastJs = require('./last.js');
+var _lastJsDefault = _parcelHelpers.interopDefault(_lastJs);
+/**
+* This method is like `_.intersection` except that it accepts `comparator`
+* which is invoked to compare elements of `arrays`. The order and references
+* of result values are determined by the first array. The comparator is
+* invoked with two arguments: (arrVal, othVal).
+*
+* @static
+* @memberOf _
+* @since 4.0.0
+* @category Array
+* @param {...Array} [arrays] The arrays to inspect.
+* @param {Function} [comparator] The comparator invoked per element.
+* @returns {Array} Returns the new array of intersecting values.
+* @example
+*
+* var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
+* var others = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
+*
+* _.intersectionWith(objects, others, _.isEqual);
+* // => [{ 'x': 1, 'y': 2 }]
+*/
+var intersectionWith = _baseRestJsDefault.default(function (arrays) {
+  var comparator = _lastJsDefault.default(arrays), mapped = _arrayMapJsDefault.default(arrays, _castArrayLikeObjectJsDefault.default);
+  comparator = typeof comparator == 'function' ? comparator : undefined;
+  if (comparator) {
+    mapped.pop();
+  }
+  return mapped.length && mapped[0] === arrays[0] ? _baseIntersectionJsDefault.default(mapped, undefined, comparator) : [];
+});
+exports.default = intersectionWith;

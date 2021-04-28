@@ -1,0 +1,15 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+/**
+* A `baseRest` alias which can be replaced with `identity` by module
+* replacement plugins.
+*
+* @private
+* @type {Function}
+* @param {Function} func The function to apply a rest parameter to.
+* @returns {Function} Returns the new function.
+*/
+var castRest = _baseRestJsDefault.default;
+exports.default = castRest;

@@ -1,0 +1,32 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseToPairsJs = require('./_baseToPairs.js');
+var _baseToPairsJsDefault = _parcelHelpers.interopDefault(_baseToPairsJs);
+var _getTagJs = require('./_getTag.js');
+var _getTagJsDefault = _parcelHelpers.interopDefault(_getTagJs);
+var _mapToArrayJs = require('./_mapToArray.js');
+var _mapToArrayJsDefault = _parcelHelpers.interopDefault(_mapToArrayJs);
+var _setToPairsJs = require('./_setToPairs.js');
+var _setToPairsJsDefault = _parcelHelpers.interopDefault(_setToPairsJs);
+/** `Object#toString` result references.*/
+var mapTag = '[object Map]', setTag = '[object Set]';
+/**
+* Creates a `_.toPairs` or `_.toPairsIn` function.
+*
+* @private
+* @param {Function} keysFunc The function to get the keys of a given object.
+* @returns {Function} Returns the new pairs function.
+*/
+function createToPairs(keysFunc) {
+  return function (object) {
+    var tag = _getTagJsDefault.default(object);
+    if (tag == mapTag) {
+      return _mapToArrayJsDefault.default(object);
+    }
+    if (tag == setTag) {
+      return _setToPairsJsDefault.default(object);
+    }
+    return _baseToPairsJsDefault.default(object, keysFunc(object));
+  };
+}
+exports.default = createToPairs;

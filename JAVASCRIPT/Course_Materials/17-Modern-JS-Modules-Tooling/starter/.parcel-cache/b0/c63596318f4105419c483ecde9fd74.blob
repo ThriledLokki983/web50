@@ -1,0 +1,9 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+/**
+* The function whose prototype chain sequence wrappers inherit from.
+*
+* @private
+*/
+function baseLodash() {}
+exports.default = baseLodash;

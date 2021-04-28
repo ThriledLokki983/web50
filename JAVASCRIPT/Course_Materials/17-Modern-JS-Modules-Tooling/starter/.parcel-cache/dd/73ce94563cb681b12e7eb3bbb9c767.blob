@@ -1,0 +1,35 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseDifferenceJs = require('./_baseDifference.js');
+var _baseDifferenceJsDefault = _parcelHelpers.interopDefault(_baseDifferenceJs);
+var _baseFlattenJs = require('./_baseFlatten.js');
+var _baseFlattenJsDefault = _parcelHelpers.interopDefault(_baseFlattenJs);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+var _isArrayLikeObjectJs = require('./isArrayLikeObject.js');
+var _isArrayLikeObjectJsDefault = _parcelHelpers.interopDefault(_isArrayLikeObjectJs);
+/**
+* Creates an array of `array` values not included in the other given arrays
+* using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+* for equality comparisons. The order and references of result values are
+* determined by the first array.
+*
+* **Note:** Unlike `_.pullAll`, this method returns a new array.
+*
+* @static
+* @memberOf _
+* @since 0.1.0
+* @category Array
+* @param {Array} array The array to inspect.
+* @param {...Array} [values] The values to exclude.
+* @returns {Array} Returns the new array of filtered values.
+* @see _.without, _.xor
+* @example
+*
+* _.difference([2, 1], [2, 3]);
+* // => [1]
+*/
+var difference = _baseRestJsDefault.default(function (array, values) {
+  return _isArrayLikeObjectJsDefault.default(array) ? _baseDifferenceJsDefault.default(array, _baseFlattenJsDefault.default(values, 1, _isArrayLikeObjectJsDefault.default, true)) : [];
+});
+exports.default = difference;

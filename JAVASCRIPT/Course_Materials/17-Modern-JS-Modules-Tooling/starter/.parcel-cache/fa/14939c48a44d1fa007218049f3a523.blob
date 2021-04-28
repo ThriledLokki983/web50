@@ -1,0 +1,30 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseFlattenJs = require('./_baseFlatten.js');
+var _baseFlattenJsDefault = _parcelHelpers.interopDefault(_baseFlattenJs);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+var _baseUniqJs = require('./_baseUniq.js');
+var _baseUniqJsDefault = _parcelHelpers.interopDefault(_baseUniqJs);
+var _isArrayLikeObjectJs = require('./isArrayLikeObject.js');
+var _isArrayLikeObjectJsDefault = _parcelHelpers.interopDefault(_isArrayLikeObjectJs);
+/**
+* Creates an array of unique values, in order, from all given arrays using
+* [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+* for equality comparisons.
+*
+* @static
+* @memberOf _
+* @since 0.1.0
+* @category Array
+* @param {...Array} [arrays] The arrays to inspect.
+* @returns {Array} Returns the new array of combined values.
+* @example
+*
+* _.union([2], [1, 2]);
+* // => [2, 1]
+*/
+var union = _baseRestJsDefault.default(function (arrays) {
+  return _baseUniqJsDefault.default(_baseFlattenJsDefault.default(arrays, 1, _isArrayLikeObjectJsDefault.default, true));
+});
+exports.default = union;

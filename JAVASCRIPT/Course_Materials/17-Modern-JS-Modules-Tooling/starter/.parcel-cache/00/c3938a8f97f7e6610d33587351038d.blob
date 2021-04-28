@@ -1,0 +1,19 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseGetAllKeysJs = require('./_baseGetAllKeys.js');
+var _baseGetAllKeysJsDefault = _parcelHelpers.interopDefault(_baseGetAllKeysJs);
+var _getSymbolsJs = require('./_getSymbols.js');
+var _getSymbolsJsDefault = _parcelHelpers.interopDefault(_getSymbolsJs);
+var _keysJs = require('./keys.js');
+var _keysJsDefault = _parcelHelpers.interopDefault(_keysJs);
+/**
+* Creates an array of own enumerable property names and symbols of `object`.
+*
+* @private
+* @param {Object} object The object to query.
+* @returns {Array} Returns the array of property names and symbols.
+*/
+function getAllKeys(object) {
+  return _baseGetAllKeysJsDefault.default(object, _keysJsDefault.default, _getSymbolsJsDefault.default);
+}
+exports.default = getAllKeys;

@@ -1,0 +1,20 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseConformsToJs = require('./_baseConformsTo.js');
+var _baseConformsToJsDefault = _parcelHelpers.interopDefault(_baseConformsToJs);
+var _keysJs = require('./keys.js');
+var _keysJsDefault = _parcelHelpers.interopDefault(_keysJs);
+/**
+* The base implementation of `_.conforms` which doesn't clone `source`.
+*
+* @private
+* @param {Object} source The object of property predicates to conform to.
+* @returns {Function} Returns the new spec function.
+*/
+function baseConforms(source) {
+  var props = _keysJsDefault.default(source);
+  return function (object) {
+    return _baseConformsToJsDefault.default(object, source, props);
+  };
+}
+exports.default = baseConforms;

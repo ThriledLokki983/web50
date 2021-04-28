@@ -1,0 +1,25 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayAggregatorJs = require('./_arrayAggregator.js');
+var _arrayAggregatorJsDefault = _parcelHelpers.interopDefault(_arrayAggregatorJs);
+var _baseAggregatorJs = require('./_baseAggregator.js');
+var _baseAggregatorJsDefault = _parcelHelpers.interopDefault(_baseAggregatorJs);
+var _baseIterateeJs = require('./_baseIteratee.js');
+var _baseIterateeJsDefault = _parcelHelpers.interopDefault(_baseIterateeJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+/**
+* Creates a function like `_.groupBy`.
+*
+* @private
+* @param {Function} setter The function to set accumulator values.
+* @param {Function} [initializer] The accumulator object initializer.
+* @returns {Function} Returns the new aggregator function.
+*/
+function createAggregator(setter, initializer) {
+  return function (collection, iteratee) {
+    var func = _isArrayJsDefault.default(collection) ? _arrayAggregatorJsDefault.default : _baseAggregatorJsDefault.default, accumulator = initializer ? initializer() : {};
+    return func(collection, setter, _baseIterateeJsDefault.default(iteratee, 2), accumulator);
+  };
+}
+exports.default = createAggregator;

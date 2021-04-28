@@ -1,0 +1,29 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseIsRegExpJs = require('./_baseIsRegExp.js');
+var _baseIsRegExpJsDefault = _parcelHelpers.interopDefault(_baseIsRegExpJs);
+var _baseUnaryJs = require('./_baseUnary.js');
+var _baseUnaryJsDefault = _parcelHelpers.interopDefault(_baseUnaryJs);
+var _nodeUtilJs = require('./_nodeUtil.js');
+var _nodeUtilJsDefault = _parcelHelpers.interopDefault(_nodeUtilJs);
+/*Node.js helper references.*/
+var nodeIsRegExp = _nodeUtilJsDefault.default && _nodeUtilJsDefault.default.isRegExp;
+/**
+* Checks if `value` is classified as a `RegExp` object.
+*
+* @static
+* @memberOf _
+* @since 0.1.0
+* @category Lang
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `value` is a regexp, else `false`.
+* @example
+*
+* _.isRegExp(/abc/);
+* // => true
+*
+* _.isRegExp('/abc/');
+* // => false
+*/
+var isRegExp = nodeIsRegExp ? _baseUnaryJsDefault.default(nodeIsRegExp) : _baseIsRegExpJsDefault.default;
+exports.default = isRegExp;

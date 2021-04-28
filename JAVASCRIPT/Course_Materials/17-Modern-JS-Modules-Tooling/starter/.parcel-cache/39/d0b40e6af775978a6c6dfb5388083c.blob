@@ -1,0 +1,21 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _SymbolJs = require('./_Symbol.js');
+var _SymbolJsDefault = _parcelHelpers.interopDefault(_SymbolJs);
+var _isArgumentsJs = require('./isArguments.js');
+var _isArgumentsJsDefault = _parcelHelpers.interopDefault(_isArgumentsJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+/** Built-in value references.*/
+var spreadableSymbol = _SymbolJsDefault.default ? _SymbolJsDefault.default.isConcatSpreadable : undefined;
+/**
+* Checks if `value` is a flattenable `arguments` object or array.
+*
+* @private
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `value` is flattenable, else `false`.
+*/
+function isFlattenable(value) {
+  return _isArrayJsDefault.default(value) || _isArgumentsJsDefault.default(value) || !!(spreadableSymbol && value && value[spreadableSymbol]);
+}
+exports.default = isFlattenable;

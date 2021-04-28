@@ -1,0 +1,25 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseSetJs = require('./_baseSet.js');
+var _baseSetJsDefault = _parcelHelpers.interopDefault(_baseSetJs);
+var _baseZipObjectJs = require('./_baseZipObject.js');
+var _baseZipObjectJsDefault = _parcelHelpers.interopDefault(_baseZipObjectJs);
+/**
+* This method is like `_.zipObject` except that it supports property paths.
+*
+* @static
+* @memberOf _
+* @since 4.1.0
+* @category Array
+* @param {Array} [props=[]] The property identifiers.
+* @param {Array} [values=[]] The property values.
+* @returns {Object} Returns the new object.
+* @example
+*
+* _.zipObjectDeep(['a.b[0].c', 'a.b[1].d'], [1, 2]);
+* // => { 'a': { 'b': [{ 'c': 1 }, { 'd': 2 }] } }
+*/
+function zipObjectDeep(props, values) {
+  return _baseZipObjectJsDefault.default(props || [], values || [], _baseSetJsDefault.default);
+}
+exports.default = zipObjectDeep;

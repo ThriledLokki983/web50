@@ -1,0 +1,47 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayMapJs = require('./_arrayMap.js');
+var _arrayMapJsDefault = _parcelHelpers.interopDefault(_arrayMapJs);
+var _baseIntersectionJs = require('./_baseIntersection.js');
+var _baseIntersectionJsDefault = _parcelHelpers.interopDefault(_baseIntersectionJs);
+var _baseIterateeJs = require('./_baseIteratee.js');
+var _baseIterateeJsDefault = _parcelHelpers.interopDefault(_baseIterateeJs);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+var _castArrayLikeObjectJs = require('./_castArrayLikeObject.js');
+var _castArrayLikeObjectJsDefault = _parcelHelpers.interopDefault(_castArrayLikeObjectJs);
+var _lastJs = require('./last.js');
+var _lastJsDefault = _parcelHelpers.interopDefault(_lastJs);
+/**
+* This method is like `_.intersection` except that it accepts `iteratee`
+* which is invoked for each element of each `arrays` to generate the criterion
+* by which they're compared. The order and references of result values are
+* determined by the first array. The iteratee is invoked with one argument:
+* (value).
+*
+* @static
+* @memberOf _
+* @since 4.0.0
+* @category Array
+* @param {...Array} [arrays] The arrays to inspect.
+* @param {Function} [iteratee=_.identity] The iteratee invoked per element.
+* @returns {Array} Returns the new array of intersecting values.
+* @example
+*
+* _.intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor);
+* // => [2.1]
+*
+* // The `_.property` iteratee shorthand.
+* _.intersectionBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x');
+* // => [{ 'x': 1 }]
+*/
+var intersectionBy = _baseRestJsDefault.default(function (arrays) {
+  var iteratee = _lastJsDefault.default(arrays), mapped = _arrayMapJsDefault.default(arrays, _castArrayLikeObjectJsDefault.default);
+  if (iteratee === _lastJsDefault.default(mapped)) {
+    iteratee = undefined;
+  } else {
+    mapped.pop();
+  }
+  return mapped.length && mapped[0] === arrays[0] ? _baseIntersectionJsDefault.default(mapped, _baseIterateeJsDefault.default(iteratee, 2)) : [];
+});
+exports.default = intersectionBy;

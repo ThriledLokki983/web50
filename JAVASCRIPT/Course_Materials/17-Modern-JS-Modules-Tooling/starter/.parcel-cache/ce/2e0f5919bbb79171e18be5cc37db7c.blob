@@ -1,0 +1,45 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseFlattenJs = require('./_baseFlatten.js');
+var _baseFlattenJsDefault = _parcelHelpers.interopDefault(_baseFlattenJs);
+var _baseIterateeJs = require('./_baseIteratee.js');
+var _baseIterateeJsDefault = _parcelHelpers.interopDefault(_baseIterateeJs);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+var _baseUniqJs = require('./_baseUniq.js');
+var _baseUniqJsDefault = _parcelHelpers.interopDefault(_baseUniqJs);
+var _isArrayLikeObjectJs = require('./isArrayLikeObject.js');
+var _isArrayLikeObjectJsDefault = _parcelHelpers.interopDefault(_isArrayLikeObjectJs);
+var _lastJs = require('./last.js');
+var _lastJsDefault = _parcelHelpers.interopDefault(_lastJs);
+/**
+* This method is like `_.union` except that it accepts `iteratee` which is
+* invoked for each element of each `arrays` to generate the criterion by
+* which uniqueness is computed. Result values are chosen from the first
+* array in which the value occurs. The iteratee is invoked with one argument:
+* (value).
+*
+* @static
+* @memberOf _
+* @since 4.0.0
+* @category Array
+* @param {...Array} [arrays] The arrays to inspect.
+* @param {Function} [iteratee=_.identity] The iteratee invoked per element.
+* @returns {Array} Returns the new array of combined values.
+* @example
+*
+* _.unionBy([2.1], [1.2, 2.3], Math.floor);
+* // => [2.1, 1.2]
+*
+* // The `_.property` iteratee shorthand.
+* _.unionBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x');
+* // => [{ 'x': 1 }, { 'x': 2 }]
+*/
+var unionBy = _baseRestJsDefault.default(function (arrays) {
+  var iteratee = _lastJsDefault.default(arrays);
+  if (_isArrayLikeObjectJsDefault.default(iteratee)) {
+    iteratee = undefined;
+  }
+  return _baseUniqJsDefault.default(_baseFlattenJsDefault.default(arrays, 1, _isArrayLikeObjectJsDefault.default, true), _baseIterateeJsDefault.default(iteratee, 2));
+});
+exports.default = unionBy;

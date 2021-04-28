@@ -1,0 +1,78 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayEachJs = require('./_arrayEach.js');
+var _arrayEachJsDefault = _parcelHelpers.interopDefault(_arrayEachJs);
+var _arrayPushJs = require('./_arrayPush.js');
+var _arrayPushJsDefault = _parcelHelpers.interopDefault(_arrayPushJs);
+var _baseFunctionsJs = require('./_baseFunctions.js');
+var _baseFunctionsJsDefault = _parcelHelpers.interopDefault(_baseFunctionsJs);
+var _copyArrayJs = require('./_copyArray.js');
+var _copyArrayJsDefault = _parcelHelpers.interopDefault(_copyArrayJs);
+var _isFunctionJs = require('./isFunction.js');
+var _isFunctionJsDefault = _parcelHelpers.interopDefault(_isFunctionJs);
+var _isObjectJs = require('./isObject.js');
+var _isObjectJsDefault = _parcelHelpers.interopDefault(_isObjectJs);
+var _keysJs = require('./keys.js');
+var _keysJsDefault = _parcelHelpers.interopDefault(_keysJs);
+/**
+* Adds all own enumerable string keyed function properties of a source
+* object to the destination object. If `object` is a function, then methods
+* are added to its prototype as well.
+*
+* **Note:** Use `_.runInContext` to create a pristine `lodash` function to
+* avoid conflicts caused by modifying the original.
+*
+* @static
+* @since 0.1.0
+* @memberOf _
+* @category Util
+* @param {Function|Object} [object=lodash] The destination object.
+* @param {Object} source The object of functions to add.
+* @param {Object} [options={}] The options object.
+* @param {boolean} [options.chain=true] Specify whether mixins are chainable.
+* @returns {Function|Object} Returns `object`.
+* @example
+*
+* function vowels(string) {
+*   return _.filter(string, function(v) {
+*     return /[aeiou]/i.test(v);
+*   });
+* }
+*
+* _.mixin({ 'vowels': vowels });
+* _.vowels('fred');
+* // => ['e']
+*
+* _('fred').vowels().value();
+* // => ['e']
+*
+* _.mixin({ 'vowels': vowels }, { 'chain': false });
+* _('fred').vowels();
+* // => ['e']
+*/
+function mixin(object, source, options) {
+  var props = _keysJsDefault.default(source), methodNames = _baseFunctionsJsDefault.default(source, props);
+  var chain = !(_isObjectJsDefault.default(options) && ('chain' in options)) || !!options.chain, isFunc = _isFunctionJsDefault.default(object);
+  _arrayEachJsDefault.default(methodNames, function (methodName) {
+    var func = source[methodName];
+    object[methodName] = func;
+    if (isFunc) {
+      object.prototype[methodName] = function () {
+        var chainAll = this.__chain__;
+        if (chain || chainAll) {
+          var result = object(this.__wrapped__), actions = result.__actions__ = _copyArrayJsDefault.default(this.__actions__);
+          actions.push({
+            'func': func,
+            'args': arguments,
+            'thisArg': object
+          });
+          result.__chain__ = chainAll;
+          return result;
+        }
+        return func.apply(object, _arrayPushJsDefault.default([this.value()], arguments));
+      };
+    }
+  });
+  return object;
+}
+exports.default = mixin;

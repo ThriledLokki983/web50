@@ -1,0 +1,17 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _getMapDataJs = require('./_getMapData.js');
+var _getMapDataJsDefault = _parcelHelpers.interopDefault(_getMapDataJs);
+/**
+* Gets the map value for `key`.
+*
+* @private
+* @name get
+* @memberOf MapCache
+* @param {string} key The key of the value to get.
+* @returns {*} Returns the entry value.
+*/
+function mapCacheGet(key) {
+  return _getMapDataJsDefault.default(this, key).get(key);
+}
+exports.default = mapCacheGet;

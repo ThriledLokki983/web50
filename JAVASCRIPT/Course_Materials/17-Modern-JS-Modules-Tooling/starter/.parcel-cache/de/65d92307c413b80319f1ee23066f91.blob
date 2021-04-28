@@ -1,0 +1,33 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _applyJs = require('./_apply.js');
+var _applyJsDefault = _parcelHelpers.interopDefault(_applyJs);
+var _arrayMapJs = require('./_arrayMap.js');
+var _arrayMapJsDefault = _parcelHelpers.interopDefault(_arrayMapJs);
+var _baseIterateeJs = require('./_baseIteratee.js');
+var _baseIterateeJsDefault = _parcelHelpers.interopDefault(_baseIterateeJs);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+var _baseUnaryJs = require('./_baseUnary.js');
+var _baseUnaryJsDefault = _parcelHelpers.interopDefault(_baseUnaryJs);
+var _flatRestJs = require('./_flatRest.js');
+var _flatRestJsDefault = _parcelHelpers.interopDefault(_flatRestJs);
+/**
+* Creates a function like `_.over`.
+*
+* @private
+* @param {Function} arrayFunc The function to iterate over iteratees.
+* @returns {Function} Returns the new over function.
+*/
+function createOver(arrayFunc) {
+  return _flatRestJsDefault.default(function (iteratees) {
+    iteratees = _arrayMapJsDefault.default(iteratees, _baseUnaryJsDefault.default(_baseIterateeJsDefault.default));
+    return _baseRestJsDefault.default(function (args) {
+      var thisArg = this;
+      return arrayFunc(iteratees, function (iteratee) {
+        return _applyJsDefault.default(iteratee, thisArg, args);
+      });
+    });
+  });
+}
+exports.default = createOver;

@@ -1,0 +1,35 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayEachRightJs = require('./_arrayEachRight.js');
+var _arrayEachRightJsDefault = _parcelHelpers.interopDefault(_arrayEachRightJs);
+var _baseEachRightJs = require('./_baseEachRight.js');
+var _baseEachRightJsDefault = _parcelHelpers.interopDefault(_baseEachRightJs);
+var _castFunctionJs = require('./_castFunction.js');
+var _castFunctionJsDefault = _parcelHelpers.interopDefault(_castFunctionJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+/**
+* This method is like `_.forEach` except that it iterates over elements of
+* `collection` from right to left.
+*
+* @static
+* @memberOf _
+* @since 2.0.0
+* @alias eachRight
+* @category Collection
+* @param {Array|Object} collection The collection to iterate over.
+* @param {Function} [iteratee=_.identity] The function invoked per iteration.
+* @returns {Array|Object} Returns `collection`.
+* @see _.forEach
+* @example
+*
+* _.forEachRight([1, 2], function(value) {
+*   console.log(value);
+* });
+* // => Logs `2` then `1`.
+*/
+function forEachRight(collection, iteratee) {
+  var func = _isArrayJsDefault.default(collection) ? _arrayEachRightJsDefault.default : _baseEachRightJsDefault.default;
+  return func(collection, _castFunctionJsDefault.default(iteratee));
+}
+exports.default = forEachRight;

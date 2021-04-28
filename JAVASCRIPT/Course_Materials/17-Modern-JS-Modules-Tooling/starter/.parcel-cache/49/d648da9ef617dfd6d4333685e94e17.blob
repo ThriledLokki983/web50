@@ -1,0 +1,16 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+/**
+* This method returns `undefined`.
+*
+* @static
+* @memberOf _
+* @since 2.3.0
+* @category Util
+* @example
+*
+* _.times(2, _.noop);
+* // => [undefined, undefined]
+*/
+function noop() {}
+exports.default = noop;

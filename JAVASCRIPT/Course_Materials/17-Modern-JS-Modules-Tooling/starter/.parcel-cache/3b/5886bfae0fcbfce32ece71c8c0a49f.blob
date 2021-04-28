@@ -1,0 +1,40 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseToNumberJs = require('./_baseToNumber.js');
+var _baseToNumberJsDefault = _parcelHelpers.interopDefault(_baseToNumberJs);
+var _baseToStringJs = require('./_baseToString.js');
+var _baseToStringJsDefault = _parcelHelpers.interopDefault(_baseToStringJs);
+/**
+* Creates a function that performs a mathematical operation on two values.
+*
+* @private
+* @param {Function} operator The function to perform the operation.
+* @param {number} [defaultValue] The value used for `undefined` arguments.
+* @returns {Function} Returns the new mathematical operation function.
+*/
+function createMathOperation(operator, defaultValue) {
+  return function (value, other) {
+    var result;
+    if (value === undefined && other === undefined) {
+      return defaultValue;
+    }
+    if (value !== undefined) {
+      result = value;
+    }
+    if (other !== undefined) {
+      if (result === undefined) {
+        return other;
+      }
+      if (typeof value == 'string' || typeof other == 'string') {
+        value = _baseToStringJsDefault.default(value);
+        other = _baseToStringJsDefault.default(other);
+      } else {
+        value = _baseToNumberJsDefault.default(value);
+        other = _baseToNumberJsDefault.default(other);
+      }
+      result = operator(value, other);
+    }
+    return result;
+  };
+}
+exports.default = createMathOperation;

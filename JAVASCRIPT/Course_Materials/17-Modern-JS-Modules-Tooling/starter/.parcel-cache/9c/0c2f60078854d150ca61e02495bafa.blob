@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <script type="module" defer src="script.js"></script> -->
+  <script defer="" src="96cca699f858597f56458865f81a78d2"></script>
+  <title>Modern JavaScript Development: Modules and Tooling</title>
+  <style data-parcel-key="654fed4c4ae0801776bb27d77169c027">
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(to top left, #28b487, #7dd56f);
+    }
+
+    h1 {
+      font-family: sans-serif;
+      font-size: 50px;
+      line-height: 1.3;
+      width: 100%;
+      padding: 30px;
+      text-align: center;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Modern JavaScript Development: Modules and Tooling</h1>
+</body>
+
+</html>

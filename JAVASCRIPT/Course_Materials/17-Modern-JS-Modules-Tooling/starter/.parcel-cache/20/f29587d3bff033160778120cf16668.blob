@@ -1,0 +1,26 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _assignValueJs = require('./_assignValue.js');
+var _assignValueJsDefault = _parcelHelpers.interopDefault(_assignValueJs);
+var _baseZipObjectJs = require('./_baseZipObject.js');
+var _baseZipObjectJsDefault = _parcelHelpers.interopDefault(_baseZipObjectJs);
+/**
+* This method is like `_.fromPairs` except that it accepts two arrays,
+* one of property identifiers and one of corresponding values.
+*
+* @static
+* @memberOf _
+* @since 0.4.0
+* @category Array
+* @param {Array} [props=[]] The property identifiers.
+* @param {Array} [values=[]] The property values.
+* @returns {Object} Returns the new object.
+* @example
+*
+* _.zipObject(['a', 'b'], [1, 2]);
+* // => { 'a': 1, 'b': 2 }
+*/
+function zipObject(props, values) {
+  return _baseZipObjectJsDefault.default(props || [], values || [], _assignValueJsDefault.default);
+}
+exports.default = zipObject;

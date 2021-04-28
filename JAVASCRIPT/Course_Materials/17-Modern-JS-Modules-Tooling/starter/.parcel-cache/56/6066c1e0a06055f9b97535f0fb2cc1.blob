@@ -1,0 +1,50 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseToStringJs = require('./_baseToString.js');
+var _baseToStringJsDefault = _parcelHelpers.interopDefault(_baseToStringJs);
+var _baseTrimJs = require('./_baseTrim.js');
+var _baseTrimJsDefault = _parcelHelpers.interopDefault(_baseTrimJs);
+var _castSliceJs = require('./_castSlice.js');
+var _castSliceJsDefault = _parcelHelpers.interopDefault(_castSliceJs);
+var _charsEndIndexJs = require('./_charsEndIndex.js');
+var _charsEndIndexJsDefault = _parcelHelpers.interopDefault(_charsEndIndexJs);
+var _charsStartIndexJs = require('./_charsStartIndex.js');
+var _charsStartIndexJsDefault = _parcelHelpers.interopDefault(_charsStartIndexJs);
+var _stringToArrayJs = require('./_stringToArray.js');
+var _stringToArrayJsDefault = _parcelHelpers.interopDefault(_stringToArrayJs);
+var _toStringJs = require('./toString.js');
+var _toStringJsDefault = _parcelHelpers.interopDefault(_toStringJs);
+/**
+* Removes leading and trailing whitespace or specified characters from `string`.
+*
+* @static
+* @memberOf _
+* @since 3.0.0
+* @category String
+* @param {string} [string=''] The string to trim.
+* @param {string} [chars=whitespace] The characters to trim.
+* @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+* @returns {string} Returns the trimmed string.
+* @example
+*
+* _.trim('  abc  ');
+* // => 'abc'
+*
+* _.trim('-_-abc-_-', '_-');
+* // => 'abc'
+*
+* _.map(['  foo  ', '  bar  '], _.trim);
+* // => ['foo', 'bar']
+*/
+function trim(string, chars, guard) {
+  string = _toStringJsDefault.default(string);
+  if (string && (guard || chars === undefined)) {
+    return _baseTrimJsDefault.default(string);
+  }
+  if (!string || !(chars = _baseToStringJsDefault.default(chars))) {
+    return string;
+  }
+  var strSymbols = _stringToArrayJsDefault.default(string), chrSymbols = _stringToArrayJsDefault.default(chars), start = _charsStartIndexJsDefault.default(strSymbols, chrSymbols), end = _charsEndIndexJsDefault.default(strSymbols, chrSymbols) + 1;
+  return _castSliceJsDefault.default(strSymbols, start, end).join('');
+}
+exports.default = trim;

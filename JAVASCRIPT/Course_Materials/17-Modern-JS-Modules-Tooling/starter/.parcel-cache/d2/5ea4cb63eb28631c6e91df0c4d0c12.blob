@@ -1,0 +1,29 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _applyJs = require('./_apply.js');
+var _applyJsDefault = _parcelHelpers.interopDefault(_applyJs);
+var _castPathJs = require('./_castPath.js');
+var _castPathJsDefault = _parcelHelpers.interopDefault(_castPathJs);
+var _lastJs = require('./last.js');
+var _lastJsDefault = _parcelHelpers.interopDefault(_lastJs);
+var _parentJs = require('./_parent.js');
+var _parentJsDefault = _parcelHelpers.interopDefault(_parentJs);
+var _toKeyJs = require('./_toKey.js');
+var _toKeyJsDefault = _parcelHelpers.interopDefault(_toKeyJs);
+/**
+* The base implementation of `_.invoke` without support for individual
+* method arguments.
+*
+* @private
+* @param {Object} object The object to query.
+* @param {Array|string} path The path of the method to invoke.
+* @param {Array} args The arguments to invoke the method with.
+* @returns {*} Returns the result of the invoked method.
+*/
+function baseInvoke(object, path, args) {
+  path = _castPathJsDefault.default(path, object);
+  object = _parentJsDefault.default(object, path);
+  var func = object == null ? object : object[_toKeyJsDefault.default(_lastJsDefault.default(path))];
+  return func == null ? undefined : _applyJsDefault.default(func, object, args);
+}
+exports.default = baseInvoke;

@@ -1,0 +1,32 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseIterateeJs = require('./_baseIteratee.js');
+var _baseIterateeJsDefault = _parcelHelpers.interopDefault(_baseIterateeJs);
+var _negateJs = require('./negate.js');
+var _negateJsDefault = _parcelHelpers.interopDefault(_negateJs);
+var _pickByJs = require('./pickBy.js');
+var _pickByJsDefault = _parcelHelpers.interopDefault(_pickByJs);
+/**
+* The opposite of `_.pickBy`; this method creates an object composed of
+* the own and inherited enumerable string keyed properties of `object` that
+* `predicate` doesn't return truthy for. The predicate is invoked with two
+* arguments: (value, key).
+*
+* @static
+* @memberOf _
+* @since 4.0.0
+* @category Object
+* @param {Object} object The source object.
+* @param {Function} [predicate=_.identity] The function invoked per property.
+* @returns {Object} Returns the new object.
+* @example
+*
+* var object = { 'a': 1, 'b': '2', 'c': 3 };
+*
+* _.omitBy(object, _.isNumber);
+* // => { 'b': '2' }
+*/
+function omitBy(object, predicate) {
+  return _pickByJsDefault.default(object, _negateJsDefault.default(_baseIterateeJsDefault.default(predicate)));
+}
+exports.default = omitBy;

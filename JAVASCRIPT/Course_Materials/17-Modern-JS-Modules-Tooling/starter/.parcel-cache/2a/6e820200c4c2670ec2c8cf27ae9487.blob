@@ -1,0 +1,32 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayFilterJs = require('./_arrayFilter.js');
+var _arrayFilterJsDefault = _parcelHelpers.interopDefault(_arrayFilterJs);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+var _baseXorJs = require('./_baseXor.js');
+var _baseXorJsDefault = _parcelHelpers.interopDefault(_baseXorJs);
+var _isArrayLikeObjectJs = require('./isArrayLikeObject.js');
+var _isArrayLikeObjectJsDefault = _parcelHelpers.interopDefault(_isArrayLikeObjectJs);
+/**
+* Creates an array of unique values that is the
+* [symmetric difference](https://en.wikipedia.org/wiki/Symmetric_difference)
+* of the given arrays. The order of result values is determined by the order
+* they occur in the arrays.
+*
+* @static
+* @memberOf _
+* @since 2.4.0
+* @category Array
+* @param {...Array} [arrays] The arrays to inspect.
+* @returns {Array} Returns the new array of filtered values.
+* @see _.difference, _.without
+* @example
+*
+* _.xor([2, 1], [2, 3]);
+* // => [1, 3]
+*/
+var xor = _baseRestJsDefault.default(function (arrays) {
+  return _baseXorJsDefault.default(_arrayFilterJsDefault.default(arrays, _isArrayLikeObjectJsDefault.default));
+});
+exports.default = xor;

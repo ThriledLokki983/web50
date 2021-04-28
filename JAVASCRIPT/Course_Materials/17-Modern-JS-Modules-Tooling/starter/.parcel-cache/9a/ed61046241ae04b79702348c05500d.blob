@@ -1,0 +1,35 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseDifferenceJs = require('./_baseDifference.js');
+var _baseDifferenceJsDefault = _parcelHelpers.interopDefault(_baseDifferenceJs);
+var _baseFlattenJs = require('./_baseFlatten.js');
+var _baseFlattenJsDefault = _parcelHelpers.interopDefault(_baseFlattenJs);
+var _baseUniqJs = require('./_baseUniq.js');
+var _baseUniqJsDefault = _parcelHelpers.interopDefault(_baseUniqJs);
+/**
+* The base implementation of methods like `_.xor`, without support for
+* iteratee shorthands, that accepts an array of arrays to inspect.
+*
+* @private
+* @param {Array} arrays The arrays to inspect.
+* @param {Function} [iteratee] The iteratee invoked per element.
+* @param {Function} [comparator] The comparator invoked per element.
+* @returns {Array} Returns the new array of values.
+*/
+function baseXor(arrays, iteratee, comparator) {
+  var length = arrays.length;
+  if (length < 2) {
+    return length ? _baseUniqJsDefault.default(arrays[0]) : [];
+  }
+  var index = -1, result = Array(length);
+  while (++index < length) {
+    var array = arrays[index], othIndex = -1;
+    while (++othIndex < length) {
+      if (othIndex != index) {
+        result[index] = _baseDifferenceJsDefault.default(result[index] || array, arrays[othIndex], iteratee, comparator);
+      }
+    }
+  }
+  return _baseUniqJsDefault.default(_baseFlattenJsDefault.default(result, 1), iteratee, comparator);
+}
+exports.default = baseXor;

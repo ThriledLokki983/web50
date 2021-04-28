@@ -1,0 +1,49 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayFilterJs = require('./_arrayFilter.js');
+var _arrayFilterJsDefault = _parcelHelpers.interopDefault(_arrayFilterJs);
+var _arrayMapJs = require('./_arrayMap.js');
+var _arrayMapJsDefault = _parcelHelpers.interopDefault(_arrayMapJs);
+var _basePropertyJs = require('./_baseProperty.js');
+var _basePropertyJsDefault = _parcelHelpers.interopDefault(_basePropertyJs);
+var _baseTimesJs = require('./_baseTimes.js');
+var _baseTimesJsDefault = _parcelHelpers.interopDefault(_baseTimesJs);
+var _isArrayLikeObjectJs = require('./isArrayLikeObject.js');
+var _isArrayLikeObjectJsDefault = _parcelHelpers.interopDefault(_isArrayLikeObjectJs);
+/*Built-in method references for those with the same name as other `lodash` methods.*/
+var nativeMax = Math.max;
+/**
+* This method is like `_.zip` except that it accepts an array of grouped
+* elements and creates an array regrouping the elements to their pre-zip
+* configuration.
+*
+* @static
+* @memberOf _
+* @since 1.2.0
+* @category Array
+* @param {Array} array The array of grouped elements to process.
+* @returns {Array} Returns the new array of regrouped elements.
+* @example
+*
+* var zipped = _.zip(['a', 'b'], [1, 2], [true, false]);
+* // => [['a', 1, true], ['b', 2, false]]
+*
+* _.unzip(zipped);
+* // => [['a', 'b'], [1, 2], [true, false]]
+*/
+function unzip(array) {
+  if (!(array && array.length)) {
+    return [];
+  }
+  var length = 0;
+  array = _arrayFilterJsDefault.default(array, function (group) {
+    if (_isArrayLikeObjectJsDefault.default(group)) {
+      length = nativeMax(group.length, length);
+      return true;
+    }
+  });
+  return _baseTimesJsDefault.default(length, function (index) {
+    return _arrayMapJsDefault.default(array, _basePropertyJsDefault.default(index));
+  });
+}
+exports.default = unzip;

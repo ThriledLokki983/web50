@@ -1,0 +1,25 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseAtJs = require('./_baseAt.js');
+var _baseAtJsDefault = _parcelHelpers.interopDefault(_baseAtJs);
+var _flatRestJs = require('./_flatRest.js');
+var _flatRestJsDefault = _parcelHelpers.interopDefault(_flatRestJs);
+/**
+* Creates an array of values corresponding to `paths` of `object`.
+*
+* @static
+* @memberOf _
+* @since 1.0.0
+* @category Object
+* @param {Object} object The object to iterate over.
+* @param {...(string|string[])} [paths] The property paths to pick.
+* @returns {Array} Returns the picked values.
+* @example
+*
+* var object = { 'a': [{ 'b': { 'c': 3 } }, 4] };
+*
+* _.at(object, ['a[0].b.c', 'a[1]']);
+* // => [3, 4]
+*/
+var at = _flatRestJsDefault.default(_baseAtJsDefault.default);
+exports.default = at;

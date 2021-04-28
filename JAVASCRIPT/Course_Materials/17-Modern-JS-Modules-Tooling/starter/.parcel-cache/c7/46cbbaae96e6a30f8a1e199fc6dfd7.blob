@@ -1,0 +1,24 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _castPathJs = require('./_castPath.js');
+var _castPathJsDefault = _parcelHelpers.interopDefault(_castPathJs);
+var _lastJs = require('./last.js');
+var _lastJsDefault = _parcelHelpers.interopDefault(_lastJs);
+var _parentJs = require('./_parent.js');
+var _parentJsDefault = _parcelHelpers.interopDefault(_parentJs);
+var _toKeyJs = require('./_toKey.js');
+var _toKeyJsDefault = _parcelHelpers.interopDefault(_toKeyJs);
+/**
+* The base implementation of `_.unset`.
+*
+* @private
+* @param {Object} object The object to modify.
+* @param {Array|string} path The property path to unset.
+* @returns {boolean} Returns `true` if the property is deleted, else `false`.
+*/
+function baseUnset(object, path) {
+  path = _castPathJsDefault.default(path, object);
+  object = _parentJsDefault.default(object, path);
+  return object == null || delete object[_toKeyJsDefault.default(_lastJsDefault.default(path))];
+}
+exports.default = baseUnset;

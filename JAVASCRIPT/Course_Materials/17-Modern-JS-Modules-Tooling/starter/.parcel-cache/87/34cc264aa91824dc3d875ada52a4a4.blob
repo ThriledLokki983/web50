@@ -1,0 +1,34 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _mapCacheClearJs = require('./_mapCacheClear.js');
+var _mapCacheClearJsDefault = _parcelHelpers.interopDefault(_mapCacheClearJs);
+var _mapCacheDeleteJs = require('./_mapCacheDelete.js');
+var _mapCacheDeleteJsDefault = _parcelHelpers.interopDefault(_mapCacheDeleteJs);
+var _mapCacheGetJs = require('./_mapCacheGet.js');
+var _mapCacheGetJsDefault = _parcelHelpers.interopDefault(_mapCacheGetJs);
+var _mapCacheHasJs = require('./_mapCacheHas.js');
+var _mapCacheHasJsDefault = _parcelHelpers.interopDefault(_mapCacheHasJs);
+var _mapCacheSetJs = require('./_mapCacheSet.js');
+var _mapCacheSetJsDefault = _parcelHelpers.interopDefault(_mapCacheSetJs);
+/**
+* Creates a map cache object to store key-value pairs.
+*
+* @private
+* @constructor
+* @param {Array} [entries] The key-value pairs to cache.
+*/
+function MapCache(entries) {
+  var index = -1, length = entries == null ? 0 : entries.length;
+  this.clear();
+  while (++index < length) {
+    var entry = entries[index];
+    this.set(entry[0], entry[1]);
+  }
+}
+// Add methods to `MapCache`.
+MapCache.prototype.clear = _mapCacheClearJsDefault.default;
+MapCache.prototype['delete'] = _mapCacheDeleteJsDefault.default;
+MapCache.prototype.get = _mapCacheGetJsDefault.default;
+MapCache.prototype.has = _mapCacheHasJsDefault.default;
+MapCache.prototype.set = _mapCacheSetJsDefault.default;
+exports.default = MapCache;

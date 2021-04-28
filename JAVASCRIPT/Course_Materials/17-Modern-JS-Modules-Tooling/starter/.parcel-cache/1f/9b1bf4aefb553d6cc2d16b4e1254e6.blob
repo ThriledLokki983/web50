@@ -1,0 +1,32 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayMapJs = require('./_arrayMap.js');
+var _arrayMapJsDefault = _parcelHelpers.interopDefault(_arrayMapJs);
+var _baseIntersectionJs = require('./_baseIntersection.js');
+var _baseIntersectionJsDefault = _parcelHelpers.interopDefault(_baseIntersectionJs);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+var _castArrayLikeObjectJs = require('./_castArrayLikeObject.js');
+var _castArrayLikeObjectJsDefault = _parcelHelpers.interopDefault(_castArrayLikeObjectJs);
+/**
+* Creates an array of unique values that are included in all given arrays
+* using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+* for equality comparisons. The order and references of result values are
+* determined by the first array.
+*
+* @static
+* @memberOf _
+* @since 0.1.0
+* @category Array
+* @param {...Array} [arrays] The arrays to inspect.
+* @returns {Array} Returns the new array of intersecting values.
+* @example
+*
+* _.intersection([2, 1], [2, 3]);
+* // => [2]
+*/
+var intersection = _baseRestJsDefault.default(function (arrays) {
+  var mapped = _arrayMapJsDefault.default(arrays, _castArrayLikeObjectJsDefault.default);
+  return mapped.length && mapped[0] === arrays[0] ? _baseIntersectionJsDefault.default(mapped) : [];
+});
+exports.default = intersection;

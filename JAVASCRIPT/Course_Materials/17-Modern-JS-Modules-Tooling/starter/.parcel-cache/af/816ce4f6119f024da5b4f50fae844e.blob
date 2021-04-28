@@ -1,0 +1,31 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseDelayJs = require('./_baseDelay.js');
+var _baseDelayJsDefault = _parcelHelpers.interopDefault(_baseDelayJs);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+var _toNumberJs = require('./toNumber.js');
+var _toNumberJsDefault = _parcelHelpers.interopDefault(_toNumberJs);
+/**
+* Invokes `func` after `wait` milliseconds. Any additional arguments are
+* provided to `func` when it's invoked.
+*
+* @static
+* @memberOf _
+* @since 0.1.0
+* @category Function
+* @param {Function} func The function to delay.
+* @param {number} wait The number of milliseconds to delay invocation.
+* @param {...*} [args] The arguments to invoke `func` with.
+* @returns {number} Returns the timer id.
+* @example
+*
+* _.delay(function(text) {
+*   console.log(text);
+* }, 1000, 'later');
+* // => Logs 'later' after one second.
+*/
+var delay = _baseRestJsDefault.default(function (func, wait, args) {
+  return _baseDelayJsDefault.default(func, _toNumberJsDefault.default(wait) || 0, args);
+});
+exports.default = delay;

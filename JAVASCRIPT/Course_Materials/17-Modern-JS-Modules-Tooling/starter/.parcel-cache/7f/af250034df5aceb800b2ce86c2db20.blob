@@ -1,0 +1,21 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _SetJs = require('./_Set.js');
+var _SetJsDefault = _parcelHelpers.interopDefault(_SetJs);
+var _noopJs = require('./noop.js');
+var _noopJsDefault = _parcelHelpers.interopDefault(_noopJs);
+var _setToArrayJs = require('./_setToArray.js');
+var _setToArrayJsDefault = _parcelHelpers.interopDefault(_setToArrayJs);
+/** Used as references for various `Number` constants.*/
+var INFINITY = 1 / 0;
+/**
+* Creates a set object of `values`.
+*
+* @private
+* @param {Array} values The values to add to the set.
+* @returns {Object} Returns the new set.
+*/
+var createSet = !(_SetJsDefault.default && 1 / _setToArrayJsDefault.default(new _SetJsDefault.default([, -0]))[1] == INFINITY) ? _noopJsDefault.default : function (values) {
+  return new _SetJsDefault.default(values);
+};
+exports.default = createSet;

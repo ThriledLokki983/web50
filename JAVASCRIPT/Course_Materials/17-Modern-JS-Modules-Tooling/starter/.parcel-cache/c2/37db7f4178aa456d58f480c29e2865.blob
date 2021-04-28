@@ -1,0 +1,21 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseFindIndexJs = require('./_baseFindIndex.js');
+var _baseFindIndexJsDefault = _parcelHelpers.interopDefault(_baseFindIndexJs);
+var _baseIsNaNJs = require('./_baseIsNaN.js');
+var _baseIsNaNJsDefault = _parcelHelpers.interopDefault(_baseIsNaNJs);
+var _strictIndexOfJs = require('./_strictIndexOf.js');
+var _strictIndexOfJsDefault = _parcelHelpers.interopDefault(_strictIndexOfJs);
+/**
+* The base implementation of `_.indexOf` without `fromIndex` bounds checks.
+*
+* @private
+* @param {Array} array The array to inspect.
+* @param {*} value The value to search for.
+* @param {number} fromIndex The index to search from.
+* @returns {number} Returns the index of the matched value, else `-1`.
+*/
+function baseIndexOf(array, value, fromIndex) {
+  return value === value ? _strictIndexOfJsDefault.default(array, value, fromIndex) : _baseFindIndexJsDefault.default(array, _baseIsNaNJsDefault.default, fromIndex);
+}
+exports.default = baseIndexOf;

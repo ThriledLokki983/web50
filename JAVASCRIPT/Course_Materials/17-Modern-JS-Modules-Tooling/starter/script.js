@@ -19,7 +19,8 @@ add('pizza', 4);
 
 // Common JS Modules
 
-import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+// import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+import cloneDeep from 'lodash-es'; // much better way to import 
 
 const state = {
   cart: [{
@@ -39,10 +40,15 @@ const state = {
 const stateClone = Object.assign({}, state);
 const stateDeepClone = cloneDeep(state);
 
-// console.log(stateClone);
+console.log(stateClone);
 
 state.user.loggedIn = false;
 
-// console.log(stateClone);
+console.log(stateClone);
 
-// console.log(stateDeepClone);
+console.log(stateDeepClone);
+
+// will keep the browser in the same state. 
+if (module.hot) {
+  module.hot.accept()
+}

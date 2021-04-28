@@ -1,0 +1,28 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayShuffleJs = require('./_arrayShuffle.js');
+var _arrayShuffleJsDefault = _parcelHelpers.interopDefault(_arrayShuffleJs);
+var _baseShuffleJs = require('./_baseShuffle.js');
+var _baseShuffleJsDefault = _parcelHelpers.interopDefault(_baseShuffleJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+/**
+* Creates an array of shuffled values, using a version of the
+* [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher-Yates_shuffle).
+*
+* @static
+* @memberOf _
+* @since 0.1.0
+* @category Collection
+* @param {Array|Object} collection The collection to shuffle.
+* @returns {Array} Returns the new shuffled array.
+* @example
+*
+* _.shuffle([1, 2, 3, 4]);
+* // => [4, 1, 3, 2]
+*/
+function shuffle(collection) {
+  var func = _isArrayJsDefault.default(collection) ? _arrayShuffleJsDefault.default : _baseShuffleJsDefault.default;
+  return func(collection);
+}
+exports.default = shuffle;

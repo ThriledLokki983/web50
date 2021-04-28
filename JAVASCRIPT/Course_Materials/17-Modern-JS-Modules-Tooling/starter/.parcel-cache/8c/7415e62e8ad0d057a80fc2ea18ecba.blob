@@ -1,0 +1,36 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseInvokeJs = require('./_baseInvoke.js');
+var _baseInvokeJsDefault = _parcelHelpers.interopDefault(_baseInvokeJs);
+var _baseRestJs = require('./_baseRest.js');
+var _baseRestJsDefault = _parcelHelpers.interopDefault(_baseRestJs);
+/**
+* Creates a function that invokes the method at `path` of a given object.
+* Any additional arguments are provided to the invoked method.
+*
+* @static
+* @memberOf _
+* @since 3.7.0
+* @category Util
+* @param {Array|string} path The path of the method to invoke.
+* @param {...*} [args] The arguments to invoke the method with.
+* @returns {Function} Returns the new invoker function.
+* @example
+*
+* var objects = [
+*   { 'a': { 'b': _.constant(2) } },
+*   { 'a': { 'b': _.constant(1) } }
+* ];
+*
+* _.map(objects, _.method('a.b'));
+* // => [2, 1]
+*
+* _.map(objects, _.method(['a', 'b']));
+* // => [2, 1]
+*/
+var method = _baseRestJsDefault.default(function (path, args) {
+  return function (object) {
+    return _baseInvokeJsDefault.default(object, path, args);
+  };
+});
+exports.default = method;

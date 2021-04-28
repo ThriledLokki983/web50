@@ -1,0 +1,17 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arraySampleJs = require('./_arraySample.js');
+var _arraySampleJsDefault = _parcelHelpers.interopDefault(_arraySampleJs);
+var _valuesJs = require('./values.js');
+var _valuesJsDefault = _parcelHelpers.interopDefault(_valuesJs);
+/**
+* The base implementation of `_.sample`.
+*
+* @private
+* @param {Array|Object} collection The collection to sample.
+* @returns {*} Returns the random element.
+*/
+function baseSample(collection) {
+  return _arraySampleJsDefault.default(_valuesJsDefault.default(collection));
+}
+exports.default = baseSample;

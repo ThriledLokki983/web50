@@ -1,0 +1,12 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _getNativeJs = require('./_getNative.js');
+var _getNativeJsDefault = _parcelHelpers.interopDefault(_getNativeJs);
+var defineProperty = (function () {
+  try {
+    var func = _getNativeJsDefault.default(Object, 'defineProperty');
+    func({}, '', {});
+    return func;
+  } catch (e) {}
+})();
+exports.default = defineProperty;

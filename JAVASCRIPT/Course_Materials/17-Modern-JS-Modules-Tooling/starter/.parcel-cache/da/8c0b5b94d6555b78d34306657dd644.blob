@@ -1,0 +1,7 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _getNativeJs = require('./_getNative.js');
+var _getNativeJsDefault = _parcelHelpers.interopDefault(_getNativeJs);
+/*Built-in method references that are verified to be native.*/
+var nativeCreate = _getNativeJsDefault.default(Object, 'create');
+exports.default = nativeCreate;

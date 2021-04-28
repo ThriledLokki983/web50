@@ -1,0 +1,34 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseConformsToJs = require('./_baseConformsTo.js');
+var _baseConformsToJsDefault = _parcelHelpers.interopDefault(_baseConformsToJs);
+var _keysJs = require('./keys.js');
+var _keysJsDefault = _parcelHelpers.interopDefault(_keysJs);
+/**
+* Checks if `object` conforms to `source` by invoking the predicate
+* properties of `source` with the corresponding property values of `object`.
+*
+* **Note:** This method is equivalent to `_.conforms` when `source` is
+* partially applied.
+*
+* @static
+* @memberOf _
+* @since 4.14.0
+* @category Lang
+* @param {Object} object The object to inspect.
+* @param {Object} source The object of property predicates to conform to.
+* @returns {boolean} Returns `true` if `object` conforms, else `false`.
+* @example
+*
+* var object = { 'a': 1, 'b': 2 };
+*
+* _.conformsTo(object, { 'b': function(n) { return n > 1; } });
+* // => true
+*
+* _.conformsTo(object, { 'b': function(n) { return n > 2; } });
+* // => false
+*/
+function conformsTo(object, source) {
+  return source == null || _baseConformsToJsDefault.default(object, source, _keysJsDefault.default(source));
+}
+exports.default = conformsTo;

@@ -1,0 +1,30 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseIsEqualDeepJs = require('./_baseIsEqualDeep.js');
+var _baseIsEqualDeepJsDefault = _parcelHelpers.interopDefault(_baseIsEqualDeepJs);
+var _isObjectLikeJs = require('./isObjectLike.js');
+var _isObjectLikeJsDefault = _parcelHelpers.interopDefault(_isObjectLikeJs);
+/**
+* The base implementation of `_.isEqual` which supports partial comparisons
+* and tracks traversed objects.
+*
+* @private
+* @param {*} value The value to compare.
+* @param {*} other The other value to compare.
+* @param {boolean} bitmask The bitmask flags.
+*  1 - Unordered comparison
+*  2 - Partial comparison
+* @param {Function} [customizer] The function to customize comparisons.
+* @param {Object} [stack] Tracks traversed `value` and `other` objects.
+* @returns {boolean} Returns `true` if the values are equivalent, else `false`.
+*/
+function baseIsEqual(value, other, bitmask, customizer, stack) {
+  if (value === other) {
+    return true;
+  }
+  if (value == null || other == null || !_isObjectLikeJsDefault.default(value) && !_isObjectLikeJsDefault.default(other)) {
+    return value !== value && other !== other;
+  }
+  return _baseIsEqualDeepJsDefault.default(value, other, bitmask, customizer, baseIsEqual, stack);
+}
+exports.default = baseIsEqual;

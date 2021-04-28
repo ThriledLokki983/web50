@@ -29,3 +29,16 @@
     > File downloading: Asynchronous
 
 > **NPM:** Contains open-source packages to include 3rd-party code in our own code (e.g. React, JQuery, Leaflet)
+
+## Using Parcel
+
+    npm i parcel - to install
+    npx parcel <entry pnt> - to start using parcel
+     - using npm script
+
+```
+// will keep the browser in the same state.
+if (module.hot) {
+  module.hot.accept()
+}
+```

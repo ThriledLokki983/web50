@@ -1,0 +1,26 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _LazyWrapperJs = require('./_LazyWrapper.js');
+var _LazyWrapperJsDefault = _parcelHelpers.interopDefault(_LazyWrapperJs);
+var _LodashWrapperJs = require('./_LodashWrapper.js');
+var _LodashWrapperJsDefault = _parcelHelpers.interopDefault(_LodashWrapperJs);
+var _copyArrayJs = require('./_copyArray.js');
+var _copyArrayJsDefault = _parcelHelpers.interopDefault(_copyArrayJs);
+/**
+* Creates a clone of `wrapper`.
+*
+* @private
+* @param {Object} wrapper The wrapper to clone.
+* @returns {Object} Returns the cloned wrapper.
+*/
+function wrapperClone(wrapper) {
+  if (wrapper instanceof _LazyWrapperJsDefault.default) {
+    return wrapper.clone();
+  }
+  var result = new _LodashWrapperJsDefault.default(wrapper.__wrapped__, wrapper.__chain__);
+  result.__actions__ = _copyArrayJsDefault.default(wrapper.__actions__);
+  result.__index__ = wrapper.__index__;
+  result.__values__ = wrapper.__values__;
+  return result;
+}
+exports.default = wrapperClone;

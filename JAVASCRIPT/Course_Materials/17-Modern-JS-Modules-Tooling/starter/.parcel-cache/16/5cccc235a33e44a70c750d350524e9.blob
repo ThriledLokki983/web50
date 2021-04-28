@@ -1,0 +1,54 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseIndexOfJs = require('./_baseIndexOf.js');
+var _baseIndexOfJsDefault = _parcelHelpers.interopDefault(_baseIndexOfJs);
+var _isArrayLikeJs = require('./isArrayLike.js');
+var _isArrayLikeJsDefault = _parcelHelpers.interopDefault(_isArrayLikeJs);
+var _isStringJs = require('./isString.js');
+var _isStringJsDefault = _parcelHelpers.interopDefault(_isStringJs);
+var _toIntegerJs = require('./toInteger.js');
+var _toIntegerJsDefault = _parcelHelpers.interopDefault(_toIntegerJs);
+var _valuesJs = require('./values.js');
+var _valuesJsDefault = _parcelHelpers.interopDefault(_valuesJs);
+/*Built-in method references for those with the same name as other `lodash` methods.*/
+var nativeMax = Math.max;
+/**
+* Checks if `value` is in `collection`. If `collection` is a string, it's
+* checked for a substring of `value`, otherwise
+* [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+* is used for equality comparisons. If `fromIndex` is negative, it's used as
+* the offset from the end of `collection`.
+*
+* @static
+* @memberOf _
+* @since 0.1.0
+* @category Collection
+* @param {Array|Object|string} collection The collection to inspect.
+* @param {*} value The value to search for.
+* @param {number} [fromIndex=0] The index to search from.
+* @param- {Object} [guard] Enables use as an iteratee for methods like `_.reduce`.
+* @returns {boolean} Returns `true` if `value` is found, else `false`.
+* @example
+*
+* _.includes([1, 2, 3], 1);
+* // => true
+*
+* _.includes([1, 2, 3], 1, 2);
+* // => false
+*
+* _.includes({ 'a': 1, 'b': 2 }, 1);
+* // => true
+*
+* _.includes('abcd', 'bc');
+* // => true
+*/
+function includes(collection, value, fromIndex, guard) {
+  collection = _isArrayLikeJsDefault.default(collection) ? collection : _valuesJsDefault.default(collection);
+  fromIndex = fromIndex && !guard ? _toIntegerJsDefault.default(fromIndex) : 0;
+  var length = collection.length;
+  if (fromIndex < 0) {
+    fromIndex = nativeMax(length + fromIndex, 0);
+  }
+  return _isStringJsDefault.default(collection) ? fromIndex <= length && collection.indexOf(value, fromIndex) > -1 : !!length && _baseIndexOfJsDefault.default(collection, value, fromIndex) > -1;
+}
+exports.default = includes;

@@ -1,0 +1,7 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _WeakMapJs = require('./_WeakMap.js');
+var _WeakMapJsDefault = _parcelHelpers.interopDefault(_WeakMapJs);
+/** Used to store function metadata.*/
+var metaMap = _WeakMapJsDefault.default && new _WeakMapJsDefault.default();
+exports.default = metaMap;

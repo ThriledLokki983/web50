@@ -1,0 +1,18 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseGetTagJs = require('./_baseGetTag.js');
+var _baseGetTagJsDefault = _parcelHelpers.interopDefault(_baseGetTagJs);
+var _isObjectLikeJs = require('./isObjectLike.js');
+var _isObjectLikeJsDefault = _parcelHelpers.interopDefault(_isObjectLikeJs);
+var arrayBufferTag = '[object ArrayBuffer]';
+/**
+* The base implementation of `_.isArrayBuffer` without Node.js optimizations.
+*
+* @private
+* @param {*} value The value to check.
+* @returns {boolean} Returns `true` if `value` is an array buffer, else `false`.
+*/
+function baseIsArrayBuffer(value) {
+  return _isObjectLikeJsDefault.default(value) && _baseGetTagJsDefault.default(value) == arrayBufferTag;
+}
+exports.default = baseIsArrayBuffer;

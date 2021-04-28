@@ -1,0 +1,30 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _isPrototypeJs = require('./_isPrototype.js');
+var _isPrototypeJsDefault = _parcelHelpers.interopDefault(_isPrototypeJs);
+var _nativeKeysJs = require('./_nativeKeys.js');
+var _nativeKeysJsDefault = _parcelHelpers.interopDefault(_nativeKeysJs);
+/** Used for built-in method references.*/
+var objectProto = Object.prototype;
+/** Used to check objects for own properties.*/
+var hasOwnProperty = objectProto.hasOwnProperty;
+/**
+* The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
+*
+* @private
+* @param {Object} object The object to query.
+* @returns {Array} Returns the array of property names.
+*/
+function baseKeys(object) {
+  if (!_isPrototypeJsDefault.default(object)) {
+    return _nativeKeysJsDefault.default(object);
+  }
+  var result = [];
+  for (var key in Object(object)) {
+    if (hasOwnProperty.call(object, key) && key != 'constructor') {
+      result.push(key);
+    }
+  }
+  return result;
+}
+exports.default = baseKeys;

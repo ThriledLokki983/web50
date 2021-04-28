@@ -1,0 +1,20 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _getJs = require('./get.js');
+var _getJsDefault = _parcelHelpers.interopDefault(_getJs);
+/**
+* The base implementation of `_.at` without support for individual paths.
+*
+* @private
+* @param {Object} object The object to iterate over.
+* @param {string[]} paths The property paths to pick.
+* @returns {Array} Returns the picked elements.
+*/
+function baseAt(object, paths) {
+  var index = -1, length = paths.length, result = Array(length), skip = object == null;
+  while (++index < length) {
+    result[index] = skip ? undefined : _getJsDefault.default(object, paths[index]);
+  }
+  return result;
+}
+exports.default = baseAt;

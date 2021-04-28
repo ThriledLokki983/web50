@@ -1,0 +1,47 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayMapJs = require('./_arrayMap.js');
+var _arrayMapJsDefault = _parcelHelpers.interopDefault(_arrayMapJs);
+var _baseIndexOfJs = require('./_baseIndexOf.js');
+var _baseIndexOfJsDefault = _parcelHelpers.interopDefault(_baseIndexOfJs);
+var _baseIndexOfWithJs = require('./_baseIndexOfWith.js');
+var _baseIndexOfWithJsDefault = _parcelHelpers.interopDefault(_baseIndexOfWithJs);
+var _baseUnaryJs = require('./_baseUnary.js');
+var _baseUnaryJsDefault = _parcelHelpers.interopDefault(_baseUnaryJs);
+var _copyArrayJs = require('./_copyArray.js');
+var _copyArrayJsDefault = _parcelHelpers.interopDefault(_copyArrayJs);
+/** Used for built-in method references.*/
+var arrayProto = Array.prototype;
+/** Built-in value references.*/
+var splice = arrayProto.splice;
+/**
+* The base implementation of `_.pullAllBy` without support for iteratee
+* shorthands.
+*
+* @private
+* @param {Array} array The array to modify.
+* @param {Array} values The values to remove.
+* @param {Function} [iteratee] The iteratee invoked per element.
+* @param {Function} [comparator] The comparator invoked per element.
+* @returns {Array} Returns `array`.
+*/
+function basePullAll(array, values, iteratee, comparator) {
+  var indexOf = comparator ? _baseIndexOfWithJsDefault.default : _baseIndexOfJsDefault.default, index = -1, length = values.length, seen = array;
+  if (array === values) {
+    values = _copyArrayJsDefault.default(values);
+  }
+  if (iteratee) {
+    seen = _arrayMapJsDefault.default(array, _baseUnaryJsDefault.default(iteratee));
+  }
+  while (++index < length) {
+    var fromIndex = 0, value = values[index], computed = iteratee ? iteratee(value) : value;
+    while ((fromIndex = indexOf(seen, computed, fromIndex, comparator)) > -1) {
+      if (seen !== array) {
+        splice.call(seen, fromIndex, 1);
+      }
+      splice.call(array, fromIndex, 1);
+    }
+  }
+  return array;
+}
+exports.default = basePullAll;

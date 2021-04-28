@@ -1,0 +1,33 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _baseRangeJs = require('./_baseRange.js');
+var _baseRangeJsDefault = _parcelHelpers.interopDefault(_baseRangeJs);
+var _isIterateeCallJs = require('./_isIterateeCall.js');
+var _isIterateeCallJsDefault = _parcelHelpers.interopDefault(_isIterateeCallJs);
+var _toFiniteJs = require('./toFinite.js');
+var _toFiniteJsDefault = _parcelHelpers.interopDefault(_toFiniteJs);
+/**
+* Creates a `_.range` or `_.rangeRight` function.
+*
+* @private
+* @param {boolean} [fromRight] Specify iterating from right to left.
+* @returns {Function} Returns the new range function.
+*/
+function createRange(fromRight) {
+  return function (start, end, step) {
+    if (step && typeof step != 'number' && _isIterateeCallJsDefault.default(start, end, step)) {
+      end = step = undefined;
+    }
+    // Ensure the sign of `-0` is preserved.
+    start = _toFiniteJsDefault.default(start);
+    if (end === undefined) {
+      end = start;
+      start = 0;
+    } else {
+      end = _toFiniteJsDefault.default(end);
+    }
+    step = step === undefined ? start < end ? 1 : -1 : _toFiniteJsDefault.default(step);
+    return _baseRangeJsDefault.default(start, end, step, fromRight);
+  };
+}
+exports.default = createRange;

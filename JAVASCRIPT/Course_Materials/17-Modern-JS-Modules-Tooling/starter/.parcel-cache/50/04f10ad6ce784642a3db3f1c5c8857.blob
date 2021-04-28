@@ -1,0 +1,17 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _metaMapJs = require('./_metaMap.js');
+var _metaMapJsDefault = _parcelHelpers.interopDefault(_metaMapJs);
+var _noopJs = require('./noop.js');
+var _noopJsDefault = _parcelHelpers.interopDefault(_noopJs);
+/**
+* Gets metadata for `func`.
+*
+* @private
+* @param {Function} func The function to query.
+* @returns {*} Returns the metadata for `func`.
+*/
+var getData = !_metaMapJsDefault.default ? _noopJsDefault.default : function (func) {
+  return _metaMapJsDefault.default.get(func);
+};
+exports.default = getData;

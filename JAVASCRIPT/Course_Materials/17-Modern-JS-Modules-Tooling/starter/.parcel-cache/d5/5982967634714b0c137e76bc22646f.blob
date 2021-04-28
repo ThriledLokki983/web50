@@ -1,0 +1,14 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+/**
+* Gets the argument placeholder value for `func`.
+*
+* @private
+* @param {Function} func The function to inspect.
+* @returns {*} Returns the placeholder value.
+*/
+function getHolder(func) {
+  var object = func;
+  return object.placeholder;
+}
+exports.default = getHolder;

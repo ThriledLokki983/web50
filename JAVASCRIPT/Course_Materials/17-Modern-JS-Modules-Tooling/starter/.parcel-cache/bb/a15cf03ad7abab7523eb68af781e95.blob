@@ -1,0 +1,30 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _LazyWrapperJs = require('./_LazyWrapper.js');
+var _LazyWrapperJsDefault = _parcelHelpers.interopDefault(_LazyWrapperJs);
+var _getDataJs = require('./_getData.js');
+var _getDataJsDefault = _parcelHelpers.interopDefault(_getDataJs);
+var _getFuncNameJs = require('./_getFuncName.js');
+var _getFuncNameJsDefault = _parcelHelpers.interopDefault(_getFuncNameJs);
+var _wrapperLodashJs = require('./wrapperLodash.js');
+var _wrapperLodashJsDefault = _parcelHelpers.interopDefault(_wrapperLodashJs);
+/**
+* Checks if `func` has a lazy counterpart.
+*
+* @private
+* @param {Function} func The function to check.
+* @returns {boolean} Returns `true` if `func` has a lazy counterpart,
+*  else `false`.
+*/
+function isLaziable(func) {
+  var funcName = _getFuncNameJsDefault.default(func), other = _wrapperLodashJsDefault.default[funcName];
+  if (typeof other != 'function' || !((funcName in _LazyWrapperJsDefault.default.prototype))) {
+    return false;
+  }
+  if (func === other) {
+    return true;
+  }
+  var data = _getDataJsDefault.default(other);
+  return !!data && func === data[0];
+}
+exports.default = isLaziable;

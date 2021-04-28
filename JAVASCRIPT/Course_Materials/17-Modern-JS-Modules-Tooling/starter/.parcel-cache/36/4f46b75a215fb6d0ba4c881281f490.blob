@@ -1,0 +1,147 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "countBy", function () {
+  return _countByJsDefault.default;
+});
+_parcelHelpers.export(exports, "each", function () {
+  return _eachJsDefault.default;
+});
+_parcelHelpers.export(exports, "eachRight", function () {
+  return _eachRightJsDefault.default;
+});
+_parcelHelpers.export(exports, "every", function () {
+  return _everyJsDefault.default;
+});
+_parcelHelpers.export(exports, "filter", function () {
+  return _filterJsDefault.default;
+});
+_parcelHelpers.export(exports, "find", function () {
+  return _findJsDefault.default;
+});
+_parcelHelpers.export(exports, "findLast", function () {
+  return _findLastJsDefault.default;
+});
+_parcelHelpers.export(exports, "flatMap", function () {
+  return _flatMapJsDefault.default;
+});
+_parcelHelpers.export(exports, "flatMapDeep", function () {
+  return _flatMapDeepJsDefault.default;
+});
+_parcelHelpers.export(exports, "flatMapDepth", function () {
+  return _flatMapDepthJsDefault.default;
+});
+_parcelHelpers.export(exports, "forEach", function () {
+  return _forEachJsDefault.default;
+});
+_parcelHelpers.export(exports, "forEachRight", function () {
+  return _forEachRightJsDefault.default;
+});
+_parcelHelpers.export(exports, "groupBy", function () {
+  return _groupByJsDefault.default;
+});
+_parcelHelpers.export(exports, "includes", function () {
+  return _includesJsDefault.default;
+});
+_parcelHelpers.export(exports, "invokeMap", function () {
+  return _invokeMapJsDefault.default;
+});
+_parcelHelpers.export(exports, "keyBy", function () {
+  return _keyByJsDefault.default;
+});
+_parcelHelpers.export(exports, "map", function () {
+  return _mapJsDefault.default;
+});
+_parcelHelpers.export(exports, "orderBy", function () {
+  return _orderByJsDefault.default;
+});
+_parcelHelpers.export(exports, "partition", function () {
+  return _partitionJsDefault.default;
+});
+_parcelHelpers.export(exports, "reduce", function () {
+  return _reduceJsDefault.default;
+});
+_parcelHelpers.export(exports, "reduceRight", function () {
+  return _reduceRightJsDefault.default;
+});
+_parcelHelpers.export(exports, "reject", function () {
+  return _rejectJsDefault.default;
+});
+_parcelHelpers.export(exports, "sample", function () {
+  return _sampleJsDefault.default;
+});
+_parcelHelpers.export(exports, "sampleSize", function () {
+  return _sampleSizeJsDefault.default;
+});
+_parcelHelpers.export(exports, "shuffle", function () {
+  return _shuffleJsDefault.default;
+});
+_parcelHelpers.export(exports, "size", function () {
+  return _sizeJsDefault.default;
+});
+_parcelHelpers.export(exports, "some", function () {
+  return _someJsDefault.default;
+});
+_parcelHelpers.export(exports, "sortBy", function () {
+  return _sortByJsDefault.default;
+});
+_parcelHelpers.export(exports, "default", function () {
+  return _collectionDefaultJsDefault.default;
+});
+var _countByJs = require('./countBy.js');
+var _countByJsDefault = _parcelHelpers.interopDefault(_countByJs);
+var _eachJs = require('./each.js');
+var _eachJsDefault = _parcelHelpers.interopDefault(_eachJs);
+var _eachRightJs = require('./eachRight.js');
+var _eachRightJsDefault = _parcelHelpers.interopDefault(_eachRightJs);
+var _everyJs = require('./every.js');
+var _everyJsDefault = _parcelHelpers.interopDefault(_everyJs);
+var _filterJs = require('./filter.js');
+var _filterJsDefault = _parcelHelpers.interopDefault(_filterJs);
+var _findJs = require('./find.js');
+var _findJsDefault = _parcelHelpers.interopDefault(_findJs);
+var _findLastJs = require('./findLast.js');
+var _findLastJsDefault = _parcelHelpers.interopDefault(_findLastJs);
+var _flatMapJs = require('./flatMap.js');
+var _flatMapJsDefault = _parcelHelpers.interopDefault(_flatMapJs);
+var _flatMapDeepJs = require('./flatMapDeep.js');
+var _flatMapDeepJsDefault = _parcelHelpers.interopDefault(_flatMapDeepJs);
+var _flatMapDepthJs = require('./flatMapDepth.js');
+var _flatMapDepthJsDefault = _parcelHelpers.interopDefault(_flatMapDepthJs);
+var _forEachJs = require('./forEach.js');
+var _forEachJsDefault = _parcelHelpers.interopDefault(_forEachJs);
+var _forEachRightJs = require('./forEachRight.js');
+var _forEachRightJsDefault = _parcelHelpers.interopDefault(_forEachRightJs);
+var _groupByJs = require('./groupBy.js');
+var _groupByJsDefault = _parcelHelpers.interopDefault(_groupByJs);
+var _includesJs = require('./includes.js');
+var _includesJsDefault = _parcelHelpers.interopDefault(_includesJs);
+var _invokeMapJs = require('./invokeMap.js');
+var _invokeMapJsDefault = _parcelHelpers.interopDefault(_invokeMapJs);
+var _keyByJs = require('./keyBy.js');
+var _keyByJsDefault = _parcelHelpers.interopDefault(_keyByJs);
+var _mapJs = require('./map.js');
+var _mapJsDefault = _parcelHelpers.interopDefault(_mapJs);
+var _orderByJs = require('./orderBy.js');
+var _orderByJsDefault = _parcelHelpers.interopDefault(_orderByJs);
+var _partitionJs = require('./partition.js');
+var _partitionJsDefault = _parcelHelpers.interopDefault(_partitionJs);
+var _reduceJs = require('./reduce.js');
+var _reduceJsDefault = _parcelHelpers.interopDefault(_reduceJs);
+var _reduceRightJs = require('./reduceRight.js');
+var _reduceRightJsDefault = _parcelHelpers.interopDefault(_reduceRightJs);
+var _rejectJs = require('./reject.js');
+var _rejectJsDefault = _parcelHelpers.interopDefault(_rejectJs);
+var _sampleJs = require('./sample.js');
+var _sampleJsDefault = _parcelHelpers.interopDefault(_sampleJs);
+var _sampleSizeJs = require('./sampleSize.js');
+var _sampleSizeJsDefault = _parcelHelpers.interopDefault(_sampleSizeJs);
+var _shuffleJs = require('./shuffle.js');
+var _shuffleJsDefault = _parcelHelpers.interopDefault(_shuffleJs);
+var _sizeJs = require('./size.js');
+var _sizeJsDefault = _parcelHelpers.interopDefault(_sizeJs);
+var _someJs = require('./some.js');
+var _someJsDefault = _parcelHelpers.interopDefault(_someJs);
+var _sortByJs = require('./sortBy.js');
+var _sortByJsDefault = _parcelHelpers.interopDefault(_sortByJs);
+var _collectionDefaultJs = require('./collection.default.js');
+var _collectionDefaultJsDefault = _parcelHelpers.interopDefault(_collectionDefaultJs);

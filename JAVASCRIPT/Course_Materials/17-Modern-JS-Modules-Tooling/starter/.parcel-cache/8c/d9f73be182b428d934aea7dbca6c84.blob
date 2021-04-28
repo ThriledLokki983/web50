@@ -1,0 +1,71 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _StackJs = require('./_Stack.js');
+var _StackJsDefault = _parcelHelpers.interopDefault(_StackJs);
+var _equalArraysJs = require('./_equalArrays.js');
+var _equalArraysJsDefault = _parcelHelpers.interopDefault(_equalArraysJs);
+var _equalByTagJs = require('./_equalByTag.js');
+var _equalByTagJsDefault = _parcelHelpers.interopDefault(_equalByTagJs);
+var _equalObjectsJs = require('./_equalObjects.js');
+var _equalObjectsJsDefault = _parcelHelpers.interopDefault(_equalObjectsJs);
+var _getTagJs = require('./_getTag.js');
+var _getTagJsDefault = _parcelHelpers.interopDefault(_getTagJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+var _isBufferJs = require('./isBuffer.js');
+var _isBufferJsDefault = _parcelHelpers.interopDefault(_isBufferJs);
+var _isTypedArrayJs = require('./isTypedArray.js');
+var _isTypedArrayJsDefault = _parcelHelpers.interopDefault(_isTypedArrayJs);
+/** Used to compose bitmasks for value comparisons.*/
+var COMPARE_PARTIAL_FLAG = 1;
+/** `Object#toString` result references.*/
+var argsTag = '[object Arguments]', arrayTag = '[object Array]', objectTag = '[object Object]';
+/** Used for built-in method references.*/
+var objectProto = Object.prototype;
+/** Used to check objects for own properties.*/
+var hasOwnProperty = objectProto.hasOwnProperty;
+/**
+* A specialized version of `baseIsEqual` for arrays and objects which performs
+* deep comparisons and tracks traversed objects enabling objects with circular
+* references to be compared.
+*
+* @private
+* @param {Object} object The object to compare.
+* @param {Object} other The other object to compare.
+* @param {number} bitmask The bitmask flags. See `baseIsEqual` for more details.
+* @param {Function} customizer The function to customize comparisons.
+* @param {Function} equalFunc The function to determine equivalents of values.
+* @param {Object} [stack] Tracks traversed `object` and `other` objects.
+* @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
+*/
+function baseIsEqualDeep(object, other, bitmask, customizer, equalFunc, stack) {
+  var objIsArr = _isArrayJsDefault.default(object), othIsArr = _isArrayJsDefault.default(other), objTag = objIsArr ? arrayTag : _getTagJsDefault.default(object), othTag = othIsArr ? arrayTag : _getTagJsDefault.default(other);
+  objTag = objTag == argsTag ? objectTag : objTag;
+  othTag = othTag == argsTag ? objectTag : othTag;
+  var objIsObj = objTag == objectTag, othIsObj = othTag == objectTag, isSameTag = objTag == othTag;
+  if (isSameTag && _isBufferJsDefault.default(object)) {
+    if (!_isBufferJsDefault.default(other)) {
+      return false;
+    }
+    objIsArr = true;
+    objIsObj = false;
+  }
+  if (isSameTag && !objIsObj) {
+    stack || (stack = new _StackJsDefault.default());
+    return objIsArr || _isTypedArrayJsDefault.default(object) ? _equalArraysJsDefault.default(object, other, bitmask, customizer, equalFunc, stack) : _equalByTagJsDefault.default(object, other, objTag, bitmask, customizer, equalFunc, stack);
+  }
+  if (!(bitmask & COMPARE_PARTIAL_FLAG)) {
+    var objIsWrapped = objIsObj && hasOwnProperty.call(object, '__wrapped__'), othIsWrapped = othIsObj && hasOwnProperty.call(other, '__wrapped__');
+    if (objIsWrapped || othIsWrapped) {
+      var objUnwrapped = objIsWrapped ? object.value() : object, othUnwrapped = othIsWrapped ? other.value() : other;
+      stack || (stack = new _StackJsDefault.default());
+      return equalFunc(objUnwrapped, othUnwrapped, bitmask, customizer, stack);
+    }
+  }
+  if (!isSameTag) {
+    return false;
+  }
+  stack || (stack = new _StackJsDefault.default());
+  return _equalObjectsJsDefault.default(object, other, bitmask, customizer, equalFunc, stack);
+}
+exports.default = baseIsEqualDeep;

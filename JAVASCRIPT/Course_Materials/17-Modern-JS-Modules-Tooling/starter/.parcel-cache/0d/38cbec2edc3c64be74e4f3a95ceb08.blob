@@ -1,0 +1,19 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _asciiToArrayJs = require('./_asciiToArray.js');
+var _asciiToArrayJsDefault = _parcelHelpers.interopDefault(_asciiToArrayJs);
+var _hasUnicodeJs = require('./_hasUnicode.js');
+var _hasUnicodeJsDefault = _parcelHelpers.interopDefault(_hasUnicodeJs);
+var _unicodeToArrayJs = require('./_unicodeToArray.js');
+var _unicodeToArrayJsDefault = _parcelHelpers.interopDefault(_unicodeToArrayJs);
+/**
+* Converts `string` to an array.
+*
+* @private
+* @param {string} string The string to convert.
+* @returns {Array} Returns the converted array.
+*/
+function stringToArray(string) {
+  return _hasUnicodeJsDefault.default(string) ? _unicodeToArrayJsDefault.default(string) : _asciiToArrayJsDefault.default(string);
+}
+exports.default = stringToArray;

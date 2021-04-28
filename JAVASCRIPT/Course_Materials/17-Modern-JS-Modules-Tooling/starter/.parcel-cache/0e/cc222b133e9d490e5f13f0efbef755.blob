@@ -1,0 +1,38 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _SymbolJs = require('./_Symbol.js');
+var _SymbolJsDefault = _parcelHelpers.interopDefault(_SymbolJs);
+var _arrayMapJs = require('./_arrayMap.js');
+var _arrayMapJsDefault = _parcelHelpers.interopDefault(_arrayMapJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+var _isSymbolJs = require('./isSymbol.js');
+var _isSymbolJsDefault = _parcelHelpers.interopDefault(_isSymbolJs);
+/** Used as references for various `Number` constants.*/
+var INFINITY = 1 / 0;
+/** Used to convert symbols to primitives and strings.*/
+var symbolProto = _SymbolJsDefault.default ? _SymbolJsDefault.default.prototype : undefined, symbolToString = symbolProto ? symbolProto.toString : undefined;
+/**
+* The base implementation of `_.toString` which doesn't convert nullish
+* values to empty strings.
+*
+* @private
+* @param {*} value The value to process.
+* @returns {string} Returns the string.
+*/
+function baseToString(value) {
+  // Exit early for strings to avoid a performance hit in some environments.
+  if (typeof value == 'string') {
+    return value;
+  }
+  if (_isArrayJsDefault.default(value)) {
+    // Recursively convert values (susceptible to call stack limits).
+    return _arrayMapJsDefault.default(value, baseToString) + '';
+  }
+  if (_isSymbolJsDefault.default(value)) {
+    return symbolToString ? symbolToString.call(value) : '';
+  }
+  var result = value + '';
+  return result == '0' && 1 / value == -INFINITY ? '-0' : result;
+}
+exports.default = baseToString;

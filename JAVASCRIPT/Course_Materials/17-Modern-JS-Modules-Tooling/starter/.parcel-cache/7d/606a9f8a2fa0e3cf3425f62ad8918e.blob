@@ -1,0 +1,59 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _arrayMapJs = require('./_arrayMap.js');
+var _arrayMapJsDefault = _parcelHelpers.interopDefault(_arrayMapJs);
+var _baseGetJs = require('./_baseGet.js');
+var _baseGetJsDefault = _parcelHelpers.interopDefault(_baseGetJs);
+var _baseIterateeJs = require('./_baseIteratee.js');
+var _baseIterateeJsDefault = _parcelHelpers.interopDefault(_baseIterateeJs);
+var _baseMapJs = require('./_baseMap.js');
+var _baseMapJsDefault = _parcelHelpers.interopDefault(_baseMapJs);
+var _baseSortByJs = require('./_baseSortBy.js');
+var _baseSortByJsDefault = _parcelHelpers.interopDefault(_baseSortByJs);
+var _baseUnaryJs = require('./_baseUnary.js');
+var _baseUnaryJsDefault = _parcelHelpers.interopDefault(_baseUnaryJs);
+var _compareMultipleJs = require('./_compareMultiple.js');
+var _compareMultipleJsDefault = _parcelHelpers.interopDefault(_compareMultipleJs);
+var _identityJs = require('./identity.js');
+var _identityJsDefault = _parcelHelpers.interopDefault(_identityJs);
+var _isArrayJs = require('./isArray.js');
+var _isArrayJsDefault = _parcelHelpers.interopDefault(_isArrayJs);
+/**
+* The base implementation of `_.orderBy` without param guards.
+*
+* @private
+* @param {Array|Object} collection The collection to iterate over.
+* @param {Function[]|Object[]|string[]} iteratees The iteratees to sort by.
+* @param {string[]} orders The sort orders of `iteratees`.
+* @returns {Array} Returns the new sorted array.
+*/
+function baseOrderBy(collection, iteratees, orders) {
+  if (iteratees.length) {
+    iteratees = _arrayMapJsDefault.default(iteratees, function (iteratee) {
+      if (_isArrayJsDefault.default(iteratee)) {
+        return function (value) {
+          return _baseGetJsDefault.default(value, iteratee.length === 1 ? iteratee[0] : iteratee);
+        };
+      }
+      return iteratee;
+    });
+  } else {
+    iteratees = [_identityJsDefault.default];
+  }
+  var index = -1;
+  iteratees = _arrayMapJsDefault.default(iteratees, _baseUnaryJsDefault.default(_baseIterateeJsDefault.default));
+  var result = _baseMapJsDefault.default(collection, function (value, key, collection) {
+    var criteria = _arrayMapJsDefault.default(iteratees, function (iteratee) {
+      return iteratee(value);
+    });
+    return {
+      'criteria': criteria,
+      'index': ++index,
+      'value': value
+    };
+  });
+  return _baseSortByJsDefault.default(result, function (object, other) {
+    return _compareMultipleJsDefault.default(object, other, orders);
+  });
+}
+exports.default = baseOrderBy;

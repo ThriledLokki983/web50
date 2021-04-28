@@ -1,0 +1,46 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _assignValueJs = require('./_assignValue.js');
+var _assignValueJsDefault = _parcelHelpers.interopDefault(_assignValueJs);
+var _castPathJs = require('./_castPath.js');
+var _castPathJsDefault = _parcelHelpers.interopDefault(_castPathJs);
+var _isIndexJs = require('./_isIndex.js');
+var _isIndexJsDefault = _parcelHelpers.interopDefault(_isIndexJs);
+var _isObjectJs = require('./isObject.js');
+var _isObjectJsDefault = _parcelHelpers.interopDefault(_isObjectJs);
+var _toKeyJs = require('./_toKey.js');
+var _toKeyJsDefault = _parcelHelpers.interopDefault(_toKeyJs);
+/**
+* The base implementation of `_.set`.
+*
+* @private
+* @param {Object} object The object to modify.
+* @param {Array|string} path The path of the property to set.
+* @param {*} value The value to set.
+* @param {Function} [customizer] The function to customize path creation.
+* @returns {Object} Returns `object`.
+*/
+function baseSet(object, path, value, customizer) {
+  if (!_isObjectJsDefault.default(object)) {
+    return object;
+  }
+  path = _castPathJsDefault.default(path, object);
+  var index = -1, length = path.length, lastIndex = length - 1, nested = object;
+  while (nested != null && ++index < length) {
+    var key = _toKeyJsDefault.default(path[index]), newValue = value;
+    if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
+      return object;
+    }
+    if (index != lastIndex) {
+      var objValue = nested[key];
+      newValue = customizer ? customizer(objValue, key, nested) : undefined;
+      if (newValue === undefined) {
+        newValue = _isObjectJsDefault.default(objValue) ? objValue : _isIndexJsDefault.default(path[index + 1]) ? [] : {};
+      }
+    }
+    _assignValueJsDefault.default(nested, key, newValue);
+    nested = nested[key];
+  }
+  return object;
+}
+exports.default = baseSet;

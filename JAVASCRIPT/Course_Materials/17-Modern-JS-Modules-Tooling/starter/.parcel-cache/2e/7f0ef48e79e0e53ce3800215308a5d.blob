@@ -1,0 +1,13 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _clampJs = require('./clamp.js');
+var _clampJsDefault = _parcelHelpers.interopDefault(_clampJs);
+var _inRangeJs = require('./inRange.js');
+var _inRangeJsDefault = _parcelHelpers.interopDefault(_inRangeJs);
+var _randomJs = require('./random.js');
+var _randomJsDefault = _parcelHelpers.interopDefault(_randomJs);
+exports.default = {
+  clamp: _clampJsDefault.default,
+  inRange: _inRangeJsDefault.default,
+  random: _randomJsDefault.default
+};

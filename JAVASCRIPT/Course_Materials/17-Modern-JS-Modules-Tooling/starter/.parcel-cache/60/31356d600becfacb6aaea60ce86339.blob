@@ -1,0 +1,27 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _MapCacheJs = require('./_MapCache.js');
+var _MapCacheJsDefault = _parcelHelpers.interopDefault(_MapCacheJs);
+var _setCacheAddJs = require('./_setCacheAdd.js');
+var _setCacheAddJsDefault = _parcelHelpers.interopDefault(_setCacheAddJs);
+var _setCacheHasJs = require('./_setCacheHas.js');
+var _setCacheHasJsDefault = _parcelHelpers.interopDefault(_setCacheHasJs);
+/**
+*
+* Creates an array cache object to store unique values.
+*
+* @private
+* @constructor
+* @param {Array} [values] The values to cache.
+*/
+function SetCache(values) {
+  var index = -1, length = values == null ? 0 : values.length;
+  this.__data__ = new _MapCacheJsDefault.default();
+  while (++index < length) {
+    this.add(values[index]);
+  }
+}
+// Add methods to `SetCache`.
+SetCache.prototype.add = SetCache.prototype.push = _setCacheAddJsDefault.default;
+SetCache.prototype.has = _setCacheHasJsDefault.default;
+exports.default = SetCache;

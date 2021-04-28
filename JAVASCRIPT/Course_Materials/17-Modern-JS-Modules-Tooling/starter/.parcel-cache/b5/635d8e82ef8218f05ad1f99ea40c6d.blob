@@ -1,0 +1,25 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _toStringJs = require('./toString.js');
+var _toStringJsDefault = _parcelHelpers.interopDefault(_toStringJs);
+var _upperFirstJs = require('./upperFirst.js');
+var _upperFirstJsDefault = _parcelHelpers.interopDefault(_upperFirstJs);
+/**
+* Converts the first character of `string` to upper case and the remaining
+* to lower case.
+*
+* @static
+* @memberOf _
+* @since 3.0.0
+* @category String
+* @param {string} [string=''] The string to capitalize.
+* @returns {string} Returns the capitalized string.
+* @example
+*
+* _.capitalize('FRED');
+* // => 'Fred'
+*/
+function capitalize(string) {
+  return _upperFirstJsDefault.default(_toStringJsDefault.default(string).toLowerCase());
+}
+exports.default = capitalize;
