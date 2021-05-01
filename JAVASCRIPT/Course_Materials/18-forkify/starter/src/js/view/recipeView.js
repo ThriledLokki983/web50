@@ -1,40 +1,23 @@
 import icons from 'url:../../img/icons.svg'; // Parcel 2
 import {
-    Fraction
+  Fraction
 } from 'fractional';
+import View from './View.js'
 
-console.log(Fraction);
+
+class RecipeView extends View {
+  _parentElement = document.querySelector('.recipe');
+  _errorMessage = 'We could not find that recipe. Please try another one!'
+  _successMessage = '';
 
 
-class RecipeView {
-    _parentElement = document.querySelector('.recipe');
-    _data;
 
-    render(data) {
-        this._data = data;
-        const markup = this._generateMarkup(data);
-        this._clear();
-        this._parentElement.insertAdjacentHTML("afterbegin", markup);
-    }
+  addHandlerRender(handler) {
+    ['hashchange', 'load'].forEach(e => window.addEventListener(e, handler));
+  }
 
-    _clear() {
-        this._parentElement.innerHTML = '';
-    }
-
-    renderSpinner = function () {
-        const markUp = `
-          <div class="spinner">
-                <svg>
-                  <use href="${icons}#icon-loader"></use>
-                </svg>
-              </div>
-          `
-        this._clear();
-        this._parentElement.insertAdjacentHTML("afterbegin", markUp);
-    }
-
-    _generateMarkup() {
-        return `
+  _generateMarkup() {
+    return `
     <figure class="recipe__fig">
           <img src="${this._data.image}" alt="${this._data.title}" class="recipe__img" />
           <h1 class="recipe__title">
@@ -73,9 +56,12 @@ class RecipeView {
 
           <div class="recipe__user-generated">
             <svg>
-              <use href="${icons}#icon-user"></use>
+              <use href=""></use>
             </svg>
           </div>
+
+
+          
           <button class="btn--round">
             <svg class="">
               <use href="${icons}#icon-bookmark-fill"></use>
@@ -109,10 +95,10 @@ class RecipeView {
           </a>
         </div>
     `;
-    }
+  }
 
-    _generateIngredients(ing) {
-        return `
+  _generateIngredients(ing) {
+    return `
         <li class="recipe__ingredient">
         <svg class="recipe__icon">
           <use href="${icons}#icon-check"></use>
@@ -123,7 +109,6 @@ class RecipeView {
           ${ing.description}
         </div>
       </li>`;
-    }
+  }
 }
-
 export default new RecipeView();
