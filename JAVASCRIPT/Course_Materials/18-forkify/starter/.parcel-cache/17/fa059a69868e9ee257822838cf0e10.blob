@@ -13259,10 +13259,6 @@ class View {
   * Render the received object to the DOM
   * @param {Object | Object[]} data The data to be rendered (e.g. recipe)
   * @param {Boolean} [render=true] If false, create a markup string instead of rendering to the DOM
-  * @returns {undefined | string} A markup string is returned if render=false
-  * @this {Object} View instance
-  * @author Gideon Nimoh
-  * @todo Finish implementation
   */
   render(data, render = true) {
     if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
@@ -13331,7 +13327,7 @@ class View {
 exports.default = View;
 
 },{"@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","url:../../img/icons.svg":"3t5dV"}],"3t5dV":[function(require,module,exports) {
-module.exports = require('./bundle-url').getBundleURL() + "icons.d4a14980.svg"
+module.exports = require('./bundle-url').getBundleURL() + "icons.HASH_REF_f6727c52d326b6f99dffa0b9d4a14980.svg"
 },{"./bundle-url":"3seVR"}],"3seVR":[function(require,module,exports) {
 "use strict";
 
@@ -13689,4 +13685,4 @@ exports.default = new AddRecipeView();
 
 },{"./View.js":"1D62J","url:../../img/icons.svg":"3t5dV","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y"}]},["7BONy","3miIZ"], "3miIZ", "parcelRequirefade")
 
-//# sourceMappingURL=index.250b04c7.js.map
+//# sourceMappingURL=index.HASH_REF_6315ebf922a29661e8263da0250b04c7.js.map
