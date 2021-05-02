@@ -453,9 +453,9 @@ var _viewResultViewJsDefault = _parcelHelpers.interopDefault(_viewResultViewJs);
 require('core-js/stable');
 require('regenerator-runtime/runtime');
 // Polyfiling async await
-if (module.hot) {
-  module.hot.accept();
-}
+// if (module.hot) {
+// module.hot.accept();
+// }
 // https://forkify-api.herokuapp.com/v2
 const controlRecipes = async function () {
   try {
@@ -479,8 +479,9 @@ const controlSearchResults = async function () {
     // Loading search results
     await _modelJs.loadSearchResults(query);
     // Rendering the searched results
-    // console.log(model.state.search.results);
-    _viewResultViewJsDefault.default.render(_modelJs.state.search.results);
+    console.log(_modelJs.state.search.results);
+    // resultsView.render(model.state.search.results);
+    _viewResultViewJsDefault.default.render(_modelJs.getSearchResultsPage());
   } catch (err) {
     console.log(err);
   }
@@ -12453,6 +12454,9 @@ _parcelHelpers.export(exports, "loadRecipe", function () {
 _parcelHelpers.export(exports, "loadSearchResults", function () {
   return loadSearchResults;
 });
+_parcelHelpers.export(exports, "getSearchResultsPage", function () {
+  return getSearchResultsPage;
+});
 require('regenerator-runtime');
 var _configJs = require('./config.js');
 var _helpersJs = require('./helpers.js');
@@ -12460,7 +12464,9 @@ const state = {
   recipe: {},
   search: {
     query: '',
-    results: []
+    results: [],
+    resultPerPage: _configJs.RES_PER_PAGE,
+    page: 1
   }
 };
 const loadRecipe = async function (id) {
@@ -12500,6 +12506,14 @@ const loadSearchResults = async function (query) {
     throw err;
   }
 };
+const getSearchResultsPage = function (page = state.search.page) {
+  state.search.page = page;
+  const start = (page - 1) * state.search.resultPerPage;
+  // 0;
+  const end = page * state.search.resultPerPage;
+  // 9;
+  return state.search.results.slice(start, end);
+};
 
 },{"regenerator-runtime":"62Qib","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","./config.js":"6pr2F","./helpers.js":"581KF"}],"6pr2F":[function(require,module,exports) {
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
@@ -12512,6 +12526,7 @@ _parcelHelpers.export(exports, "TIMEOUT_SEC", function () {
 });
 const API_URL = 'https://forkify-api.herokuapp.com/api/v2/recipes/';
 const TIMEOUT_SEC = 10;
+const RES_PER_PAGE = 10;
 
 },{"@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y"}],"581KF":[function(require,module,exports) {
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
