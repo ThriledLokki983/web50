@@ -1,0 +1,47 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _ViewJs = require('./View.js');
+var _ViewJsDefault = _parcelHelpers.interopDefault(_ViewJs);
+require('url:../../img/icons.svg');
+function _defineProperty(obj, key, value) {
+  if ((key in obj)) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+// Parcel 2
+class ResultView extends _ViewJsDefault.default {
+  constructor(...args) {
+    super(...args);
+    _defineProperty(this, "_parentElement", document.querySelector('.results'));
+    _defineProperty(this, "_errorMessage", 'No recipes found. Please try again!');
+    _defineProperty(this, "_successMessage", '');
+  }
+  _generateMarkup() {
+    console.log(this._data);
+    return this._data.map(rec => this._generateMarkupPreview(rec)).join('');
+  }
+  _generateMarkupPreview(result) {
+    const id = window.location.hash.slice(1);
+    return `
+        <li class="preview">
+        <a class="preview__link ${result.id === id ? 'preview__link' : ''}" href="#${result.id}">
+          <figure class="preview__fig">
+            <img src="${result.image}" alt="${result.title}" />
+          </figure>
+          <div class="preview__data">
+            <h4 class="preview__title">${result.title}</h4>
+            <p class="preview__publisher">${result.publisher}</p>
+          </div>
+        </a>
+      </li>`;
+  }
+}
+exports.default = new ResultView();

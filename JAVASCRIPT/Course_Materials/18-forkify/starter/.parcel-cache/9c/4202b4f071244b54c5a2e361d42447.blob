@@ -1,0 +1,87 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "state", function () {
+  return state;
+});
+_parcelHelpers.export(exports, "loadRecipe", function () {
+  return loadRecipe;
+});
+_parcelHelpers.export(exports, "loadSearchResults", function () {
+  return loadSearchResults;
+});
+_parcelHelpers.export(exports, "getSearchResultsPage", function () {
+  return getSearchResultsPage;
+});
+_parcelHelpers.export(exports, "updateServings", function () {
+  return updateServings;
+});
+_parcelHelpers.export(exports, "addBookmark", function () {
+  return addBookmark;
+});
+require('regenerator-runtime');
+var _configJs = require('./config.js');
+var _helpersJs = require('./helpers.js');
+const state = {
+  recipe: {},
+  search: {
+    query: '',
+    results: [],
+    resultPerPage: _configJs.RES_PER_PAGE,
+    page: 1
+  },
+  bookmarks: []
+};
+const loadRecipe = async function (id) {
+  try {
+    const data = await _helpersJs.getJSON(`${_configJs.API_URL}/${id}`);
+    const {recipe} = data.data;
+    state.recipe = {
+      id: recipe.id,
+      title: recipe.title,
+      publisher: recipe.publisher,
+      sourceUrl: recipe.source_url,
+      image: recipe.image_url,
+      servings: recipe.servings,
+      cookingTime: recipe.cooking_time,
+      ingredients: recipe.ingredients
+    };
+  } catch (error) {
+    console.error(`${error}`);
+    throw error;
+  }
+};
+const loadSearchResults = async function (query) {
+  try {
+    state.search.query = query;
+    const data = await _helpersJs.getJSON(`${_configJs.API_URL}?search=${query}`);
+    // console.log(data)
+    state.search.results = data.data.recipes.map(rec => {
+      return {
+        id: rec.id,
+        title: rec.title,
+        publisher: rec.publisher,
+        image: rec.image_url
+      };
+    });
+    state.search.page = 1;
+  } catch (err) {
+    console.error(`${err}`);
+    throw err;
+  }
+};
+const getSearchResultsPage = function (page = state.search.page) {
+  state.search.page = page;
+  const start = (page - 1) * state.search.resultPerPage;
+  // 0;
+  const end = page * state.search.resultPerPage;
+  // 9;
+  return state.search.results.slice(start, end);
+};
+const updateServings = function (newServings) {
+  state.recipe.ingredients.forEach(ing => {
+    // newQty = oldQty * newServings / oldServings
+    ing.quantity = ing.quantity * newServings / state.recipe.servings;
+  });
+  state.recipe.servings = newServings;
+};
+const addBookmark = function (recipe) {};
