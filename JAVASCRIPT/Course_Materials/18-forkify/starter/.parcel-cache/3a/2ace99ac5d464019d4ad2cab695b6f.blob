@@ -1,0 +1,91 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _ViewJs = require('./View.js');
+var _ViewJsDefault = _parcelHelpers.interopDefault(_ViewJs);
+var _urlImgIconsSvg = require('url:../../img/icons.svg');
+var _urlImgIconsSvgDefault = _parcelHelpers.interopDefault(_urlImgIconsSvg);
+function _defineProperty(obj, key, value) {
+  if ((key in obj)) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+// Parcel 2
+class PaginationView extends _ViewJsDefault.default {
+  constructor(...args) {
+    super(...args);
+    _defineProperty(this, "_parentElement", document.querySelector('.pagination'));
+  }
+  addHandlerClick(handler) {
+    this._parentElement.addEventListener('click', function (e) {
+      const btn = e.target.closest('.btn--inline');
+      if (!btn) return;
+      const goToPage = +btn.dataset.goto;
+      handler(goToPage);
+    });
+  }
+  _generatePrevButtons(pageNumber) {
+    return `
+        <button data-goto="${pageNumber - 1}" class="btn--inline pagination__btn--prev">
+            <svg class="search__icon">
+              <use href="${_urlImgIconsSvgDefault.default}#icon-arrow-left"></use>
+            </svg>
+            <span>Page ${pageNumber - 1}</span>
+          </button>`;
+  }
+  _generateNextButtons(pageNumber) {
+    return `
+        <button data-goto="${pageNumber + 1}" class="btn--inline pagination__btn--next">
+        <span>Page ${pageNumber + 1}</span>
+        <svg class="search__icon">
+          <use href="${_urlImgIconsSvgDefault.default}#icon-arrow-right"></use>
+        </svg>
+      </button>
+        `;
+  }
+  _generateMarkup() {
+    const currentPage = this._data.page;
+    const numPages = Math.ceil(this._data.results.length / this._data.resultPerPage);
+    // Page 1, there are other pages
+    if (currentPage === 1 && numPages > 1) this._generateNextButtons(currentPage);
+    console.log(currentPage);
+    console.log(numPages);
+    // Last page
+    if (currentPage === numPages && numPages > 1) {
+      return `
+        <button data-goto="${currentPage - 1}" class="btn--inline pagination__btn--prev">
+            <svg class="search__icon">
+              <use href="${_urlImgIconsSvgDefault.default}#icon-arrow-left"></use>
+            </svg>
+            <span>Page ${currentPage - 1}</span>
+          </button>`;
+    }
+    // Other page
+    if (currentPage < numPages) {
+      return `
+            <button data-goto="${currentPage - 1}" class="btn--inline pagination__btn--prev">
+            <svg class="search__icon">
+              <use href="${_urlImgIconsSvgDefault.default}#icon-arrow-left"></use>
+            </svg>
+            <span>Page ${currentPage - 1}</span>
+          </button>
+          <button data-goto="${currentPage + 1}" class="btn--inline pagination__btn--next">
+          <span>Page ${currentPage + 1}</span>
+          <svg class="search__icon">
+            <use href="${_urlImgIconsSvgDefault.default}#icon-arrow-right"></use>
+          </svg>
+        </button>
+            `;
+    }
+    // Page 1, and there are no other pages
+    return '';
+  }
+}
+exports.default = new PaginationView();
