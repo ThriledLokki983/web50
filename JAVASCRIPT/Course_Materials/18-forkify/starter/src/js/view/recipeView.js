@@ -75,9 +75,9 @@ class RecipeView extends View {
             </div>
           </div>
 
-          <div class="recipe__user-generated">
+          <div class="recipe__user-generated ${this._data.key ? '' : 'hidden'}">
             <svg>
-              <use href=""></use>
+              <use href="${icons}#icon-user"></use>
             </svg>
           </div>
 
