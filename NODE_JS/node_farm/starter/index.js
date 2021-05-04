@@ -1,4 +1,5 @@
 const fs = require("fs"); // objects with a lot of functions to be used
+const http = require("http");
 
 // const hello = 'Hello world';
 // console.log(hello);
@@ -17,7 +18,6 @@ fs.readFile("./txt/start.txt", "utf-8", (err, data) => {
 		console.log(data1);
 		fs.readFile("./txt/append.txt", "utf-8", (err, data2) => {
 			console.log(data2);
-
 			fs.writeFile(
 				"./txt/result.txt",
 				`${data1}\n${data2}`,
