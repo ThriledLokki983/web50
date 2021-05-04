@@ -25,6 +25,11 @@ export default class View {
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
+  /**
+   * @param {Object | Object[]} data The data to be updated (e.g. bookmarks, recipes)
+   * @author Gideon Nimoh
+   * @description creates a vurtual DOM_Markup and compares it to the current elements (e.g. parent element) to only update at places that changes has occured.
+   */
   update(data) {
     this._data = data;
     const newMarkup = this._generateMarkup();

@@ -1,16 +1,13 @@
-import icons from 'url:../../img/icons.svg'; // Parcel 2
+import icons from 'url:../../img/icons.svg'; 
 import {
   Fraction
 } from 'fractional';
 import View from './View.js'
 
-
 class RecipeView extends View {
   _parentElement = document.querySelector('.recipe');
   _errorMessage = 'We could not find that recipe. Please try another one!'
   _successMessage = '';
-
-
 
   addHandlerRender(handler) {
     ['hashchange', 'load'].forEach(e => window.addEventListener(e, handler));
@@ -34,8 +31,6 @@ class RecipeView extends View {
         handler();
     });
   }
-
-
 
   _generateMarkup() {
     return `
@@ -74,15 +69,11 @@ class RecipeView extends View {
               </button>
             </div>
           </div>
-
           <div class="recipe__user-generated ${this._data.key ? '' : 'hidden'}">
             <svg>
               <use href="${icons}#icon-user"></use>
             </svg>
-          </div>
-
-
-          
+          </div>   
           <button class="btn--round btn--bookmark">
             <svg class="">
               <use href="${icons}#icon-bookmark${this._data.bookmarked ? '-fill' : ''}"></use>
@@ -114,8 +105,7 @@ class RecipeView extends View {
               <use href="${icons}#icon-arrow-right"></use>
             </svg>
           </a>
-        </div>
-    `;
+        </div>`;
   }
 
   _generateIngredients(ing) {

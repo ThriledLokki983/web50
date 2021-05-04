@@ -26,7 +26,7 @@ class PaginationView extends View {
     }
 
     _generateNextButtons(currentPage) {
-        return `
+        const str = `
             <button data-goto="${currentPage + 1}" class="btn--inline pagination__btn--next">
             <span>Page ${currentPage + 1}</span>
             <svg class="search__icon">
@@ -42,6 +42,7 @@ class PaginationView extends View {
 
         // Page 1, there are other pages
         if (currentPage === 1 && numPages > 1) {
+          // return this._generateNextButtons(currentPage);
             return `
             <button data-goto="${currentPage + 1}" class="btn--inline pagination__btn--next">
             <span>Page ${currentPage + 1}</span>

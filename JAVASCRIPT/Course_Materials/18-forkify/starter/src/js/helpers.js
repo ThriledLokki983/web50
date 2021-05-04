@@ -31,7 +31,6 @@ export const AJAX = async function (url, uploadData = undefined) {
         throw err;
     }
 }
-
 /*
 export const getJSON = async function (url) {
     try {

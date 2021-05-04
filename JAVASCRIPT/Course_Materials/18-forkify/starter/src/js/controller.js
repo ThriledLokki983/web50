@@ -13,7 +13,6 @@ import 'regenerator-runtime/runtime'; // Polyfiling async await
 if (module.hot) {
   module.hot.accept();
 }
-
 // https://forkify-api.herokuapp.com/v2
 
 const controlRecipes = async function () {
