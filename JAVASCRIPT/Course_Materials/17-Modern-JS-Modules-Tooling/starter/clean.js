@@ -37,7 +37,7 @@ const newBudget3 = addExpense(newBudget2, spendingLimits, 200, 'Stuff', 'Jay');
 // console.log(budget);
 
 const checkExpenses = function () {
-  for (const entry of budget) 
+  for (const entry of newBudget3) 
     if (entry.value < -getLimit[entry.user]) 
       entry.flag = 'limit';
 };
