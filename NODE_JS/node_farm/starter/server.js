@@ -1,6 +1,7 @@
 const http = require("http");
 const url = require("url");
 const fs = require("fs");
+const slugify = require('slugify'); // slug ==> the last part of the url/unique string that the webpage is displaying
 // import * from './modules/replaceTemp.js'
 const replaceTemplate = require('./modules/replaceTemp.js');
 
@@ -13,8 +14,8 @@ const tempProducts = fs.readFileSync(`${__dirname}/templates/template_product.ht
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, "utf-8");
 const dataObj = JSON.parse(data);
 
-
-
+const slugs = dataObj.map(res => slugify(res.productName, {lower: true, locale: 'nl'}))
+console.log(slugs);
 
 // Create a server
 const server = http.createServer((req, res) => {
@@ -23,11 +24,9 @@ const server = http.createServer((req, res) => {
     const baseURL = 'http://' + 'localhost:8000' + '/';
     // const baseURL = 'localhost:8000' + '/'; this wont work
     const {pathname, searchParams, search} = new URL(req.url, baseURL);
-    console.log(searchParams);
-    console.log(new URL(req.url, baseURL));
-
+    // console.log(searchParams);
+    // console.log(new URL(req.url, baseURL));
     
-
     // Overview Page
 	if (pathname === "/overview" || pathname === "/") {
 		res.writeHead(200, { "Content-type": "text/html" });
@@ -40,20 +39,14 @@ const server = http.createServer((req, res) => {
 	} else if (pathname === "/product") {
         res.writeHead(200, { "Content-type": "text/html" });
         const product = dataObj[+search.slice(-1)];
-        // const product = dataObj[searchParams.URLSearchParams]
  
         const output = replaceTemplate(tempProducts, product);
 		res.end(output);
-
-
-
 
         // API
 	} else if (pathname === "/api") {
 		res.writeHead(200, { "Content-type": "application/json" });
 		res.end(data);
-
-
 
         // NOT FOUND
 	} else {
