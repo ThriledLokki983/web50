@@ -17,3 +17,20 @@
 -   **Transform Streams:**
 
     > Streams that are both duplex streams and at the same time transform data as it is written or read e.g. zlib Gzip creation
+
+### MODULES
+
+    Common JS module system
+
+```
+require()
+exports()
+modules.exports;
+```
+
+    ES Module system
+
+```
+imports
+exports
+```
