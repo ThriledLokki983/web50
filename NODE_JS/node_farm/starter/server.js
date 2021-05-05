@@ -29,29 +29,39 @@ const replaceTemplate = function (temp, prod){
 
 // Create a server
 const server = http.createServer((req, res) => {
-	// console.log(req.url);
-	const pathName = req.url;
+	// const pathName = req.url;
 
+    const baseURL = 'http://' + 'localhost:8000' + '/';
+    // const baseURL = 'localhost:8000' + '/'; this wont work
+    const {pathname, searchParams, search} = new URL(req.url, baseURL);
+    console.log(searchParams);
+    console.log(new URL(req.url, baseURL));
+
+    
 
     // Overview Page
-	if (pathName === "/overview" || pathName === "/") {
+	if (pathname === "/overview" || pathname === "/") {
 		res.writeHead(200, { "Content-type": "text/html" });
         const cardsHtml = dataObj.map(res => replaceTemplate(tempCard, res)).join('');
         
         const output = tempOverview.replace('{% ProductCard %}', cardsHtml);
-
         res.end(output);
 
 
         // Products page
-	} else if (pathName === "/products") {
+	} else if (pathname === "/product") {
         res.writeHead(200, { "Content-type": "text/html" });
-		res.end(tempProducts);
+        const product = dataObj[+search.slice(-1)];
+        // const product = dataObj[searchParams.URLSearchParams]
+ 
+        const output = replaceTemplate(tempProducts, product);
+		res.end(output);
+
 
 
 
         // API
-	} else if (pathName === "/api") {
+	} else if (pathname === "/api") {
 		res.writeHead(200, { "Content-type": "application/json" });
 		res.end(data);
 
