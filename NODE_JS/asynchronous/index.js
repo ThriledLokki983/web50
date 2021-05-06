@@ -7,7 +7,7 @@ fs.readFile(`${__dirname}/starter/dog.txt`, (err, data) => {
   // making an http request
   superagent
     .get(`https://dog.ceo/api/breed/${data}/images/random`)
-    .end((err, res) => {
+    .then((res) => {
       if (err) return console.log(err.message);
       console.log(res.body.message);
 
