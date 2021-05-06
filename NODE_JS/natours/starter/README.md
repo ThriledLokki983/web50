@@ -22,9 +22,14 @@
   Read: GET
   Update: PUT / PATCH
   Delete: DELETE
+
+  /getTourByUser: GET /Users/3/tours
+  /deleteToursByUser: DELETE /Users/3/tours/9
   ```
 
 - Expose structured, resource-based URLs
 - Use HTTP methods (verbs)
 - Send data as JSON (usually)
 - Be Stateless
+  > Stateless RESTful API: All state is handled on the client. This means that each request much contain all the information necessary to process a certain request. The server should not have to remember previous requests.
+  > e.g. LoggedIn, currentPage
