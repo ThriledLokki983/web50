@@ -25,8 +25,16 @@ const getDogPic = async function () {
     console.log(`Breed: ${data}`);
 
     const res = await superagent.get(`https://dog.ceo/api/breed/${data}/images/random`);
-    console.log(res.body.message);
 
+    const res1Pro = superagent.get(`https://dog.ceo/api/breed/${data}/images/random`);
+    const res2Pro = superagent.get(`https://dog.ceo/api/breed/${data}/images/random`);
+    const res3Pro = superagent.get(`https://dog.ceo/api/breed/${data}/images/random`);
+
+    const all = await Promise.all([res1Pro, res2Pro, res3Pro]);
+    const imgs = all.map((element) => element.body.message);
+    console.log(imgs);
+
+    await writeFilePro("./starter/dog-img1.txt", imgs.join("\n"));
     await writeFilePro("./starter/dog-img.txt", res.body.message);
     console.log("Random image is now saved!! 🥰");
   } catch (err) {
