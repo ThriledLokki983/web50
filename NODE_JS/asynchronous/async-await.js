@@ -31,6 +31,31 @@ const getDogPic = async function () {
     console.log("Random image is now saved!! 🥰");
   } catch (err) {
     console.log(err);
+    throw err;
   }
+
+  return "2: \tREADY🐶";
 };
-getDogPic();
+(async () => {
+  try {
+    console.log("1: \tStep 1 will get dog pic");
+    const x = await getDogPic();
+    console.log(x);
+    console.log("3: \tDone");
+  } catch (err) {
+    console.log("ERROR! 💥");
+  }
+})();
+
+/*
+console.log("1: \tStep 1 will get dog pic");
+getDogPic()
+  .then((x) => {
+    console.log(x);
+    console.log("3: \tDone");
+  })
+  .catch((err) => {
+    console.log("ERROR! 💥");
+  });
+
+  */
