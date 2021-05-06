@@ -4,7 +4,7 @@ const superagent = require("superagent");
 const readFilePro = (file) => {
   return new Promise((resolve, reject) => {
     fs.readFile(file, (err, data) => {
-      if (err) reject(`File NOT Found`);
+      if (err) reject(`File NOT Found 😬`);
       resolve(data);
     });
   });
@@ -19,20 +19,18 @@ const writeFilePro = (file, data) => {
   });
 };
 
-readFilePro(`${__dirname}/starter/dog.txt`)
-  .then((data) => {
+const getDogPic = async function () {
+  try {
+    const data = await readFilePro(`${__dirname}/starter/dog.txt`);
     console.log(`Breed: ${data}`);
 
-    return superagent.get(`https://dog.ceo/api/breed/${data}/images/random`);
-  })
-  .then((res) => {
+    const res = await superagent.get(`https://dog.ceo/api/breed/${data}/images/random`);
     console.log(res.body.message);
 
-    return writeFilePro("./starter/dog-img.txt", res.body.message);
-  })
-  .then(() => {
-    console.log("Random image is saved");
-  })
-  .catch((err) => {
+    await writeFilePro("./starter/dog-img.txt", res.body.message);
+    console.log("Random image is now saved!! 🥰");
+  } catch (err) {
     console.log(err);
-  });
+  }
+};
+getDogPic();
