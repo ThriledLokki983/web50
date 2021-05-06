@@ -1,6 +1,15 @@
 const fs = require("fs");
 const superagent = require("superagent");
 
+const readFilePro = (file) => {
+  return new Promise((resolve, reject) => {
+    fs.readFile(file, (err, data) => {
+      if (err) reject(`File NOT Found`);
+      resolve(data);
+    });
+  });
+};
+
 fs.readFile(`${__dirname}/starter/dog.txt`, (err, data) => {
   console.log(`Breed: ${data}`);
 
