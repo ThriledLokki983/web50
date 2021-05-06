@@ -14,3 +14,9 @@ console.log(calc2.add(2, 6));
 console.log(calc2.multiply(2, 6));
 
 console.log(add(1, 2));
+
+// caching
+require("./test-module3")();
+require("./test-module3")();
+require("./test-module3")();
+// require("./test-module3")();
