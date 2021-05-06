@@ -10,12 +10,10 @@ const readFilePro = (file) => {
   });
 };
 
-fs.readFile(`${__dirname}/starter/dog.txt`, (err, data) => {
-  console.log(`Breed: ${data}`);
-
-  // making an http request
+readFilePro(`${__dirname}/starter/dog.txt`).then((result) => {
+  console.log(`Breed: ${result}`);
   superagent
-    .get(`https://dog.ceo/api/breed/${data}/images/random`)
+    .get(`https://dog.ceo/api/breed/${result}/images/random`)
     .then((res) => {
       console.log(res.body.message);
 
@@ -27,3 +25,9 @@ fs.readFile(`${__dirname}/starter/dog.txt`, (err, data) => {
       console.log(err.message);
     });
 });
+
+// fs.readFile(`${__dirname}/starter/dog.txt`, (err, data) => {
+//   console.log(`Breed: ${data}`);
+
+//   // making an http request
+// });
