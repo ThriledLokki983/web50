@@ -68,3 +68,9 @@ npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-confi
 
 > db.tours.deleteMany({rating: {$lte: 4.8}}) // with the condition specified
 > db.tours.deleteMany({}) // delete everything
+
+**Running Import Script**
+
+```
+node dev-data/data/import-dev-data.js --import
+```
