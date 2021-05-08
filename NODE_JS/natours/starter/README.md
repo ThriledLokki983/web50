@@ -41,3 +41,10 @@ npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-confi
 ```
 
 > .eslintrc.json
+
+## MONGODB
+
+> db.tours.find({price: {$lte: 500}})
+> db.tours.find({price: {$lte: 500}, rating: 4.7 }) // Two condition query
+> db.tours.find({ $or: [ {price: {$lt: 500}}, {rating: {$gte: 4.8}} ] }) // Two condition query
+> db.tours.find({ $or: [ {price: {$gt: 500}}, {rating: {$gte: 4.8}} ] }) // OR
