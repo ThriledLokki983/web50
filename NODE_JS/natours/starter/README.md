@@ -33,3 +33,9 @@
 - Be Stateless
   > Stateless RESTful API: All state is handled on the client. This means that each request much contain all the information necessary to process a certain request. The server should not have to remember previous requests.
   > e.g. LoggedIn, currentPage
+
+#### ESlint + Prettier Config
+
+```
+npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-config-airbnb eslint-plugin-node eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react --save-dev
+```
