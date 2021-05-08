@@ -47,7 +47,7 @@ npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-confi
     CRUD
     - CREATE db.tours.insertOne({...}) / db.tours.insertMany({...})
     -
-    - UPDATE db.tours.updateOne({...searchItem}, {$set: ...newValue for item-param})
+    - UPDATE db.tours.updateOne({...searchItem}, {$set: ...newValue for item-param}) / db.tours.updateMany()
 
 **Querying:**
 
@@ -60,3 +60,4 @@ npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-confi
 **Update:**
 
 > db.tours.updateOne({ name: "The Snow Adventure"}, { $set: {price: 597} })
+> db.tours.updateMany({price: {$gt: 500}, rating: {$gte: 4.7}}, { $set: {premium: true}})
