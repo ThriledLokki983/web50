@@ -44,7 +44,19 @@ npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-confi
 
 ## MONGODB
 
+    CRUD
+    - CREATE db.tours.insertOne({...}) / db.tours.insertMany({...})
+    -
+    - UPDATE db.tours.updateOne({...searchItem}, {$set: ...newValue for item-param})
+
+**Querying:**
+
 > db.tours.find({price: {$lte: 500}})
 > db.tours.find({price: {$lte: 500}, rating: 4.7 }) // Two condition query
 > db.tours.find({ $or: [ {price: {$lt: 500}}, {rating: {$gte: 4.8}} ] }) // Two condition query
 > db.tours.find({ $or: [ {price: {$gt: 500}}, {rating: {$gte: 4.8}} ] }) // OR
+> db.tours.find({ $or: [ {price: {$gt: 500}}, {rating: {$gte: 4.8}} ] }, {name: 1}) // Projection. only select this field in the output
+
+**Update:**
+
+> db.tours.updateOne({ name: "The Snow Adventure"}, { $set: {price: 597} })
