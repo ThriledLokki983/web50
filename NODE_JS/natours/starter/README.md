@@ -46,8 +46,9 @@ npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-confi
 
     CRUD
     - CREATE db.tours.insertOne({...}) / db.tours.insertMany({...})
-    -
+    - READ db.tours.find(...search condition )
     - UPDATE db.tours.updateOne({...searchItem}, {$set: ...newValue for item-param}) / db.tours.updateMany()
+              db.tours.replaceOne() / db.tours.replaceMany()
 
 **Querying:**
 
