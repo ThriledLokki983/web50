@@ -49,6 +49,7 @@ npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-confi
     - READ db.tours.find(...search condition )
     - UPDATE db.tours.updateOne({...searchItem}, {$set: ...newValue for item-param}) / db.tours.updateMany()
               db.tours.replaceOne() / db.tours.replaceMany()
+    - DELETE db.tours.deleteOne({}) / db.tours.deleteMany({})
 
 **Querying:**
 
@@ -62,3 +63,8 @@ npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-confi
 
 > db.tours.updateOne({ name: "The Snow Adventure"}, { $set: {price: 597} })
 > db.tours.updateMany({price: {$gt: 500}, rating: {$gte: 4.7}}, { $set: {premium: true}})
+
+**Delete:**
+
+> db.tours.deleteMany({rating: {$lte: 4.8}}) // with the condition specified
+> db.tours.deleteMany({}) // delete everything
