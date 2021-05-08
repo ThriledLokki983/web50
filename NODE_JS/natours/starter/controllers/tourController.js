@@ -10,24 +10,20 @@ const Tour = require('./../model/tourModel');
 //   next();
 // };
 
-exports.checkBody = (req, res, next) => {
-  if (!req.body.name || !req.body.price)
-    return res.status(400).json({
-      status: 'fail',
-      message: 'Missing name or Price',
-    });
-  next();
-};
+// exports.checkBody = (req, res, next) => {
+//   if (!req.body.name || !req.body.price)
+//     return res.status(400).json({
+//       status: 'fail',
+//       message: 'Missing name or Price',
+//     });
+//   next();
+// };
 
 exports.getAllTours = (req, res) => {
   console.log(req.requestTime);
   res.status(200).json({
     status: 'success',
     requestedAt: req.requestTime,
-    // results: tours.length, // when the array has multiple objects in theres
-    // data: {
-    //   tours, // tours: tours
-    // },
   });
 };
 
@@ -44,13 +40,22 @@ exports.getTour = (req, res) => {
   // });
 };
 
-exports.createTour = (req, res) => {
-  res.status(201).json({
-    status: 'success',
-    //
-  });
+exports.createTour = async (req, res) => {
+  try {
+    const newTour = await Tour.create(req.body);
 
-  //   res.send('Done'); // always have to send something in order to finish the request/response cycle
+    res.status(201).json({
+      status: 'success',
+      data: {
+        tour: newTour,
+      },
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      message: 'Invalid Data sent!',
+    });
+  }
 };
 
 exports.updateTour = (req, res) => {
