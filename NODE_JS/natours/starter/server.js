@@ -49,6 +49,20 @@ const tourSchema = new mongoose.Schema({
 
 const Tour = mongoose.model('Tour', tourSchema); // Capitalize a model name
 
+const testTour = new Tour({
+  name: 'The Park Camper',
+  price: 497,
+});
+
+testTour
+  .save()
+  .then((doc) => {
+    console.log(doc);
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
+
 console.log(app.get('env')); // current environment: Development
 // console.log(process.env);
 
