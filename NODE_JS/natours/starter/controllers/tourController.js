@@ -64,6 +64,14 @@ exports.getAllTours = async (req, res) => {
       query = query.select('-__v'); // exclude this field
     }
 
+    // PAGINATION
+    const page = +req.query.page; // defining default values
+    const limit = req.query.limit * 1 || 100;
+    const skip = (page - 1) * limit;
+
+    // page=2&limit=10, 1-10 page1, 11-20 page2, 21-30 page3
+    query = query.skip(skip).limit(limit);
+
     // EXECUTE QUERY
     const tours = await query;
 
