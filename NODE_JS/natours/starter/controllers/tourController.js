@@ -30,6 +30,27 @@ exports.aliasTopTours = async (req, res, next) => {
   next();
 };
 
+class APIFeatures {
+  constructor(query, queryStr) {
+    this.query = query;
+    this.queryStr = queryStr;
+  }
+
+  filter() {
+    const queryObj = { ...this.queryStr };
+    const excludedFields = ['page', 'sort', 'limit', 'fields'];
+    excludedFields.forEach((el) => delete queryObj[el]);
+
+    // 2) Advanced Filtering
+    let queryString = JSON.stringify(queryObj);
+    queryString = queryString.replace(
+      /\b(gte|gt|lte|lt)\b/g,
+      (match) => `$${match}`
+    );
+    this.query.find(JSON.parse(queryString));
+  }
+}
+
 exports.getAllTours = async (req, res) => {
   try {
     console.log(req.query);
@@ -56,7 +77,7 @@ exports.getAllTours = async (req, res) => {
     //   duration: 5,
     //   difficulty: 'easy',
     // });
-    let query = Tour.find(JSON.parse(queryString));
+    // let query = Tour.find(JSON.parse(queryString));
 
     // SORTING
     if (req.query.sort) {
@@ -89,7 +110,8 @@ exports.getAllTours = async (req, res) => {
     }
 
     // EXECUTE QUERY
-    const tours = await query;
+    const features = new APIFeatures(Tour.find(), req.query).filter();
+    const tours = await features.query;
 
     // const tours = await Tour.find()
     //   .where('duration')
