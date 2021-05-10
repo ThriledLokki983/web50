@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 // Mongoose - MODEL for crud
 const tourSchema = new mongoose.Schema(
@@ -9,6 +10,7 @@ const tourSchema = new mongoose.Schema(
       unique: true,
       trim: true,
     },
+    slug: String,
     duration: {
       type: Number,
       required: [true, 'A tour must have a duration'],
@@ -54,6 +56,10 @@ const tourSchema = new mongoose.Schema(
       select: false,
     },
     startDates: [Date],
+    secretTour: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     toJSON: { virtuals: true }, // these properties are not part of the DB
@@ -63,6 +69,27 @@ const tourSchema = new mongoose.Schema(
 
 tourSchema.virtual('durationWeeks').get(function () {
   return (this.duration / 7).toFixed(2);
+});
+
+// DOCUMENT MIDDLEWARE: runs before the save() and create()
+tourSchema.pre('save', function (next) {
+  this.slug = slugify(this.name, { lower: true });
+  next();
+});
+
+// QUERY MIDDLEWARE: runs before any find() query is executed
+tourSchema.pre(/^find/, function (next) {
+  // tourSchema.pre('find', function (next) {
+  this.find({ secretTour: { $ne: true } });
+
+  this.start = Date.now();
+  next();
+});
+
+tourSchema.post(/^find/, function (doc, next) {
+  console.log(`Query lasted: ${Date.now() - this.start} Milliseconds`);
+  // console.log(doc);
+  next();
 });
 
 const Tour = mongoose.model('Tour', tourSchema); // Capitalize a model name
