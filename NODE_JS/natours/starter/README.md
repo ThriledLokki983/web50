@@ -74,3 +74,10 @@ npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-confi
 ```
 node dev-data/data/import-dev-data.js --import
 ```
+
+# Mongoose Middleware
+
+- Document
+- Query
+- Aggregate
+- Model
