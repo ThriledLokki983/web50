@@ -112,3 +112,31 @@
 // const err = new Error(`Can't find ${req.originalUrl} on this server`);
 // err.status = 'fail';
 // err.statusCode = 404;
+
+// exports.createTour = fn(async (req, res, next) => {
+//     try {
+//       const newTour = await Tour.create(req.body);
+
+//       res.status(201).json({
+//         status: 'success',
+//         data: {
+//           tour: newTour,
+//         },
+//       });
+//     } catch (err) {
+//       res.status(400).json({
+//         status: 'fail',
+//         message: err,
+//       });
+//     }
+//   });
+
+// exports.deleteTour = catchAsync(async (req, res, next) => {
+//     await Tour.findByIdAndDelete(req.params.id,  {
+//       rawResult: true,
+//     });
+//     res.status(204).json({
+//       status: 'success',
+//       data: null,
+//     });
+//   });
