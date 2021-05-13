@@ -81,3 +81,25 @@ node dev-data/data/import-dev-data.js --import
 - Query
 - Aggregate
 - Model
+
+# ERROR HANDLING
+
+**Operational Error:**
+
+> Problems that we can predict will happen at some point, so we just need to handle them in advance
+
+- Invalid path accessed
+- Invalid user input
+- failed to connect to server
+- failed to connect to database
+- request timeout
+
+**Programming Errors:**
+
+> Bugs that developers introduce into our code. Difficult to find and handle
+
+- reading properties on undefined
+- passing a number where an object is expected
+- using await without async
+- using req.query instead of req.body
+- etc
