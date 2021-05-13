@@ -60,6 +60,18 @@ userSchema.pre('save', async function (next) {
 });
 
 /**
+ * Run this middleware right before the save() method
+ * Put passwordChangedAt in the past by taking away 1sec
+ */
+userSchema.pre('save', function (next) {
+  if (!this.isModified('password') || this.isNew) return next();
+
+  this.passwordChangedAt = Date.now() - 1000;
+
+  next();
+});
+
+/**
  * A function to check/compare password during login (Instance Method)
  * @param {String|bcrypt hashed password} candidatePassword
  * @param {String} userPassword
