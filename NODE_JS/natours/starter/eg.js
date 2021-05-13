@@ -108,3 +108,7 @@
 //   console.log('Hello from the middleware 👋');
 //   next(); // to avoid blocking the app
 // });
+
+// const err = new Error(`Can't find ${req.originalUrl} on this server`);
+// err.status = 'fail';
+// err.statusCode = 404;
