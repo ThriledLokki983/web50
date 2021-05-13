@@ -87,7 +87,7 @@ userSchema.methods.changePasswordAfter = function (JWTTimestamp) {
 
 /**
  * Create a less complicated hashed password which is then sent to the user to be used to reset the password
- * The password saved in the db is the encrypted version of the generated token
+ * The password saved in the db is then the encrypted version of the generated token
  * @returns {String} the token created
  */
 userSchema.methods.createPasswordResetToken = function () {
