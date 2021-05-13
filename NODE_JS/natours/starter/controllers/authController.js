@@ -20,12 +20,13 @@ const signToken = (id) => {
  * Login user right after signup
  */
 exports.signup = catchAsync(async (req, res, next) => {
-  const { name, email, password, passwordConfirm } = req.body;
+  const { name, email, password, passwordConfirm, passwordChangedAt } = req.body;
   const newUser = await User.create({
     name: name,
     email: email,
     password: password,
     passwordConfirm: passwordConfirm,
+    passwordChangedAt: passwordChangedAt,
   });
 
   const token = signToken(newUser._id);
@@ -70,6 +71,7 @@ exports.login = catchAsync(async (req, res, next) => {
 /**
  * Middleware to make sure that users are authenticated before viewing tours
  * Get the token and check if it exist, verify token, check if user still exists,Check if user changed password after token was issued, then next()
+ * Get the current user check is a password change has happen or not and then finally grant access to the protected rout (route handler itself)
  */
 exports.protect = catchAsync(async (req, res, next) => {
   let token;
@@ -82,14 +84,22 @@ exports.protect = catchAsync(async (req, res, next) => {
     return next(new AppError('You are not logged in!. Please login to get access', 401));
   }
 
-  const decodedPayload = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+  const decode = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
 
-  const freshUser = await User.findById(decodedPayload.id);
-  if (!freshUser) {
+  const currentUser = await User.findById(decode.id);
+  if (!currentUser) {
     return next(new AppError('The user associated to this token does not exist.', 401));
   }
 
-  freshUser.changePasswordAfter(decodedPayload.iat);
+  if (currentUser.changePasswordAfter(decode.iat)) {
+    return next(
+      new AppError(
+        'User recently changed password, please check password and login again',
+        401
+      )
+    );
+  }
 
+  req.user = currentUser;
   next();
 });
