@@ -2,6 +2,13 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
 
+// Uncalled exceptions
+process.on('uncaughtException', (err) => {
+  console.log('UNCAUGHT EXCEPTION!: Shutting down...');
+  console.log(err.name, err.message);
+  process.exit(1); // 0 - success, 1 - uncalled exception
+});
+
 const app = require('./app');
 // ENVIRONMENT VARIABLES
 
@@ -43,15 +50,6 @@ const client = app.listen(port, () => {
 // Global Safety Net for all unhandled errors
 process.on('unhandledRejection', (err) => {
   console.log('UNHANDLED REJECTION!: Shutting down...');
-  console.log(err.name, err.message);
-  client.close(() => {
-    process.exit(1); // 0 - success, 1 - uncalled exception
-  });
-});
-
-// Uncalled exceptions
-process.on('uncaughtException', (err) => {
-  console.log('UNCAUGHT EXCEPTION!: Shutting down...');
   console.log(err.name, err.message);
   client.close(() => {
     process.exit(1); // 0 - success, 1 - uncalled exception
