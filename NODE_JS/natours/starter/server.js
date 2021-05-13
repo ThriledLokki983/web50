@@ -29,12 +29,22 @@ mongoose
     // console.log(con.connections);
     console.log('DB Connection successful');
   });
+// .catch((err) => console.log('ERROR'));
 
 console.log(app.get('env')); // current environment: Development
 // console.log(process.env);
 
 // STARTING SERVER
 const port = process.env.PORT || 4000;
-app.listen(port, () => {
+const client = app.listen(port, () => {
   console.log(`App running on port:\t${port}`);
+});
+
+// Global Safety Net for all unhandled errors
+process.on('unhandledRejection', (err) => {
+  console.log(err.name, err.message);
+  console.log('UNHANDLED REJECTION!: Shutting down...');
+  client.close(() => {
+    process.exit(1); // 0 - success, 1 - uncalled exception
+  });
 });
