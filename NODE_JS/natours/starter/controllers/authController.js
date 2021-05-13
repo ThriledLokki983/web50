@@ -103,3 +103,18 @@ exports.protect = catchAsync(async (req, res, next) => {
   req.user = currentUser;
   next();
 });
+
+/**
+ *
+ * @param  {Array |..any} ['admin', 'lead-guide']
+ * @returns {Function} Func checks if current user have the correct/right role/permission to perform the action
+ * If role is correct, we continue to perform the action, if not, return an error
+ */
+exports.restrictTo = (...roles) => {
+  return (req, res, next) => {
+    if (!roles.includes(req.user.role)) {
+      return next(new AppError('You do not have permission to perform this action', 403));
+    }
+    next();
+  };
+};
