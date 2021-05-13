@@ -1,5 +1,13 @@
 const AppError = require('../utils/appError');
 
+/**
+ * @param {Error} Operational error that has occurred (error in decoding the PayLoad / token expires)
+ * @returns {AppError} an instance of the global error handler for Production Mode
+ */
+const handleJWTError = () => new AppError('Invalid token, please login again', 401);
+const handleJWTExpiredError = () =>
+  new AppError('Your Token has expired, please try again', 401);
+
 const handleValidationErrorDB = (err) => {
   const errors = Object.values(err.errors).map((el) => el.message);
 
@@ -61,8 +69,9 @@ module.exports = (err, req, res, next) => {
 
     if (error.kind === 'ObjectId') error = handleCastErrorDB(error);
     if (error.code === 11000) error = handleDuplicateFieldsDB(error);
-    if (error._message === 'Validation failed')
-      error = handleValidationErrorDB(error);
+    if (error._message === 'Validation failed') error = handleValidationErrorDB(error);
+    if (error.name === 'JsonWebTokenError') error = handleJWTError();
+    if (error.name === 'TokenExpiredError') error = handleJWTExpiredError();
     sendErrorProd(error, res);
   }
 };

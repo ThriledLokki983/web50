@@ -52,8 +52,8 @@ userSchema.pre('save', async function (next) {
 
 /**
  * A function to check/compare password during login (Instance Method)
- * @param {*} candidatePassword
- * @param {*} userPassword
+ * @param {String|bcrypt hashed password} candidatePassword
+ * @param {String} userPassword
  * @returns {Boolean} True if candidatePassword === userPassword
  */
 userSchema.methods.correctPassword = async function (

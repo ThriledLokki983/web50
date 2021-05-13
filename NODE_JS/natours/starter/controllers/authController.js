@@ -1,3 +1,4 @@
+const { promisify } = require('util');
 const User = require('./../model/userModel');
 const catchAsync = require('./../utils/catchAsync');
 const jwt = require('jsonwebtoken');
@@ -64,4 +65,25 @@ exports.login = catchAsync(async (req, res, next) => {
     status: 'success',
     token,
   });
+});
+
+/**
+ * Middleware to make sure that users are authenticated before viewing tours
+ * Get the token and check if it exist, verify token, check if user still exists,Check if user changed password after token was issued, then next()
+ */
+exports.protect = catchAsync(async (req, res, next) => {
+  let token;
+
+  if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+    token = req.headers.authorization.split(' ')[1];
+  }
+
+  if (!token) {
+    return next(new AppError('You are not logged in!. Please login to get access', 401));
+  }
+
+  const decodedPayload = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+  console.log(decodedPayload);
+
+  next();
 });
