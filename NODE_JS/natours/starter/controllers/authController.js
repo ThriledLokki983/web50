@@ -176,7 +176,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
  * @param {*} next
  */
 exports.resetPassword = catchAsync(async (req, res, next) => {
-  const hashedToken = crypto.createHash('sha356').update(req.params.token).digest('hex');
+  const hashedToken = crypto.createHash('sha256').update(req.params.token).digest('hex');
 
   const user = await User.findOne({
     passwordResetToken: hashedToken,
@@ -187,7 +187,6 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
 
   user.password = req.body.password;
   user.passwordConfirm = req.body.passwordConfirm;
-
   user.passwordResetToken = undefined;
   user.passwordResetExpires = undefined;
 
