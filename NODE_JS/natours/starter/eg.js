@@ -102,3 +102,9 @@
 //   console.log(doc);
 //   next();
 // });
+
+// creating our own middleware function
+// app.use((req, res, next) => {
+//   console.log('Hello from the middleware 👋');
+//   next(); // to avoid blocking the app
+// });
