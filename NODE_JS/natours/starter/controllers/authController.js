@@ -18,13 +18,26 @@ const signToken = (id) => {
 };
 
 /**
- * Refactor
+ * Refactor, create JWT token and then send as a String to the user/client // httpOnly = true to avoid CSRF attack
  * @param {Object|} user The user we need to modify its data
  * @param {Number} statusCode Status code to be used e.g. 401, 200 etc
  * @param {Object} res Response to be sent to the client
  */
 const createAndSendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
+
+  const cookieOptions = {
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+    ),
+    httpOnly: true,
+  };
+
+  user.password = undefined;
+
+  if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
+
+  res.cookie('jwt', token, cookieOptions);
 
   res.status(statusCode).json({
     status: 'success',
@@ -40,13 +53,14 @@ const createAndSendToken = (user, statusCode, res) => {
  * Login user right after signup
  */
 exports.signup = catchAsync(async (req, res, next) => {
-  const { name, email, password, passwordConfirm, passwordChangedAt } = req.body;
+  const { name, email, password, passwordConfirm, passwordChangedAt, role } = req.body;
   const newUser = await User.create({
     name: name,
     email: email,
     password: password,
     passwordConfirm: passwordConfirm,
     passwordChangedAt: passwordChangedAt,
+    role: role,
   });
 
   createAndSendToken(newUser, 201, res);

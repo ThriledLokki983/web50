@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
+/**
+ * Userschema which exports a user model
+ */
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
