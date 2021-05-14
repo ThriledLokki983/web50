@@ -107,7 +107,13 @@ const tourSchema = new mongoose.Schema(
         day: Number,
       },
     ],
-    guides: Array,
+    // guides: Array, for embedding the object during save
+    guides: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+      },
+    ],
   },
   {
     toJSON: { virtuals: true }, // these properties are not part of the DB
@@ -129,11 +135,11 @@ tourSchema.pre('save', function (next) {
  * This will fetch the user info behind the scenes for all the Array of _id in the guides
  * Embed Users as guides
  */
-tourSchema.pre('save', async function (next) {
-  const guidesPromises = this.guides.map(async (id) => await User.findById(id));
-  this.guides = await Promise.all(guidesPromises);
-  next();
-});
+// tourSchema.pre('save', async function (next) {
+//   const guidesPromises = this.guides.map(async (id) => await User.findById(id));
+//   this.guides = await Promise.all(guidesPromises);
+//   next();
+// });
 
 // QUERY MIDDLEWARE: runs before any find() query is executed
 tourSchema.pre(/^find/, function (next) {
