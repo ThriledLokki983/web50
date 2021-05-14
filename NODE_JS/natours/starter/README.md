@@ -103,3 +103,45 @@ node dev-data/data/import-dev-data.js --import
 - using await without async
 - using req.query instead of req.body
 - etc
+
+# DATA MODELING
+
+**Types of Relationship**
+
+> One to One
+> One to Many
+
+- One to Few:
+  > One movie can win many awards
+- One to Many:
+  > one movie can have many reviews
+- One to Ton
+  > logging data from an app
+
+> Many yo Many
+
+- One movie can have many actors and one actor can star in many movies
+
+## Referencing Vs Embedding
+
+> In referencing Form: all the related documents are nicely separated - Child referencing. Easier to query each document on its own. We need 2 queries to get data from referenced document.
+> In Embedded Form: all related documents are embedded inside one big data - app make fewer queries leading to better performance. However, it is impossible to query the embedded documents on its own
+
+1. **RELATIONSHIP TYPE**
+   > How the datasets are related to each other
+   > Recommend Embedding: 1:Few / 1:Many
+   > Recommend Referencing: 1:Many / 1:Ton / Many:Many
+2. **DATA ACCESS PATTERNS**
+   > How often data is read and written. Read/Write Ration
+   > Recommend Embedding: **High** read/write ratio -- data is read a lot/mostly
+   > Recommend Referencing: **Low** read/write ratio -- data is updated a lot
+3. **DATA CLOSENESS**
+   > How "much" the data is related, how we want to query
+   > Recommend Embedding: Datasets really belong together
+   > Recommend Referencing: We frequently need to query both datasets on their own
+
+### Types of Referencing
+
+1. **Child Referencing:** keep references to the related child document in the parent document, usually stored as an Array. Avoid big arrays. 1:Few
+2. **Parent Referencing:** Keep a reference to the parent element/document. Best used for 1:many / 1:Ton
+3. **Two-Way Referencing:** keep reference to all documents related to the parent document and in each child document, we keep reference of the parent document/element. therefore, child and parent are both connected two-way
