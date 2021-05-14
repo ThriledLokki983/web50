@@ -43,7 +43,7 @@ exports.updateUserInfo = (req, res) => {
  * @returns {Object}
  */
 const filterObj = (obj, ...allowedFields) => {
-  let newObject;
+  const newObject = {};
   Object.keys(obj).forEach((el) => {
     if (allowedFields.includes(el)) newObject[el] = obj[el];
   });
@@ -53,6 +53,8 @@ const filterObj = (obj, ...allowedFields) => {
 /**
  * Create error if user tries to POST/ update password
  * Else, update user document and since we are not dealing with any sensitive data like password, we can then use findByIdAnUpdate() method
+ * Filter out the unwanted fields names that are not to be allowed to be updated
+ * Update User info
  * @param {*} req
  * @param {*} res
  * @param {*} next
