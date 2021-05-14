@@ -18,6 +18,24 @@ const signToken = (id) => {
 };
 
 /**
+ * Refactor
+ * @param {Object|} user The user we need to modify its data
+ * @param {Number} statusCode Status code to be used e.g. 401, 200 etc
+ * @param {Object} res Response to be sent to the client
+ */
+const createAndSendToken = (user, statusCode, res) => {
+  const token = signToken(user._id);
+
+  res.status(statusCode).json({
+    status: 'success',
+    token,
+    data: {
+      user: user,
+    },
+  });
+};
+
+/**
  * Create a Web.Token with the JWT library and send to the client
  * Login user right after signup
  */
@@ -31,15 +49,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     passwordChangedAt: passwordChangedAt,
   });
 
-  const token = signToken(newUser._id);
-
-  res.status(201).json({
-    status: 'success',
-    token,
-    data: {
-      user: newUser,
-    },
-  });
+  createAndSendToken(newUser, 201, res);
 });
 
 /**
@@ -62,12 +72,7 @@ exports.login = catchAsync(async (req, res, next) => {
     return next(new AppError('Incorrect email or password', 401));
   }
 
-  const token = signToken(user._id);
-
-  res.status(200).json({
-    status: 'success',
-    token,
-  });
+  createAndSendToken(user, 200, res);
 });
 
 /**
@@ -192,10 +197,27 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
 
   await user.save();
 
-  const token = signToken(user._id);
+  createAndSendToken(user, 200, res);
+});
 
-  res.status(200).json({
-    status: 'success',
-    token,
-  });
+/**
+ * For loggedin users to update/edit their password
+ * First Get the user form our user collection, check if POSTED password is correct, if yes, then UPDATE password, Log user in send JWT
+ * using User.findByIdAndUpdate() will not work // pre - save() middleware && password validator won't work
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
+exports.updatePassword = catchAsync(async (req, res, next) => {
+  const user = await User.findById(req.user.id).select('+password');
+
+  if (!(await user.correctPassword(req.body.passwordCurrent, user.password))) {
+    return next(new AppError('Your current password is wrong', 401));
+  }
+
+  user.password = req.body.password;
+  user.passwordConfirm = req.body.passwordConfirm;
+  await user.save();
+
+  next();
 });
