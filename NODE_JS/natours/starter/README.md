@@ -140,7 +140,7 @@ node dev-data/data/import-dev-data.js --import
    > Recommend Embedding: Datasets really belong together
    > Recommend Referencing: We frequently need to query both datasets on their own
 
-### Types of Referencing
+### Types of Referencing (Sec 11-v02)
 
 1. **Child Referencing:** keep references to the related child document in the parent document, usually stored as an Array. Avoid big arrays. 1:Few
 2. **Parent Referencing:** Keep a reference to the parent element/document. Best used for 1:many / 1:Ton
