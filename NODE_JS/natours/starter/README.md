@@ -145,3 +145,12 @@ node dev-data/data/import-dev-data.js --import
 1. **Child Referencing:** keep references to the related child document in the parent document, usually stored as an Array. Avoid big arrays. 1:Few
 2. **Parent Referencing:** Keep a reference to the parent element/document. Best used for 1:many / 1:Ton
 3. **Two-Way Referencing:** keep reference to all documents related to the parent document and in each child document, we keep reference of the parent document/element. therefore, child and parent are both connected two-way
+
+> Structure your data to **match the ways that your application queries and updates data**
+> Identify the questions that arise from your **application's use cases** first, and the model your data so that the **questions can get answered** in the m,ost efficient way
+> In general, **always favor embedding** unless there is a good reason not to embed. Especially on 1:Few and 1:Many relationships
+> A 1:Ton or Many:Many relationship is usually a good reason to reference instead of embedding
+> Favor **referencing** when data is updated a lot and if you need to frequently access a dataset on its own
+> use **Embedding** when data is mostly read but rarely updated, and when two datasets belong Intrinsically together
+> Don't allow arrays to grow indefinitely. Normalize, use **child referencing** for 1:Many relationships, and **parent referencing** for 1:Ton relationship
+> Use **Two-Way Referencing** for Many:Many relationships
