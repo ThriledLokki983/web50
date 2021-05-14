@@ -33,9 +33,12 @@ exports.getAllTours = catchAsync(async (req, res, next) => {
   });
 });
 
+/**
+ * Query for a single tour with the populate() mongoose method
+ * Behind the scenes, populate() creates new query and this still affects performance. Take that into account
+ */
 exports.getTour = catchAsync(async (req, res, next) => {
-  const tour = await Tour.findById(req.params.id);
-  // Tour.findOne({ _id: req.params.id })
+  const tour = await await Tour.findById(req.params.id);
 
   if (!tour) {
     return next(new AppError('No tour found with that ID', 404));

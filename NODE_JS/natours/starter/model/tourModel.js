@@ -110,7 +110,7 @@ const tourSchema = new mongoose.Schema(
     // guides: Array, for embedding the object during save
     guides: [
       {
-        type: mongoose.Schema.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
       },
     ],
@@ -147,6 +147,19 @@ tourSchema.pre(/^find/, function (next) {
   this.find({ secretTour: { $ne: true } });
 
   this.start = Date.now();
+  next();
+});
+
+/**
+ * A Middleware to populate our query will all the guides correct info using the _ids in the guides[]
+ * Using populate() with Promises will need executePopulate() in order to work
+ */
+tourSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'guides',
+    select: '-__v -passwordChangedAt',
+  });
+
   next();
 });
 
