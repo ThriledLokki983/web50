@@ -2,6 +2,9 @@ const express = require('express');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
+const mongoSanitize = require('express-mongo-sanitize');
+const xss = require('xss-clean');
+const hpp = require('hpp');
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
@@ -37,12 +40,35 @@ const limiter = rateLimit({
 app.use('/api', limiter);
 
 /**
- * Body Parser, Reading data from the body into req.body()
+ * Body Parser, Reading data from the body into req.body(). Makes sure the body is parsed beforehand
  * Middleware: this can modify the incoming request
  * serving static files
  * A body less than 10kilobytes will not be accepted
  */
 app.use(express.json({ limit: '10kb' }));
+
+/**
+ * Data Sanitization against NoSQL query injection
+ * Data Sanitization against XSS - prevent html with malicious js script
+ */
+app.use(mongoSanitize());
+app.use(xss());
+
+/**
+ * Prevent parameter pollution
+ */
+app.use(
+  hpp({
+    whitelist: [
+      'duration',
+      'ratingAverage',
+      'ratingsQuantity',
+      'maxGroupSize',
+      'difficulty',
+      'price',
+    ],
+  })
+);
 
 /**
  * Serving static files
