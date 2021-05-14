@@ -43,6 +43,11 @@ const userSchema = new mongoose.Schema({
   passwordChangedAt: Date,
   passwordResetToken: String,
   passwordResetExpires: Date,
+  active: {
+    type: Boolean,
+    default: true,
+    select: false,
+  },
 });
 
 /**
@@ -111,6 +116,15 @@ userSchema.methods.createPasswordResetToken = function () {
 
   return resetToken;
 };
+
+/**
+ * A Query middleware to help filter out anything we don't want users to see
+ * THIS points to the current document
+ */
+userSchema.pre(/^find/, function (next) {
+  this.find({ active: { $ne: false } });
+  next();
+});
 
 const User = mongoose.model('User', userSchema);
 
