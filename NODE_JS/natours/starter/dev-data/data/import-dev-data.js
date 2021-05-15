@@ -6,6 +6,9 @@ const Tour = require('./../../model/tourModel');
 dotenv.config({ path: './config.env' });
 // ENVIRONMENT VARIABLES
 
+/**
+ * CONNECTING to the online DB and putting in the right info from .env
+ */
 const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 
 mongoose
@@ -16,15 +19,18 @@ mongoose
     useUnifiedTopology: true,
   })
   .then((con) => {
-    // console.log(con.connections);
     console.log('DB Connection successful');
   });
 
-// READ JSON FILE
-
+/**
+ * READ JSON FILE
+ */
 const tours = JSON.parse(fs.readFileSync(`${__dirname}/tours.json`, 'utf-8'));
 
-// IMPORT DATA INTO DB
+/**
+ * IMPORT DATA INTO DB
+ * This will import data from a file into our data. the data in the file should have the structure specified in the schema
+ */
 const importData = async function () {
   try {
     await Tour.create(tours);
@@ -35,10 +41,13 @@ const importData = async function () {
   process.exit();
 };
 
-// DELETE ALL DATA FROM COLLECTIONS
+/**
+ * DELETE ALL DATA FROM COLLECTIONS
+ * delete all data in the tours collections
+ */
 const deleteData = async function () {
   try {
-    await Tour.deleteMany(); // delete all data in the tours collections
+    await Tour.deleteMany();
     console.log('Data Successfully  deleted');
   } catch (err) {
     console.log(err);
@@ -51,5 +60,3 @@ if (process.argv[2] === '--import') {
 } else if (process.argv[2] === '--delete') {
   deleteData();
 }
-
-// console.log(process.argv);

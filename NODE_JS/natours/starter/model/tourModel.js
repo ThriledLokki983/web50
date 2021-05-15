@@ -108,6 +108,10 @@ const tourSchema = new mongoose.Schema(
       },
     ],
     // guides: Array, for embedding the object during save
+
+    /**
+     * Creating a reference to the User model for the populate() mongoose method to work effectively
+     */
     guides: [
       {
         type: mongoose.Schema.Types.ObjectId,
