@@ -17,6 +17,11 @@ exports.updateUser = (req, res) => {
   });
 };
 
+exports.getMe = (req, res, next) => {
+  req.params.id = req.user.id;
+  next();
+};
+
 /**
  * Loop through all the fields that are in the object, and each of the fields, we check if it is one of the allowedfields, if is
  * We create an element in the newObject with the same element
