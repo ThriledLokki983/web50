@@ -4,9 +4,9 @@ const dotenv = require('dotenv');
 const Tour = require('./../../model/tourModel');
 
 dotenv.config({ path: './config.env' });
-// ENVIRONMENT VARIABLES
 
 /**
+ * ENVIRONMENT VARIABLES
  * CONNECTING to the online DB and putting in the right info from .env
  */
 const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
@@ -55,6 +55,9 @@ const deleteData = async function () {
   process.exit();
 };
 
+/**
+ * Deciding what to do when called. --delete to delete everything and --import to populate our db with some data
+ */
 if (process.argv[2] === '--import') {
   importData();
 } else if (process.argv[2] === '--delete') {

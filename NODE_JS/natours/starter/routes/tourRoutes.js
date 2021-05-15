@@ -27,4 +27,7 @@ router
     tourController.deleteTour
   );
 
+/**
+ * Without exporting it, app.js cannot know how to deal with the routes defined in here
+ */
 module.exports = router;

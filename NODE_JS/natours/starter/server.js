@@ -6,16 +6,14 @@ dotenv.config({ path: './config.env' });
 process.on('uncaughtException', (err) => {
   console.log('UNCAUGHT EXCEPTION!: Shutting down...');
   console.log(err.name, err.message);
+  console.log(err);
   process.exit(1); // 0 - success, 1 - uncalled exception
 });
 
 const app = require('./app');
 // ENVIRONMENT VARIABLES
 
-const DB = process.env.DATABASE.replace(
-  '<PASSWORD>',
-  process.env.DATABASE_PASSWORD
-);
+const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 
 mongoose
   .connect(DB, {

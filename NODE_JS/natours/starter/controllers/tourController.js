@@ -38,7 +38,9 @@ exports.getAllTours = catchAsync(async (req, res, next) => {
  * Behind the scenes, populate() creates new query and this still affects performance. Take that into account
  */
 exports.getTour = catchAsync(async (req, res, next) => {
-  const tour = await await Tour.findById(req.params.id);
+  const tour = await (await Tour.findById(req.params.id))
+    .populate('reviews')
+    .execPopulate();
 
   if (!tour) {
     return next(new AppError('No tour found with that ID', 404));

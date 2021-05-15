@@ -148,3 +148,15 @@
 //   useFindAndModify: false,
 //   useUnifiedTopology: true,
 // }).then(() => console.log("DB Connection successful"));
+
+// reviewSchema.pre(/^find/, function (next) {
+//   this.populate({
+//     path: 'tour',
+//     select: 'name',
+//   }).populate({
+//     path: 'user',
+//     select: 'name photo',
+//   });
+
+//   next();
+// });
