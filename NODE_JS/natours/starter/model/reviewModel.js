@@ -63,6 +63,7 @@ reviewSchema.pre(/^find/, function (next) {
 });
 
 /**
+ * Calculate Review Statistics
  * Perform Aggregate on the Model
  * @param {Object} tourId | This is the tour we want want to do the calculation on
  * Afterwards, we will have to persist the data on the Tour DB
@@ -89,9 +90,24 @@ reviewSchema.statics.calcAverageRating = async function (tourId) {
 
 /**
  * THIS points to the current document
+ * Calculation is performed right after the document is saved
+ * Since this is post(), the next() is NOT available
  */
 reviewSchema.post('save', function () {
   this.constructor.calcAverageRating(this.tour);
+});
+
+/**
+ * Perform calculations when a review is either updated or deleted
+ * This is for both findOneAndUpdate && findOneAndDelete
+ */
+reviewSchema.pre(/^findOneAnd/, async function (next) {
+  this.r = await this.findOne();
+  next();
+});
+
+reviewSchema.post(/^findOneAnd/, async function () {
+  await this.r.constructor.calcAverageRating(this.r.tour);
 });
 
 /**
