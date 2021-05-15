@@ -82,10 +82,18 @@ reviewSchema.statics.calcAverageRating = async function (tourId) {
     },
   ]);
 
-  await Tour.findByIdAndUpdate(tourId, {
-    ratingsQuantity: stats[0].nRating,
-    ratingAverage: stats[0].avgRating,
-  });
+  console.log(stats);
+  if (stats.length > 0) {
+    await Tour.findByIdAndUpdate(tourId, {
+      ratingsQuantity: stats[0].nRating,
+      ratingAverage: stats[0].avgRating,
+    });
+  } else {
+    await Tour.findByIdAndUpdate(tourId, {
+      ratingsQuantity: 0,
+      ratingAverage: 4.5,
+    });
+  }
 };
 
 /**
@@ -106,6 +114,10 @@ reviewSchema.pre(/^findOneAnd/, async function (next) {
   next();
 });
 
+/**
+ * At this point, the Query has already been executed, therefore,
+ * this.findOne(); does NOT work here
+ */
 reviewSchema.post(/^findOneAnd/, async function () {
   await this.r.constructor.calcAverageRating(this.r.tour);
 });
