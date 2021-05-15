@@ -20,8 +20,19 @@ router
   .post(
     authController.protect,
     authController.restrictTo('user', 'admin'),
+    reviewController.setTourUserIds,
     reviewController.createReview
   );
+
+/**
+ * Update Route
+ * Delete Route
+ */
+router
+  .route('/:id')
+  .get(reviewController.getReview)
+  .patch(reviewController.updateReview)
+  .delete(reviewController.deleteReview);
 
 /**
  * Exports the router if not we cannot use it app.js

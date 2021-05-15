@@ -1,34 +1,16 @@
 const User = require('./../model/userModel');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
-
-exports.getAllUsers = catchAsync(async (req, res, next) => {
-  const users = await User.find();
-
-  res.status(200).json({
-    status: 'success',
-    results: users.length,
-    data: {
-      users,
-    },
-  });
-});
+const factory = require('./handlerFactory');
 
 exports.createUser = (req, res) => {
   res.status(500).json({
     status: 'error',
-    message: 'This route is not yet defined',
+    message: 'This route is not yet defined, Please use signUp instead',
   });
 };
 
-exports.getUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined',
-  });
-};
-
-exports.updateUserInfo = (req, res) => {
+exports.updateUser = (req, res) => {
   res.status(500).json({
     status: 'error',
     message: 'This route is not yet defined',
@@ -92,9 +74,14 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.deleteUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined',
-  });
-};
+/**
+ * Creates User uses the SignUp from the authController file
+ * Update User Document using ID || This does not update passwords
+ * Delete User Document using ID
+ * Query for a single User
+ * Query for all USers
+ */
+exports.deleteUser = factory.deleteOne(User);
+exports.updateUserInfo = factory.updateOne(User);
+exports.getUser = factory.getOne(User);
+exports.getAllUsers = factory.getAll(User);
