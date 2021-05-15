@@ -95,6 +95,7 @@ exports.getOne = (Model, popOptions) =>
  * This allows for nested GET review || e.g tour (A small hack) || Retrieving all the reviews from the DB
  * @param {Model} Model any model that has already been created can then make use of this delete function
  * @returns {Async Function} which is then used as a query on the DB to execute action
+ * const doc = await features.query.explain(); // this helps to get stats on the query performed
  */
 exports.getAll = (Model) =>
   catchAsync(async (req, res, next) => {

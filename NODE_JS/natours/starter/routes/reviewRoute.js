@@ -10,6 +10,11 @@ const reviewController = require('./../controllers/reviewController');
 const router = express.Router({ mergeParams: true });
 
 /**
+ * If you don't login, you cannot get access to any of the routes below
+ */
+router.use(authController.protect);
+
+/**
  * User should be able to login first before creating a review
  * Route to get all the reviews
  * Route to create a review for a tour
@@ -19,7 +24,7 @@ router
   .get(reviewController.getAllReviews)
   .post(
     authController.protect,
-    authController.restrictTo('user', 'admin'),
+    authController.restrictTo('user'),
     reviewController.setTourUserIds,
     reviewController.createReview
   );
@@ -31,8 +36,8 @@ router
 router
   .route('/:id')
   .get(reviewController.getReview)
-  .patch(reviewController.updateReview)
-  .delete(reviewController.deleteReview);
+  .patch(authController.restrictTo('user', 'admin'), reviewController.updateReview)
+  .delete(authController.restrictTo('user', 'admin'), reviewController.deleteReview);
 
 /**
  * Exports the router if not we cannot use it app.js

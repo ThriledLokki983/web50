@@ -1,6 +1,7 @@
-const { request } = require('../app');
+/**
+ * Loading a core modules
+ */
 const Review = require('./../model/reviewModel');
-const catchAsync = require('./../utils/catchAsync');
 const factory = require('./handlerFactory');
 
 /**

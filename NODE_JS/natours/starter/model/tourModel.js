@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
-const validator = require('validator');
-const User = require('./userModel');
-const Review = require('./reviewModel');
 
 // Mongoose - MODEL for crud
 const tourSchema = new mongoose.Schema(
@@ -125,6 +122,15 @@ const tourSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   }
 );
+
+/**
+ * Creating an Index
+ * Negative: Sort in Descending order
+ * Positive: Sort in Ascending order
+ * Compound Index (2 - variables)
+ */
+tourSchema.index({ price: 1, ratingAverage: -1 });
+tourSchema.index({ slug: 1 });
 
 tourSchema.virtual('durationWeeks').get(function () {
   return (this.duration / 7).toFixed(2);
