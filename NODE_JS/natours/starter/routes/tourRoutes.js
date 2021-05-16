@@ -23,6 +23,16 @@ router
   );
 
 /**
+ * Geospatial
+ * tours-within/233/center/-40/unit/mi
+ */
+router
+  .route('/tours-within/:distance/center/:latlng/unit/:unit')
+  .get(tourController.getToursWithin);
+
+router.route('/distances/:latlng/unit/:unit').get(tourController.getDistances);
+
+/**
  * This part of the API will be exposed to everyone
  */
 router

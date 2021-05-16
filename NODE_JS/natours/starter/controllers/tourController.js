@@ -1,6 +1,7 @@
 const Tour = require('./../model/tourModel');
 const catchAsync = require('./../utils/catchAsync');
 const factory = require('./handlerFactory');
+const AppError = require('./../utils/appError');
 
 exports.aliasTopTours = async (req, res, next) => {
   try {
@@ -99,6 +100,86 @@ exports.getMonthlyPlan = catchAsync(async (req, res, next) => {
     status: 'success',
     data: {
       plan,
+    },
+  });
+});
+
+/**
+ * Specifying the Geo Location in MongoDB. || {$geoWithin {$centerSphere: radiant, longitude, latitude}} ||
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ * '/tours-within/:distance/center/:latlng/unit/:unit' // Route:
+ * tours-within/233/center/34.111745,-118.113491/unit/mi
+ * Mongo expects a radiant: which is the result of the distance / radius of the earth
+ */
+exports.getToursWithin = catchAsync(async (req, res, next) => {
+  const { distance, latlng, unit } = req.params;
+  const [lat, lng] = latlng.split(',');
+
+  const radius = unit === 'mi' ? distance / 3963.2 : distance / 6378.1;
+
+  if (!lat || !lng) {
+    next(
+      new AppError('Please provide latitude and longitude in the format lat,lng', 400)
+    );
+  }
+
+  const tour = await Tour.find({
+    startLocation: { $geoWithin: { $centerSphere: [[lng, lat], radius] } },
+  });
+
+  console.log(distance, latlng, unit);
+
+  res.status(200).json({
+    status: 'success',
+    results: tour.length,
+    data: {
+      data: tour,
+    },
+  });
+});
+
+/**
+ * GeoNear always needs to be the first aggregation pipeline in the first stage ||
+ * $geoNear requires a field that has geospatial index || If multiple fields, you will need to specify which one to be used
+ * Route: '/distances/:latlng/unit/:unit'
+ */
+exports.getDistances = catchAsync(async (req, res, next) => {
+  const { latlng, unit } = req.params;
+  const [lat, lng] = latlng.split(',');
+
+  const multiplier = unit === 'mi' ? 0.000621371 : 0.001;
+
+  if (!lat || !lng) {
+    next(
+      new AppError('Please provide latitude and longitude in the format lat,lng', 400)
+    );
+  }
+
+  const distances = await Tour.aggregate([
+    {
+      $geoNear: {
+        near: {
+          type: 'Point',
+          coordinates: [+lng, +lat],
+        },
+        distanceField: 'distance',
+        distanceMultiplier: multiplier,
+      },
+    },
+    {
+      $project: {
+        distance: 1,
+        name: 1,
+      },
+    },
+  ]);
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      data: distances,
     },
   });
 });

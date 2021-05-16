@@ -82,7 +82,6 @@ reviewSchema.statics.calcAverageRating = async function (tourId) {
     },
   ]);
 
-  console.log(stats);
   if (stats.length > 0) {
     await Tour.findByIdAndUpdate(tourId, {
       ratingsQuantity: stats[0].nRating,
@@ -95,6 +94,11 @@ reviewSchema.statics.calcAverageRating = async function (tourId) {
     });
   }
 };
+
+/**
+ * Preventing a duplicate review for the same user and same tour
+ */
+reviewSchema.index({ tour: 1, user: 1 }, { unique: true });
 
 /**
  * THIS points to the current document
