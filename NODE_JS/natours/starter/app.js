@@ -1,6 +1,7 @@
 /**
  * Import/Require or core modules that the app depends on
  */
+const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
@@ -19,6 +20,17 @@ const globalErrorHandler = require('./controllers/errorController');
  * Global Framework
  */
 const app = express();
+
+/**
+ * Define the view engine and the location of the templates
+ */
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
+
+/**
+ * Serving static files
+ */
+app.use(express.static(path.join(__dirname, 'public')));
 
 /**
  * Set Security HTTP  headers
@@ -75,11 +87,6 @@ app.use(
 );
 
 /**
- * Serving static files
- */
-app.use(express.static(`${__dirname}/public`));
-
-/**
  * TEST MIDDLEWARE - this was just for testing, it has no particular use. But I wont delete it
  */
 app.use((req, res, next) => {
@@ -89,7 +96,16 @@ app.use((req, res, next) => {
 
 /**
  * ROUTES
+ * Rendering Pages
+ * API
  */
+app.get('/', (req, res) => {
+  res.status(200).render('base', {
+    tour: 'The Forest Hiker',
+    user: 'Gideon',
+  });
+});
+
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews', reviewRouter);

@@ -3,6 +3,12 @@ const catchAsync = require('./../utils/catchAsync');
 const factory = require('./handlerFactory');
 const AppError = require('./../utils/appError');
 
+/**
+ * Top 5 Tours
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
 exports.aliasTopTours = async (req, res, next) => {
   try {
     req.query.limit = '5';
