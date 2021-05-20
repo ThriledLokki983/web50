@@ -23,6 +23,18 @@ const globalErrorHandler = require('./controllers/errorController');
 const app = express();
 
 /**
+ * Se the Headers for
+ */
+// app.use((req, res, next) => {
+//   res.setHeader(
+//     'Content-Security-Policy',
+//     "script-src  'self' api.mapbox.com",
+//     "script-src-elem 'self' api.mapbox.com"
+//   );
+//   next();
+// });
+
+/**
  * Define the view engine and the location of the templates
  */
 app.set('view engine', 'pug');

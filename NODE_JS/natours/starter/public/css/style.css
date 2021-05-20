@@ -458,6 +458,7 @@ body {
 }
 .overview-box__group:not(:last-child) {
   margin-bottom: 7rem;
+  margin-right: 15rem;
 }
 .overview-box__detail {
   font-size: 1.5rem;
