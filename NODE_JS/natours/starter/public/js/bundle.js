@@ -9047,7 +9047,7 @@ if (userPasswordForm) userPasswordForm.addEventListener('submit', /*#__PURE__*/f
         switch (_context.prev = _context.next) {
           case 0:
             e.preventDefault();
-            document.querySelector('.btn--save-password').value = 'Updating';
+            document.querySelector('.btn--save-password').textContent = 'Updating';
             passwordCurrent = document.getElementById('password-current').value;
             password = document.getElementById('password').value;
             passwordConfirm = document.getElementById('password-confirm').value;
@@ -9059,7 +9059,7 @@ if (userPasswordForm) userPasswordForm.addEventListener('submit', /*#__PURE__*/f
             }, 'password');
 
           case 7:
-            document.querySelector('.btn--save-password').value = 'Save Password';
+            document.querySelector('.btn--save-password').textContent = 'Save Password';
             document.getElementById('password-current').value = '';
             document.getElementById('password').value = '';
             document.getElementById('password-confirm').value = '';
