@@ -89,7 +89,19 @@ exports.login = catchAsync(async (req, res, next) => {
   createAndSendToken(user, 200, res);
 });
 
+exports.logout = (req, res) => {
+  res.cookie('jwt', 'dummy Text', {
+    expires: new Date(Date.now() + 10 * 1000),
+    httpOnly: true,
+  });
+
+  res.status(200).json({
+    status: 'success',
+  });
+};
+
 /**
+ * For routes
  * Middleware to make sure that users are authenticated before viewing tours
  * Get the token and check if it exist, verify token, check if user still exists,Check if user changed password after token was issued, then next()
  * Get the current user check is a password change has happen or not and then finally grant access to the protected rout (route handler itself)
@@ -99,8 +111,9 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
     token = req.headers.authorization.split(' ')[1];
+  } else if (req.cookies.jwt) {
+    token = req.cookies.jwt;
   }
-
   if (!token) {
     return next(new AppError('You are not logged in!. Please login to get access', 401));
   }
@@ -122,6 +135,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   }
 
   req.user = currentUser;
+  res.locals.user = currentUser;
   next();
 });
 
@@ -138,6 +152,40 @@ exports.restrictTo = (...roles) => {
     }
     next();
   };
+};
+
+/**
+ * For rendered pages and there will be no errors
+ * Verify the token
+ * Token will only be sent using the cookie and not/never the authorization
+ * Check if user already exist
+ * Check if user recently changed their password
+ * If all are correct ==> There is a Logged in user
+ * Create a local variable ++ User which will be available to all users
+ */
+exports.isLoggedIn = async (req, res, next) => {
+  let token = req.cookies.jwt;
+
+  if (token) {
+    try {
+      const decode = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+
+      const currentUser = await User.findById(decode.id);
+      if (!currentUser) {
+        return next();
+      }
+
+      if (currentUser.changePasswordAfter(decode.iat)) {
+        return next();
+      }
+
+      res.locals.user = currentUser;
+      return next();
+    } catch (error) {
+      return next();
+    }
+  }
+  next();
 };
 
 /**

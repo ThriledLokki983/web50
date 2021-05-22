@@ -9,6 +9,8 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
@@ -49,7 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
  * Set Security HTTP  headers
  */
 app.use(helmet());
-app.use(helmet.xssFilter());
+app.use(cors());
 
 /**
  * Development Logging
@@ -75,6 +77,8 @@ app.use('/api', limiter);
  * A body less than 10kilobytes will not be accepted
  */
 app.use(express.json({ limit: '10kb' }));
+app.use(express.urlencoded({ extended: true, limit: '10kb' }));
+app.use(cookieParser());
 
 /**
  * Data Sanitization against NoSQL query injection
@@ -104,6 +108,7 @@ app.use(
  */
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
+  console.log('Cookies: ', req.cookies);
   next();
 });
 
