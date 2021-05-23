@@ -49,6 +49,8 @@ exports.uploadTourImages = upload.fields([
  * Middleware to process images
  * First check if any image is uploaded or not
  * Single processing for the ImageCover & process images in a loop
+ * important!! put the images on the req.body
+ * images is an array so we loop with map and since it is an async function we wait for the promise coming from the array of images using Promise.  * all ()
  */
 exports.resizeTourImages = catchAsync(async (req, res, next) => {
   if (!req.files.imageCover || !req.files.images) return next();
@@ -67,7 +69,7 @@ exports.resizeTourImages = catchAsync(async (req, res, next) => {
     req.files.images.map(async (file, i) => {
       const fileName = `tour-${req.params.id}-${Date.now()}-${i + 1}.jpeg`;
 
-      await sharp(req.files.images[i].buffer)
+      await sharp(file.buffer)
         .resize(2000, 1333)
         .toFormat('jpeg')
         .jpeg({ quality: 90 })
