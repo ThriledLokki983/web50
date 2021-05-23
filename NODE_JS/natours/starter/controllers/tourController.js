@@ -46,6 +46,36 @@ exports.uploadTourImages = upload.fields([
 ]);
 
 /**
+ * Middleware to process images
+ * First check if any image is uploaded or not
+ * Single processing for the ImageCover & process images in a loop
+ */
+exports.resizeTourImages = catchAsync(async (req, res, next) => {
+  if (!req.files.imageCover || !req.files.images) return next();
+
+  req.body.imageCover = `tour-${req.params.id}-${Date.now()}-cover.jpeg`;
+
+  await sharp(req.files.imageCover[0].buffer)
+    .resize(2000, 1333)
+    .toFormat('jpeg')
+    .jpeg({ quality: 90 })
+    .toFile(`public/img/tours/${req.body.imageCover}`);
+
+  req.body.images = [];
+  req.files.images.forEach(async (file, i) => {
+    const fileName = `tour-${req.params.id}-${Date.now()}-${i + 1}.jpeg`;
+
+    await sharp(req.files.imageCover[0].buffer)
+      .resize(2000, 1333)
+      .toFormat('jpeg')
+      .jpeg({ quality: 90 })
+      .toFile(`public/img/tours/${fileName}`);
+  });
+
+  next();
+});
+
+/**
  * Top 5 Tours
  * @param {*} req
  * @param {*} res
