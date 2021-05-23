@@ -50,6 +50,8 @@ exports.uploadUserPhoto = upload.single('photo');
 
 /**
  * Process and manipulate the image to fit our needs || Avoid large and variable image sizes
+ * This middleware runs right after the photo is uploaded, the upload is in buffer and not in filesystem now
+ * The image processing resizes the image and sets the quality to 90% then finally writes the image to our filesystem in our preferred folder
  * @param {*} req
  * @param {*} res
  * @param {*} next
