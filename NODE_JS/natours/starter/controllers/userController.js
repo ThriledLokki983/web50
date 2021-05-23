@@ -1,7 +1,59 @@
+const multer = require('multer');
 const User = require('./../model/userModel');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 const factory = require('./handlerFactory');
+
+/**
+ * Create a multer storage with destination and filename
+ */
+const multerStorage = multer.diskStorage({
+  destination: (req, file, cbFunc) => {
+    cbFunc(null, 'public/img/users');
+  },
+  filename: (req, file, cbFunc) => {
+    const ext = file.mimetype.split('/')[1];
+    cbFunc(null, `user-${req.user.id}-${Date.now()}.${ext}`);
+  },
+});
+
+/**
+ * CHeck and restrict file types to be uploaded
+ * @param {*} req
+ * @param {*} file
+ * @param {*} cbFunc
+ */
+const multerFilter = (req, file, cbFunc) => {
+  if (file.mimetype.startsWith('image')) {
+    cbFunc(null, true);
+  } else {
+    cbFunc(new AppError('Not an image! Please upload only images', 400), false);
+  }
+};
+
+/**
+ * Configure multer upload for the destination of all uploaded files
+ * This is just to make the code cleaner
+ */
+const upload = multer({
+  storage: multerStorage,
+  fileFilter: multerFilter,
+});
+
+/**
+ * Create an export for our upload
+ */
+exports.uploadUserPhoto = upload.single('photo');
+
+/**
+ * Process and manipulate the image to fit our needs || Avoid large and variable image sizes
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
+exports.resizeUserPhoto = (req, res, next) => {
+  if (!req.file) return next();
+};
 
 exports.createUser = (req, res) => {
   res.status(500).json({
@@ -41,7 +93,7 @@ const filterObj = (obj, ...allowedFields) => {
  * Create error if user tries to POST/ update password
  * Else, update user document and since we are not dealing with any sensitive data like password, we can then use findByIdAnUpdate() method
  * Filter out the unwanted fields names that are not to be allowed to be updated
- * Update User info
+ * Update User info | If there is a photo, add it to the filteredBody
  * @param {*} req
  * @param {*} res
  * @param {*} next
@@ -57,6 +109,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   }
 
   const filteredBody = filterObj(req.body, 'name', 'email');
+  if (req.file) filteredBody.photo = req.file.filename;
   const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
     new: true,
     runValidators: true,

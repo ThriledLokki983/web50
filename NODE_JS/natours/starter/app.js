@@ -108,7 +108,7 @@ app.use(
  */
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
-  console.log('Cookies: ', req.cookies);
+  // console.log('Cookies: ', req.cookies);
   next();
 });
 
