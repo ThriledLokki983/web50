@@ -1,7 +1,49 @@
+const multer = require('multer');
+const sharp = require('sharp');
 const Tour = require('./../model/tourModel');
 const catchAsync = require('./../utils/catchAsync');
 const factory = require('./handlerFactory');
 const AppError = require('./../utils/appError');
+
+/**
+ * Store images in memory
+ */
+const multerStorage = multer.memoryStorage();
+
+/**
+ * CHeck and restrict file types to be uploaded
+ * @param {*} req
+ * @param {*} file
+ * @param {*} cbFunc
+ */
+const multerFilter = (req, file, cbFunc) => {
+  if (file.mimetype.startsWith('image')) {
+    cbFunc(null, true);
+  } else {
+    cbFunc(new AppError('Not an image! Please upload only images', 400), false);
+  }
+};
+
+/**
+ * Configure multer upload for the destination of all uploaded files
+ * This is just to make the code cleaner
+ */
+const upload = multer({
+  storage: multerStorage,
+  fileFilter: multerFilter,
+});
+
+/**
+ * Middleware to take care of our multiple image uploads
+ * for a single upload | upload.single('form field name')
+ * for multiple uploads with the same name | upload.Array('images')
+ * or multiple uploads with the different names | upload.fields('images')
+ *
+ */
+exports.uploadTourImages = upload.fields([
+  { name: 'imageCover', maxCount: 1 },
+  { name: 'images', maxCount: 3 },
+]);
 
 /**
  * Top 5 Tours
