@@ -5,6 +5,7 @@ const Tour = require('../model/tourModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('./../utils/appError');
 const User = require('../model/userModel');
+const Booking = require('../model/bookingModel');
 
 /**
  * Get all the tour data from collection and pass it into the template || Build template || Render the template using the tour data
@@ -39,7 +40,7 @@ exports.getTour = catchAsync(async (req, res, next) => {
     .status(200)
     .set(
       'Content-Security-Policy',
-      "default-src 'self' https://*.mapbox.com https://api.stripe.com ;base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src https://cdnjs.cloudflare.com https://api.mapbox.com https://js.stripe.com/v3/ 'self' blob:;  frame-src  https://js.stripe.com https://hooks.stripe.com; connect-src 'self' https: data:;script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+      "default-src 'self' https://*.mapbox.com https://js.stripe.com/v3/; base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self' https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js https://js.stripe.com/v3/; script-src-attr 'none';style-src 'self' https: 'unsafe-inline'; connect-src *; worker-src 'self' blob:; upgrade-insecure-requests"
     )
     .render('tour', {
       title: `${tour.name} Tour`,
@@ -85,5 +86,23 @@ exports.updateUserData = catchAsync(async (req, res, next) => {
   res.status(200).render('account', {
     tile: 'Your account',
     user: updatedUser,
+  });
+});
+
+/**
+ * Find bookings, Tours with the returned IDs
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
+exports.getMyTours = catchAsync(async (req, res, next) => {
+  const bookings = await Booking.find({ user: req.user.id });
+
+  const tourIDs = bookings.map((el) => el.tour);
+  const tours = await Tour.find({ _id: { $in: tourIDs } });
+
+  res.status(200).render('overview', {
+    title: 'My Tours',
+    tours,
   });
 });

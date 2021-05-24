@@ -8745,7 +8745,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var stripe = Stripe('pk_test_51IuFjlIJ45JCpPmPxpdrDaoo6dqMB3COUMDYYPmW47EaxognmQUPu5N9pzzUUrn26CnB2c76X1fbVXfgEWOa3Jp200MVoKmnZ8');
+var stripe = new Stripe('pk_test_51IuFjlIJ45JCpPmPxpdrDaoo6dqMB3COUMDYYPmW47EaxognmQUPu5N9pzzUUrn26CnB2c76X1fbVXfgEWOa3Jp200MVoKmnZ8');
 
 var bookTour = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(tourId) {
@@ -9179,7 +9179,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49534" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49454" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
