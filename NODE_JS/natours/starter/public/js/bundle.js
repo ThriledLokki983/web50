@@ -8735,21 +8735,17 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.bookTour = void 0;
 
+var _axios = _interopRequireDefault(require("axios"));
+
+var _alert = require("./alert");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var axios = 'axios';
-/**
- * The Stripe() is exposed by the script included in the tour template
- */
-
 var stripe = Stripe('pk_test_51IuFjlIJ45JCpPmPxpdrDaoo6dqMB3COUMDYYPmW47EaxognmQUPu5N9pzzUUrn26CnB2c76X1fbVXfgEWOa3Jp200MVoKmnZ8');
-/**
- * Get the checkout session from endpoint from our API
- * Use stripe to auto create the checkout form and charge the card
- * @param {*} tourId
- */
 
 var bookTour = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(tourId) {
@@ -8758,19 +8754,33 @@ var bookTour = /*#__PURE__*/function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.next = 2;
-            return axios("http://127.0.0.1:4000/api/v1/bookings/checkout-session/".concat(tourId));
+            _context.prev = 0;
+            _context.next = 3;
+            return (0, _axios.default)("http://127.0.0.1:4000/api/v1/bookings/checkout-session/".concat(tourId));
 
-          case 2:
+          case 3:
             session = _context.sent;
             console.log(session);
+            _context.next = 7;
+            return stripe.redirectToCheckout({
+              sessionId: session.data.session.id
+            });
 
-          case 4:
+          case 7:
+            _context.next = 12;
+            break;
+
+          case 9:
+            _context.prev = 9;
+            _context.t0 = _context["catch"](0);
+            (0, _alert.showAlert)('error', _context.t0);
+
+          case 12:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee);
+    }, _callee, null, [[0, 9]]);
   }));
 
   return function bookTour(_x) {
@@ -8779,7 +8789,7 @@ var bookTour = /*#__PURE__*/function () {
 }();
 
 exports.bookTour = bookTour;
-},{}],"index.js":[function(require,module,exports) {
+},{"axios":"../../node_modules/axios/index.js","./alert":"alert.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("core-js/modules/es6.array.copy-within.js");
@@ -9138,7 +9148,6 @@ if (userPasswordForm) userPasswordForm.addEventListener('submit', /*#__PURE__*/f
   };
 }());
 if (bookbtn) bookbtn.addEventListener('click', function (e) {
-  // e.preventDefault()
   e.target.textContent = 'Processing...';
   var tourId = e.target.dataset.tourId;
   (0, _stripe.bookTour)(tourId);
